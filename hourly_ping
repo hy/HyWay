@@ -1,0 +1,2 @@
+#!/bin/bash
+curl http://young-retreat-6253.herokuapp.com/hourly_ping
