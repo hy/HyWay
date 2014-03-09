@@ -1,5 +1,7 @@
 # TODO List:
 
+# [--] http://www.wooptoot.com/file-upload-with-sinatra
+
 # What we have done so far . . . 
 
 
@@ -9,7 +11,6 @@
 # [--] TURN ON BLUETOOTH
 
 # [--] Add a rule at: https://proximity.gimbal.com/developer/rules/new
-
 
 
 # [--] More analytics: plot trend, 
@@ -143,27 +144,40 @@ class TheApp < Sinatra::Base
       rescue Exception => e; puts "[BAD] Twitter config: #{e.message}"; end
     end
 
-    if ENV['NEO4J_URL']
+    if ENV['GRAPHENEDB_URL']
       begin
-        note = 'NEO4j CONFIG via ENV var set via heroku addons:add neo4j'
+        note = 'NEO4j CONFIG via ENV var set via heroku addons:add graphenedb'
+
+        uri = URI.parse(neo4j_url)
         require 'neography'
 
-        neo4j_uri = URI ( ENV['NEO4J_URL'] )
-        $neo = Neography::Rest.new(neo4j_uri.to_s)
+        $neo = Neography::Rest.new(ENV["GRAPHENEDB_URL"])
+        $neo.execute_query("start n=node(*) return n limit 1")
 
-        http = Net::HTTP.new(neo4j_uri.host, neo4j_uri.port)
-        verification_req = Net::HTTP::Get.new(neo4j_uri.request_uri)
+        Neography.configure do |conf|
+          conf.server = uri.host
+          conf.port = uri.port
+          conf.authentication = 'basic'
+          conf.username = uri.user
+          conf.password = uri.password
+        end
+
+#        neo4j_uri = URI ( ENV['NEO4J_URL'] )
+#        $neo = Neography::Rest.new(neo4j_uri.to_s)
+
+#        http = Net::HTTP.new(neo4j_uri.host, neo4j_uri.port)
+#        verification_req = Net::HTTP::Get.new(neo4j_uri.request_uri)
         
-        if neo4j_uri.user
-          verification_req.basic_auth(neo4j_uri.user, neo4j_uri.password)
-        end #if
+#        if neo4j_uri.user
+#          verification_req.basic_auth(neo4j_uri.user, neo4j_uri.password)
+#        end #if
 
-        response = http.request(verification_req)
-        abort "Neo4j down" if response.code != '200' 
+#        response = http.request(verification_req)
+#        abort "Neo4j down" if response.code != '200' 
 
-        # console access via: heroku addons:open neo4j
+         puts("[OK!] [3]  Graphene")
 
-        puts("[OK!] [3]  Neo #{neo4j_uri},:#{neo4j_uri.user}:#{neo4j_uri.password}")
+#        puts("[OK!] [3]  Neo #{neo4j_uri},:#{neo4j_uri.user}:#{neo4j_uri.password}")
       rescue Exception => e;  puts "[BAD] Neo4j config: #{e.message}";  end
     end
 
