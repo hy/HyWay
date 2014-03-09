@@ -148,7 +148,7 @@ class TheApp < Sinatra::Base
       begin
         note = 'NEO4j CONFIG via ENV var set via heroku addons:add graphenedb'
 
-        uri = URI.parse(neo4j_url)
+        uri = URI.parse(ENV['GRAPHENEDB_URL'])
         require 'neography'
 
         $neo = Neography::Rest.new(ENV["GRAPHENEDB_URL"])
