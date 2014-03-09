@@ -162,22 +162,9 @@ class TheApp < Sinatra::Base
           conf.password = uri.password
         end
 
-#        neo4j_uri = URI ( ENV['NEO4J_URL'] )
-#        $neo = Neography::Rest.new(neo4j_uri.to_s)
+        query_results = $neo.execute_query("start n=node(*) return n limit 1")
+        puts("[OK!] [3]  Graphene" + query_results)
 
-#        http = Net::HTTP.new(neo4j_uri.host, neo4j_uri.port)
-#        verification_req = Net::HTTP::Get.new(neo4j_uri.request_uri)
-        
-#        if neo4j_uri.user
-#          verification_req.basic_auth(neo4j_uri.user, neo4j_uri.password)
-#        end #if
-
-#        response = http.request(verification_req)
-#        abort "Neo4j down" if response.code != '200' 
-
-         puts("[OK!] [3]  Graphene")
-
-#        puts("[OK!] [3]  Neo #{neo4j_uri},:#{neo4j_uri.user}:#{neo4j_uri.password}")
       rescue Exception => e;  puts "[BAD] Neo4j config: #{e.message}";  end
     end
 
