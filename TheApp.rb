@@ -146,13 +146,13 @@ class TheApp < Sinatra::Base
 
     if ENV['GRAPHENEDB_URL']
       begin
-        note = 'NEO4j CONFIG via ENV var set via heroku addons:add graphenedb'
+        # note = 'NEO4j CONFIG via ENV var set via heroku addons:add graphenedb'
+        # heroku addons:open graphenedb
 
         uri = URI.parse(ENV['GRAPHENEDB_URL'])
         require 'neography'
 
         $neo = Neography::Rest.new(ENV["GRAPHENEDB_URL"])
-#        $neo.execute_query("start n=node(*) return n limit 1")
 
         Neography.configure do |conf|
           conf.server = uri.host
@@ -163,7 +163,7 @@ class TheApp < Sinatra::Base
         end
 
         query_results = $neo.execute_query("start n=node(*) return n limit 1")
-        puts("[OK!] [3]  Graphene" + query_results.to_s)
+        puts('[OK!] [3]  Graphene ' + query_results.to_s)
 
       rescue Exception => e;  puts "[BAD] Neo4j config: #{e.message}";  end
     end
