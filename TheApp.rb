@@ -1355,6 +1355,22 @@ class TheApp < Sinatra::Base
 
 
   #############################################################################
+  # Reply to a specific index (Survey Question or Forwarded text msg)
+  #
+  # 
+  #
+  #
+  #############################################################################
+  get /\/c\/(?<num>\d+:(?<text>\D*)/ix do
+    num = params[:captures][0]
+    text = params[:captures][1]
+
+    puts "num = " + num
+    puts "text = " + text 
+  end
+
+
+  #############################################################################
   # Send email report . . . 
   #############################################################################
   get /(?<email_addy>[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4})/ix do
