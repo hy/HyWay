@@ -1367,6 +1367,11 @@ class TheApp < Sinatra::Base
 
     puts "num = " + num
     puts "text = " + text 
+
+    # now put the number, the caller ID, and the text into the db . . . 
+    # because the reply (to a survey) is specific to the caller, 
+    # and the number of the question as well
+
   end
 
 
