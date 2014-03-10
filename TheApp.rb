@@ -1361,7 +1361,7 @@ class TheApp < Sinatra::Base
   #
   #
   #############################################################################
-  get /\/c\/(?<num>\d+)[\s]:[\s](?<text>\D*)/ix do
+  get /\/c\/(?<num>\d+)[\s]*:[\s]*(?<text>\D*)/ix do
     num = params[:captures][0]
     text = params[:captures][1]
 
