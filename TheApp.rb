@@ -1371,6 +1371,10 @@ class TheApp < Sinatra::Base
     # now put the number, the caller ID, and the text into the db . . . 
     # because the reply (to a survey) is specific to the caller, 
     # and the number of the question as well
+    # ALSO store the timestamp, in case the questions change with time, 
+    # numerically, and/or in case it's possible to answer the same 
+    # question multiple times.  And, for the heck of it, store the
+    # question itself (as currently phrased) as well :)  
 
   end
 
