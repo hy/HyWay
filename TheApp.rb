@@ -1394,7 +1394,7 @@ class TheApp < Sinatra::Base
       'ID' => params['From'],
       'utc' => the_time_now.to_f,
       'When' => the_time_now.strftime("%A %B %d at %I:%M %p"),
-      'Where' => here,
+      'Where' => 'here',
       'What' => answerText,
       'Why' => questionNum
     }
