@@ -245,6 +245,15 @@ class TheApp < Sinatra::Base
       rescue Exception => e;  puts "[BAD] GoogleAPI config: #{e.message}";  end
     end
 
+    # Access tokens from   https://www.dropbox.com/developers/core/start/ruby
+    if ENV['DROPBOX_ACCESS_TOKEN']
+      begin
+        require 'dropbox_sdk'
+        $dropbox_handle = DropboxClient.new(ENV['DROPBOX_ACCESS_TOKEN'])
+        puts '[OK!] [8]  Dropbox Client Configured'
+      rescue Exception => e; puts "[BAD] Dropbox config: #{e.message}"; end
+    end
+
     if ENV['SENDGRID_USERNAME'] && ENV['SENDGRID_PASSWORD']
       begin
         Pony.options = {
@@ -259,7 +268,7 @@ class TheApp < Sinatra::Base
           :enable_starttls_auto => true
           }
         }
-        puts "[OK!] [8]  SendGrid Options Configured"
+        puts "[OK!] [9]  SendGrid Options Configured"
       rescue Exception => e;  puts "[BAD] SendGrid config: #{e.message}";  end
     end
 

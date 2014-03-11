@@ -29,5 +29,7 @@ gem 'temporals'
 gem 'google-api-client'
 gem 'json'
 
+gem 'dropbox-sdk'
+
 gem 'pony'
 

@@ -12,6 +12,8 @@ GEM
       bson (~> 1.9.2)
     buftok (0.2.0)
     builder (3.2.2)
+    dropbox-sdk (1.6.3)
+      json
     equalizer (0.0.9)
     extlib (0.9.16)
     faraday (0.9.0)
@@ -114,6 +116,7 @@ DEPENDENCIES
   bson
   bson_ext
   builder
+  dropbox-sdk
   google-api-client
   hiredis
   json
