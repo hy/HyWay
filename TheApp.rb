@@ -1370,12 +1370,14 @@ class TheApp < Sinatra::Base
   #
   #
   #############################################################################
-  get /\/c\/(?<num>\d+)[\s]*:[\s]*(?<text>\D*)/ix do
-    num = params[:captures][0]
-    text = params[:captures][1]
+  get /\/c\/(?<questionNum>\d+)[\s]*:[\s]*(?<answerText>\D*)/ix do
+    questionNum = params[:captures][0]
+    answerText = params[:captures][1]
 
-    puts "num = " + num
-    puts "text = " + text 
+    the_time_now = Time.now
+
+    puts "num = " + questionNum
+    puts "text = " + answerText
 
     # now put the number, the caller ID, and the text into the db . . . 
     # because the reply (to a survey) is specific to the caller, 
@@ -1385,6 +1387,18 @@ class TheApp < Sinatra::Base
     # question multiple times.  And, for the heck of it, store the
     # question itself (as currently phrased) as well :)  
 
+    response = {
+      'questionNum' => questionNum,
+    # 'Question' => ????????????
+      'answerText' => answerText,
+      'ID' => params['From'],
+      'utc' => the_time_now.to_f,
+      'When' => the_time_now.strftime("%A %B %d at %I:%M %p"),
+      'Where' => here,
+      'What' => answerText,
+      'Why' => questionNum
+    }
+    puts DB['responses'].insert( response, {:w => 1} )
   end
 
 
