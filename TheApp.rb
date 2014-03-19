@@ -382,6 +382,16 @@ class TheApp < Sinatra::Base
     'Server is up! '  
   end
 
+  get '/sushi.json' do
+    content_type :json
+    return {:sushi => ["Maguro", "Hamachi", "Uni", "Saba", "Ebi", "Sake", "Tai"]}.to_json
+  end
+
+  get '/questions.json' do
+    content_type :json
+    return {:questions => ["Is [your baby] ready to eat?", "How hungry do you think [your baby] is?", "What is telling you [your baby] needs to eat?", "How did you know [your baby] was finished?", "Did [your baby] eat enough at this feed?"]}.to_json
+  end
+
   get '/TestEO' do
     puts temperature = params['temperature']
     puts proximityRSSI = params['proximityRSSI']
