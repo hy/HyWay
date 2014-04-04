@@ -34,5 +34,5 @@ gem 'dropbox-sdk'
 gem 'pony'
 
 # To ensure / invoke security patch . . . 
-gem ‘psych’, ‘~> 2.0.5’
+gem 'psych', '~> 2.0.5'
 
