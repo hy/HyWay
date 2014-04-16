@@ -2,8 +2,8 @@
 
 # [--] http://www.wooptoot.com/file-upload-with-sinatra
 
-# What we have done so far . . . 
 
+# What we have done so far . . . 
 
 # [--] Go to https://proximity.gimbal.com/developer/transmitters 
 # [--] Name first beacon Hy1, factory code: 7NBP-BY85C
@@ -806,6 +806,21 @@ class TheApp < Sinatra::Base
     puts "GREETINGS ROUTE"
     send_SMS_to( params['From'], 'Hello, and Welcome!' )
   end #do get
+
+
+  #############################################################################
+  # Free-Text Q&A
+  #############################################################################
+  get /\/c\/q[:,\s]*(?<question>).*/ix do
+    puts "Got a FREETEXT Question to forward!!!"
+
+    q = params[:captures][0]
+
+    puts q
+
+  end #do get
+
+
 
 
   #############################################################################
