@@ -814,12 +814,20 @@ class TheApp < Sinatra::Base
   get /\/c\/q[:,\s]*(?<question>).*/ix do
     puts "Got a FREETEXT Question to forward!!!"
 
-    q = params[:captures][0]
+    q_text = params[:captures][0]
 
-    puts q
+    # Store the question, originating phone number, and overall question ord
+    the_time_now = Time.now
+    question = {
+      'utc' => the_time_now.to_f,
+      'Who' => params['From'],
+      'What' => q_text,
+      'When' => the_time_now.strftime("%A %B %d at %I:%M %p")
+    }
+    puts DB['questions'].insert( question, {:w => 1} )
+    puts q_text
 
   end #do get
-
 
 
 
