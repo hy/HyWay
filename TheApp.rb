@@ -809,7 +809,7 @@ class TheApp < Sinatra::Base
 
 
   #############################################################################
-  # Free-Text Q&A
+  # Free-Text Q&A: Questions from patients
   #############################################################################
   get /\/c\/q[:,\s]*(?<question>).*/ix do
     puts "Got a FREETEXT Question to forward!!!"
@@ -827,8 +827,24 @@ class TheApp < Sinatra::Base
     puts DB['questions'].insert( question, {:w => 1} )
     puts q_text
 
+    fwd_text = 'M'+ordinal.to_s+': '+q_text
+
+    send_SMS_to(JOYCE_CELL, fwd_text)
   end #do get
 
+  #############################################################################
+  # Free-Text Q&A: Replies from Joyce
+  #############################################################################
+  get /\/c\/r(?<replytonum>\d*)[:]+[\s]+(?<replytext>\S.*)/ix do
+    puts "Got a FREETEXT Response from Joyce to forward!!!"
+    replytonum = params[:captures][0].to_i
+    replytext = params[:captures][1].to_s
+
+# Look up the ordinal in the db and send Joyce's reply the right phone num
+# description of how to use ordinal as primary key:
+#  http://docs.mongodb.org/manual/tutorial/create-an-auto-incrementing-field/
+
+  end #do get
 
 
   #############################################################################
