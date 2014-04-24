@@ -843,7 +843,6 @@ class TheApp < Sinatra::Base
 # Look up the ordinal in the db and send Joyce's reply the right phone num
 # description of how to use ordinal as primary key:
 #  http://docs.mongodb.org/manual/tutorial/create-an-auto-incrementing-field/
-
   end #do get
 
 
