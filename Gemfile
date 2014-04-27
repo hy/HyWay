@@ -34,6 +34,7 @@ gem 'dropbox-sdk'
 gem 'pony'
 
 gem 'rest-client'
+gem 'httparty'
 
 # To ensure / invoke security patch . . . 
 gem 'psych', '~> 2.0.5'
