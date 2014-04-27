@@ -181,8 +181,6 @@ class TheApp < Sinatra::Base
     end
 
     if ENV['MONGODB_URI']
-      # To add mongoDB to heroku, run: $ heroku addons:add mongolab
-      # To check out the settings, run: $ heroku addons:open mongolab
       begin
         require 'mongo'
         require 'bson'    #Do NOT 'require bson_ext' just put it in Gemfile!
@@ -211,6 +209,8 @@ class TheApp < Sinatra::Base
     end
 
     if ENV['MONGOLAB_URI'] and not ENV['MONGODB_URI'] and not ENV['MONGO_URL']
+      # To add mongo Lab to heroku, run: $ heroku addons:add mongolab
+      # To check out the settings, run: $ heroku addons:open mongolab
       begin 
         require 'mongo'
         mongo_uri = ENV['MONGOLAB_URI']
@@ -218,12 +218,30 @@ class TheApp < Sinatra::Base
         db_name = mongo_uri[%r{/([^/\?]+)(\?|$)}, 1]
         client = Mongo::MongoClient.from_uri(mongo_uri)
         DB = client.db(db_name)
-        puts("[OK!] [4]  Mongo Connection Configured via MongoLab variable")
-        DB.collection_names.each { |name| puts name }
+        puts("[OK!] [4]  Mongo Connection Configured via MongoLab environment variable")
       rescue Exception => e 
         puts "[BAD] Mongo config(3): #{e.message}"
       end
     end
+
+    if ENV['MONGOHQ_URI'] and not ENV['MONGOLAB_URI'] and not ENV['MONGODB_URI'] and not ENV['MONGO_URL']
+      # This environment variable is set up by using the MongoHQ addon. Run: $ heroku addons:add mongolab
+      # To check out the settings, run: $ heroku addons:open mongolab
+      # Following https://devcenter.heroku.com/articles/mongohq for setup
+      begin
+        require 'mongo'
+        require 'uri'
+        db = URI.parse(ENV['MONGOHQ_URL'])
+        db_name = db.path.gsub(/^\//, '')
+        db_connection = Mongo::Connection.new(db.host, db.port).db(db_name)
+        db_connection.authenticate(db.user, db.password) unless (db.user.nil? || db.user.nil?)
+        DB = db_connection
+        puts("[OK!] [4]  Mongo Connection Configured via MongoHQ environment variable")
+      rescue Exception => e 
+        puts "[BAD] Mongo config(3): #{e.message}"
+      end
+    end
+
 
     if ENV['REDISTOGO_URL']
       begin
