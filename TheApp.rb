@@ -218,6 +218,7 @@ class TheApp < Sinatra::Base
         db_name = mongo_uri[%r{/([^/\?]+)(\?|$)}, 1]
         client = MongoClient.from_uri(mongo_uri)
         DB = client.db(db_name)
+        puts("[OK!] [4]  Mongo Connection Configured via MongoLab variable")
         DB.collection_names.each { |name| puts name }
       rescue Exception => e 
         puts "[BAD] Mongo config(3): #{e.message}"
