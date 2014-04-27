@@ -216,7 +216,7 @@ class TheApp < Sinatra::Base
         mongo_uri = ENV['MONGOLAB_URI']
         # The following parsing code comes from https://devcenter.heroku.com/articles/mongolab#connecting-to-your-mongodb-instance
         db_name = mongo_uri[%r{/([^/\?]+)(\?|$)}, 1]
-        client = MongoClient.from_uri(mongo_uri)
+        client = Mongo::MongoClient.from_uri(mongo_uri)
         DB = client.db(db_name)
         puts("[OK!] [4]  Mongo Connection Configured via MongoLab variable")
         DB.collection_names.each { |name| puts name }
