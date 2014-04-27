@@ -40,6 +40,7 @@ require 'sinatra/base'
 require 'sinatra/graph'
 
 require 'rest-client'
+require 'httparty'
 
 require 'net/http'
 require 'uri'
@@ -250,6 +251,18 @@ class TheApp < Sinatra::Base
 
     # remember to include rest-client in preparation for mailgun . . . 
 
+    if ENV['MAILGUN_API_KEY'] && ENV['MAILGUN_PUBLIC_API_KEY'] && ENV['MAILGUN_DOMAIN']
+      begin
+        puts "https://api:#{ENV['MAILGUN_API_KEY']}"\
+  	  "@api.mailgun.net/v2/samples.mailgun.org/messages"
+  	RestClient.post "https://api:#{ENV['MAILGUN_API_KEY']}"\
+  	  "@#{ENV['MAILGUN_DOMAIN']}",
+  	  :from => 'Mailgun Sandbox <postmaster@sandbox95142.mailgun.org>',
+  	  :to => "sracunas@gmail.com",
+  	  :subject => "Hello",
+  	  :text => "Testing some Mailgun awesomness thanks to Ben!"
+      rescue Exception => e;  puts "[BAD] Mailgun test: #{e.message}";  end
+    end 
 
 
     # Access tokens from   https://www.dropbox.com/developers/core/start/ruby
