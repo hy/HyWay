@@ -51,6 +51,7 @@ GEM
       bson (~> 1.10.0)
     multi_json (1.9.2)
     multi_xml (0.5.5)
+    multimap (1.1.3)
     multipart-post (2.0.0)
     naught (1.0.0)
     neography (1.4.1)
@@ -125,8 +126,10 @@ DEPENDENCIES
   google-api-client
   hiredis
   httparty
+  httpclient
   json
   mongo
+  multimap
   neography
   oauth
   pony

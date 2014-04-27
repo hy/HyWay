@@ -1,7 +1,8 @@
 # TODO List:
 
 # [--] http://www.wooptoot.com/file-upload-with-sinatra
-
+# [--] Pick a consistent http client? 
+#      http://www.slideshare.net/HiroshiNakamura/rubyhttp-clients-comparison
 
 # What we have done so far . . . 
 
@@ -249,10 +250,11 @@ class TheApp < Sinatra::Base
     end
 
 
-    # remember to include rest-client in preparation for mailgun . . . 
-
+    # remember to include rest-client in preparation for mailgun (!!!)
     if ENV['MAILGUN_API_KEY'] && ENV['MAILGUN_DOMAIN']
       begin
+        require 'rest-client'
+        require 'multimap'
         puts 'Config block, mailgun section . . .'
         puts "https://api:#{ENV['MAILGUN_API_KEY']}"\
   	  "@api.mailgun.net/v2/samples.mailgun.org/messages"
@@ -261,7 +263,7 @@ class TheApp < Sinatra::Base
   	  :from => 'Mailgun Sandbox <postmaster@sandbox95142.mailgun.org>',
   	  :to => "sracunas@gmail.com",
   	  :subject => "Hello",
-  	  :text => "Testing some Mailgun awesomness thanks to Ben!"
+  	  :text => "Testing Mailgun awesomness thanks to code from Ben!"
       rescue Exception => e;  puts "[BAD] Mailgun test: #{e.message}";  end
     end 
 
