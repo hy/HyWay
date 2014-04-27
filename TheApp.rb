@@ -251,8 +251,9 @@ class TheApp < Sinatra::Base
 
     # remember to include rest-client in preparation for mailgun . . . 
 
-    if ENV['MAILGUN_API_KEY'] && ENV['MAILGUN_PUBLIC_API_KEY'] && ENV['MAILGUN_DOMAIN']
+    if ENV['MAILGUN_API_KEY'] && ENV['MAILGUN_DOMAIN']
       begin
+        puts 'Config block, mailgun section . . .'
         puts "https://api:#{ENV['MAILGUN_API_KEY']}"\
   	  "@api.mailgun.net/v2/samples.mailgun.org/messages"
   	RestClient.post "https://api:#{ENV['MAILGUN_API_KEY']}"\
