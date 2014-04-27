@@ -39,6 +39,8 @@ require 'sinatra/base'
 
 require 'sinatra/graph'
 
+require 'rest-client'
+
 require 'net/http'
 require 'uri'
 require 'json'
@@ -245,12 +247,17 @@ class TheApp < Sinatra::Base
       rescue Exception => e;  puts "[BAD] GoogleAPI config: #{e.message}";  end
     end
 
+
+    # remember to include rest-client in preparation for mailgun . . . 
+
+
+
     # Access tokens from   https://www.dropbox.com/developers/core/start/ruby
     if ENV['DROPBOX_ACCESS_TOKEN']
       begin
         require 'dropbox_sdk'
         $dropbox_handle = DropboxClient.new(ENV['DROPBOX_ACCESS_TOKEN'])
-        puts '[OK!] [8]  Dropbox Client Configured'
+        puts '[OK!] [9]  Dropbox Client Configured'
       rescue Exception => e; puts "[BAD] Dropbox config: #{e.message}"; end
     end
 
@@ -268,7 +275,7 @@ class TheApp < Sinatra::Base
           :enable_starttls_auto => true
           }
         }
-        puts "[OK!] [9]  SendGrid Options Configured"
+        puts "[OK!] [10]  SendGrid Options Configured"
       rescue Exception => e;  puts "[BAD] SendGrid config: #{e.message}";  end
     end
 
