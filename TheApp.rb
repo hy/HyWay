@@ -159,6 +159,7 @@ class TheApp < Sinatra::Base
       begin
         # note = 'NEO4j CONFIG via ENV var set via heroku addons:add graphenedb'
         # heroku addons:open graphenedb
+        # Heroku automatically sets up the GRAPHENEDB_URL environment variable
 
         uri = URI.parse(ENV['GRAPHENEDB_URL'])
         require 'neography'
@@ -180,6 +181,8 @@ class TheApp < Sinatra::Base
     end
 
     if ENV['MONGODB_URI']
+      # To add mongoDB to heroku, run: $ heroku addons:add mongolab
+      # To check out the settings, run: $ heroku addons:open mongolab
       begin
         require 'mongo'
         require 'bson'    #Do NOT 'require bson_ext' just put it in Gemfile!
@@ -195,13 +198,30 @@ class TheApp < Sinatra::Base
       begin
         require 'mongo'
         require 'bson'    #Do NOT 'require bson_ext' just put it in Gemfile!
-        
+        raise 'MONGO_URL provided, but one of MONGO_PORT, MONGO_USER_ID, or MONGO_PASSWORD is not present' unless ( ENV['MONGO_PORT'] && ENV['MONGO_USER_ID'] && ENV['MONGO_PASSWORD'])
+
         CN = Mongo::Connection.new(ENV['MONGO_URL'], ENV['MONGO_PORT'])
         DB = CN.db(ENV['MONGO_DB_NAME'])
         auth = DB.authenticate(ENV['MONGO_USER_ID'], ENV['MONGO_PASSWORD'])
 
-        puts('[OK!] [4]  Mongo Connection Configured via separated env vars')
-      rescue Exception => e;  puts "[BAD] Mongo config(M): #{e.message}";  end
+        puts("[OK!] [4]  Mongo Connection Configured via separated env vars")
+      rescue Exception => e  
+        puts "[BAD] Mongo config(2): #{e.message}"
+      end
+    end
+
+    if ENV['MONGOLAB_URI'] and not ENV['MONGODB_URI'] and not ENV['MONGO_URL']
+      begin 
+        require 'mongo'
+        mongo_uri = ENV['MONGOLAB_URI']
+        # The following parsing code comes from https://devcenter.heroku.com/articles/mongolab#connecting-to-your-mongodb-instance
+        db_name = mongo_uri[%r{/([^/\?]+)(\?|$)}, 1]
+        client = MongoClient.from_uri(mongo_uri)
+        DB = client.db(db_name)
+        DB.collection_names.each { |name| puts name }
+      rescue Exception => e 
+        puts "[BAD] Mongo config(3): #{e.message}"
+      end
     end
 
     if ENV['REDISTOGO_URL']
