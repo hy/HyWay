@@ -157,7 +157,7 @@ class TheApp < Sinatra::Base
 
     if ENV['GRAPHENEDB_URL']
       begin
-        # note = 'NEO4j CONFIG via ENV var set via heroku addons:add graphenedb'
+        # NEO4j CONFIG via ENV var set via $ heroku addons:add graphenedb
         # heroku addons:open graphenedb
         # Heroku automatically sets up the GRAPHENEDB_URL environment variable
 
@@ -244,7 +244,7 @@ class TheApp < Sinatra::Base
 
     if ENV['REDISTOGO_URL']
       begin
-        note = 'CONFIG via ENV var set via heroku addons:add redistogo'
+        # Environment variable is set via $ heroku addons:add redistogo
         require 'hiredis'
         require 'redis'
         uri = URI.parse(ENV['REDISTOGO_URL'])
@@ -255,14 +255,14 @@ class TheApp < Sinatra::Base
       rescue Exception => e;  puts "[BAD] Redis config: #{e.message}";  end
     end
 
-    if ENV['TWILIO_ACCOUNT_SID']&&ENV['TWILIO_AUTH_TOKEN']
+    if ENV['TWILIO_ACCOUNT_SID'] && ENV['TWILIO_AUTH_TOKEN']
       begin
         require 'twilio-ruby'
         require 'builder'
         $t_client = Twilio::REST::Client.new(
           ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'] )
         $twilio_account = $t_client.account
-        puts '[OK!] [6]  Twilio Configured for: ' + ENV['TWILIO_CALLER_ID']
+        puts "[OK!] [6]  Twilio Configured for: #{$twilio_account.outgoing_caller_ids.list.first.phone_number}"
       rescue Exception => e;  puts "[BAD] Twilio config: #{e.message}";  end
     end
 
