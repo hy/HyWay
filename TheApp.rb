@@ -224,7 +224,7 @@ class TheApp < Sinatra::Base
       end
     end
 
-    if ENV['MONGOHQ_URI'] and not ENV['MONGOLAB_URI'] and not ENV['MONGODB_URI'] and not ENV['MONGO_URL']
+    if ENV['MONGOHQ_URL'] and not ENV['MONGOLAB_URI'] and not ENV['MONGODB_URI'] and not ENV['MONGO_URL']
       # This environment variable is set up by using the MongoHQ addon. Run: $ heroku addons:add mongolab
       # To check out the settings, run: $ heroku addons:open mongolab
       # Following https://devcenter.heroku.com/articles/mongohq for setup
@@ -241,7 +241,6 @@ class TheApp < Sinatra::Base
         puts "[BAD] Mongo config(3): #{e.message}"
       end
     end
-
 
     if ENV['REDISTOGO_URL']
       begin
