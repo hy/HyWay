@@ -129,7 +129,6 @@ class TheApp < Sinatra::Base
        ENV['TWITTER_ACCESS_TOKEN'] && ENV['TWITTER_ACCESS_TOKEN_SECRET']
 
       begin
-        require 'twitter'
         require 'oauth'
 
         consumer = OAuth::Consumer.new(ENV['TWITTER_CONSUMER_KEY'],
@@ -140,7 +139,19 @@ class TheApp < Sinatra::Base
                       :oauth_token_secret => ENV['TWITTER_ACCESS_TOKEN_SECRET']}
         
         $twitter_handle = OAuth::AccessToken.from_hash(consumer, token_hash )
-        puts '[OK!] [2]  Twitter Client Configured'
+        puts '[OK!] [2.1]  Twitter Oauth Client Configured'
+
+        require 'twitter'
+
+        # Refer to https://github.com/sferik/twitter for usage
+        $twitter_client = Twitter::REST::Client.new do |config|
+          config.consumer_key        = ENV['TWITTER_CONSUMER_KEY']
+          config.consumer_secret     = ENV['TWITTER_CONSUMER_SECRET']
+          config.access_token        = ENV['TWITTER_ACCESS_TOKEN']
+          config.access_token_secret = ENV['TWITTER_ACCESS_TOKEN_SECRET']
+        end
+        puts '[OK!] [2.2]  Twitter REST Client Configured'
+
       rescue Exception => e; puts "[BAD] Twitter config: #{e.message}"; end
     end
 
@@ -148,6 +159,7 @@ class TheApp < Sinatra::Base
       begin
         # note = 'NEO4j CONFIG via ENV var set via heroku addons:add graphenedb'
         # heroku addons:open graphenedb
+        # Heroku automatically sets up the GRAPHENEDB_URL environment variable
 
         uri = URI.parse(ENV['GRAPHENEDB_URL'])
         require 'neography'
