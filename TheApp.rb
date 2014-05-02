@@ -447,7 +447,7 @@ class TheApp < Sinatra::Base
   get '/example1.json' do
 
     content_type :json
-    return {:question => ["Is there pain and swelling when you move your arm?"], :options => ["True", "False"], :correct_answer => "True", :if_correct_go => "Here", :if_wrong_go => "There", :tags => ["Arm", "Pain", "Move", "Owies"]}.to_json
+    return {:question => ["Is there pain and swelling when you move your arm?"], :options => ["True", "False"], :correct_answer => "True", :if_correct_go => "http://serene-forest-4377.herokuapp.com/here", :if_wrong_go => "http://serene-forest-4377.herokuapp.com/example1.json/there", :tags => ["Arm", "Pain", "Move", "Owies"]}.to_json
 
   end 
 
