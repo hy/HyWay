@@ -893,6 +893,8 @@ class TheApp < Sinatra::Base
     
     # For now, put in a placeholder at q1 and don't increment it (yet)
 
+    # Also for now, put JOYCE_CELL == Steve_cell
+    JOYCE_CELL = '+17244489427'
 
     fwd_text = 'M'+ordinal.to_s+': '+q_text
 
