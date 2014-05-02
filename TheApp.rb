@@ -887,6 +887,13 @@ class TheApp < Sinatra::Base
     puts DB['questions'].insert( question, {:w => 1} )
     puts q_text
 
+
+    # Use some method to generate a unique Question ID, ideally just ordinal?
+    ordinal = 1
+    
+    # For now, put in a placeholder at q1 and don't increment it (yet)
+
+
     fwd_text = 'M'+ordinal.to_s+': '+q_text
 
     send_SMS_to(JOYCE_CELL, fwd_text)
