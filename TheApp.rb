@@ -4,6 +4,19 @@
 # [--] Pick a consistent http client? 
 #      http://www.slideshare.net/HiroshiNakamura/rubyhttp-clients-comparison
 
+# MAILGUN on Heroku with rest-client references: 
+# https://github.com/rest-client/rest-client
+# https://github.com/worldlywisdom/mazuma/blob/master/modules/mailer.rb
+# http://documentation.mailgun.com/quickstart.html#sending-messages
+
+
+# TrueVault
+# TrueVault Ruby adapter: https://github.com/marks/truevault.rb
+
+# TrueVault endpoints will look like: 
+# https://api.truevault.com/v1/vaults/<vault_id>/documents/<document_id>
+
+
 # What we have done so far . . . 
 
 # [--] Go to https://proximity.gimbal.com/developer/transmitters 
@@ -414,6 +427,30 @@ class TheApp < Sinatra::Base
     content_type :json
     return {:questions => ["Is [your baby] ready to eat?", "How hungry do you think [your baby] is?", "What is telling you [your baby] needs to eat?", "How did you know [your baby] was finished?", "Did [your baby] eat enough at this feed?"]}.to_json
   end
+
+  # Shift to MongoDB when we have the time . . .  
+  # Also, think about if we would need to put this into TrueVault, and, 
+  #   how much of that would we want to do and when?
+
+  # Three types of data: text, audio, video
+  # There will be intro text, and different types of Yes and No  
+  # There may be a correct and an incorrect answer (T/F) 
+
+  # Screen Title, then: 
+  # Question text, audio clip / video poss.  a
+  # Text for the "True" button, text for the "False" button  
+  #  Where to go if you got it right (link)
+  #  Where to go if you get it wrong (link)
+
+  # For now let us just put something reasonable in json as an example
+
+  get '/example1.json' do
+
+    content_type :json
+    return {:question => ["Is there pain and swelling when you move your arm?"], :options => ["True", "False"], :correct_answer => "True", :if_correct_go => "Here", :if_wrong_go => "There"}.to_json
+
+  end 
+
 
   get '/TestEO' do
     puts temperature = params['temperature']
