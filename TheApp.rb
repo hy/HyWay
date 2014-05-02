@@ -428,6 +428,8 @@ class TheApp < Sinatra::Base
     return {:questions => ["Is [your baby] ready to eat?", "How hungry do you think [your baby] is?", "What is telling you [your baby] needs to eat?", "How did you know [your baby] was finished?", "Did [your baby] eat enough at this feed?"]}.to_json
   end
 
+  
+
   # Shift to MongoDB when we have the time . . .  
   # Also, think about if we would need to put this into TrueVault, and, 
   #   how much of that would we want to do and when?
@@ -447,7 +449,7 @@ class TheApp < Sinatra::Base
   get '/example1.json' do
 
     content_type :json
-    return {:question => ["Is there pain and swelling when you move your arm?"], :options => ["True", "False"], :correct_answer => "True", :if_correct_go => "Here", :if_wrong_go => "There"}.to_json
+    return {:question => ["Is there pain and swelling when you move your arm?"], :options => ["True", "False"], :correct_answer => "True", :if_correct_go => "Here", :if_wrong_go => "There", :tags => ["Arm", "Pain", "Move", "Owies"]}.to_json
 
   end 
 
