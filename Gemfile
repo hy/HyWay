@@ -36,3 +36,5 @@ gem 'pony'
 # To ensure / invoke security patch . . . 
 gem 'psych', '~> 2.0.5'
 
+gem "haml", ">= 2.2.0"
+
