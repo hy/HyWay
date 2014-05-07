@@ -4,7 +4,6 @@ HyWay
 
 HyWay == A "The Main Routing Code" (lots of things moving around, and it's almost always "under-construction" :) 
 
-
 Currently supporting a test-bed and prototyping environment for the following projects: 
 
 * Childhood nutrition
@@ -14,4 +13,3 @@ Currently supporting a test-bed and prototyping environment for the following pr
 * Health literacy
 
 * Hardware + Software integration endpoints for sensors (Twine, Spark), Beacons, and wearables . . .   
-

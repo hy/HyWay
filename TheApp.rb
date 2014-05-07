@@ -16,7 +16,6 @@
 # TrueVault endpoints will look like: 
 # https://api.truevault.com/v1/vaults/<vault_id>/documents/<document_id>
 
-
 # What we have done so far . . . 
 
 # [--] Go to https://proximity.gimbal.com/developer/transmitters 
@@ -52,14 +51,14 @@ require 'sinatra/base'
 
 require 'sinatra/graph'
 
-require 'rest-client'
-require 'httparty'
-
 require 'net/http'
 require 'uri'
 require 'json'
-
 require 'pony'
+require 'haml'
+
+require 'rest-client'
+require 'httparty'
 
 ###############################################################################
 # Optional Requires (Not essential for base version)
@@ -117,6 +116,16 @@ class TheApp < Sinatra::Base
     puts '____________CONFIGURING FOR REMOTE SITE: ' + SITE + '____________'
   end
 
+  @@services_available = {:twitter => false,
+                         :graphene => false,
+                         :mongo => false,
+                         :redis => false,
+                         :twilio => false,
+                         :google => false,
+                         :dropbox => false,
+                         :sendgrid => false
+  }
+
   configure do
     begin
       PTS_FOR_BG = 10
@@ -145,7 +154,6 @@ class TheApp < Sinatra::Base
        ENV['TWITTER_ACCESS_TOKEN'] && ENV['TWITTER_ACCESS_TOKEN_SECRET']
 
       begin
-        require 'twitter'
         require 'oauth'
 
         consumer = OAuth::Consumer.new(ENV['TWITTER_CONSUMER_KEY'],
@@ -156,14 +164,27 @@ class TheApp < Sinatra::Base
                       :oauth_token_secret => ENV['TWITTER_ACCESS_TOKEN_SECRET']}
         
         $twitter_handle = OAuth::AccessToken.from_hash(consumer, token_hash )
-        puts '[OK!] [2]  Twitter Client Configured'
+        puts '[OK!] [2.1]  Twitter Oauth Client Configured'
+
+        require 'twitter'
+
+        # Refer to https://github.com/sferik/twitter for usage
+        $twitter_client = Twitter::REST::Client.new do |config|
+          config.consumer_key        = ENV['TWITTER_CONSUMER_KEY']
+          config.consumer_secret     = ENV['TWITTER_CONSUMER_SECRET']
+          config.access_token        = ENV['TWITTER_ACCESS_TOKEN']
+          config.access_token_secret = ENV['TWITTER_ACCESS_TOKEN_SECRET']
+        end
+        puts '[OK!] [2.2]  Twitter REST Client Configured'
+        @@services_available[:twitter] = true
       rescue Exception => e; puts "[BAD] Twitter config: #{e.message}"; end
     end
 
     if ENV['GRAPHENEDB_URL']
       begin
-        # note = 'NEO4j CONFIG via ENV var set via heroku addons:add graphenedb'
+        # NEO4j CONFIG via ENV var set via $ heroku addons:add graphenedb
         # heroku addons:open graphenedb
+        # Heroku automatically sets up the GRAPHENEDB_URL environment variable
 
         uri = URI.parse(ENV['GRAPHENEDB_URL'])
         require 'neography'
@@ -180,6 +201,7 @@ class TheApp < Sinatra::Base
 
         query_results = $neo.execute_query("start n=node(*) return n limit 1")
         puts('[OK!] [3]  Graphene ' + query_results.to_s)
+        @@services_available[:graphene] = true
 
       rescue Exception => e;  puts "[BAD] Neo4j config: #{e.message}";  end
     end
@@ -193,6 +215,7 @@ class TheApp < Sinatra::Base
         DB = CN.db
 
         puts("[OK!] [4]  Mongo Configured-via-URI #{CN.host_port} #{CN.auths}")
+        @@services_available[:mongo] = true
       rescue Exception => e;  puts "[BAD] Mongo config(1): #{e.message}";  end
     end
 
@@ -200,38 +223,78 @@ class TheApp < Sinatra::Base
       begin
         require 'mongo'
         require 'bson'    #Do NOT 'require bson_ext' just put it in Gemfile!
-        
+        raise 'MONGO_URL provided, but one of MONGO_PORT, MONGO_USER_ID, or MONGO_PASSWORD is not present' unless ( ENV['MONGO_PORT'] && ENV['MONGO_USER_ID'] && ENV['MONGO_PASSWORD'])
+
         CN = Mongo::Connection.new(ENV['MONGO_URL'], ENV['MONGO_PORT'])
         DB = CN.db(ENV['MONGO_DB_NAME'])
         auth = DB.authenticate(ENV['MONGO_USER_ID'], ENV['MONGO_PASSWORD'])
 
-        puts('[OK!] [4]  Mongo Connection Configured via separated env vars')
-      rescue Exception => e;  puts "[BAD] Mongo config(M): #{e.message}";  end
+        puts("[OK!] [4]  Mongo Connection Configured via separated env vars")
+        @@services_available[:mongo] = true
+      rescue Exception => e  
+        puts "[BAD] Mongo config(2): #{e.message}"
+      end
+    end
+
+    if ENV['MONGOLAB_URI'] and not ENV['MONGODB_URI'] and not ENV['MONGO_URL']
+      # To add mongo Lab to heroku, run: $ heroku addons:add mongolab
+      # To check out the settings, run: $ heroku addons:open mongolab
+      begin 
+        require 'mongo'
+        mongo_uri = ENV['MONGOLAB_URI']
+        # The following parsing code comes from https://devcenter.heroku.com/articles/mongolab#connecting-to-your-mongodb-instance
+        db_name = mongo_uri[%r{/([^/\?]+)(\?|$)}, 1]
+        client = Mongo::MongoClient.from_uri(mongo_uri)
+        DB = client.db(db_name)
+        puts("[OK!] [4]  Mongo Connection Configured via MongoLab environment variable")
+        @@services_available[:mongo] = true
+      rescue Exception => e 
+        puts "[BAD] Mongo config(3): #{e.message}"
+      end
+    end
+
+    if ENV['MONGOHQ_URL'] and not ENV['MONGOLAB_URI'] and not ENV['MONGODB_URI'] and not ENV['MONGO_URL']
+      # This environment variable is set up by using the MongoHQ addon. Run: $ heroku addons:add mongolab
+      # To check out the settings, run: $ heroku addons:open mongolab
+      # Following https://devcenter.heroku.com/articles/mongohq for setup
+      begin
+        require 'mongo'
+        require 'uri'
+        db = URI.parse(ENV['MONGOHQ_URL'])
+        db_name = db.path.gsub(/^\//, '')
+        db_connection = Mongo::Connection.new(db.host, db.port).db(db_name)
+        db_connection.authenticate(db.user, db.password) unless (db.user.nil? || db.user.nil?)
+        DB = db_connection
+        puts("[OK!] [4]  Mongo Connection Configured via MongoHQ environment variable")
+        @@services_available[:mongo] = true
+      rescue Exception => e 
+        puts "[BAD] Mongo config(3): #{e.message}"
+      end
     end
 
     if ENV['REDISTOGO_URL']
       begin
-        note = 'CONFIG via ENV var set via heroku addons:add redistogo'
+        # Environment variable is set via $ heroku addons:add redistogo
         require 'hiredis'
         require 'redis'
         uri = URI.parse(ENV['REDISTOGO_URL'])
         REDIS = Redis.new(:host => uri.host, :port => uri.port,
                           :password => uri.password)
         REDIS.set('CacheStatus', "[OK!] [5]  Redis #{uri}")
+        @@services_available[:redis] = true
         puts REDIS.get('CacheStatus')
       rescue Exception => e;  puts "[BAD] Redis config: #{e.message}";  end
     end
 
-    if ENV['TWILIO_ACCOUNT_SID']&&ENV['TWILIO_AUTH_TOKEN']
+    if ENV['TWILIO_ACCOUNT_SID'] && ENV['TWILIO_AUTH_TOKEN']
       begin
         require 'twilio-ruby'
         require 'builder'
         $t_client = Twilio::REST::Client.new(
           ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'] )
         $twilio_account = $t_client.account
-        puts 'twilio_account.incoming_phone_numbers.list.first.phone_number EQUALS: '
-        puts $twilio_account.incoming_phone_numbers.list.first.phone_number
-        puts '[OK!] [6]  Twilio Configured for: ' + ENV['TWILIO_CALLER_ID']
+        puts "[OK!] [6]  Twilio Configured for: #{$twilio_account.incoming_phone_numbers.list.first.phone_number}"
+        @@services_available[:twilio] = true
       rescue Exception => e;  puts "[BAD] Twilio config: #{e.message}";  end
     end
 
@@ -259,10 +322,10 @@ class TheApp < Sinatra::Base
 
         puts '[OK!] [7]  Google API Configured with Scope Including:'
         puts GClient.authorization.scope
+        @@services_available[:google] = true 
 
       rescue Exception => e;  puts "[BAD] GoogleAPI config: #{e.message}";  end
     end
-
 
     # remember to include rest-client in preparation for mailgun (!!!)
     if ENV['MAILGUN_API_KEY'] && ENV['MAILGUN_DOMAIN']
@@ -278,15 +341,16 @@ class TheApp < Sinatra::Base
   	  :to => "sracunas@gmail.com",
   	  :subject => "Hello",
   	  :text => "Testing Mailgun awesomness thanks to code from Ben!"
+      puts '[OK!] [8]  Mailgun test email sent (hopefully)'
       rescue Exception => e;  puts "[BAD] Mailgun test: #{e.message}";  end
     end 
-
 
     # Access tokens from   https://www.dropbox.com/developers/core/start/ruby
     if ENV['DROPBOX_ACCESS_TOKEN']
       begin
         require 'dropbox_sdk'
         $dropbox_handle = DropboxClient.new(ENV['DROPBOX_ACCESS_TOKEN'])
+        @@services_available[:dropbox] = true
         puts '[OK!] [9]  Dropbox Client Configured'
       rescue Exception => e; puts "[BAD] Dropbox config: #{e.message}"; end
     end
@@ -305,7 +369,9 @@ class TheApp < Sinatra::Base
           :enable_starttls_auto => true
           }
         }
+
         puts "[OK!] [10]  SendGrid Options Configured"
+        @@services_available[:sendgrid] = true
       rescue Exception => e;  puts "[BAD] SendGrid config: #{e.message}";  end
     end
 
@@ -419,6 +485,14 @@ class TheApp < Sinatra::Base
     'Server is up! '  
   end
 
+  get '/services' do
+    response_string = ""
+    @@services_available.each do |service, status|
+      response_string = response_string + "#{service.to_s} is <b>#{status ? '<font color="blue">up</font>' : '<font color="red">down </font>' } </b><br>"
+    end  
+    response_string
+  end
+
   get '/sushi.json' do
     content_type :json
     return {:sushi => ["Maguro", "Hamachi", "Uni", "Saba", "Ebi", "Sake", "Tai"]}.to_json
@@ -463,7 +537,6 @@ class TheApp < Sinatra::Base
     send_file File.join(settings.public_folder,'looks_broken_but_sprained.jpg')
   end
 
-
   get '/TestEO' do
     puts temperature = params['temperature']
     puts proximityRSSI = params['proximityRSSI']
@@ -501,7 +574,7 @@ class TheApp < Sinatra::Base
 
 
   #############################################################################
-  #             Other Physical Environemnt Sensing Examples
+  #             Other Physical Environment Sensing Examples
   #############################################################################
   #
   # Sensor can detect vibration, magnetic proximity and/or moisture

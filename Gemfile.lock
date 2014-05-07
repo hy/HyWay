@@ -35,6 +35,8 @@ GEM
       retriable (>= 1.4)
       signet (>= 0.5.0)
       uuidtools (>= 2.1.0)
+    haml (4.0.5)
+      tilt
     hiredis (0.5.2)
     http (0.5.0)
       http_parser.rb
@@ -134,6 +136,7 @@ DEPENDENCIES
   builder
   dropbox-sdk
   google-api-client
+  haml
   hiredis
   httparty
   httpclient
