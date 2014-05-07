@@ -341,6 +341,7 @@ class TheApp < Sinatra::Base
   	  :to => "sracunas@gmail.com",
   	  :subject => "Hello",
   	  :text => "Testing Mailgun awesomness thanks to code from Ben!"
+      puts '[OK!] [8]  Mailgun test email sent (hopefully)'
       rescue Exception => e;  puts "[BAD] Mailgun test: #{e.message}";  end
     end 
 
@@ -349,7 +350,6 @@ class TheApp < Sinatra::Base
       begin
         require 'dropbox_sdk'
         $dropbox_handle = DropboxClient.new(ENV['DROPBOX_ACCESS_TOKEN'])
-        puts '[OK!] [8]  Dropbox Client Configured'
         @@services_available[:dropbox] = true
         puts '[OK!] [9]  Dropbox Client Configured'
       rescue Exception => e; puts "[BAD] Dropbox config: #{e.message}"; end
