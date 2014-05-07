@@ -229,6 +229,8 @@ class TheApp < Sinatra::Base
         $t_client = Twilio::REST::Client.new(
           ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'] )
         $twilio_account = $t_client.account
+        puts 'twilio_account.incoming_phone_numbers.list.first.phone_number EQUALS: '
+        puts $twilio_account.incoming_phone_numbers.list.first.phone_number
         puts '[OK!] [6]  Twilio Configured for: ' + ENV['TWILIO_CALLER_ID']
       rescue Exception => e;  puts "[BAD] Twilio config: #{e.message}";  end
     end
