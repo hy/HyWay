@@ -293,7 +293,9 @@ class TheApp < Sinatra::Base
         $t_client = Twilio::REST::Client.new(
           ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'] )
         $twilio_account = $t_client.account
-        puts "[OK!] [6]  Twilio Configured for: #{$twilio_account.incoming_phone_numbers.list.first.phone_number}"
+        @@twilio_incoming_number = ENV['TWILIO_CALLER_ID']
+        @@twilio_incoming_number ||= $twilio_account.incoming_phone_numbers.list.first.phone_number
+        puts "[OK!] [6]  Twilio Configured for: #{@@twilio_incoming_number}"
         @@services_available[:twilio] = true
       rescue Exception => e;  puts "[BAD] Twilio config: #{e.message}";  end
     end
@@ -1952,7 +1954,7 @@ class TheApp < Sinatra::Base
         puts "ATTEMPT TO SMS TO BAD NUMBER" if number.match(/\+1\d{10}\z/)==nil
 
         @message = $twilio_account.sms.messages.create({
-              :from => ENV['TWILIO_CALLER_ID'],
+              :from => @@twilio_incoming_number,
               :to => number,
               :body => msg
         })
@@ -1969,7 +1971,7 @@ class TheApp < Sinatra::Base
       where = 'HELPER: ' + (__method__).to_s
       begin
         @message = $twilio_account.sms.messages.create({
-              :from => ENV['TWILIO_CALLER_ID'],
+              :from => @@twilio_incoming_number,
               :to => params['From'],
               :body => msg
         })
@@ -1986,7 +1988,7 @@ class TheApp < Sinatra::Base
       where = 'HELPER: ' + (__method__).to_s 
       begin
         @call = $twilio_account.calls.create({
-              :from => ENV['TWILIO_CALLER_ID'],
+              :from => @@twilio_incoming_number,
               :to => number_to_call,
               :url => "#{SITE}" + route_to_execute
        })
