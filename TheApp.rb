@@ -453,10 +453,9 @@ class TheApp < Sinatra::Base
   get '/services' do
     response_string = ""
     @@services_available.each do |service, status|
-      response_string = response_string + "#{service.to_s} is #{status ? 'up' : 'down' } <br>"
+      response_string = response_string + "#{service.to_s} is <b>#{status ? '<font color="blue">up</font>' : '<font color="red">down </font>' } </b><br>"
     end  
-    #response_string
-    @@services_available.to_s
+    response_string
   end
 
   get '/sushi.json' do
