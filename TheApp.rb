@@ -26,7 +26,6 @@
 
 # [--] Add a rule at: https://proximity.gimbal.com/developer/rules/new
 
-
 # [--] More analytics: plot trend, 
 # [--] plot intervals (times between events), 
 # [--] Add a "____ help(s)(ed) ____ _____" route so folks can discover and then 
@@ -500,7 +499,7 @@ class TheApp < Sinatra::Base
 
 
   #############################################################################
-  #                     Physical Environemnt Sensing
+  #             Other Physical Environemnt Sensing Examples
   #############################################################################
   #
   # Sensor can detect vibration, magnetic proximity and/or moisture
