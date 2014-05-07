@@ -32,9 +32,18 @@ gem 'json'
 gem 'dropbox-sdk'
 
 gem 'pony'
+gem 'haml'
+
+# Eventually pick one of rest-client, httparty, httpclient or etc.
+# http://www.slideshare.net/HiroshiNakamura/rubyhttp-clients-comparison
+
+gem 'rest-client'
+gem 'multimap'
+
+gem 'httparty'
+
+gem 'httpclient'
 
 # To ensure / invoke security patch . . . 
 gem 'psych', '~> 2.0.5'
-
-gem 'haml'
 

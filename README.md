@@ -2,7 +2,7 @@
 HyWay
 =====
 
-HyWay == A "Main Road" (lots of things moving around, and it's almost always "under-construction" :) 
+HyWay == A "The Main Routing Code" (lots of things moving around, and it's almost always "under-construction" :) 
 
 Currently supporting a test-bed and prototyping environment for the following projects: 
 

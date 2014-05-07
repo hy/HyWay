@@ -1,7 +1,20 @@
 # TODO List:
 
 # [--] http://www.wooptoot.com/file-upload-with-sinatra
+# [--] Pick a consistent http client? 
+#      http://www.slideshare.net/HiroshiNakamura/rubyhttp-clients-comparison
 
+# MAILGUN on Heroku with rest-client references: 
+# https://github.com/rest-client/rest-client
+# https://github.com/worldlywisdom/mazuma/blob/master/modules/mailer.rb
+# http://documentation.mailgun.com/quickstart.html#sending-messages
+
+
+# TrueVault
+# TrueVault Ruby adapter: https://github.com/marks/truevault.rb
+
+# TrueVault endpoints will look like: 
+# https://api.truevault.com/v1/vaults/<vault_id>/documents/<document_id>
 
 # What we have done so far . . . 
 
@@ -11,7 +24,6 @@
 # [--] TURN ON BLUETOOTH
 
 # [--] Add a rule at: https://proximity.gimbal.com/developer/rules/new
-
 
 # [--] More analytics: plot trend, 
 # [--] plot intervals (times between events), 
@@ -44,6 +56,9 @@ require 'uri'
 require 'json'
 require 'pony'
 require 'haml'
+
+require 'rest-client'
+require 'httparty'
 
 ###############################################################################
 # Optional Requires (Not essential for base version)
@@ -187,6 +202,7 @@ class TheApp < Sinatra::Base
         query_results = $neo.execute_query("start n=node(*) return n limit 1")
         puts('[OK!] [3]  Graphene ' + query_results.to_s)
         @@services_available[:graphene] = true
+
       rescue Exception => e;  puts "[BAD] Neo4j config: #{e.message}";  end
     end
 
@@ -277,7 +293,7 @@ class TheApp < Sinatra::Base
         $t_client = Twilio::REST::Client.new(
           ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'] )
         $twilio_account = $t_client.account
-        puts "[OK!] [6]  Twilio Configured for: #{$twilio_account.outgoing_caller_ids.list.first.phone_number}"
+        puts "[OK!] [6]  Twilio Configured for: #{$twilio_account.incoming_phone_numbers.list.first.phone_number}"
         @@services_available[:twilio] = true
       rescue Exception => e;  puts "[BAD] Twilio config: #{e.message}";  end
     end
@@ -311,6 +327,23 @@ class TheApp < Sinatra::Base
       rescue Exception => e;  puts "[BAD] GoogleAPI config: #{e.message}";  end
     end
 
+    # remember to include rest-client in preparation for mailgun (!!!)
+    if ENV['MAILGUN_API_KEY'] && ENV['MAILGUN_DOMAIN']
+      begin
+        require 'rest-client'
+        require 'multimap'
+        puts 'Config block, mailgun section . . .'
+        puts "https://api:#{ENV['MAILGUN_API_KEY']}"\
+  	  "@api.mailgun.net/v2/samples.mailgun.org/messages"
+  	RestClient.post "https://api:#{ENV['MAILGUN_API_KEY']}"\
+  	  "@#{ENV['MAILGUN_DOMAIN']}",
+  	  :from => 'Mailgun Sandbox <postmaster@sandbox95142.mailgun.org>',
+  	  :to => "sracunas@gmail.com",
+  	  :subject => "Hello",
+  	  :text => "Testing Mailgun awesomness thanks to code from Ben!"
+      rescue Exception => e;  puts "[BAD] Mailgun test: #{e.message}";  end
+    end 
+
     # Access tokens from   https://www.dropbox.com/developers/core/start/ruby
     if ENV['DROPBOX_ACCESS_TOKEN']
       begin
@@ -318,6 +351,7 @@ class TheApp < Sinatra::Base
         $dropbox_handle = DropboxClient.new(ENV['DROPBOX_ACCESS_TOKEN'])
         puts '[OK!] [8]  Dropbox Client Configured'
         @@services_available[:dropbox] = true
+        puts '[OK!] [9]  Dropbox Client Configured'
       rescue Exception => e; puts "[BAD] Dropbox config: #{e.message}"; end
     end
 
@@ -335,7 +369,8 @@ class TheApp < Sinatra::Base
           :enable_starttls_auto => true
           }
         }
-        puts "[OK!] [9]  SendGrid Options Configured"
+
+        puts "[OK!] [10]  SendGrid Options Configured"
         @@services_available[:sendgrid] = true
       rescue Exception => e;  puts "[BAD] SendGrid config: #{e.message}";  end
     end
@@ -468,6 +503,40 @@ class TheApp < Sinatra::Base
     return {:questions => ["Is [your baby] ready to eat?", "How hungry do you think [your baby] is?", "What is telling you [your baby] needs to eat?", "How did you know [your baby] was finished?", "Did [your baby] eat enough at this feed?"]}.to_json
   end
 
+  # Shift to MongoDB when we have the time . . .  
+  # Also, think about if we would need to put this into TrueVault, and, 
+  #   how much of that would we want to do and when?
+
+  # Three types of data: text, audio, video
+  # There will be intro text, and different types of Yes and No  
+  # There may be a correct and an incorrect answer (T/F) 
+
+  # Screen Title, then: 
+  # Question text, audio clip / video poss.  a
+  # Text for the "True" button, text for the "False" button  
+  #  Where to go if you got it right (link)
+  #  Where to go if you get it wrong (link)
+
+  # For now let us just put something reasonable in json as an example
+
+  get '/example1.json' do
+
+    content_type :json
+    return {:question => ["Is there pain and swelling when you move your arm?"], :options => ["True", "False"], :correct_answer => "True", :if_correct_go => "http://serene-forest-4377.herokuapp.com/here", :if_wrong_go => "http://serene-forest-4377.herokuapp.com/there", :tags => ["Arm", "Pain", "Move", "Owies"]}.to_json
+
+  end 
+
+
+  # For now serve some static content from the default pub folder
+
+  get '/here' do
+    send_file File.join(settings.public_folder,'broken_arm.gif')
+  end
+
+  get '/there' do
+    send_file File.join(settings.public_folder,'looks_broken_but_sprained.jpg')
+  end
+
   get '/TestEO' do
     puts temperature = params['temperature']
     puts proximityRSSI = params['proximityRSSI']
@@ -505,7 +574,7 @@ class TheApp < Sinatra::Base
 
 
   #############################################################################
-  #                     Physical Environemnt Sensing
+  #             Other Physical Environment Sensing Examples
   #############################################################################
   #
   # Sensor can detect vibration, magnetic proximity and/or moisture
@@ -885,18 +954,50 @@ class TheApp < Sinatra::Base
 
 
   #############################################################################
-  # Free-Text Q&A
+  # Free-Text Q&A: Questions from patients
   #############################################################################
   get /\/c\/q[:,\s]*(?<question>).*/ix do
     puts "Got a FREETEXT Question to forward!!!"
 
-    q = params[:captures][0]
+    q_text = params[:captures][0]
 
-    puts q
+    # Store the question, originating phone number, and overall question ord
+    the_time_now = Time.now
+    question = {
+      'utc' => the_time_now.to_f,
+      'Who' => params['From'],
+      'What' => q_text,
+      'When' => the_time_now.strftime("%A %B %d at %I:%M %p")
+    }
+    puts DB['questions'].insert( question, {:w => 1} )
+    puts q_text
 
+
+    # Use some method to generate a unique Question ID, ideally just ordinal?
+    ordinal = 1
+    
+    # For now, put in a placeholder at q1 and don't increment it (yet)
+
+    # Also for now, put JOYCE_CELL == Steve_cell
+    JOYCE_CELL = '+17244489427'
+
+    fwd_text = 'M'+ordinal.to_s+': '+q_text
+
+    send_SMS_to(JOYCE_CELL, fwd_text)
   end #do get
 
+  #############################################################################
+  # Free-Text Q&A: Replies from Joyce
+  #############################################################################
+  get /\/c\/r(?<replytonum>\d*)[:]+[\s]+(?<replytext>\S.*)/ix do
+    puts "Got a FREETEXT Response from Joyce to forward!!!"
+    replytonum = params[:captures][0].to_i
+    replytext = params[:captures][1].to_s
 
+# Look up the ordinal in the db and send Joyce's reply the right phone num
+# description of how to use ordinal as primary key:
+#  http://docs.mongodb.org/manual/tutorial/create-an-auto-incrementing-field/
+  end #do get
 
 
   #############################################################################
