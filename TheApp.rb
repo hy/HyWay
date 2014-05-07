@@ -42,8 +42,8 @@ require 'sinatra/graph'
 require 'net/http'
 require 'uri'
 require 'json'
-
 require 'pony'
+require 'haml'
 
 ###############################################################################
 # Optional Requires (Not essential for base version)
@@ -101,6 +101,16 @@ class TheApp < Sinatra::Base
     puts '____________CONFIGURING FOR REMOTE SITE: ' + SITE + '____________'
   end
 
+  @@services_available = {:twitter => false,
+                         :graphene => false,
+                         :mongo => false,
+                         :redis => false,
+                         :twilio => false,
+                         :google => false,
+                         :dropbox => false,
+                         :sendgrid => false
+  }
+
   configure do
     begin
       PTS_FOR_BG = 10
@@ -151,7 +161,7 @@ class TheApp < Sinatra::Base
           config.access_token_secret = ENV['TWITTER_ACCESS_TOKEN_SECRET']
         end
         puts '[OK!] [2.2]  Twitter REST Client Configured'
-
+        @@services_available[:twitter] = true
       rescue Exception => e; puts "[BAD] Twitter config: #{e.message}"; end
     end
 
@@ -176,7 +186,7 @@ class TheApp < Sinatra::Base
 
         query_results = $neo.execute_query("start n=node(*) return n limit 1")
         puts('[OK!] [3]  Graphene ' + query_results.to_s)
-
+        @@services_available[:graphene] = true
       rescue Exception => e;  puts "[BAD] Neo4j config: #{e.message}";  end
     end
 
@@ -189,6 +199,7 @@ class TheApp < Sinatra::Base
         DB = CN.db
 
         puts("[OK!] [4]  Mongo Configured-via-URI #{CN.host_port} #{CN.auths}")
+        @@services_available[:mongo] = true
       rescue Exception => e;  puts "[BAD] Mongo config(1): #{e.message}";  end
     end
 
@@ -203,6 +214,7 @@ class TheApp < Sinatra::Base
         auth = DB.authenticate(ENV['MONGO_USER_ID'], ENV['MONGO_PASSWORD'])
 
         puts("[OK!] [4]  Mongo Connection Configured via separated env vars")
+        @@services_available[:mongo] = true
       rescue Exception => e  
         puts "[BAD] Mongo config(2): #{e.message}"
       end
@@ -219,6 +231,7 @@ class TheApp < Sinatra::Base
         client = Mongo::MongoClient.from_uri(mongo_uri)
         DB = client.db(db_name)
         puts("[OK!] [4]  Mongo Connection Configured via MongoLab environment variable")
+        @@services_available[:mongo] = true
       rescue Exception => e 
         puts "[BAD] Mongo config(3): #{e.message}"
       end
@@ -237,6 +250,7 @@ class TheApp < Sinatra::Base
         db_connection.authenticate(db.user, db.password) unless (db.user.nil? || db.user.nil?)
         DB = db_connection
         puts("[OK!] [4]  Mongo Connection Configured via MongoHQ environment variable")
+        @@services_available[:mongo] = true
       rescue Exception => e 
         puts "[BAD] Mongo config(3): #{e.message}"
       end
@@ -251,6 +265,7 @@ class TheApp < Sinatra::Base
         REDIS = Redis.new(:host => uri.host, :port => uri.port,
                           :password => uri.password)
         REDIS.set('CacheStatus', "[OK!] [5]  Redis #{uri}")
+        @@services_available[:redis] = true
         puts REDIS.get('CacheStatus')
       rescue Exception => e;  puts "[BAD] Redis config: #{e.message}";  end
     end
@@ -263,6 +278,7 @@ class TheApp < Sinatra::Base
           ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'] )
         $twilio_account = $t_client.account
         puts "[OK!] [6]  Twilio Configured for: #{$twilio_account.outgoing_caller_ids.list.first.phone_number}"
+        @@services_available[:twilio] = true
       rescue Exception => e;  puts "[BAD] Twilio config: #{e.message}";  end
     end
 
@@ -290,6 +306,7 @@ class TheApp < Sinatra::Base
 
         puts '[OK!] [7]  Google API Configured with Scope Including:'
         puts GClient.authorization.scope
+        @@services_available[:google] = true 
 
       rescue Exception => e;  puts "[BAD] GoogleAPI config: #{e.message}";  end
     end
@@ -300,6 +317,7 @@ class TheApp < Sinatra::Base
         require 'dropbox_sdk'
         $dropbox_handle = DropboxClient.new(ENV['DROPBOX_ACCESS_TOKEN'])
         puts '[OK!] [8]  Dropbox Client Configured'
+        @@services_available[:dropbox] = true
       rescue Exception => e; puts "[BAD] Dropbox config: #{e.message}"; end
     end
 
@@ -318,6 +336,7 @@ class TheApp < Sinatra::Base
           }
         }
         puts "[OK!] [9]  SendGrid Options Configured"
+        @@services_available[:sendgrid] = true
       rescue Exception => e;  puts "[BAD] SendGrid config: #{e.message}";  end
     end
 
@@ -429,6 +448,15 @@ class TheApp < Sinatra::Base
 
   get '/test' do
     'Server is up! '  
+  end
+
+  get '/services' do
+    response_string = ""
+    @@services_available.each do |service, status|
+      response_string = response_string + "#{service.to_s} is #{status ? 'up' : 'down' } <br>"
+    end  
+    #response_string
+    @@services_available.to_s
   end
 
   get '/sushi.json' do
