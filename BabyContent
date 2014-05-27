@@ -4,6 +4,8 @@ require 'bson'
 puts "Running Mongo loading script. . . "
 puts RUBY_VERSION
 
+
+# Start up a Mongo Connection from configs in local environment variable(s)
 CN = Mongo::Connection.new
 DB = CN.db
 
@@ -31,6 +33,7 @@ $baby_content_c = DB['baby_content']
 ## checkin-questions ##
 
 q = {
+  "URI" => "questions/readiness.json", 
   "ID" => "Is your baby ready to eat?",
   "type" => "checkin-question",
   "text" => "Is your baby ready to eat?", 
@@ -39,6 +42,7 @@ q = {
 $baby_content_c.insert(q)
 
 a = {
+  "URI" => "answers/readiness/yes.json", 
   "ID" => "Is your baby ready to eat?: Yes",
   "type" => "checkin-answer",
   "text" => "Yes", 
@@ -48,6 +52,7 @@ a = {
 $baby_content_c.insert(a)
 
 a = {
+  "URI" => "answers/readiness/no.json", 
   "ID" => "Is your baby ready to eat?: No",
   "type" => "checkin-answer",
   "text" => "No", 
@@ -59,6 +64,7 @@ $baby_content_c.insert(a)
 
 
 q = {
+  "URI" => "questions/hungriness.json", 
   "ID" => "How hungry to do you think your baby is?", 
   "type" => "checkin-question",
   "text" => "How hungry to do you think your baby is?", 
@@ -67,6 +73,7 @@ q = {
 $baby_content_c.insert(q)
 
 a = {
+  "URI" => "answers/hungriness/not.json", 
   "ID" => "How hungry to do you think your baby is?: Not hungry",
   "type" => "checkin-answer",
   "text" => "Not hungry", 
@@ -76,6 +83,7 @@ a = {
 $baby_content_c.insert(a)
 
 a = {
+  "URI" => "answers/hungriness/a_bit.json", 
   "ID" => "How hungry to do you think your baby is?: A bit hungry",
   "type" => "checkin-answer",
   "text" => "A bit hungry", 
@@ -85,6 +93,7 @@ a = {
 $baby_content_c.insert(a)
 
 a = {
+  "URI" => "answers/hungriness/hungry.json", 
   "ID" => "How hungry to do you think your baby is?: Hungry",
   "type" => "checkin-answer",
   "text" => "Hungry", 
@@ -94,6 +103,7 @@ a = {
 $baby_content_c.insert(a)
 
 a = {
+  "URI" => "answers/hungriness/very.json", 
   "ID" => "How hungry to do you think your baby is?: Very hungry",
   "type" => "checkin-answer",
   "text" => "Very hungry", 
@@ -103,6 +113,7 @@ a = {
 $baby_content_c.insert(a)
 
 a = {
+  "URI" => "answers/hungriness/extremely.json", 
   "ID" => "How hungry to do you think your baby is?: Extremely hungry",
   "type" => "checkin-answer",
   "text" => "Extremely hungry", 
@@ -114,6 +125,7 @@ $baby_content_c.insert(a)
 
 
 q = {
+  "URI" => "questions/cueing.json", 
   "ID" => "What is telling you your baby needs to eat?",
   "text" => "What is telling you your baby needs to eat?",
   "type" => "checkin-question",
@@ -122,6 +134,7 @@ q = {
 $baby_content_c.insert(q)
 
 a = {
+  "URI" => "answers/cueing/fussy.json", 
   "ID" => "What is telling you your baby needs to eat?: Fussy" ,
   "type" => "checkin-answer",
   "text" => "Fussy", 
@@ -131,6 +144,7 @@ a = {
 $baby_content_c.insert(a)
 
 a = {
+  "URI" => "answers/cueing/scheduled.json", 
   "ID" => "What is telling you your baby needs to eat?: Scheduled feed",
   "type" => "checkin-answer",
   "text" => "Scheduled feed", 
@@ -140,6 +154,7 @@ a = {
 $baby_content_c.insert(a)
 
 a = {
+  "URI" => "answers/cueing/mouthing.json", 
   "ID" => "What is telling you your baby needs to eat?: Mouthing",
   "type" => "checkin-answer",
   "text" => "Mouthing", 
@@ -149,6 +164,7 @@ a = {
 $baby_content_c.insert(a)
 
 a = {
+  "URI" => "answers/cueing/rooting.json", 
   "ID" => "What is telling you your baby needs to eat?: Rooting",
   "type" => "checkin-answer",
   "text" => "Rooting", 
@@ -158,6 +174,7 @@ a = {
 $baby_content_c.insert(a)
 
 a = {
+  "URI" => "answers/cueing/overstimulation.json", 
   "ID" => "What is telling you your baby needs to eat?: Over-stimulation",
   "type" => "checkin-answer",
   "text" => "Over-stimulation", 
@@ -167,6 +184,7 @@ a = {
 $baby_content_c.insert(a)
 
 a = {
+  "URI" => "answers/cueing/increased_mouthing.json", 
   "ID" => "What is telling you your baby needs to eat?: Increased mouthing",
   "type" => "checkin-answer",
   "text" => "Increased mouthing", 
@@ -176,6 +194,7 @@ a = {
 $baby_content_c.insert(a)
 
 a = {
+  "URI" => "answers/cueing/reaching.json", 
   "ID" => "What is telling you your baby needs to eat?: Reached for food",
   "type" => "checkin-answer",
   "text" => "Reached for food", 
@@ -185,6 +204,7 @@ a = {
 $baby_content_c.insert(a)
 
 a = {
+  "URI" => "answers/cueing/inferred.json", 
   "ID" => "What is telling you your baby needs to eat?: Ruled out other needs",
   "type" => "checkin-answer",
   "text" => "Ruled out other needs", 
@@ -195,6 +215,7 @@ $baby_content_c.insert(a)
 
 
 q = {
+  "URI" => "questions/finished.json", 
   "ID" => "How did you know your baby was finished?", 
   "type" => "checkin-question",
   "text" => "How did you know your baby was finished?",
@@ -203,6 +224,7 @@ q = {
 $baby_content_c.insert(q)
 
 a = {
+  "URI" => "answers/finished/detached.json", 
   "ID" => "How did you know your baby was finished?: Detached",
   "type" => "checkin-answer",
   "text" => "Detached", 
@@ -212,6 +234,7 @@ a = {
 $baby_content_c.insert(a)
 
 a = {
+  "URI" => "answers/finished/released.json", 
   "ID" => "How did you know your baby was finished?: Released",
   "type" => "checkin-answer",
   "text" => "Released", 
@@ -221,6 +244,7 @@ a = {
 $baby_content_c.insert(a)
 
 a = {
+  "URI" => "answers/finished/spit.json", 
   "ID" => "How did you know your baby was finished?: Spit",
   "type" => "checkin-answer",
   "text" => "Spit", 
@@ -230,6 +254,7 @@ a = {
 $baby_content_c.insert(a)
 
 a = {
+  "URI" => "answers/finished/stopped.json", 
   "ID" => "How did you know your baby was finished?: Stopped",
   "type" => "checkin-answer",
   "text" => "Stopped", 
@@ -239,6 +264,7 @@ a = {
 $baby_content_c.insert(a)
 
 a = {
+  "URI" => "answers/finished/refused.json", 
   "ID" => "How did you know your baby was finished?: Refused",
   "type" => "checkin-answer",
   "text" => "Refused", 
@@ -248,6 +274,7 @@ a = {
 $baby_content_c.insert(a)
 
 a = {
+  "URI" => "answers/finished/agitated.json", 
   "ID" => i"How did you know your baby was finished?: Agitated",
   "type" => "checkin-answer",
   "text" => "Agitated", 
@@ -257,6 +284,7 @@ a = {
 $baby_content_c.insert(a)
 
 a = {
+  "URI" => "answers/finished/closed_mouth.json", 
   "ID" => "How did you know your baby was finished?: Closed mouth",
   "type" => "checkin-answer",
   "text" => "Closed mouth", 
@@ -266,6 +294,7 @@ a = {
 $baby_content_c.insert(a)
 
 a = {
+  "URI" => "answers/finished/turned_away.json", 
   "ID" => "How did you know your baby was finished?: Turned away",
   "type" => "checkin-answer",
   "text" => "Turned away", 
@@ -275,6 +304,7 @@ a = {
 $baby_content_c.insert(a)
 
 a = {
+  "URI" => "answers/finished/pushed_away.json", 
   "ID" => "How did you know your baby was finished?: Pushed food away",
   "type" => "checkin-answer",
   "text" => "Pushed food away", 
@@ -284,6 +314,7 @@ a = {
 $baby_content_c.insert(a)
 
 a = {
+  "URI" => "answers/finished/empty_bottle.json", 
   "ID" => "How did you know your baby was finished?: Finished bottle",
   "type" => "checkin-answer",
   "text" => "Finished bottle", 
@@ -294,6 +325,7 @@ $baby_content_c.insert(a)
 
 
 q = {
+  "URI" => "questions/enough.json", 
   "ID" => "Did your baby eat enough at this feed?", 
   "type" => "checkin-question",
   "text" => "Did your baby eat enough at this feed?",
@@ -302,6 +334,7 @@ q = {
 $baby_content_c.insert(q)
 
 a = {
+  "URI" => "questions/enough/yes.json", 
   "ID" => "Did your baby eat enough at this feed?: Yes",
   "type" => "checkin-answer",
   "text" => "Yes", 
@@ -311,6 +344,7 @@ a = {
 $baby_content_c.insert(a)
 
 a = {
+  "URI" => "questions/enough/no.json", 
   "ID" => "Did your baby eat enough at this feed?: No",
   "type" => "checkin-answer",
   "text" => "No", 
