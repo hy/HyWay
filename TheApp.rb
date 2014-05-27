@@ -1,3 +1,17 @@
+# Cautionary Note:
+
+# In May 2014, a gem was pulled, leading to: 
+#        Could not find jwt-0.1.12 in any of the sources
+# !
+# !     Failed to install gems via Bundler.
+# !
+
+# Explanation of what happened and how to fix: (specify old version in gemfile)
+# http://stackoverflow.com/questions/23526673/cannot-push-to-heroku-bundler-fails
+
+
+
+
 # TODO List:
 
 # [--] http://www.wooptoot.com/file-upload-with-sinatra
