@@ -1,9 +1,9 @@
 require 'mongo'
 require 'bson'
 
+
 puts "Running Mongo loading script. . . "
 puts RUBY_VERSION
-
 
 # Start up a Mongo Connection from configs in local environment variable(s)
 CN = Mongo::Connection.new
@@ -17,7 +17,7 @@ DB['baby_content'].remove
 $baby_content_c = DB['baby_content']
 
 
-## Educational Content ##
+## Educational Content Starts Here ##
 
 c = {
   "URI" => "content/cueing.json",
@@ -27,6 +27,16 @@ c = {
   "version" => 1
 }
 $baby_content_c.insert(c)
+
+c = {
+  "URI" => "content/cueing.json",
+  "ID" => "Infant cueing behavior examples",
+  "type" => "video",
+  "text" => "Infant cueing behavior examples",
+  "version" => 1
+}
+$baby_content_c.insert(c)
+
 
 
 
@@ -381,7 +391,7 @@ $baby_content_c.insert(a)
 
 a = {
   "URI" => "answers/finished/agitated.json", 
-  "ID" => i"How did you know your baby was finished?: Agitated",
+  "ID" => "How did you know your baby was finished?: Agitated",
   "type" => "checkin-answer",
   "text" => "Agitated", 
   "from" => "How did you know your baby was finished?", 
