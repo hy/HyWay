@@ -1,3 +1,8 @@
+
+# REST endpoint to fetch all of Vascular:
+#  http://serene-forest-4377.herokuapp.com/vascular_meta
+
+
 # Cautionary Note:
 
 # In May 2014, a gem was pulled, leading to: 
@@ -9,7 +14,7 @@
 # Explanation of what happened and how to fix: (specify old version in gemfile)
 # http://stackoverflow.com/questions/23526673/cannot-push-to-heroku-bundler-fails
 
-
+# http://www.sitepoint.com/uno-use-sinatra-implement-rest-api/
 
 
 # TODO List:
@@ -515,7 +520,7 @@ class TheApp < Sinatra::Base
 
     ## If asked for a chapter, serve that content    
     if params.has_key?('Chapter') 
-      search_clause = { 'chapter' => params['Chapter'] }
+      search_clause = { 'chapter' => params['Chapter'].to_i }
 
       count = DB['vascular_meta'].find(search_clause).count
       puts "Number of pieces of data to return:" + count.to_s
