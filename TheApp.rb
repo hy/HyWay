@@ -517,7 +517,7 @@ class TheApp < Sinatra::Base
       search_clause = { 'chapter' => params['Chapter'] }
 
       count = DB['vascular_meta'].find(search_clause).count
-      puts "Number of pieces of data to return:" + count
+      puts "Number of pieces of data to return:" + count.to_s
 
       if count == 0
         return_message[:status] = 'Very Sorry - that one does not (yet) exist'
