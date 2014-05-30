@@ -535,13 +535,23 @@ class TheApp < Sinatra::Base
       end
     end #if has_key Chapter
 
-
     ## If not asked for a chapter, serve everything   
     count = DB['vascular_meta'].find().count
     puts "Number of pieces of data to return:" + count.to_s
 
-    puts "Number of pieces of data to return:" + count.to_s
-
+      if count == 0
+        return_message[:status] = 'Very Sorry - that one does not (yet) exist'
+        return_message[:data] = []
+      else
+        return_message[:status] == 'success'
+          cursor = DB['vascular_meta'].find()
+          results_a = Array.new
+          cursor.each{ |d|
+            results_a.push(d)
+          }
+        return_message[:data] = results_a
+        puts "Data to return:" + results_a.to_s
+      end
 
     return_message.to_json 
   end #get vascular metadata
