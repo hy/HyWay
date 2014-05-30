@@ -517,9 +517,10 @@ class TheApp < Sinatra::Base
       search_clause = { 'chapter' => params['Chapter'] }
 
       count = DB['vascular_meta'].find(search_clause).count
+      puts "Number of pieces of data to return:" + count
 
       if count == 0
-        return_message[:status] = 'sorry - that content is not ready'
+        return_message[:status] = 'Very Sorry - that one does not (yet) exist'
         return_message[:data] = [] 
       else
         return_message[:status] == 'success'
@@ -529,8 +530,8 @@ class TheApp < Sinatra::Base
             results_a.push(d)
           }
         return_message[:data] = results_a
+        puts "Data to return:" + results_a.to_s
       end
-
     end #if has_key Chapter
 
     return_message.to_json 
