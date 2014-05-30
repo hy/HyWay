@@ -514,7 +514,7 @@ class TheApp < Sinatra::Base
     return_message = {} 
     
     if params.has_key?('Chapter') 
-      search_clause = { 'chapter'=params['Chapter'] }
+      search_clause = { 'chapter' => params['Chapter'] }
 
       count = DB['vascular_meta'].find(search_clause).count
 
