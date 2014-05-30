@@ -510,20 +510,31 @@ class TheApp < Sinatra::Base
 
 ## Quick and Dirty REST endpoint for Vascular Content development . . . 
 
-  get '/cards' do
+  get '/vascular_meta' do
     return_message = {} 
-    if params.has_key?('name') 
-      cards = uno.get_cards(params['name']) 
-      if cards.class == Array
+    
+    if params.has_key?('Chapter') 
+
+      search_clause = { :chapter=>1, :condition=>1 }
+      count = DB['vascular_meta'].find(search_clause).count
+
+      cursor = DB['checkins'].find(search_clause)
+      results_a = Array.new
+      cursor.each{ |d|
+        results_a.push(d)
+      }
+
+      if count != 0
         return_message[:status] == 'success'
-        return_message[:cards] = cards 
+        return_message[:data] = d 
       else
         return_message[:status] = 'sorry - that content is not ready'
-        return_message[:cards] = [] 
+        return_message[:data] = [] 
       end
-    end
+    end #if has_key Chapter
+
     return_message.to_json 
-  end
+  end #get vascular metadata
  
 
   get '/sushi.json' do
