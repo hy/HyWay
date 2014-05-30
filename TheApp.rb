@@ -512,7 +512,8 @@ class TheApp < Sinatra::Base
 
   get '/vascular_meta' do
     return_message = {} 
-    
+
+    ## If asked for a chapter, serve that content    
     if params.has_key?('Chapter') 
       search_clause = { 'chapter' => params['Chapter'] }
 
@@ -533,6 +534,14 @@ class TheApp < Sinatra::Base
         puts "Data to return:" + results_a.to_s
       end
     end #if has_key Chapter
+
+
+    ## If not asked for a chapter, serve everything   
+    count = DB['vascular_meta'].find().count
+    puts "Number of pieces of data to return:" + count.to_s
+
+    puts "Number of pieces of data to return:" + count.to_s
+
 
     return_message.to_json 
   end #get vascular metadata
