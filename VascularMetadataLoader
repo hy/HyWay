@@ -299,7 +299,7 @@ $vascular_c.insert(d); d = {"tags" => ["vascular", "basics"], "module" => 3, "le
 
 $vascular_c.insert(d); d = {"tags" => ["vascular", "basics"], "module" => 4, "lesson" => 1, "chapter"=>3, "condition"=>1, "title_text"=>"Exercises at Home", "video"=>"VascularContent/Video/homeexercises.mp4", "formatting"=> "video", "order_to_present"=>1, "id"=>1000115 }
 
-$vascular_c.insert(d); d = { "title_text"=> "Lesson 2: Safety During Exercise",  "lessonbutton_text"=> ["Limitations", "Limits T/F", "Pulse", "Overexertion"], "lessonbutton_image"=> [ "VascularContent/Images/limitationsL.png", "VascularContent/Images/limitstfL.png", "VascularContent/Images/pulseL.png", "VascularContent/Images/overexertionL.png" ], "formatting"=> "lesson_screen", "lesson" => 2, "chapter"=>3, "condition"=> 1, "id"=>1000282 }
+$vascular_c.insert(d); d = { "title_text"=> "Lesson 2: Safety During Exercise", "lessonbutton_text"=> ["Limitations", "Limits T/F", "Pulse", "Overexertion"], "lessonbutton_image"=> [ "VascularContent/Images/limitationsL.png", "VascularContent/Images/limitstfL.png", "VascularContent/Images/pulseL.png", "VascularContent/Images/overexertionL.png" ], "formatting"=> "lesson_screen", "lesson" => 2, "chapter"=>3, "condition"=> 1, "id"=>1000282 }
 
 
 $vascular_c.insert(d); d = {"tags" => ["vascular", "basics"], "module" => 1, "lesson" => 2, "chapter"=>3, "condition"=>1, "title_text"=>"Limitations in Activities After Surgery", "video"=> "VascularContent/Video/activitylimitation.mp4", "formatting"=> "video", "order_to_present"=>1, "id"=>1000116 }
