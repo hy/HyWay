@@ -507,6 +507,25 @@ class TheApp < Sinatra::Base
     response_string
   end
 
+
+## Quick and Dirty REST endpoint for Vascular Content development . . . 
+
+  get '/cards' do
+    return_message = {} 
+    if params.has_key?('name') 
+      cards = uno.get_cards(params['name']) 
+      if cards.class == Array
+        return_message[:status] == 'success'
+        return_message[:cards] = cards 
+      else
+        return_message[:status] = 'sorry - that content is not ready'
+        return_message[:cards] = [] 
+      end
+    end
+    return_message.to_json 
+  end
+ 
+
   get '/sushi.json' do
     content_type :json
     return {:sushi => ["Maguro", "Hamachi", "Uni", "Saba", "Ebi", "Sake", "Tai"]}.to_json
