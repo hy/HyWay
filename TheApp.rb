@@ -1,7 +1,6 @@
 
 # REST endpoint to fetch all of Vascular:
 #  http://serene-forest-4377.herokuapp.com/vascular_meta
-#  http://serene-forest-4377.herokuapp.com/vascular_meta?Chapter=1
 
 # http://stackoverflow.com/questions/936249/stop-tracking-and-ignore-changes-to-a-file-in-git
 
@@ -532,17 +531,16 @@ class TheApp < Sinatra::Base
       puts "Number of pieces of data to return:" + count.to_s
 
       if count == 0
-        return_message[:status] = 'Very Sorry - that one does not (yet) exist'
         return_message[:data] = [] 
+        return_message[:status] = 'Very Sorry - that one does not (yet) exist'
       else
-        return_message[:status] == 'success'
-          cursor = DB['vascular_meta'].find(search_clause)
-          results_a = Array.new
-          cursor.each{ |d|
-            results_a.push(d)
-          }
+        cursor = DB['vascular_meta'].find(search_clause)
+        results_a = Array.new
+        cursor.each{ |d|
+          results_a.push(d)
+        }
         return_message[:data] = results_a
-        puts "Data to return:" + results_a.to_s
+        return_message[:status] = 'success'
       end
 
     return_message.to_json 
