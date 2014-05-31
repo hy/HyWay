@@ -4,6 +4,11 @@
 #  http://serene-forest-4377.herokuapp.com/vascular_meta?Chapter=1
 
 
+# Vascular data dump to JSON array . . . 
+
+# ./mongoexport --host dharma.mongohq.com:10070 -u sracunas -p mtbogh -d latest -c vascular_meta --jsonArray > ~/Dropbox/HyWay/vascular_dump_jArray
+
+
 # Cautionary Note:
 
 # In May 2014, a gem was pulled, leading to: 
