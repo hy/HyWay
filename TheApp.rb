@@ -8,6 +8,8 @@
 
 # ./mongoexport --host dharma.mongohq.com:10070 -u sracunas -p mtbogh -d latest -c vascular_meta --jsonArray > ~/Dropbox/HyWay/static/vascular_dump_jArray
 
+# ./mongoexport --host dharma.mongohq.com:10070 -u sracunas -p mtbogh -d latest -c vascular_meta > ~/Dropbox/HyWay/static/vascular_dump
+
 
 # Cautionary Note:
 
@@ -519,20 +521,21 @@ class TheApp < Sinatra::Base
   end
 
 
-## Quick and Dirty REST endpoint for Vascular Content development . . . 
+## Quick-and-Simple REST endpoint for Vascular Content development . . . 
 
   get '/vascular_meta' do
     return_message = {} 
 
     ## If asked for a chapter, serve that content    
       search_clause = params
+      search_command = "DB['vascular_meta'].find(#{search_clause})"
 
       count = DB['vascular_meta'].find(search_clause).count
       puts "Number of pieces of data to return:" + count.to_s
 
       if count == 0
         return_message[:data] = [] 
-        return_message[:status] = 'Very Sorry - that one does not (yet) exist'
+        return_message[:status] = "Very Sorry: #{search_command} found nothing"
       else
         cursor = DB['vascular_meta'].find(search_clause)
         results_a = Array.new
@@ -540,7 +543,7 @@ class TheApp < Sinatra::Base
           results_a.push(d)
         }
         return_message[:data] = results_a
-        return_message[:status] = 'success'
+        return_message[:status] = "OK!: #{search_command} found #{count} items" 
       end
 
     return_message.to_json 
