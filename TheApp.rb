@@ -520,7 +520,6 @@ class TheApp < Sinatra::Base
     return_message = {} 
 
     ## If asked for a chapter, serve that content    
-    if params.has_key?('Chapter') 
       search_clause = params
 
       count = DB['vascular_meta'].find(search_clause).count
@@ -532,25 +531,6 @@ class TheApp < Sinatra::Base
       else
         return_message[:status] == 'success'
           cursor = DB['vascular_meta'].find(search_clause)
-          results_a = Array.new
-          cursor.each{ |d|
-            results_a.push(d)
-          }
-        return_message[:data] = results_a
-        puts "Data to return:" + results_a.to_s
-      end
-    end #if has_key Chapter
-
-    ## If not asked for a chapter, serve everything   
-    count = DB['vascular_meta'].find().count
-    puts "Number of pieces of data to return:" + count.to_s
-
-      if count == 0
-        return_message[:status] = 'Very Sorry - that one does not (yet) exist'
-        return_message[:data] = []
-      else
-        return_message[:status] == 'success'
-          cursor = DB['vascular_meta'].find()
           results_a = Array.new
           cursor.each{ |d|
             results_a.push(d)
