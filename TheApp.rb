@@ -6,7 +6,7 @@
 
 # Vascular data dump to JSON array . . . 
 
-# ./mongoexport --host dharma.mongohq.com:10070 -u sracunas -p mtbogh -d latest -c vascular_meta --jsonArray > ~/Dropbox/HyWay/vascular_dump_jArray
+# ./mongoexport --host dharma.mongohq.com:10070 -u sracunas -p mtbogh -d latest -c vascular_meta --jsonArray > ~/Dropbox/HyWay/static/vascular_dump_jArray
 
 
 # Cautionary Note:
