@@ -1,6 +1,7 @@
 
 # REST endpoint to fetch all of Vascular:
 #  http://serene-forest-4377.herokuapp.com/vascular_meta
+#  http://serene-forest-4377.herokuapp.com/vascular_meta?Chapter=1
 
 
 # Cautionary Note:
@@ -520,7 +521,7 @@ class TheApp < Sinatra::Base
 
     ## If asked for a chapter, serve that content    
     if params.has_key?('Chapter') 
-      search_clause = { 'chapter' => params['Chapter'].to_i }
+      search_clause = { params }
 
       count = DB['vascular_meta'].find(search_clause).count
       puts "Number of pieces of data to return:" + count.to_s
