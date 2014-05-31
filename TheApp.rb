@@ -521,7 +521,7 @@ class TheApp < Sinatra::Base
 
     ## If asked for a chapter, serve that content    
     if params.has_key?('Chapter') 
-      search_clause = { params }
+      search_clause = params
 
       count = DB['vascular_meta'].find(search_clause).count
       puts "Number of pieces of data to return:" + count.to_s
