@@ -2,6 +2,10 @@ require 'mongo'
 require 'bson'
 
 
+# As an alternative and to streamline, switch to mongoexport / mongoimport ?
+
+
+
 puts "Running Mongo loading script. . . "
 puts RUBY_VERSION
 
