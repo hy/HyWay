@@ -1523,7 +1523,7 @@ class TheApp < Sinatra::Base
   # etc. and just update the glucose lvl value to '123' 
   #
   #############################################################################
-  get /\/c\/!(?<whole>\d{1,3})\.?(?<fraction>\d{0,9})?!/ do |whole,fraction|
+  get /\/c\/!(?<whole>\d*)\.?(?<fraction>\d{0,9})?!/ do |whole,fraction|
     puts where = 'TYPO CORRECTION ROUTE'
 
     begin
@@ -2468,6 +2468,7 @@ class TheApp < Sinatra::Base
 
       reply_via_SMS(msg)
     end #def
+
 
     ###########################################################################
     # Helper: Typo Deletion (a.k.a. A "Backspace Key")
