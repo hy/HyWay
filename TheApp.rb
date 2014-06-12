@@ -1761,6 +1761,8 @@ class TheApp < Sinatra::Base
     flavor_s = params[:captures][0]
     value_f = Float( params[:captures][1] )
 
+    puts "Logging a checkin of arbitrary / unknown type . . . "
+
     handle_checkin(value_f, flavor_s)
   end #do get
 
