@@ -2527,15 +2527,15 @@ class TheApp < Sinatra::Base
         id = db_record['_id']
 
         if (db_record['mg']!=nil)
-          msg = 'Updating last sugar checkin to:'+new_f.to_s
+          msg = 'Updating last sugar checkin to: '+new_f.to_s
           DB['checkins'].update({'_id' => id},
                             {"$set" => {'mg' => new_f}})
         elsif (db_record['units']!=nil)
-          msg = 'Updating last insulin checkin to:'+new_f.to_s
+          msg = 'Updating last insulin checkin to: '+new_f.to_s
           DB['checkins'].update({'_id' => id},
                             {"$set" => {'units' => new_f}})
         elsif (db_record['g']!=nil)
-          msg = 'Updating last carb checkin to:'+new_f.to_s
+          msg = 'Updating last carb checkin to: '+new_f.to_s
           DB['checkins'].update({'_id' => id},
                             {"$set" => {'g' => new_f}})
         else
