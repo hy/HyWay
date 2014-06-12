@@ -552,18 +552,18 @@ class TheApp < Sinatra::Base
   get '/all_vascular_meta' do
     return_message = {}
 
-      search_command = "DB['vascular_meta'].find()"
+    search_command = "DB['vascular_meta'].find()"
 
-      count = DB['vascular_meta'].find(search_clause).count
-      puts "Number of pieces of data to return:" + count.to_s
+    count = DB['vascular_meta'].find().count
+    puts "Number of pieces of data to return:" + count.to_s
 
-        cursor = DB['vascular_meta'].find(search_clause)
-        results_a = Array.new
-        cursor.each{ |d|
-          results_a.push(d)
-        }
-        return_message[:data] = results_a
-        return_message[:status] = "OK!: #{search_command} found #{count} items"
+    cursor = DB['vascular_meta'].find()
+    results_a = Array.new
+    cursor.each{ |d|
+      results_a.push(d)
+    }
+    return_message[:data] = results_a
+    return_message[:status] = "OK!: #{search_command} found #{count} items"
 
     return_message.to_json
   end #get all vascular metadata
