@@ -1212,7 +1212,7 @@ class TheApp < Sinatra::Base
   # forward them the approp. content. . .
   #
   #############################################################################
-  get /\/c\/help/x do
+  get /\/c\/(help|instructions)/x do
 
     p_msg = 'HELP TOPICS: text Checkins, Config, or Feedback for info on each.'
 
