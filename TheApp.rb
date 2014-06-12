@@ -1453,7 +1453,7 @@ class TheApp < Sinatra::Base
     reply_via_SMS( score_s )
   end #do get
 
-  get '/c/week*' do
+  get '/c/(recent|week|weekly|history)' do
     puts "WEEKLY REPORTING ROUTE"
     patient_ph_num = patient_ph_num_assoc_wi_caller
     summary = weekly_summary_for( patient_ph_num ) 
