@@ -1507,6 +1507,32 @@ class TheApp < Sinatra::Base
   end #do get
 
 
+
+  #############################################################################
+  # "Backspace" over previous Check-In
+  #############################################################################
+  #
+  # In case the user has made a typo and catches the error from the
+  # confirmation text, we supply a mechanism to delete the typo in the db
+  #
+  # Text in "no!" to delete the last checkin 
+  #
+  #############################################################################
+  get /\/c\/(no!|oops!)/ do
+    puts where = 'TYPO DELETION ROUTE'
+
+    begin
+
+      delete_last_checkin()
+
+    rescue Exception => e
+      reply_via_SMS('SMS not quite right for typo deletion:'+params['Body'])
+      log_exception(e, where)
+    end
+
+  end #do get
+
+
   #############################################################################
   # Revise Check-In
   #############################################################################
@@ -2461,6 +2487,40 @@ class TheApp < Sinatra::Base
 
     rescue Exception => e
       msg = 'Unable to log carbs'
+      log_exception( e, where )
+    end
+
+      reply_via_SMS(msg)
+    end #def
+
+    ###########################################################################
+    # Helper: Typo Deletion (a.k.a. A "Backspace Key")
+    # If the user notices a typo immediately, we can correct the prior number
+    ###########################################################################
+    def delete_last_checkin()
+    puts where = 'delete_last_checkin'
+    begin
+      db_cursor = DB['checkins'].find({'ID' => params['From']})
+      db_record = db_cursor.sort('utc' => -1).limit(1).first
+
+      if (db_record==nil)
+
+        msg = 'No checkins yet, or all checkins have been deleted.'
+
+      else
+
+        DB['checkins'].remove({ '_id' => db_record['_id'] })
+
+        if (db_record['What'] == nil)
+          msg = 'Removing last checkin!'
+        else
+          msg = 'Removing last checkin: '+db_record['What'].to_s
+        end #if
+
+      end #if
+
+    rescue Exception => e
+      msg = 'Unable to log backspace-type removal of last checkin'
       log_exception( e, where )
     end
 
