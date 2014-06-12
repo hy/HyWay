@@ -1025,7 +1025,11 @@ class TheApp < Sinatra::Base
 
   get '/c/hello*' do
     puts "GREETINGS ROUTE"
-    send_SMS_to( params['From'], 'Hello, and Welcome!' )
+    msg = 'Hello, and Welcome!'
+    msg += ' (All data sent or received is public domain.)'
+    msg += ' Text help to this number if you are new!'
+   
+    send_SMS_to( params['From'], msg )
   end #do get
 
 
