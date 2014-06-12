@@ -548,6 +548,25 @@ class TheApp < Sinatra::Base
 
     return_message.to_json 
   end #get vascular metadata
+
+  get '/all_vascular_meta' do
+    return_message = {}
+
+      search_command = "DB['vascular_meta'].find()"
+
+      count = DB['vascular_meta'].find(search_clause).count
+      puts "Number of pieces of data to return:" + count.to_s
+
+        cursor = DB['vascular_meta'].find(search_clause)
+        results_a = Array.new
+        cursor.each{ |d|
+          results_a.push(d)
+        }
+        return_message[:data] = results_a
+        return_message[:status] = "OK!: #{search_command} found #{count} items"
+
+    return_message.to_json
+  end #get all vascular metadata
  
 
   get '/sushi.json' do
@@ -1583,7 +1602,7 @@ class TheApp < Sinatra::Base
   #############################################################################
   # Receive blood sugar checkin (precision-regex method)
   #############################################################################
-  get /\/c\/b?g?(lucose)?[:,\s]*(?<is>\d{2,3})[:,\s]*(?<at>\D*)\z/ix do
+  get /\/c\/(mg|b)?g?(lucose)?[:,\s]*(?<is>\d{2,3})[:,\s]*(?<at>\D*)\z/ix do
     puts where = 'BLOOD SUGAR CHECKIN REGEX ROUTE'
 
     begin
