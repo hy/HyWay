@@ -1518,7 +1518,7 @@ class TheApp < Sinatra::Base
   # Text in "no!" to delete the last checkin 
   #
   #############################################################################
-  get /\/c\/(no!|oops!)/ do
+  get /\/c\/(no!|oops!|wrong!|argh!)/ do
     puts where = 'TYPO DELETION ROUTE'
 
     begin
@@ -2858,7 +2858,7 @@ class TheApp < Sinatra::Base
       msg += "%.1f units insulin/day" % ave_insulin
 
     rescue Exception => e
-      msg += ' Cannot complete week-summary yet'
+      msg += ' Not enough for a trend yet'
       log_exception( e, where )
     end
 
