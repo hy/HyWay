@@ -1460,30 +1460,7 @@ class TheApp < Sinatra::Base
     reply_via_SMS(summary)
   end #do get
 
-  get '/c/check' do
-    puts "LAST CHECKIN ROUTE, CHECK-as-keyword"
-
-    patient_ph_num = patient_ph_num_assoc_wi_caller
-    last_level = last_glucose_lvl_for(patient_ph_num)
-
-    msg = 'Glucose: '
-    if (last_level == nil)
-      msg += 'not yet reported (no checkins yet)'
-      @number_as_string = 'not yet '
-      @time_of_last_checkin = 'reported. '
-    else
-      @level = last_level['mg']
-      interval_in_hours = (Time.now.to_f - last_level['utc']) / ONE_HOUR
-      @time_of_last_checkin = speakable_hour_interval_for( interval_in_hours )
-      msg += @level.to_s
-      msg += ', '
-      msg += @time_of_last_checkin
-    end #if
-
-    reply_via_SMS(msg)
-  end #do get
-
-  get '/c/last' do
+  get /\/c\/(check|last|latest)/ do
     puts "LAST CHECKIN ROUTE"
 
     patient_ph_num = patient_ph_num_assoc_wi_caller
@@ -1499,13 +1476,12 @@ class TheApp < Sinatra::Base
       interval_in_hours = (Time.now.to_f - last_level['utc']) / ONE_HOUR
       @time_of_last_checkin = speakable_hour_interval_for( interval_in_hours )
       msg += @level.to_s
-      msg += ', '
+      msg += ' - '
       msg += @time_of_last_checkin
     end #if
 
     reply_via_SMS(msg)
   end #do get
-
 
 
   #############################################################################
