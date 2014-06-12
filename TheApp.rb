@@ -1230,14 +1230,14 @@ class TheApp < Sinatra::Base
 
 
   get /\/c\/(help)?config/x do
-    msg_for_patient = 'alarm5 = set reminder at 5 hours; +16505551212 = add caregiver at that ph num; info = check settings'
+    msg_for_patient = '+16505551212 = add caregiver at that ph num; info = check settings'
 
     reply_via_SMS( msg_for_patient )
   end # Config help
 
 
   get /\/c\/(help)?feedback/x do
-    msg_for_patient = 'Have unanswered questions or comments? Text/call 650-275-2901 and leave a message!'
+    msg_for_patient = 'Have unanswered questions or comments? Text/call +1 724 448-9427 and leave a message!'
 
     reply_via_SMS( msg_for_patient )
   end # Feedback help
