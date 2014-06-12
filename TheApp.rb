@@ -1087,6 +1087,8 @@ class TheApp < Sinatra::Base
     link += '&'
     link += 'flavor=' + CGI::escape( flavor.downcase )
 
+    puts "Preparing user-generated plot . . . "
+
     msg = "Link to your plot: " + link
     send_SMS_to( params['From'], msg )
   end #do get
@@ -1277,7 +1279,7 @@ class TheApp < Sinatra::Base
       msg = 'Phone Number should be of the form: +16505551234'
     else
       DB['checkins'].remove({'ID' => authorization_string})
-      msg = 'Wiped out checkin history for: '+authorization_string
+      msg = 'Erased checkin history for: '+authorization_string
     end
 
   rescue Exception => e
@@ -2316,13 +2318,13 @@ class TheApp < Sinatra::Base
             }
       DB['checkins'].insert(doc)
 
-      msg = 'Thanks! Got:' +mgdl.floor.to_s+' mg/dL'
-      msg += ' for your '+when_s+' checkin' 
+      msg = 'Thanks! Got ' +mgdl.floor.to_s+' mg/dL'
+      msg += ' for your checkin!' 
       msg += ' (+' + pts.to_s + ' pts!)'
 
       if ((mgdl > hi)&&(last_g!=nil))
        if ((last_g['mg'] > hi) && (last_g['utc'] > @now_f-5*ONE_HOUR)) 
-        msg += ' Hm, >'+hi.to_s+' 2X in a row, maybe check ketones?' 
+        msg += ' Hm, 2 highs in a row, maybe check ketones?' 
         msg_all_caregivers( 'Last 2 checkins high, latest = ' + mgdl.to_s )
        end
       elsif (mgdl < lo)
