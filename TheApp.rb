@@ -1273,7 +1273,7 @@ class TheApp < Sinatra::Base
   #############################################################################
   # Delete all checkin data for this user in the system
   #############################################################################
-  get /\/c\/delete/ do
+  get /\/c\/(delete|clear|clearalldata)/ do
   puts 'DELETE ROUTE'
 
   begin
