@@ -1843,7 +1843,7 @@ class TheApp < Sinatra::Base
     # Logging Helpers
     ###########################################################################
     def log_exception( e, where = 'unspecified' )
-      here = "HELPER: " + (__method__).to_s 
+      where = "HELPER: " + (__method__).to_s 
       begin
         puts ' --> LOGGING AN EXCEPTION FROM: --> ' + where
         puts e.message
@@ -1988,6 +1988,8 @@ class TheApp < Sinatra::Base
     # Helper: Speakble Time (usage: speakable_time_for( Time.now )
     ###########################################################################
     def speakable_time_for( time )
+      where = 'HELPER: ' + (__method__).to_s
+
       return time.strftime("%A %B %d at %I:%M %p")
     end #def
 
@@ -2033,7 +2035,7 @@ class TheApp < Sinatra::Base
     # Twilio-Specific 'Macro'-style Helper: Send SMS to a number
     ###########################################################################
     def send_SMS_to( number, msg )
-      where = 'HELPER: ' + (__method__).to_s 
+    where = 'HELPER: ' + (__method__).to_s 
       begin
         puts "ATTEMPT TO SMS TO BAD NUMBER" if number.match(/\+1\d{10}\z/)==nil
 
@@ -2052,7 +2054,7 @@ class TheApp < Sinatra::Base
     # Twilio-Specific 'Macro'-style Helper: Send SMS back to caller
     ###########################################################################
     def reply_via_SMS( msg )
-      where = 'HELPER: ' + (__method__).to_s
+    where = 'HELPER: ' + (__method__).to_s
       begin
         @message = $twilio_account.sms.messages.create({
               :from => ENV['TWILIO_CALLER_ID'],
@@ -2069,7 +2071,7 @@ class TheApp < Sinatra::Base
     # Twilio-Specific 'Macro'-style Helper: Dial out to a number
     ###########################################################################
     def dial_out_to( number_to_call, route_to_execute )
-      where = 'HELPER: ' + (__method__).to_s 
+    where = 'HELPER: ' + (__method__).to_s 
       begin
         @call = $twilio_account.calls.create({
               :from => ENV['TWILIO_CALLER_ID'],
@@ -2086,7 +2088,7 @@ class TheApp < Sinatra::Base
     # App-Specific 'Macro'-style Helper: Schedule a text-back to a num
     ###########################################################################
     def schedule_textback_to( number_to_call )
-      where = 'HELPER: ' + (__method__).to_s 
+    where = 'HELPER: ' + (__method__).to_s 
     begin
       doc = {
        'ID' => params['From'],
@@ -2106,7 +2108,7 @@ class TheApp < Sinatra::Base
     # App-Specific Helper: Reset Alarm Timer for a ph_num (NOT NOW USED)
     ###########################################################################
     def reset_alarm_timer_for( ph_num )
-    where = 'alarm reset helper'
+    where = 'HELPER: ' + (__method__).to_s
     begin
       doc = DB['people'].find_one({'_id' => ph_num })
       doc['strikes'] = 0
@@ -2127,6 +2129,8 @@ class TheApp < Sinatra::Base
     # If no mapping exists, assume caller IS (or is-to-be) a patient...
     ###########################################################################
     def patient_ph_num_assoc_wi_caller
+    where = 'HELPER: ' + (__method__).to_s
+
       map_to = DB['groups'].find_one('CaregiverID' => params['From']) 
 
       patient_ph_num = params['From'] if (map_to==nil)
@@ -2139,6 +2143,8 @@ class TheApp < Sinatra::Base
     # Helper: Message entire care team
     ###########################################################################
     def msg_all_caregivers (msg)
+    where = 'HELPER: ' + (__method__).to_s
+
       mapped_to = DB['groups'].find({ 'PatientID' => params['From'], 
                                       'CaregiverID' => {'$exists' => true} })
       mapped_to.each do |r|
@@ -2152,6 +2158,8 @@ class TheApp < Sinatra::Base
     # Helper: Globally message ALL caregivers in the study
     ###########################################################################
     def global_caregiver_broadcast (msg)
+    where = 'HELPER: ' + (__method__).to_s
+
       mapped_to = DB['groups'].find({ 'CaregiverID' => {'$exists' => true} })
       mapped_to.each do |r|
         send_SMS_to(r['CaregiverID'], msg)
@@ -2164,6 +2172,8 @@ class TheApp < Sinatra::Base
     # Helper: Message all patients in the study who are in at least one group
     ###########################################################################
     def global_patients_with_caregivers_broadcast (msg)
+    where = 'HELPER: ' + (__method__).to_s
+
       mapped_to = DB['groups'].find({ 'PatientID' => {'$exists' => true} })
       mapped_to.each do |r|
         send_SMS_to(r['PatientID'], msg)
@@ -2176,6 +2186,8 @@ class TheApp < Sinatra::Base
     # Helper: Message everyone in the study, period 
     ###########################################################################
     def global_broadcast (msg)
+    where = 'HELPER: ' + (__method__).to_s
+
       mapped_to = DB['people'].find({ 'ID' => {'$exists' => true} })
       mapped_to.each do |r|
         send_SMS_to(r['ID'], msg)
@@ -2188,6 +2200,8 @@ class TheApp < Sinatra::Base
     # Helper: Message any one member from the care team
     ###########################################################################
     def msg_caregiver_of ( ph_num, msg )
+    where = 'HELPER: ' + (__method__).to_s
+
       map = DB['groups'].find_one('PatientID' => ph_num, 
                                   'CaregiverID' => {'$exists' => true} )
 
@@ -2210,7 +2224,7 @@ class TheApp < Sinatra::Base
     # Helper: Map abbreviations to full text strings.  .  .
     ###########################################################################
     def full_string_from_abbrev( tag_abbrev_s )
-      where = "HELPER: " + (__method__).to_s
+    where = "HELPER: " + (__method__).to_s
  
       record = DB['abbrev'].find_one('abbreviation' => tag_abbrev_s)
       when_s = record['full'] if record != nil
@@ -2224,7 +2238,8 @@ class TheApp < Sinatra::Base
     # Helper: Arbitrary-checkin database interactions
     ###########################################################################
     def handle_checkin(value_f, flavor_text_s)
-    puts where = 'handle_checkin'
+    where = 'HELPER: ' + (__method__).to_s
+
     begin
       pts = DEFAULT_POINTS
       value_s = value_f.to_s
@@ -2253,7 +2268,7 @@ class TheApp < Sinatra::Base
     # Helper: Handle arbitrary tagged-checkin database interactions
     ###########################################################################
     def handle_tagged_checkin(value_f, flavor_text_s, tag_s)
-    puts where = 'handle_tagged_checkin'
+    where = 'HELPER: ' + (__method__).to_s
     begin
       pts = DEFAULT_POINTS
       value_s = value_f.to_s
@@ -2288,7 +2303,7 @@ class TheApp < Sinatra::Base
     # Give bonus points for a bg check 0-20 mins after a prior low bg check
     ###########################################################################
     def handle_glucose_checkin(mgdl, tag_abbrev_s)
-    puts where = 'handle_glucose_checkin  helper'
+    where = 'HELPER: ' + (__method__).to_s
     begin
       pts = tag_abbrev_s == '' ? 10.0 : 15.0
       msg = ''
@@ -2354,7 +2369,7 @@ class TheApp < Sinatra::Base
     # Helper: Lantus-checkin database interactions
     ###########################################################################
     def handle_lantus_checkin(units_f, tag_abbrev_s)
-    puts where = 'handle_lantus_checkin'
+    where = 'HELPER: ' + (__method__).to_s
     begin
       pts = tag_abbrev_s == '' ? 20.0 : 20.0
 
@@ -2384,7 +2399,7 @@ class TheApp < Sinatra::Base
     # 
     ###########################################################################
     def handle_insulin_checkin(units_f, tag_abbrev_s, ins_type='ins')
-    puts where = 'handle_insulin_checkin'
+    where = 'HELPER: ' + (__method__).to_s
     begin
       pts = tag_abbrev_s == '' ? 5.0 : 10.0
       msg = ''
@@ -2429,7 +2444,7 @@ class TheApp < Sinatra::Base
     #
     ###########################################################################
     def handle_carb_checkin(g_f, tag_abbrev_s)
-    puts where = 'handle_carb_checkin'
+    where = 'HELPER: ' + (__method__).to_s
     begin
       pts = tag_abbrev_s == '' ? 5.0 : 10.0
 
@@ -2477,7 +2492,7 @@ class TheApp < Sinatra::Base
     # If the user notices a typo immediately, we can correct the prior number
     ###########################################################################
     def delete_last_checkin()
-    puts where = 'delete_last_checkin'
+    where = 'HELPER: ' + (__method__).to_s
     begin
       db_cursor = DB['checkins'].find({'ID' => params['From']})
       db_record = db_cursor.sort('utc' => -1).limit(1).first
@@ -2511,7 +2526,7 @@ class TheApp < Sinatra::Base
     # If the user notices a typo immediately, we can correct the prior number
     ###########################################################################
     def revise_last_checkin_to( new_value_s )
-    puts where = 'revise_last_checkin_to'
+    where = 'HELPER: ' + (__method__).to_s
     begin
       new_f = Float(new_value_s)
 
@@ -2562,6 +2577,7 @@ class TheApp < Sinatra::Base
     #            one number or one string with the value in it
     ###########################################################################
     def last_checkin()
+    where = 'HELPER: ' + (__method__).to_s
       db_cursor = DB['checkins'].find()
       enum = db_cursor.sort(:utc => :desc)
       last_level = enum.first
@@ -2570,6 +2586,7 @@ class TheApp < Sinatra::Base
     end #def
 
     def last_checkin_for(ph_num)
+    where = 'HELPER: ' + (__method__).to_s
       db_cursor = DB['checkins'].find({ 'ID' => ph_num })
       enum = db_cursor.sort(:utc => :desc)
       last_level = enum.first
@@ -2578,6 +2595,7 @@ class TheApp < Sinatra::Base
     end #def
 
     def last_glucose_lvl_for(ph_num)
+    where = 'HELPER: ' + (__method__).to_s
       db_cursor = DB['checkins'].find({ 'ID' => ph_num,
                                         'mg' => {'$exists' => true} })
       enum = db_cursor.sort(:utc => :desc)
@@ -2587,6 +2605,7 @@ class TheApp < Sinatra::Base
     end #def
 
     def last_insulin_lvl_for(ph_num)
+    where = 'HELPER: ' + (__method__).to_s
       db_cursor = DB['checkins'].find({ 'ID' => ph_num, 
                                         'units' => {'$exists' => true} })
       enum = db_cursor.sort(:utc => :desc)
@@ -2596,6 +2615,7 @@ class TheApp < Sinatra::Base
     end #def
 
     def last_carb_lvl_for(ph_num)
+    where = 'HELPER: ' + (__method__).to_s
       db_cursor = DB['checkins'].find({ 'ID' => ph_num,
                                         'g' => {'$exists' => true} })
       enum = db_cursor.sort(:utc => :desc)
@@ -2605,6 +2625,7 @@ class TheApp < Sinatra::Base
     end #def
 
     def last_goal_for(ph_num)
+    where = 'HELPER: ' + (__method__).to_s
       db_cursor = DB['checkins'].find({ 'ID' => ph_num,
                                         'goal' => {'$exists' => true} })
       enum = db_cursor.sort(:utc => :desc)
@@ -2624,7 +2645,7 @@ class TheApp < Sinatra::Base
     # Score Helper
     ###########################################################################
     def score_for( ph_num )
-    puts where = 'score_for  helper'
+    where = 'HELPER: ' + (__method__).to_s
     begin
       msg = ''
       cmd = {
@@ -2661,7 +2682,7 @@ class TheApp < Sinatra::Base
     # Check-For-Victory  Helper
     ###########################################################################
     def check_for_victory( ph_num )
-    puts where = 'check_for_victory  helper'
+    where = 'HELPER: ' + (__method__).to_s
     begin
       msg=''
       cmd = {
@@ -2714,7 +2735,7 @@ class TheApp < Sinatra::Base
     # Check-Progress-at-Midweek  Helper
     ###########################################################################
     def check_progress_midweek( ph_num )
-    puts where = 'check_progress_midweek'
+    where = 'HELPER: ' + (__method__).to_s
     begin
       msg=''
       cmd = {
@@ -2756,7 +2777,7 @@ class TheApp < Sinatra::Base
     # Settings Info Helper
     ###########################################################################
     def info_for( ph_num )
-    puts where = 'info_for  helper'
+    where = 'HELPER: ' + (__method__).to_s
     begin
       record = DB['people'].find_one({ '_id' => ph_num })
       lo_s = record['lo'] != nil ? (record['lo']).to_s  : DEFAULT_LO.to_s
@@ -2786,7 +2807,7 @@ class TheApp < Sinatra::Base
     # 
     ###########################################################################
     def weekly_summary_for( ph_num )
-    puts where = 'weekly_summary_for  helper'
+    where = 'HELPER: ' + (__method__).to_s
     begin
       msg = ''
       lc = DB['checkins'].find({'ID' => ph_num,
@@ -2852,7 +2873,7 @@ class TheApp < Sinatra::Base
     # show up / call in . . .   
     ###########################################################################
     def onboard_a_brand_new_user
-      where = "HELPER: " + (__method__).to_s 
+    where = "HELPER: " + (__method__).to_s 
 
       begin
 
@@ -2884,6 +2905,8 @@ class TheApp < Sinatra::Base
     # the email on file for that person.
     ###########################################################################
     def register_email_in_db(em)
+    where = 'HELPER: ' + (__method__).to_s
+
       DB['people'].update({'_id' => params['From']},
                           {"$addToSet" => {'email' => em}}, :upsert => true)
     end #def
