@@ -1842,8 +1842,7 @@ class TheApp < Sinatra::Base
     ###########################################################################
     # Logging Helpers
     ###########################################################################
-    def log_exception( e, puts where = 'unspecified' )
-      puts where = "HELPER: " + (__method__).to_s 
+    def log_exception( e, where = 'unspecified' )
       begin
         puts ' --> LOGGING AN EXCEPTION FROM: --> ' + where
         puts e.message
