@@ -1,0 +1,1212 @@
+{
+  "home_pages": [
+    {
+      "title": "Vascular Surgery",
+      "lessons": [1000002, 1000015, 1000099, 1000142, 1000180, 1000247, 1000255, 1000270 ],
+      "condition": "1"  ,
+      "nh_id" : 100001  
+    }
+  ],
+
+  "lessons": [
+    {
+      "title": "Chapter 1: Introduction to Your Training",
+      "short_title": "Introduction",
+      "description":"",
+      "lessons": [1000600, 1000004],
+      "tags": ["vascular", "basics"] ,
+      "image" : "VascularContent/Images/introductionv.png",
+      "has_sublessons": true,
+      "first_module" : -1,
+      "nh_id" : 100002      
+    },
+
+   {
+      "title": "Lesson 1: Introduction to Noora Health",
+      "short_title" : "",
+      "description": "Learn about the basic principles and science behind your condition. Get the 101 on how, what, and why about vascular surgery.",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000003,
+      "image" :"VascularContent/Images/nooratraining.png",
+      "nh_id" : 1000600      
+    },
+    {
+      "title": "Lesson 2: Introduction to Your Condition",
+      "short_title" : "",
+      "description": "Learn about the basic principles and science behind your condition. Get the 101 on how, what, and why about vascular surgery.",
+      "has_sublessons": true,
+      "lessons": [1000601, 1000602, 1000603, 1000604, 1000605, 1000606, 1000607, 1000608, 1000609, 1000610],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : -1,
+      "image" :"VascularContent/Images/nooratraining.png",
+      "nh_id" : 100004      
+    },
+    {
+      "title": "Vascular System",
+      "short_title" : "Vascular",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000005,
+      "image" :"VascularContent/Images/vascularsystem.png",
+      "nh_id" : 1000601      
+    },
+    {
+      "title": "Aneurysm",
+      "short_title" : "Aneurysm",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000006,
+      "image" :"VascularContent/Images/aneurysm.png",
+      "nh_id" : 1000602      
+    },
+    {
+      "title": "Abdominal Aortic Aneurysm",
+      "short_title" : "AAA",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000007,
+      "image" :"VascularContent/Images/aaa.png",
+      "nh_id" : 1000603      
+    },
+    {
+      "title": "Pseudoaneurysm",
+      "short_title" : "Pseudoaneurysm",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000008,
+      "image" :"VascularContent/Images/pseudoaneurysm.png",
+      "nh_id" : 1000604      
+    },
+    {
+      "title": "Stenosis",
+      "short_title" : "Stenosis",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000009,
+      "image" :"VascularContent/Images/stenosis.png",
+      "nh_id" : 1000605      
+    },
+    {
+      "title": "Peripheral",
+      "short_title" : "Peripheral",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000010,
+      "image" :"VascularContent/Images/peripheral.png",
+      "nh_id" : 1000606      
+    },
+    {
+      "title": "Amputation",
+      "short_title" : "Amputation",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000011,
+      "image" :"VascularContent/Images/amputation.png",
+      "nh_id" : 1000607      
+    },
+    {
+      "title": "AV Fistula",
+      "short_title" : "AV Fistula",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000012,
+      "image" :"VascularContent/Images/avfistula.png",
+      "nh_id" : 1000608      
+    },
+    {
+      "title": "Diabetes",
+      "short_title" : "Diabetes",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000013,
+      "image" :"VascularContent/Images/diabetes.png",
+      "nh_id" : 1000609      
+    },
+    {
+      "title": "Hypertension",
+      "short_title" : "Hypertension",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000014,
+      "image" :"VascularContent/Images/hypertension.png",
+      "nh_id" : 1000610      
+    },
+    {
+      "title": "Chapter 2: Introduction to Home Care",
+      "short_title": "Home Care",
+      "description":"",
+      "lessons": [1000016, 1000047],
+      "tags": ["vascular", "basics", "woohooo"] ,
+      "image" : "VascularContent/Images/homecarev.png",
+      "has_sublessons": true,
+      "first_module" : -1,
+      "nh_id" : 1000015      
+    },
+    {
+      "title": "Lesson 1: Caring for Your Cut",
+      "short_title" : "",
+      "description": "In this section we will layout the basics of what you can expect while going through the this training program for vascular surgery.",
+      "has_sublessons": true,
+      "lessons": [1000611, 1000612, 1000613, 1000614, 1000615, 1000616 ],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : -1,
+      "image" :"VascularContent/Images/caringcutlesson.png",
+      "nh_id" : 1000016      
+    },
+    {
+      "title": "Why?",
+      "short_title" : "Why?",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000017,
+      "image" :"VascularContent/Images/whycut.png",
+      "nh_id" : 1000611      
+    },
+    {
+      "title": "Maintenance",
+      "short_title" : "Maintenance"
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000018,
+      "image" :"VascularContent/Images/dressing.png",
+      "nh_id" : 1000612      
+    },
+    {
+      "title": "Infection",
+      "short_title" : "Infection",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000019,
+      "image" :"VascularContent/Images/infection.png",
+      "nh_id" : 1000613      
+    },
+    {
+      "title": "Practice",
+      "short_title" : "Practice",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000020,
+      "image" :"VascularContent/Images/howtocut.png",
+      "nh_id" : 1000614      
+    },
+    {
+      "title": "Scenarios",
+      "short_title" : "Scenarios",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000035,
+      "image" :"VascularContent/Images/nhealing.png",
+      "nh_id" : 1000615      
+    },
+    {
+      "title": "Open Wounds",
+      "short_title" : "Open Wounds",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000046,
+      "image" :"VascularContent/Images/openwounds.png",
+      "nh_id" : 1000616      
+    },
+
+    {
+      "title": "Lesson 2: Warning Signs After Surgery",
+      "short_title" : "",
+      "description": "Learn the major things to watch out after your surgery. Recognize signs of complications in order to prevent emergencies.",
+      "has_sublessons": true,
+      "lessons": [1000617, 1000618, 1000619, 1000620, 1000621, 1000622, 1000623, 1000624],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : -1,
+      "image" :"VascularContent/Images/warningsigns.png",
+      "nh_id" : 1000047      
+    },
+    {
+      "title": "Normal",
+      "short_title" : "Normal",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000048,
+      "image" :"VascularContent/Images/normalsigns.png",
+      "nh_id" : 1000617      
+    },
+    {
+      "title": "Concern",
+      "short_title" : "Concern",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000054,
+      "image" :"VascularContent/Images/concernsigns.png",
+      "nh_id" : 1000618      
+    },
+    {
+      "title": "Emergency",
+      "short_title" : "Emergency",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000060,
+      "image" :"VascularContent/Images/emergencysigns.png",
+      "nh_id" : 1000619      
+    },
+    {
+      "title": "Scenarios",
+      "short_title" : "Scenarios",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000066,
+      "image" : "VascularContent/Images/signscenarios.png",
+      "nh_id" : 1000620      
+    },
+    {
+      "title": "Carotid Endarterectomy",
+      "short_title" : "Carotid Endarterectomy",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000081,
+      "image" :"VascularContent/Images/carotidsigns.png",
+      "nh_id" : 1000621      
+    },
+    {
+      "title": "AAA/TAA",
+      "short_title" : "AAA/TAA",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000082,
+      "image" :"VascularContent/Images/aaasigns.png",
+      "nh_id" : 1000622      
+    },
+    {
+      "title": "Angiogram",
+      "short_title" : "Angiogram",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000083,
+      "image" :"VascularContent/Images/angiogramsigns.png",
+      "nh_id" : 1000623      
+    },
+    {
+      "title": "Pain Meds",
+      "short_title" : "Pain Meds",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000084,
+      "image" :"VascularContent/Images/painmedicationsigns.png",
+      "nh_id" : 1000624      
+    },
+
+    {
+      "title": "Chapter 3: Activity & Safety",
+      "short_title": "Activity",
+      "description":"",
+      "lessons": [1000100, 1000282],
+      "tags": ["vascular", "basics", "the force"] ,
+      "has_sublessons": true,
+      "first_module" : -1,
+      "image" : "VascularContent/Images/activityv.png",
+      "nh_id" : 1000099      
+    },
+    {
+      "title": "Chapter 4: Nutrition After Surgery",
+      "short_title": "Nutrition",
+      "description":"",
+      "lessons": [1000143, 1000154],
+      "tags": ["vascular", "basics", "the force"] ,
+      "has_sublessons": true,
+      "first_module" : -1,
+      "image" : "VascularContent/Images/nutritionv.png",
+      "nh_id" : 1000142      
+    },
+    {
+      "title": "Chapter 5: Learning About Common Anticoagulants",
+      "short_title": "Medication",
+      "description":"",
+      "lessons": [1000181, 1000198, 1000211 ],
+      "tags": ["vascular", "basics", "the force"] ,
+      "has_sublessons": true,
+      "first_module" : -1,
+      "image" : "VascularContent/Images/medicationv.png",
+      "nh_id" : 1000180      
+    },
+    {
+      "title": "Chapter 6: Maintaining Well-Being",
+      "short_title": "Well-Being",
+      "description":"",
+      "lessons": [1000248, 1000582],
+      "tags": ["vascular", "basics", "the force"] ,
+      "has_sublessons": true,
+      "first_module" : -1,
+      "image" : "VascularContent/Images/wellbeingv.png",
+      "nh_id" : 1000247      
+    },
+    {
+      "title": "Chapter 7: Family or Friend? Learn About Caregiving",
+      "short_title": "Caregiving",
+      "description":"",
+      "lessons": [1000256, 1000265],
+      "tags": ["vascular", "basics", "the force"] ,
+      "has_sublessons": true,
+      "first_module" : -1,
+      "image" : "VascularContent/Images/caregivingv.png",
+      "nh_id" : 1000255      
+    },
+    {
+      "title": "Chapter 8: Setting Goals for a Speedy Recovery",
+      "short_title": "Goals",
+      "description":"",
+      "lessons": [1000583, 1000584, 1000585],
+      "tags": ["vascular", "basics", "the force"] ,
+      "has_sublessons": true,
+      "first_module" : -1,
+      "image" : "VascularContent/Images/goalsv.png",
+      "nh_id" : 1000270      
+    }
+  ],
+
+
+"modules": [
+    {
+      "type" : "VIDEO",
+      "title": "Welcome to Noora Training ,
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/welcome.mp4",
+      "next_module": -1,
+      "nh_id" : 1000003      
+    },
+    {
+      "type" : "VIDEO",
+      "title": "The Vascular System",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/vascularsystem.mp4",
+      "next_module": -1,
+      "nh_id" : 1000005      
+    },
+    {
+      "type" : "VIDEO",
+      "title": "About Aneursyms",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/aneurysm.mp4",
+      "next_module": -1,
+      "nh_id" : 1000006      
+    },
+    {
+      "type" : "VIDEO",
+      "title": "Abdominal Aortic Aneurysm" ,
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/aaa.mp4",
+      "next_module": -1,
+      "nh_id" : 1000007      
+    },
+    {
+      "type" : "VIDEO",
+      "title": "Pseudoaneurysm",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/pseudoaneurysm.mp4",
+      "next_module": -1,
+      "nh_id" : 1000008      
+    },
+    {
+      "type" : "VIDEO",
+      "title": "Carotid Artery Disease/ Stenosis",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/stenosis.mp4",
+      "next_module": -1,
+      "nh_id" : 1000009      
+    },
+    {
+      "type" : "VIDEO",
+      "title": "Peripheral Vascular Disease",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/pvd.mp4",
+      "next_module": -1,
+      "nh_id" : 1000010      
+    },
+    {
+      "type" : "VIDEO",
+      "title": "Amputations",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/amputations.mp4",
+      "next_module": -1,
+      "nh_id" : 1000011      
+    },
+    {
+      "type" : "VIDEO",
+      "title": "AV Fistula",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/avfistula.mp4",
+      "next_module": -1,
+      "nh_id" : 1000012      
+    },
+    {
+      "type" : "VIDEO",
+      "title": "Diabetes & Vascular Disease",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/diabetes.mp4",
+      "next_module": -1,
+      "nh_id" : 1000013      
+    },
+    {
+      "type" : "VIDEO",
+      "title": "Hypertension & Vascular Disease",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/hypertension.mp4",
+      "next_module": -1,
+      "nh_id" : 1000014      
+    },
+    {
+      "type" : "VIDEO",
+      "title": "Why is Cut Care Important?",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/cutcare.mp4",
+      "next_module": -1,
+      "nh_id" : 1000017      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Changing the Dressings",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/dressingchange.mp4",
+      "next_module": -1,
+      "nh_id" : 1000018      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Watching for Infection",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/infectionwatch.mp4",
+      "next_module": -1,
+      "nh_id" : 1000019      
+    },
+    {
+      "type" : "SLIDE",
+      "title": "How to Care For Your Cut" ,
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/howcutcare.png",
+      "audio":"VascularContent/Audio/howcutcare.mp3",
+      "next_module":1000021,
+      "nh_id" : 1000020     
+    },
+    {
+      "type" : "BINARY",
+      "question": "Question: This is the first question about how to care for your cut?" ,
+      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "options": ["True", "False"],
+      "correct_answer":["True"],
+      "audio":"VascularContent/Audio/cutcareQ1.mp3",
+      "incorrect_audio" : "VascularContent/Audio/cutcareQ1incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/cutcareQ1correct.mp3",
+      "image":"VascularContent/Images/cutcareQ1.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000023,
+      "nh_id" : 1000021      
+    },
+    {
+      "type" : "BINARY",
+      "question": "Question: This is the 2 question about how to care for your cut?" ,
+      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "options": ["True", "False"],
+      "correct_answer":["True"],
+      "audio":"VascularContent/Audio/cutcareQ2.mp3",
+      "incorrect_audio" : "VascularContent/Audio/cutcareQ2incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/cutcareQ2correct.mp3",
+      "image":"VascularContent/Images/cutcareQ2.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000025,
+      "nh_id" : 1000023      
+    },
+    {
+      "type" : "BINARY",
+      "question": "Question: This is the 3 question about how to care for your cut?" ,
+      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "options": ["True", "False"],
+      "correct_answer":["True"],
+      "audio":"VascularContent/Audio/cutcareQ3.mp3",
+      "incorrect_audio" : "VascularContent/Audio/cutcareQ3incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/cutcareQ3correct.mp3",
+      "image":"VascularContent/Images/cutcareQ3.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000027,
+      "nh_id" : 1000025      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: This is the 4 question about how to care for your cut?" ,
+      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "options": ["True", "False"],
+      "correct_answer":["True"],
+      "audio":"VascularContent/Audio/cutcareQ4.mp3",
+      "incorrect_audio" : "VascularContent/Audio/cutcareQ4incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/cutcareQ4correct.mp3",
+      "image":"VascularContent/Images/cutcareQ4.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000029,
+      "nh_id" : 1000027      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: This is the 5 question about how to care for your cut?" ,
+      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "options": ["True", "False"],
+      "correct_answer":["True"],
+      "audio":"VascularContent/Audio/cutcareQ5.mp3",
+      "incorrect_audio" : "VascularContent/Audio/cutcareQ5incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/cutcareQ5correct.mp3",
+      "image":"VascularContent/Images/cutcareQ5.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000031,
+      "nh_id" : 1000029      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: This is the 6 question about how to care for your cut?" ,
+      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "options": ["True", "False"],
+      "correct_answer":["True"],
+      "audio":"VascularContent/Audio/cutcareQ6.mp3",
+      "incorrect_audio" : "VascularContent/Audio/cutcareQ6incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/cutcareQ6correct.mp3",
+      "image":"VascularContent/Images/cutcareQ6.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000033,
+      "nh_id" : 1000031      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: This is the 7 question about how to care for your cut?" ,
+      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "options": ["True", "False"],
+      "correct_answer":["True"],
+      "audio":"VascularContent/Audio/cutcareQ7.mp3",
+      "incorrect_audio" : "VascularContent/Audio/cutcareQ7incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/cutcareQ7correct.mp3",
+      "image":"VascularContent/Images/cutcareQ7.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": -1,
+      "nh_id" : 1000033      
+    },
+    {
+      "type" : "SLIDE",
+      "title": "Normal "Versus Abnormal Healing",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/normalvab.png",
+      "audio":"VascularContent/Audio/normalvab.mp3",
+      "next_module":1000036,
+      "nh_id" : 1000035     
+    },
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: This is scenario number 1 and x y z happens, what should the character do?" ,
+      "options": ["Normal","Call Doc", "Call 911"],
+      "correct_answer":["Call 911"],
+      "audio": "VascularContent/Audio/normalvabQ1.mp3",
+      "incorrect_audio" : "VascularContent/Audio/normalvabQ1incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/normalvabQ1correct.mp3",
+      "image":"VascularContent/Images/normalvabQ1.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000038,
+      "nh_id" : 1000036      
+    },
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: This is scenario number 2 and x y z happens, what should the character do?" ,
+      "options": ["Normal","Call Doc", "Call 911"],
+      "correct_answer":["Call 911"],
+      "audio": "VascularContent/Audio/normalvabQ2.mp3",
+      "incorrect_audio" : "VascularContent/Audio/normalvabQ2incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/normalvabQ2correct.mp3",
+      "image":"VascularContent/Images/normalvabQ2.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000040,
+      "nh_id" : 1000038      
+    },
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: This is scenario number 3 and x y z happens, what should the character do?" ,
+      "options": ["Normal","Call Doc", "Call 911"],
+      "correct_answer":["Call 911"],
+      "audio": "VascularContent/Audio/normalvabQ3.mp3",
+      "incorrect_audio" : "VascularContent/Audio/normalvabQ3incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/normalvabQ3correct.mp3",
+      "image":"VascularContent/Images/normalvabQ3.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000042,
+      "nh_id" : 1000040      
+    },
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: This is scenario number 4 and x y z happens, what should the character do?" ,
+      "options": ["Normal","Call Doc", "Call 911"],
+      "correct_answer":["Call 911"],
+      "audio": "VascularContent/Audio/normalvabQ4.mp3",
+      "incorrect_audio" : "VascularContent/Audio/normalvabQ4incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/normalvabQ4correct.mp3",
+      "image":"VascularContent/Images/normalvabQ4.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000044,
+      "nh_id" : 1000042      
+    },
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: This is scenario number 5 and x y z happens, what should the character do?" ,
+      "options": ["Normal","Call Doc", "Call 911"],
+      "correct_answer":["Call 911"],
+      "audio": "VascularContent/Audio/normalvabQ5.mp3",
+      "incorrect_audio" : "VascularContent/Audio/normalvabQ5incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/normalvabQ5correct.mp3",
+      "image":"VascularContent/Images/normalvabQ5.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": -1,
+      "nh_id" : 1000044      
+    },
+
+
+    {
+      "type" : "VIDEO",
+      "title": "Open Wounds",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/openwounds.mp4",
+      "next_module": -1,
+      "nh_id" : 1000046      
+    },
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of Normal Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/normalsigns1.png",
+      "audio":"VascularContent/Audio/normalsigns1.mp3",
+      "next_module":1000049,
+      "nh_id" : 1000048     
+    },
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of Normal Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/normalsigns2.png",
+      "audio":"VascularContent/Audio/normalsigns2.mp3",
+      "next_module":1000050,
+      "nh_id" : 1000049     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of Normal Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/normalsigns3.png",
+      "audio":"VascularContent/Audio/normalsigns3.mp3",
+      "next_module":1000051,
+      "nh_id" : 1000050     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of Normal Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/normalsigns4.png",
+      "audio":"VascularContent/Audio/normalsigns4.mp3",
+      "next_module":1000052,
+      "nh_id" : 1000051     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of Normal Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/normalsigns5.png",
+      "audio":"VascularContent/Audio/normalsigns5.mp3",
+      "next_module":1000053,
+      "nh_id" : 1000052     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of Normal Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/normalsigns6.png",
+      "audio":"VascularContent/Audio/normalsigns6.mp3",
+      "next_module": -1,
+      "nh_id" : 1000053     
+    },
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of concern Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/concernsigns1.png",
+      "audio":"VascularContent/Audio/concernsigns1.mp3",
+      "next_module":1000055,
+      "nh_id" : 1000054     
+    },
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of concern Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/concernsigns2.png",
+      "audio":"VascularContent/Audio/concernsigns2.mp3",
+      "next_module":1000056,
+      "nh_id" : 1000055     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of concern Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/concernsigns3.png",
+      "audio":"VascularContent/Audio/concernsigns3.mp3",
+      "next_module":1000057,
+      "nh_id" : 1000056     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of concern Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/concernsigns4.png",
+      "audio":"VascularContent/Audio/concernsigns4.mp3",
+      "next_module":1000058,
+      "nh_id" : 1000057     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of concern Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/concernsigns5.png",
+      "audio":"VascularContent/Audio/concernsigns5.mp3",
+      "next_module":1000059,
+      "nh_id" : 1000058     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of concern Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/concernsigns6.png",
+      "audio":"VascularContent/Audio/concernsigns6.mp3",
+      "next_module": -1,
+      "nh_id" : 1000059     
+    },
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of emergency Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/emergencysigns1.png",
+      "audio":"VascularContent/Audio/emergencysigns1.mp3",
+      "next_module":1000061,
+      "nh_id" : 1000060     
+    },
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of emergency Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/emergencysigns2.png",
+      "audio":"VascularContent/Audio/emergencysigns2.mp3",
+      "next_module":1000062,
+      "nh_id" : 1000061     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of emergency Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/emergencysigns3.png",
+      "audio":"VascularContent/Audio/emergencysigns3.mp3",
+      "next_module":1000063,
+      "nh_id" : 1000062     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of emergency Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/emergencysigns4.png",
+      "audio":"VascularContent/Audio/emergencysigns4.mp3",
+      "next_module":1000064,
+      "nh_id" : 1000063     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of emergency Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/emergencysigns5.png",
+      "audio":"VascularContent/Audio/emergencysigns5.mp3",
+      "next_module":1000065,
+      "nh_id" : 1000064     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of emergency Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/emergencysigns6.png",
+      "audio":"VascularContent/Audio/emergencysigns6.mp3",
+      "next_module": -1,
+      "nh_id" : 1000065     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "Practice Identifying Warning Signs",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/warningsign.png",
+      "audio":"VascularContent/Audio/warningsign.mp3",
+      "next_module": 1000067,
+      "nh_id" : 1000066     
+    },
+
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: This is scenario number 1 and x y z happens, what should the character do?" ,
+      "options": ["Normal","Call Doc", "Call 911"],
+      "correct_answer":["Call 911"],
+      "audio": "VascularContent/Audio/warningsignQ1.mp3",
+      "incorrect_audio": "VascularContent/Audio/warningsignQ1incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/warningsignQ1correct.mp3",
+      "image":"VascularContent/Images/warningsignQ1.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000069,
+      "nh_id" : 1000067      
+    },
+
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: This is scenario number 2 and x y z happens, what should the character do?" ,
+      "options": ["Normal","Call Doc", "Call 911"],
+      "correct_answer":["Call 911"],
+      "audio": "VascularContent/Audio/warningsignQ2.mp3",
+      "incorrect_audio": "VascularContent/Audio/warningsignQ2incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/warningsignQ2correct.mp3",
+      "image":"VascularContent/Images/warningsignQ2.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000071,
+      "nh_id" : 1000069      
+    },
+
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: This is scenario number 3 and x y z happens, what should the character do?" ,
+      "options": ["Normal","Call Doc", "Call 911"],
+      "correct_answer":["Call 911"],
+      "audio": "VascularContent/Audio/warningsignQ3.mp3",
+      "incorrect_audio": "VascularContent/Audio/warningsignQ3incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/warningsignQ3correct.mp3",
+      "image":"VascularContent/Images/warningsignQ3.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000073,
+      "nh_id" : 1000071      
+    },
+
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: This is scenario number 4 and x y z happens, what should the character do?" ,
+      "options": ["Normal","Call Doc", "Call 911"],
+      "correct_answer":["Call 911"],
+      "audio": "VascularContent/Audio/warningsignQ4.mp3",
+      "incorrect_audio": "VascularContent/Audio/warningsignQ4incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/warningsignQ4correct.mp3",
+      "image":"VascularContent/Images/warningsignQ4.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000075,
+      "nh_id" : 1000073      
+    },
+
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: This is scenario number 5 and x y z happens, what should the character do?" ,
+      "options": ["Normal","Call Doc", "Call 911"],
+      "correct_answer":["Call 911"],
+      "audio": "VascularContent/Audio/warningsignQ5.mp3",
+      "incorrect_audio": "VascularContent/Audio/warningsignQ5incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/warningsignQ5correct.mp3",
+      "image":"VascularContent/Images/warningsignQ5.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000077,
+      "nh_id" : 1000075      
+    },
+
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: This is scenario number 6 and x y z happens, what should the character do?" ,
+      "options": ["Normal","Call Doc", "Call 911"],
+      "correct_answer":["Call 911"],
+      "audio": "VascularContent/Audio/warningsignQ6.mp3",
+      "incorrect_audio": "VascularContent/Audio/warningsignQ6incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/warningsignQ6correct.mp3",
+      "image":"VascularContent/Images/warningsignQ6.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000079,
+      "nh_id" : 1000077      
+    },
+
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: This is scenario number 7 and x y z happens, what should the character do?" ,
+      "options": ["Normal","Call Doc", "Call 911"],
+      "correct_answer":["Call 911"],
+      "audio": "VascularContent/Audio/warningsignQ7.mp3",
+      "incorrect_audio": "VascularContent/Audio/warningsignQ7incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/warningsignQ7correct.mp3",
+      "image":"VascularContent/Images/warningsignQ7.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": -1,
+      "nh_id" : 1000079      
+    },
+
+
+    {
+      "type" : "VIDEO",
+      "title": "Carotid Endarterectomy",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/carotidendarterectomy.mp4",
+      "next_module": -1,
+      "nh_id" : 1000081      
+    },
+
+
+    {
+      "type" : "VIDEO",
+      "title": "AAA/TAA",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/aaataa.mp4",
+      "next_module": -1,
+      "nh_id" : 1000082      
+    },
+
+
+    {
+      "type" : "VIDEO",
+      "title": "Angiogram",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/angiogram.mp4",
+      "next_module": -1,
+      "nh_id" : 1000083      
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "Pain Medications" ,
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/painmeds.png",
+      "audio":"VascularContent/Audio/painmeds.mp3",
+      "next_module":1000085,
+      "nh_id" : 1000084     
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: This is the 1 question about pain medications?" ,
+      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "options": ["True", "False"],
+      "correct_answer":["True"],
+      "audio":"VascularContent/Audio/painmedsQ1.mp3",
+      "incorrect_audio" : "VascularContent/Audio/painmedsQ1incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/painmedsQ1correct.mp3",
+      "image":"VascularContent/Images/painmedsQ1.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000087,
+      "nh_id" : 1000085      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: This is the 2 question about pain medications?" ,
+      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "options": ["True", "False"],
+      "correct_answer":["True"],
+      "audio":"VascularContent/Audio/painmedsQ2.mp3",
+      "incorrect_audio" : "VascularContent/Audio/painmedsQ2incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/painmedsQ2correct.mp3",
+      "image":"VascularContent/Images/painmedsQ2.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000089,
+      "nh_id" : 1000087      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: This is the 3 question about pain medications?" ,
+      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "options": ["True", "False"],
+      "correct_answer":["True"],
+      "audio":"VascularContent/Audio/painmedsQ3.mp3",
+      "incorrect_audio" : "VascularContent/Audio/painmedsQ3incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/painmedsQ3correct.mp3",
+      "image":"VascularContent/Images/painmedsQ3.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000091,
+      "nh_id" : 1000089      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: This is the 4 question about pain medications?" ,
+      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "options": ["True", "False"],
+      "correct_answer":["True"],
+      "audio":"VascularContent/Audio/painmedsQ4.mp3",
+      "incorrect_audio" : "VascularContent/Audio/painmedsQ4incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/painmedsQ4correct.mp3",
+      "image":"VascularContent/Images/painmedsQ4.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000093,
+      "nh_id" : 1000091      
+    },
+
+
+    {
+      "type" : "BINARY",
+      "question": "Question: This is the 5 question about pain medications?" ,
+      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "options": ["True", "False"],
+      "correct_answer":["True"],
+      "audio":"VascularContent/Audio/painmedsQ5.mp3",
+      "incorrect_audio" : "VascularContent/Audio/painmedsQ5incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/painmedsQ5correct.mp3",
+      "image":"VascularContent/Images/painmedsQ5.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000095,
+      "nh_id" : 1000093      
+    },
+
+
+    {
+      "type" : "BINARY",
+      "question": "Question: This is the 6 question about pain medications?" ,
+      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "options": ["True", "False"],
+      "correct_answer":["True"],
+      "audio":"VascularContent/Audio/painmedsQ6.mp3",
+      "incorrect_audio" : "VascularContent/Audio/painmedsQ6incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/painmedsQ6correct.mp3",
+      "image":"VascularContent/Images/painmedsQ6.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000097,
+      "nh_id" : 1000095      
+    },
+
+
+    {
+      "type" : "BINARY",
+      "question": "Question: This is the 7 question about pain medications?" ,
+      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "options": ["True", "False"],
+      "correct_answer":["True"],
+      "audio":"VascularContent/Audio/painmedsQ7.mp3",
+      "incorrect_audio" : "VascularContent/Audio/painmedsQ7incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/painmedsQ7correct.mp3",
+      "image":"VascularContent/Images/painmedsQ7.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": -1,
+      "nh_id" : 1000097      
+    },
+
+
+
+
+    
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
