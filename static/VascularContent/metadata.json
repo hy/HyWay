@@ -1279,8 +1279,8 @@
     },
     {
       "type" : "BINARY",
-      "question": "Question: This is the very first question about how to care for your cut?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "question": "Question: I should take a shower as soon as I get home" ,
+      "explanation": " " ,
       "options": ["True", "False"],
       "correct_answer":["False"],
       "audio":"VascularContent/Audio/cutcareQ1.mp3",
@@ -1293,8 +1293,8 @@
     },
     {
       "type" : "BINARY",
-      "question": "Question: This is the 2 question about how to care for your cut?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "question": "Question: Taking a bath is better than showering since you can soak the cut in water" ,
+      "explanation": " " ,
       "options": ["True", "False"],
       "correct_answer":["False"],
       "audio":"VascularContent/Audio/cutcareQ2.mp3",
@@ -1307,8 +1307,8 @@
     },
     {
       "type" : "BINARY",
-      "question": "Question: This is the 3 question about how to care for your cut?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "question": "Question: My primary care doctor can remove my stitches or staples" ,
+      "explanation": " " ,
       "options": ["True", "False"],
       "correct_answer":["False"],
       "audio":"VascularContent/Audio/cutcareQ3.mp3",
@@ -1322,8 +1322,8 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: This is the 4 question about how to care for your cut?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "question": "Question: It is not that important to clean a cut around the groin area, since clothing protects it" ,
+      "explanation": " " ,
       "options": ["True", "False"],
       "correct_answer":["False"],
       "audio":"VascularContent/Audio/cutcareQ4.mp3",
@@ -1337,8 +1337,8 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: This is the 5 question about how to care for your cut?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "question": "Question: I can lift a gallon of milk a week after surgery" ,
+      "explanation": " " ,
       "options": ["True", "False"],
       "correct_answer":["True"],
       "audio":"VascularContent/Audio/cutcareQ5.mp3",
@@ -1352,8 +1352,8 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: This is the 6 question about how to care for your cut?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "question": "Question: Exposing my cut to sunlight makes it heal faster " ,
+      "explanation": " " ,
       "options": ["True", "False"],
       "correct_answer":["False"],
       "audio":"VascularContent/Audio/cutcareQ6.mp3",
@@ -1367,8 +1367,8 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: This is the 7 question about how to care for your cut?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "question": "Question: I can use lotions and powders to moisturize my cut" ,
+      "explanation": " " ,
       "options": ["True", "False"],
       "correct_answer":["False"],
       "audio":"VascularContent/Audio/cutcareQ7.mp3",
@@ -1391,9 +1391,9 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: This is scenario number 1 and x y z happens, what should the character do?" ,
+      "question": "Scenario: A couple days after getting home I notice pale yellow fluid coming from my cut, and the edges are more red and swollen" ,
       "options": ["Normal","Call Doc", "Call 911"],
-      "correct_answer":["Call 911"],
+      "correct_answer":["Call Doc"],
       "audio": "VascularContent/Audio/normalvabQ1.mp3",
       "incorrect_audio" : "VascularContent/Audio/normalvabQ1incorrect.mp3",
       "correct_audio": "VascularContent/Audio/normalvabQ1correct.mp3",
@@ -1405,9 +1405,9 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: This is scenario number 2 and x y z happens, what should the character do?" ,
-      "options": ["Normal","Call Doc", "Call 911"],
-      "correct_answer":["Call 911"],
+      "question": "Scenario: While walking my cut gets more painful and itchy" ,
+      "options": ["Normal", "Call Doc", "Call 911"],
+      "correct_answer":["Normal"],
       "audio": "VascularContent/Audio/normalvabQ2.mp3",
       "incorrect_audio" : "VascularContent/Audio/normalvabQ2incorrect.mp3",
       "correct_audio": "VascularContent/Audio/normalvabQ2correct.mp3",
@@ -1419,7 +1419,7 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: This is scenario number 3 and x y z happens, what should the character do?" ,
+      "question": "Scenario: As I am getting out of bed, my cut opens up and pulls apart" ,
       "options": ["Normal","Call Doc", "Call 911"],
       "correct_answer":["Call 911"],
       "audio": "VascularContent/Audio/normalvabQ3.mp3",
@@ -1433,9 +1433,9 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: This is scenario number 4 and x y z happens, what should the character do?" ,
+      "question": "Scenario: I notice a rash developing near the cut, and the cut seems to be increasing in size and smell" ,
       "options": ["Normal","Call Doc", "Call 911"],
-      "correct_answer":["Call 911"],
+      "correct_answer":["Call Doc"],
       "audio": "VascularContent/Audio/normalvabQ4.mp3",
       "incorrect_audio" : "VascularContent/Audio/normalvabQ4incorrect.mp3",
       "correct_audio": "VascularContent/Audio/normalvabQ4correct.mp3",
@@ -1447,9 +1447,9 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: This is scenario number 5 and x y z happens, what should the character do?" ,
-      "options": ["Normal","Call Doc", "Call 911"],
-      "correct_answer":["Call 911"],
+      "question": "Scenario: A week later, I see a bump near the cut that seems to be pulsating" ,
+      "options": ["Normal", "Call Doc", "Call 911"],
+      "correct_answer":["Call Doc"],
       "audio": "VascularContent/Audio/normalvabQ5.mp3",
       "incorrect_audio" : "VascularContent/Audio/normalvabQ5incorrect.mp3",
       "correct_audio": "VascularContent/Audio/normalvabQ5correct.mp3",
@@ -1675,9 +1675,9 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: This is scenario number 1 and x y z happens, what should the character do?" ,
-      "options": ["Normal","Call Doc", "Call 911"],
-      "correct_answer":["Call 911"],
+      "question": "Scenario: I feel constipated and have not pooped for several days" ,
+      "options": ["Normal", "Call Doc", "Call 911"],
+      "correct_answer":["Call Doc"],
       "audio": "VascularContent/Audio/warningsignQ1.mp3",
       "incorrect_audio": "VascularContent/Audio/warningsignQ1incorrect.mp3",
       "correct_audio": "VascularContent/Audio/warningsignQ1correct.mp3",
@@ -1690,9 +1690,9 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: This is scenario number 2 and x y z happens, what should the character do?" ,
-      "options": ["Normal","Call Doc", "Call 911"],
-      "correct_answer":["Call 911"],
+      "question": "Scenario: I feel some pain and itchiness around my cut, and when I move the pain gets worse" ,
+      "options": ["Normal", "Call Doc", "Call 911"],
+      "correct_answer":["Normal"],
       "audio": "VascularContent/Audio/warningsignQ2.mp3",
       "incorrect_audio": "VascularContent/Audio/warningsignQ2incorrect.mp3",
       "correct_audio": "VascularContent/Audio/warningsignQ2correct.mp3",
@@ -1705,9 +1705,9 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: This is scenario number 3 and x y z happens, what should the character do?" ,
+      "question": "Scenario: A week after my surgery, I feel tired and have body aches and chills" ,
       "options": ["Normal","Call Doc", "Call 911"],
-      "correct_answer":["Call 911"],
+      "correct_answer":["Call Doc"],
       "audio": "VascularContent/Audio/warningsignQ3.mp3",
       "incorrect_audio": "VascularContent/Audio/warningsignQ3incorrect.mp3",
       "correct_audio": "VascularContent/Audio/warningsignQ3correct.mp3",
@@ -1720,7 +1720,7 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: This is scenario number 4 and x y z happens, what should the character do?" ,
+      "question": "Scenario: I suddenly feel very weak, confused, pale, and sweaty" ,
       "options": ["Normal","Call Doc", "Call 911"],
       "correct_answer":["Call 911"],
       "audio": "VascularContent/Audio/warningsignQ4.mp3",
@@ -1735,9 +1735,9 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: This is scenario number 5 and x y z happens, what should the character do?" ,
-      "options": ["Normal","Call Doc", "Call 911"],
-      "correct_answer":["Call 911"],
+      "question": "Scenario: I do not have much of an appetite, and I have not eaten in a couple of days" ,
+      "options": ["Normal", "Call Doc", "Call 911"],
+      "correct_answer":["Call Doc"],
       "audio": "VascularContent/Audio/warningsignQ5.mp3",
       "incorrect_audio": "VascularContent/Audio/warningsignQ5incorrect.mp3",
       "correct_audio": "VascularContent/Audio/warningsignQ5correct.mp3",
@@ -1750,9 +1750,9 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: This is scenario number 6 and x y z happens, what should the character do?" ,
-      "options": ["Normal","Call Doc", "Call 911"],
-      "correct_answer":["Call 911"],
+      "question": "Scenario: I feel pain in my lower leg when walking shorter and shorter distances" ,
+      "options": ["Normal", "Call Doc", "Call 911"],
+      "correct_answer":["Call Doc"],
       "audio": "VascularContent/Audio/warningsignQ6.mp3",
       "incorrect_audio": "VascularContent/Audio/warningsignQ6incorrect.mp3",
       "correct_audio": "VascularContent/Audio/warningsignQ6correct.mp3",
@@ -1765,8 +1765,8 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: This is scenario number 7 and x y z happens, what should the character do?" ,
-      "options": ["Normal","Call Doc", "Call 911"],
+      "question": "Scenario: A year after surgery, I feel a sudden and very severe pain in my back and stomach" ,
+      "options": ["Normal", "Call Doc", "Call 911"],
       "correct_answer":["Call 911"],
       "audio": "VascularContent/Audio/warningsignQ7.mp3",
       "incorrect_audio": "VascularContent/Audio/warningsignQ7incorrect.mp3",
@@ -1820,10 +1820,10 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: This is the 1 question about pain medications?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
-      "options": ["True", "False"],
-      "correct_answer":["True"],
+      "question": "Question: Will taking asprin help you poop?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["No"],
       "audio":"VascularContent/Audio/painmedsQ1.mp3",
       "incorrect_audio" : "VascularContent/Audio/painmedsQ1incorrect.mp3",
       "correct_audio": "VascularContent/Audio/painmedsQ1correct.mp3",
@@ -1835,10 +1835,10 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: This is the 2 question about pain medications?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
-      "options": ["True", "False"],
-      "correct_answer":["True"],
+      "question": "Question: Will drinking plenty of fluids help you poop?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["Yes"],
       "audio":"VascularContent/Audio/painmedsQ2.mp3",
       "incorrect_audio" : "VascularContent/Audio/painmedsQ2incorrect.mp3",
       "correct_audio": "VascularContent/Audio/painmedsQ2correct.mp3",
@@ -1850,10 +1850,10 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: This is the 3 question about pain medications?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
-      "options": ["True", "False"],
-      "correct_answer":["True"],
+      "question": "Question: Will eating a lot of buttery, fatty foods help you poop?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["No"],
       "audio":"VascularContent/Audio/painmedsQ3.mp3",
       "incorrect_audio" : "VascularContent/Audio/painmedsQ3incorrect.mp3",
       "correct_audio": "VascularContent/Audio/painmedsQ3correct.mp3",
@@ -1865,10 +1865,10 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: This is the 4 question about pain medications?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
-      "options": ["True", "False"],
-      "correct_answer":["True"],
+      "question": "Question: Will exercise help you poop?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["Yes"],
       "audio":"VascularContent/Audio/painmedsQ4.mp3",
       "incorrect_audio" : "VascularContent/Audio/painmedsQ4incorrect.mp3",
       "correct_audio": "VascularContent/Audio/painmedsQ4correct.mp3",
@@ -1878,13 +1878,12 @@
       "nh_id" : 1000091      
     },
 
-
     {
       "type" : "BINARY",
-      "question": "Question: This is the 5 question about pain medications?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
-      "options": ["True", "False"],
-      "correct_answer":["True"],
+      "question": "Question: Will eating foods high in fiber help you poop?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["Yes"],
       "audio":"VascularContent/Audio/painmedsQ5.mp3",
       "incorrect_audio" : "VascularContent/Audio/painmedsQ5incorrect.mp3",
       "correct_audio": "VascularContent/Audio/painmedsQ5correct.mp3",
@@ -1899,8 +1898,8 @@
       "type" : "BINARY",
       "question": "Question: This is the 6 question about pain medications?" ,
       "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
-      "options": ["True", "False"],
-      "correct_answer":["True"],
+      "options": ["Yes", "No"],
+      "correct_answer":["No"],
       "audio":"VascularContent/Audio/painmedsQ6.mp3",
       "incorrect_audio" : "VascularContent/Audio/painmedsQ6incorrect.mp3",
       "correct_audio": "VascularContent/Audio/painmedsQ6correct.mp3",
@@ -1915,8 +1914,8 @@
       "type" : "BINARY",
       "question": "Question: This is the 7 question about pain medications?" ,
       "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
-      "options": ["True", "False"],
-      "correct_answer":["True"],
+      "options": ["Yes", "No"],
+      "correct_answer":["No"],
       "audio":"VascularContent/Audio/painmedsQ7.mp3",
       "incorrect_audio" : "VascularContent/Audio/painmedsQ7incorrect.mp3",
       "correct_audio": "VascularContent/Audio/painmedsQ7correct.mp3",
