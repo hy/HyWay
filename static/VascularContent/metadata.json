@@ -787,8 +787,8 @@
 
 
     {
-      "title": "Q & A",
-      "short_title" : "Q & A",
+      "title": "Blood Testing",
+      "short_title" : "Blood Testing",
       "description": "",
       "has_sublessons": false,
       "lessons": [],
@@ -2632,10 +2632,10 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: This is the 1 question about aspirin?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
-      "options": ["True", "False"],
-      "correct_answer":["True"],
+      "question": "Question: Am I getting put on aspirin for pain?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["No"],
       "audio":"VascularContent/Audio/aspirinQ1.mp3",
       "incorrect_audio" : "VascularContent/Audio/aspirinQ1incorrect.mp3",
       "correct_audio": "VascularContent/Audio/aspirinQ1correct.mp3",
@@ -2647,10 +2647,10 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: This is the 2 question about aspirin?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
-      "options": ["True", "False"],
-      "correct_answer":["True"],
+      "question": "Question: Is aspirin for preventing blood clots?" ,
+      "explanation": " ",
+      "options": ["Yes", "No"],
+      "correct_answer":["Yes"],
       "audio":"VascularContent/Audio/aspirinQ2.mp3",
       "incorrect_audio" : "VascularContent/Audio/aspirinQ2incorrect.mp3",
       "correct_audio": "VascularContent/Audio/aspirinQ2correct.mp3",
@@ -2662,10 +2662,10 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: This is the 3 question about aspirin?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
-      "options": ["True", "False"],
-      "correct_answer":["True"],
+      "question": "Question: If I feel fine, can I stop taking aspirin?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["No"],
       "audio":"VascularContent/Audio/aspirinQ3.mp3",
       "incorrect_audio" : "VascularContent/Audio/aspirinQ3incorrect.mp3",
       "correct_audio": "VascularContent/Audio/aspirinQ3correct.mp3",
@@ -2677,10 +2677,10 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: This is the 4 question about aspirin?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
-      "options": ["True", "False"],
-      "correct_answer":["True"],
+      "question": "Question: If I take another medication that prevents blood clots, can I stop taking aspirin?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["No"],
       "audio":"VascularContent/Audio/aspirinQ4.mp3",
       "incorrect_audio" : "VascularContent/Audio/aspirinQ4incorrect.mp3",
       "correct_audio": "VascularContent/Audio/aspirinQ4correct.mp3",
@@ -2692,10 +2692,10 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: This is the 5 question about aspirin?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
-      "options": ["True", "False"],
-      "correct_answer":["True"],
+      "question": "Question: Is it normal to bleed a bit longer if I cut myself while I am on aspirin?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["Yes"],
       "audio":"VascularContent/Audio/aspirinQ5.mp3",
       "incorrect_audio" : "VascularContent/Audio/aspirinQ5incorrect.mp3",
       "correct_audio": "VascularContent/Audio/aspirinQ5correct.mp3",
@@ -2707,10 +2707,10 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: This is the 6 question about aspirin?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
-      "options": ["True", "False"],
-      "correct_answer":["True"],
+      "question": "Question: If I forget the dose, should I take a double-dose next time?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["No"],
       "audio":"VascularContent/Audio/aspirinQ6.mp3",
       "incorrect_audio" : "VascularContent/Audio/aspirinQ6incorrect.mp3",
       "correct_audio": "VascularContent/Audio/aspirinQ6correct.mp3",
@@ -2722,10 +2722,10 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: This is the 7 question about aspirin?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
-      "options": ["True", "False"],
-      "correct_answer":["True"],
+      "question": "Question: Is it normal to have very dark poop while taking aspirin?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["No"],
       "audio":"VascularContent/Audio/aspirinQ7.mp3",
       "incorrect_audio" : "VascularContent/Audio/aspirinQ7incorrect.mp3",
       "correct_audio": "VascularContent/Audio/aspirinQ7correct.mp3",
@@ -2757,10 +2757,10 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: This is the 1 question about plavix?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "question": "Question: I can take an herbal supplement or natural therapy for my blood without talking to my doctor" ,
+      "explanation": " " ,
       "options": ["True", "False"],
-      "correct_answer":["True"],
+      "correct_answer":["False"],
       "audio":"VascularContent/Audio/plavixQ1.mp3",
       "incorrect_audio" : "VascularContent/Audio/plavixQ1incorrect.mp3",
       "correct_audio": "VascularContent/Audio/plavixQ1correct.mp3",
@@ -2772,10 +2772,10 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: This is the 2 question about plavix?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "question": "Question: ?" ,
+      "explanation": " " ,
       "options": ["True", "False"],
-      "correct_answer":["True"],
+      "correct_answer":["False"],
       "audio":"VascularContent/Audio/plavixQ2.mp3",
       "incorrect_audio" : "VascularContent/Audio/plavixQ2incorrect.mp3",
       "correct_audio": "VascularContent/Audio/plavixQ2correct.mp3",
