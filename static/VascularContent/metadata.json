@@ -2852,10 +2852,10 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "Select all of the odd number buttons" ,
+      "question": "Which ONE of these is a NORMAL side effect of Coumadin [Click Submit]" ,
       "options": ["VascularContent/Images/coumadinO1Q1.png", "VascularContent/Images/coumadinO2Q1.png", "VascularContent/Images/coumadinO3Q1.png", "VascularContent/Images/coumadinO4Q1.png", "VascularContent/Images/coumadinO5Q1.png", "VascularContent/Images/coumadinO6Q1.png"],
       "explanation": "" ,
-      "correct_answer":["VascularContent/Images/coumadinO1Q1.png", "VascularContent/Images/coumadinO3Q1.png", "VascularContent/Images/coumadinO5Q1.png"],
+      "correct_answer":["VascularContent/Images/coumadinO3Q1.png"],
       "audio": "VascularContent/Audio/coumadinQ1.mp3",
       "incorrect_audio" : "VascularContent/Audio/coumadinQ1incorrect.mp3",
       "correct_audio": "VascularContent/Audio/coumadinQ1correct.mp3",
@@ -2866,10 +2866,10 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "Select all of the odd number buttons" ,
+      "question": "Select the signs that you should go to the emergency department for instead of calling a doctor [Choose 3, then click Submit]" ,
       "options": ["VascularContent/Images/coumadinO1Q2.png", "VascularContent/Images/coumadinO2Q2.png", "VascularContent/Images/coumadinO3Q2.png", "VascularContent/Images/coumadinO4Q2.png", "VascularContent/Images/coumadinO5Q2.png", "VascularContent/Images/coumadinO6Q2.png"],
       "explanation": "" ,
-      "correct_answer":["VascularContent/Images/coumadinO1Q2.png", "VascularContent/Images/coumadinO3Q2.png", "VascularContent/Images/coumadinO5Q2.png"],
+      "correct_answer":["VascularContent/Images/coumadinO2Q2.png", "VascularContent/Images/coumadinO3Q2.png", "VascularContent/Images/coumadinO6Q2.png"],
       "audio": "VascularContent/Audio/coumadinQ2.mp3",
       "incorrect_audio" : "VascularContent/Audio/coumadinQ2incorrect.mp3",
       "correct_audio": "VascularContent/Audio/coumadinQ2correct.mp3",
@@ -2880,10 +2880,10 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "Select all of the odd number buttons" ,
+      "question": "Coumadin is another name for which other medication [Choose 1 then click Submit]" ,
       "options": ["VascularContent/Images/coumadinO1Q3.png", "VascularContent/Images/coumadinO2Q3.png", "VascularContent/Images/coumadinO3Q3.png", "VascularContent/Images/coumadinO4Q3.png", "VascularContent/Images/coumadinO5Q3.png", "VascularContent/Images/coumadinO6Q3.png"],
       "explanation": "" ,
-      "correct_answer":["VascularContent/Images/coumadinO1Q3.png", "VascularContent/Images/coumadinO3Q3.png", "VascularContent/Images/coumadinO5Q3.png"],
+      "correct_answer":["VascularContent/Images/coumadinO2Q3.png"],
       "audio": "VascularContent/Audio/coumadinQ3.mp3",
       "incorrect_audio" : "VascularContent/Audio/coumadinQ3incorrect.mp3",
       "correct_audio": "VascularContent/Audio/coumadinQ3correct.mp3",
@@ -2894,10 +2894,10 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "Select all of the odd number buttons" ,
+      "question": "How does Coumadin work in your body? [Choose 1, then click Submit]" ,
       "options": ["VascularContent/Images/coumadinO1Q4.png", "VascularContent/Images/coumadinO2Q4.png", "VascularContent/Images/coumadinO3Q4.png", "VascularContent/Images/coumadinO4Q4.png", "VascularContent/Images/coumadinO5Q4.png", "VascularContent/Images/coumadinO6Q4.png"],
       "explanation": "" ,
-      "correct_answer":["VascularContent/Images/coumadinO1Q4.png", "VascularContent/Images/coumadinO3Q4.png", "VascularContent/Images/coumadinO5Q4.png"],
+      "correct_answer":["VascularContent/Images/coumadinO2Q4.png"],
       "audio": "VascularContent/Audio/coumadinQ4.mp3",
       "incorrect_audio" : "VascularContent/Audio/coumadinQ4incorrect.mp3",
       "correct_audio": "VascularContent/Audio/coumadinQ4correct.mp3",
@@ -2908,10 +2908,10 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "Select all of the odd number buttons" ,
+      "question": "If you wake up in the middle of the night and remember that you had forgotten to take Coumadin yesterday, what should you do? [Choose 1, then click Submit]" ,
       "options": ["VascularContent/Images/coumadinO1Q5.png", "VascularContent/Images/coumadinO2Q5.png", "VascularContent/Images/coumadinO3Q5.png", "VascularContent/Images/coumadinO4Q5.png", "VascularContent/Images/coumadinO5Q5.png", "VascularContent/Images/coumadinO6Q5.png"],
       "explanation": "" ,
-      "correct_answer":["VascularContent/Images/coumadinO1Q5.png", "VascularContent/Images/coumadinO3Q5.png", "VascularContent/Images/coumadinO5Q5.png"],
+      "correct_answer":["VascularContent/Images/coumadinO1Q5.png"],
       "audio": "VascularContent/Audio/coumadinQ5.mp3",
       "incorrect_audio" : "VascularContent/Audio/coumadinQ5incorrect.mp3",
       "correct_audio": "VascularContent/Audio/coumadinQ5correct.mp3",
@@ -2922,10 +2922,10 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "Select all of the odd number buttons" ,
+      "question": "Who needs to get blood tests done when taking Coumadin? [Choose 1, then click Submit]" ,
       "options": ["VascularContent/Images/coumadinO1Q6.png", "VascularContent/Images/coumadinO2Q6.png", "VascularContent/Images/coumadinO3Q6.png", "VascularContent/Images/coumadinO4Q6.png", "VascularContent/Images/coumadinO5Q6.png", "VascularContent/Images/coumadinO6Q6.png"],
       "explanation": "" ,
-      "correct_answer":["VascularContent/Images/coumadinO1Q6.png", "VascularContent/Images/coumadinO3Q6.png", "VascularContent/Images/coumadinO5Q6.png"],
+      "correct_answer":["VascularContent/Images/coumadinO5Q6.png"],
       "audio": "VascularContent/Audio/coumadinQ6.mp3",
       "incorrect_audio" : "VascularContent/Audio/coumadinQ6incorrect.mp3",
       "correct_audio": "VascularContent/Audio/coumadinQ6correct.mp3",
@@ -2936,10 +2936,10 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "Select all of the odd number buttons" ,
+      "question": "What does the blood test for PT/INR directly check? [Choose 1, then click Submit]" ,
       "options": ["VascularContent/Images/coumadinO1Q7.png", "VascularContent/Images/coumadinO2Q7.png", "VascularContent/Images/coumadinO3Q7.png", "VascularContent/Images/coumadinO4Q7.png", "VascularContent/Images/coumadinO5Q7.png", "VascularContent/Images/coumadinO6Q7.png"],
       "explanation": "" ,
-      "correct_answer":["VascularContent/Images/coumadinO1Q7.png", "VascularContent/Images/coumadinO3Q7.png", "VascularContent/Images/coumadinO5Q7.png"],
+      "correct_answer":["VascularContent/Images/coumadinO5Q7.png"],
       "audio": "VascularContent/Audio/coumadinQ7.mp3",
       "incorrect_audio" : "VascularContent/Audio/coumadinQ7incorrect.mp3",
       "correct_audio": "VascularContent/Audio/coumadinQ7correct.mp3",
@@ -3045,10 +3045,10 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "Select all of the odd number buttons" ,
+      "question": "While on Coumadin, which of these foods should you avoid eating an entire plate of? [Choose 4, then click Submit]" ,
       "options": ["VascularContent/Images/cdietO1Q1.png", "VascularContent/Images/cdietO2Q1.png", "VascularContent/Images/cdietO3Q1.png", "VascularContent/Images/cdietO4Q1.png", "VascularContent/Images/cdietO5Q1.png", "VascularContent/Images/cdietO6Q1.png"],
       "explanation": "" ,
-      "correct_answer":["VascularContent/Images/cdietO1Q1.png", "VascularContent/Images/cdietO3Q1.png", "VascularContent/Images/cdietO5Q1.png"],
+      "correct_answer":["VascularContent/Images/cdietO1Q1.png", "VascularContent/Images/cdietO3Q1.png", "VascularContent/Images/cdietO5Q1.png", "VascularContent/Images/cdietO6Q1.png"],
       "audio": "VascularContent/Audio/cdietQ1.mp3",
       "incorrect_audio" : "VascularContent/Audio/cdietQ1incorrect.mp3",
       "correct_audio": "VascularContent/Audio/cdietQ1correct.mp3",
@@ -3059,10 +3059,10 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "Select all of the odd number buttons" ,
+      "question": "Which of these juices could potentially interact poorly with Coumadin? [Choose 3, then click Submit]" ,
       "options": ["VascularContent/Images/cdietO1Q2.png", "VascularContent/Images/cdietO2Q2.png", "VascularContent/Images/cdietO3Q2.png", "VascularContent/Images/cdietO4Q2.png", "VascularContent/Images/cdietO5Q2.png", "VascularContent/Images/cdietO6Q2.png"],
       "explanation": "" ,
-      "correct_answer":["VascularContent/Images/cdietO1Q2.png", "VascularContent/Images/cdietO3Q2.png", "VascularContent/Images/cdietO5Q2.png"],
+      "correct_answer":["VascularContent/Images/cdietO2Q2.png", "VascularContent/Images/cdietO3Q2.png", "VascularContent/Images/cdietO5Q2.png"],
       "audio": "VascularContent/Audio/cdietQ2.mp3",
       "incorrect_audio" : "VascularContent/Audio/cdietQ2incorrect.mp3",
       "correct_audio": "VascularContent/Audio/cdietQ2correct.mp3",
@@ -3073,10 +3073,10 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "Select all of the odd number buttons" ,
+      "question": "While taking Coumadin, which ONE of these drinks can increase your risk of getting a blood clot in your blood vessels? [Check 1, then click Submit]" ,
       "options": ["VascularContent/Images/cdietO1Q3.png", "VascularContent/Images/cdietO2Q3.png", "VascularContent/Images/cdietO3Q3.png", "VascularContent/Images/cdietO4Q3.png", "VascularContent/Images/cdietO5Q3.png", "VascularContent/Images/cdietO6Q3.png"],
       "explanation": "" ,
-      "correct_answer":["VascularContent/Images/cdietO1Q3.png", "VascularContent/Images/cdietO3Q3.png", "VascularContent/Images/cdietO5Q3.png"],
+      "correct_answer":["VascularContent/Images/cdietO4Q3.png"],
       "audio": "VascularContent/Audio/cdietQ3.mp3",
       "incorrect_audio" : "VascularContent/Audio/cdietQ3incorrect.mp3",
       "correct_audio": "VascularContent/Audio/cdietQ3correct.mp3",
@@ -3087,10 +3087,10 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "Select all of the odd number buttons" ,
+      "question": "While taking Coumadin, how much boiled spinach should you have? [Choose 1, then click Submit]" ,
       "options": ["VascularContent/Images/cdietO1Q4.png", "VascularContent/Images/cdietO2Q4.png", "VascularContent/Images/cdietO3Q4.png", "VascularContent/Images/cdietO4Q4.png", "VascularContent/Images/cdietO5Q4.png", "VascularContent/Images/cdietO6Q4.png"],
       "explanation": "" ,
-      "correct_answer":["VascularContent/Images/cdietO1Q4.png", "VascularContent/Images/cdietO3Q4.png", "VascularContent/Images/cdietO5Q4.png"],
+      "correct_answer":["VascularContent/Images/cdietO2Q4.png"],
       "audio": "VascularContent/Audio/cdietQ4.mp3",
       "incorrect_audio" : "VascularContent/Audio/cdietQ4incorrect.mp3",
       "correct_audio": "VascularContent/Audio/cdietQ4correct.mp3",
@@ -3101,10 +3101,10 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "Select all of the odd number buttons" ,
+      "question": "While taking Coumadin, should you avoid ALL foods with vitamin K?" ,
       "options": ["VascularContent/Images/cdietO1Q5.png", "VascularContent/Images/cdietO2Q5.png", "VascularContent/Images/cdietO3Q5.png", "VascularContent/Images/cdietO4Q5.png", "VascularContent/Images/cdietO5Q5.png", "VascularContent/Images/cdietO6Q5.png"],
       "explanation": "" ,
-      "correct_answer":["VascularContent/Images/cdietO1Q5.png", "VascularContent/Images/cdietO3Q5.png", "VascularContent/Images/cdietO5Q5.png"],
+      "correct_answer":["VascularContent/Images/cdietO6Q5.png"],
       "audio": "VascularContent/Audio/cdietQ5.mp3",
       "incorrect_audio" : "VascularContent/Audio/cdietQ5incorrect.mp3",
       "correct_audio": "VascularContent/Audio/cdietQ5correct.mp3",
