@@ -84,8 +84,8 @@ require 'json'
 require 'pony'
 require 'haml'
 
-require 'rest-client'
-require 'httparty'
+#require 'rest-client'
+#require 'httparty'
 
 ###############################################################################
 # Optional Requires (Not essential for base version)
@@ -354,23 +354,24 @@ class TheApp < Sinatra::Base
       rescue Exception => e;  puts "[BAD] GoogleAPI config: #{e.message}";  end
     end
 
-    # remember to include rest-client in preparation for mailgun (!!!)
-    if ENV['MAILGUN_API_KEY'] && ENV['MAILGUN_DOMAIN']
-      begin
-        require 'rest-client'
-        require 'multimap'
-        puts 'Config block, mailgun section . . .'
-        puts "https://api:#{ENV['MAILGUN_API_KEY']}"\
-  	  "@api.mailgun.net/v2/samples.mailgun.org/messages"
-  	RestClient.post "https://api:#{ENV['MAILGUN_API_KEY']}"\
-  	  "@#{ENV['MAILGUN_DOMAIN']}",
-  	  :from => 'Mailgun Sandbox <postmaster@sandbox95142.mailgun.org>',
-  	  :to => "sracunas@gmail.com",
-  	  :subject => "Hello",
-  	  :text => "Testing Mailgun awesomness thanks to code from Ben!"
-      puts '[OK!] [8]  Mailgun test email sent (hopefully)'
-      rescue Exception => e;  puts "[BAD] Mailgun test: #{e.message}";  end
-    end 
+# (!!!) remember to include rest-client before using mailgun (!!!)
+#
+#    if ENV['MAILGUN_API_KEY'] && ENV['MAILGUN_DOMAIN']
+#      begin
+#        require 'rest-client'
+#        require 'multimap'
+#        puts 'Config block, mailgun section . . .'
+#        puts "https://api:#{ENV['MAILGUN_API_KEY']}"\
+#  	  "@api.mailgun.net/v2/samples.mailgun.org/messages"
+#  	RestClient.post "https://api:#{ENV['MAILGUN_API_KEY']}"\
+#  	  "@#{ENV['MAILGUN_DOMAIN']}",
+#  	  :from => 'Mailgun Sandbox <postmaster@sandbox95142.mailgun.org>',
+#  	  :to => "sracunas@gmail.com",
+#  	  :subject => "Hello",
+#  	  :text => "Testing Mailgun awesomness thanks to code from Ben!"
+#      puts '[OK!] [8]  Mailgun test email sent (hopefully)'
+#      rescue Exception => e;  puts "[BAD] Mailgun test: #{e.message}";  end
+#    end 
 
     # Access tokens from   https://www.dropbox.com/developers/core/start/ruby
     if ENV['DROPBOX_ACCESS_TOKEN']
@@ -382,25 +383,25 @@ class TheApp < Sinatra::Base
       rescue Exception => e; puts "[BAD] Dropbox config: #{e.message}"; end
     end
 
-#    if ENV['SENDGRID_USERNAME'] && ENV['SENDGRID_PASSWORD']
-#      begin
-#        Pony.options = {
-#          :via => :smtp,
-#          :via_options => {
-#          :address => 'smtp.sendgrid.net',
-#          :port => '587',
-#          :domain => 'heroku.com',
-#          :user_name => ENV['SENDGRID_USERNAME'],
-#          :password => ENV['SENDGRID_PASSWORD'],
-#          :authentication => :plain,
-#          :enable_starttls_auto => true
-#          }
-#        }
-#
-#        puts "[OK!] [10]  SendGrid Options Configured"
-#        @@services_available[:sendgrid] = true
-#      rescue Exception => e;  puts "[BAD] SendGrid config: #{e.message}";  end
-#    end
+    if ENV['SENDGRID_USERNAME'] && ENV['SENDGRID_PASSWORD']
+      begin
+        Pony.options = {
+          :via => :smtp,
+          :via_options => {
+          :address => 'smtp.sendgrid.net',
+          :port => '587',
+          :domain => 'heroku.com',
+          :user_name => ENV['SENDGRID_USERNAME'],
+          :password => ENV['SENDGRID_PASSWORD'],
+          :authentication => :plain,
+          :enable_starttls_auto => true
+          }
+        }
+
+        puts "[OK!] [8]  SendGrid Options Configured"
+        @@services_available[:sendgrid] = true
+      rescue Exception => e;  puts "[BAD] SendGrid config: #{e.message}";  end
+    end
 
   end #configure
 
