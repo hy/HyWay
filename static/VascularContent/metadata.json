@@ -2227,8 +2227,8 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: This is scenario number 1 and x y z happens, what should the character do?" ,
-      "options": ["Normal/Rest","Call Doc", "Call 911"],
+      "question": "Scenario: After a walk, my cut is sore, my heart rate is a bit faster than normal, and I am sweaty. What should I do?" ,
+      "options": ["Normal/Rest", "Call Doc", "Call 911"],
       "correct_answer":["Normal/Rest"],
       "audio": "VascularContent/Audio/overexQ1.mp3",
       "incorrect_audio": "VascularContent/Audio/overexQ1incorrect.mp3",
@@ -2242,9 +2242,9 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: This is scenario number 2 and x y z happens, what should the character do?" ,
+      "question": "Scenario: While riding a bike, I suddenly feel weak and numb. What should I do?" ,
       "options": ["Normal/Rest","Call Doc", "Call 911"],
-      "correct_answer":["Normal/Rest"],
+      "correct_answer":["Call 911"],
       "audio": "VascularContent/Audio/overexQ2.mp3",
       "incorrect_audio": "VascularContent/Audio/overexQ2incorrect.mp3",
       "correct_audio": "VascularContent/Audio/overexQ2correct.mp3",
@@ -2257,8 +2257,8 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: This is scenario number 3 and x y z happens, what should the character do?" ,
-      "options": ["Normal/Rest","Call Doc", "Call 911"],
+      "question": "Scenario: I am playing tag, when I get light-headed and have a hard time catching my breath. What should I do?" ,
+      "options": ["Normal/Rest", "Call Doc", "Call 911"],
       "correct_answer":["Normal/Rest"],
       "audio": "VascularContent/Audio/overexQ3.mp3",
       "incorrect_audio": "VascularContent/Audio/overexQ3incorrect.mp3",
@@ -2272,8 +2272,8 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: This is scenario number 4 and x y z happens, what should the character do?" ,
-      "options": ["Normal/Rest","Call Doc", "Call 911"],
+      "question": "Scenario: The light-headedness finally goes away in the evening. What should I do?" ,
+      "options": ["Normal/Rest", "Call Doc", "Call 911"],
       "correct_answer":["Call Doc"],
       "audio": "VascularContent/Audio/overexQ4.mp3",
       "incorrect_audio": "VascularContent/Audio/overexQ4incorrect.mp3",
@@ -2287,7 +2287,7 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: This is scenario number 5 and x y z happens, what should the character do?" ,
+      "question": "Scenario: I am gardening and get a pain in my chest that goes away after rest. What should I do?" ,
       "options": ["Normal/Rest","Call Doc", "Call 911"],
       "correct_answer":["Call Doc"],
       "audio": "VascularContent/Audio/overexQ5.mp3",
@@ -2302,7 +2302,7 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: This is scenario number 6 and x y z happens, what should the character do?" ,
+      "question": "Scenario: While dancing, I suddenly get a severe pain in my back that does not go away. What should I do?" ,
       "options": ["Normal/Rest","Call Doc", "Call 911"],
       "correct_answer":["Call 911"],
       "audio": "VascularContent/Audio/overexQ6.mp3",
