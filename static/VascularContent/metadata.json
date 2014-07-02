@@ -2116,8 +2116,8 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: This is the 1 question about limits?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "question": "Question: Right after surgery, can I take a shower to freshen up?" ,
+      "explanation": " " ,
       "options": ["Yes", "No"],
       "correct_answer":["No"],
       "audio":"VascularContent/Audio/limitsQ1.mp3",
@@ -2131,8 +2131,8 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: This is the 2 question about limits?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "question": "Question: A week after surgery, can I pick up and hold my 6-month-old granddaughter?" ,
+      "explanation": " " ,
       "options": ["Yes", "No"],
       "correct_answer":["No"],
       "audio":"VascularContent/Audio/limitsQ2.mp3",
@@ -2146,8 +2146,8 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: This is the 3 question about limits?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "question": "Question: I am taking a narcotic pain medication and I have pain when I sit. Can I drive?" ,
+      "explanation": " " ,
       "options": ["Yes", "No"],
       "correct_answer":["No"],
       "audio":"VascularContent/Audio/limitsQ3.mp3",
@@ -2161,8 +2161,8 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: This is the 4 question about limits?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "question": "Question: I feel pretty strong and do not get tired during the day. Can I got back to work?" ,
+      "explanation": " " ,
       "options": ["Yes", "No"],
       "correct_answer":["Yes"],
       "audio":"VascularContent/Audio/limitsQ4.mp3",
@@ -2176,8 +2176,8 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: This is the 5 question about limits?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "question": "Question: Two months after surgery, my cut has healed well and there is no break in the skin. Can I take a bath?" ,
+      "explanation": " " ,
       "options": ["Yes", "No"],
       "correct_answer":["Yes"],
       "audio":"VascularContent/Audio/limitsQ5.mp3",
@@ -2191,8 +2191,8 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: This is the 6 question about limits?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "question": "Question: A month after surgery, I can walk up a flight of stairs easily. Can I start having sex again?" ,
+      "explanation": " " ,
       "options": ["Yes", "No"],
       "correct_answer":["Yes"],
       "audio":"VascularContent/Audio/limitsQ6.mp3",
