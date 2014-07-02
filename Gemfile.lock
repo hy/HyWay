@@ -2,10 +2,6 @@ GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.3.6)
-    autoparse (0.3.3)
-      addressable (>= 2.3.1)
-      extlib (>= 0.9.15)
-      multi_json (>= 1.0.0)
     bson (1.10.2)
     bson_ext (1.10.2)
       bson (~> 1.10.2)
@@ -14,32 +10,16 @@ GEM
     dropbox-sdk (1.6.4)
       json
     equalizer (0.0.9)
-    excon (0.33.0)
-    extlib (0.9.16)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
-    google-api-client (0.7.1)
-      addressable (>= 2.3.2)
-      autoparse (>= 0.3.3)
-      extlib (>= 0.9.15)
-      faraday (>= 0.9.0)
-      jwt (>= 0.1.5)
-      launchy (>= 2.1.1)
-      multi_json (>= 1.0.0)
-      retriable (>= 1.4)
-      signet (>= 0.5.0)
-      uuidtools (>= 2.1.0)
     haml (4.0.5)
       tilt
-    hiredis (0.5.2)
     http (0.6.1)
       http_parser.rb (~> 0.6.0)
     http_parser.rb (0.6.0)
     json (1.8.1)
     jwt (0.1.11)
       multi_json (>= 1.5)
-    launchy (2.4.2)
-      addressable (~> 2.3)
     mail (2.6.1)
       mime-types (>= 1.16, < 3)
     memoizable (0.4.2)
@@ -51,15 +31,7 @@ GEM
     multimap (1.1.3)
     multipart-post (2.0.0)
     naught (1.0.0)
-    neography (1.5.2)
-      excon (~> 0.33.0)
-      json (>= 1.7.7)
-      multi_json (>= 1.3.2)
-      os (>= 0.9.6)
-      rake (>= 0.8.7)
-      rubyzip (>= 1.0.0)
     oauth (0.4.7)
-    os (0.9.6)
     pony (1.9)
       mail (>= 2.0)
     psych (2.0.5)
@@ -68,16 +40,7 @@ GEM
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
-    rake (10.3.2)
-    redis (3.1.0)
-    retriable (1.4.1)
-    rubyzip (1.1.4)
     scruffy (0.2.6)
-    signet (0.5.1)
-      addressable (>= 2.2.3)
-      faraday (>= 0.9.0.rc5)
-      jwt (>= 0.1.5)
-      multi_json (>= 1.0.0)
     simple_oauth (0.2.0)
     sinatra (1.4.5)
       rack (~> 1.4)
@@ -86,7 +49,6 @@ GEM
     sinatra-graph (0.1.3)
       scruffy
       sinatra (>= 1.0.0)
-    temporals (2.0.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
     twilio-ruby (3.11.5)
@@ -104,7 +66,6 @@ GEM
       memoizable (~> 0.4.0)
       naught (~> 1.0)
       simple_oauth (~> 0.2.0)
-    uuidtools (2.1.4)
 
 PLATFORMS
   ruby
@@ -114,21 +75,16 @@ DEPENDENCIES
   bson_ext
   builder
   dropbox-sdk
-  google-api-client
   haml
-  hiredis
   json
   jwt (= 0.1.11)
   mongo
   multimap
-  neography
   oauth
   pony
   psych (~> 2.0.5)
   puma
-  redis
   sinatra
   sinatra-graph
-  temporals
   twilio-ruby
   twitter
