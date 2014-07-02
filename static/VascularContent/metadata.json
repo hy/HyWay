@@ -1896,8 +1896,8 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: This is the 6 question about pain medications?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "question": "Question: Is straining on the toilet a good idea to help you poop?" ,
+      "explanation": " " ,
       "options": ["Yes", "No"],
       "correct_answer":["No"],
       "audio":"VascularContent/Audio/painmedsQ6.mp3",
@@ -1912,10 +1912,10 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: This is the 7 question about pain medications?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "question": "Question: Will taking medications such as a stool softener help you poop?" ,
+      "explanation": " " ,
       "options": ["Yes", "No"],
-      "correct_answer":["No"],
+      "correct_answer":["Yes"],
       "audio":"VascularContent/Audio/painmedsQ7.mp3",
       "incorrect_audio" : "VascularContent/Audio/painmedsQ7incorrect.mp3",
       "correct_audio": "VascularContent/Audio/painmedsQ7correct.mp3",
