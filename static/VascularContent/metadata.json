@@ -1279,7 +1279,7 @@
     },
     {
       "type" : "BINARY",
-      "question": "Question: This is the first question about how to care for your cut?" ,
+      "question": "Question: This is the very first question about how to care for your cut?" ,
       "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
       "options": ["True", "False"],
       "correct_answer":["True"],
