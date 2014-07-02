@@ -2772,7 +2772,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: ?" ,
+      "question": "Question: I have a rash and swelling after starting Plavix, but I can wait 2 weeks to tell my surgeon at my appointment" ,
       "explanation": " " ,
       "options": ["True", "False"],
       "correct_answer":["False"],
@@ -2787,10 +2787,10 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: This is the 3 question about plavix?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "question": "Question: I should stop taking Plavix before my dental procedure" ,
+      "explanation": " " ,
       "options": ["True", "False"],
-      "correct_answer":["True"],
+      "correct_answer":["False"],
       "audio":"VascularContent/Audio/plavixQ3.mp3",
       "incorrect_audio" : "VascularContent/Audio/plavixQ3incorrect.mp3",
       "correct_audio": "VascularContent/Audio/plavixQ3correct.mp3",
@@ -2802,10 +2802,10 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: This is the 4 question about plavix?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "question": "Question: I have a bleeding disorder that my blood doctor is taking care of, so I should not bother telling my surgeon",
+      "explanation": " " ,
       "options": ["True", "False"],
-      "correct_answer":["True"],
+      "correct_answer":["False"],
       "audio":"VascularContent/Audio/plavixQ4.mp3",
       "incorrect_audio" : "VascularContent/Audio/plavixQ4incorrect.mp3",
       "correct_audio": "VascularContent/Audio/plavixQ4correct.mp3",
@@ -2817,8 +2817,8 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: This is the 5 question about plavix?" ,
-      "explanation": "This is approximately two sentences that describes the answer in a bit of detail, under the photo." ,
+      "question": "Question: If I start taking over-the-counter heartburn medications, I should tell my surgeon" ,
+      "explanation": " " ,
       "options": ["True", "False"],
       "correct_answer":["True"],
       "audio":"VascularContent/Audio/plavixQ5.mp3",
