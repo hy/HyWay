@@ -33,7 +33,7 @@ gem 'json'
 
 gem 'dropbox-sdk'
 
-gem 'pony'
+# gem 'pony'
 gem 'haml'
 
 # Eventually pick one of rest-client, httparty, httpclient or etc.

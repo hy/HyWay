@@ -382,25 +382,25 @@ class TheApp < Sinatra::Base
       rescue Exception => e; puts "[BAD] Dropbox config: #{e.message}"; end
     end
 
-    if ENV['SENDGRID_USERNAME'] && ENV['SENDGRID_PASSWORD']
-      begin
-        Pony.options = {
-          :via => :smtp,
-          :via_options => {
-          :address => 'smtp.sendgrid.net',
-          :port => '587',
-          :domain => 'heroku.com',
-          :user_name => ENV['SENDGRID_USERNAME'],
-          :password => ENV['SENDGRID_PASSWORD'],
-          :authentication => :plain,
-          :enable_starttls_auto => true
-          }
-        }
-
-        puts "[OK!] [10]  SendGrid Options Configured"
-        @@services_available[:sendgrid] = true
-      rescue Exception => e;  puts "[BAD] SendGrid config: #{e.message}";  end
-    end
+#    if ENV['SENDGRID_USERNAME'] && ENV['SENDGRID_PASSWORD']
+#      begin
+#        Pony.options = {
+#          :via => :smtp,
+#          :via_options => {
+#          :address => 'smtp.sendgrid.net',
+#          :port => '587',
+#          :domain => 'heroku.com',
+#          :user_name => ENV['SENDGRID_USERNAME'],
+#          :password => ENV['SENDGRID_PASSWORD'],
+#          :authentication => :plain,
+#          :enable_starttls_auto => true
+#          }
+#        }
+#
+#        puts "[OK!] [10]  SendGrid Options Configured"
+#        @@services_available[:sendgrid] = true
+#      rescue Exception => e;  puts "[BAD] SendGrid config: #{e.message}";  end
+#    end
 
   end #configure
 
