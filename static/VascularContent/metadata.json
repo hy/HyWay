@@ -40,7 +40,7 @@
       "lessons": [1000601, 1000602, 1000603, 1000604, 1000605, 1000606, 1000607, 1000608, 1000609, 1000610],
       "tags": ["vascular", "basics", "spaceships", "lasers"] ,
       "first_module" : -1,
-      "image" :"VascularContent/Images/nooratraining.png",
+      "image" :"VascularContent/Images/introvascular.png",
       "nh_id" : 1000004      
     },
     {
@@ -2844,8 +2844,8 @@
       "type" : "SLIDE",
       "title": "The Tricks to Taking Coumadin",
       "tags": ["vascular", "basics", "important", "information"] ,
-      "image": "VascularContent/Images/coumadinqs.png",
-      "audio": "VascularContent/Audio/coumadinqs.mp3",
+      "image": "VascularContent/Images/chow.png",
+      "audio": "VascularContent/Audio/chow.mp3",
       "next_module": 1000214,
       "nh_id" : 1000213     
     },
@@ -2973,8 +2973,8 @@
       "type" : "SLIDE",
       "title": "The Side Effects of Coumadin" ,
       "tags": ["vascular", "basics", "important", "information"] ,
-      "image":"VascularContent/Images/coumadinb1.png",
-      "audio":"VascularContent/Audio/coumadinb1.mp3",
+      "image":"VascularContent/Images/coumadinb2.png",
+      "audio":"VascularContent/Audio/coumadinb2.mp3",
       "next_module":1000231,
       "nh_id" : 1000230     
     },
@@ -2984,8 +2984,8 @@
       "type" : "SLIDE",
       "title": "The Side Effects of Coumadin" ,
       "tags": ["vascular", "basics", "important", "information"] ,
-      "image":"VascularContent/Images/coumadinb2.png",
-      "audio":"VascularContent/Audio/coumadinb2.mp3",
+      "image":"VascularContent/Images/coumadinb3.png",
+      "audio":"VascularContent/Audio/coumadinb3.mp3",
       "next_module":1000232,
       "nh_id" : 1000231     
     },
@@ -2995,8 +2995,8 @@
       "type" : "SLIDE",
       "title": "The Side Effects of Coumadin" ,
       "tags": ["vascular", "basics", "important", "information"] ,
-      "image":"VascularContent/Images/coumadinb3.png",
-      "audio":"VascularContent/Audio/coumadinb3.mp3",
+      "image":"VascularContent/Images/coumadinb4.png",
+      "audio":"VascularContent/Audio/coumadinb4.mp3",
       "next_module":1000233,
       "nh_id" : 1000232     
     },
@@ -3006,8 +3006,8 @@
       "type" : "SLIDE",
       "title": "The Side Effects of Coumadin" ,
       "tags": ["vascular", "basics", "important", "information"] ,
-      "image":"VascularContent/Images/coumadinb4.png",
-      "audio":"VascularContent/Audio/coumadinb4.mp3",
+      "image":"VascularContent/Images/coumadinb5.png",
+      "audio":"VascularContent/Audio/coumadinb5.mp3",
       "next_module":1000234,
       "nh_id" : 1000233     
     },
@@ -3017,8 +3017,8 @@
       "type" : "SLIDE",
       "title": "The Side Effects of Coumadin" ,
       "tags": ["vascular", "basics", "important", "information"] ,
-      "image":"VascularContent/Images/coumadinb5.png",
-      "audio":"VascularContent/Audio/coumadinb5.mp3",
+      "image":"VascularContent/Images/coumadinb6.png",
+      "audio":"VascularContent/Audio/coumadinb6.mp3",
       "next_module": -1,
       "nh_id" : 1000234     
     },
