@@ -2024,8 +2024,8 @@
       "type" : "BINARY",
       "question": "Would you like to learn exercises you can do while standing up?" ,
       "explanation": "Only perform the following exercises if your doctor advises that they are right for you",
-      "options": ["Yes", "No"],
-      "correct_answer":["No"],
+      "options": ["Yes", "OK"],
+      "correct_answer":["Yes"],
       "audio":"VascularContent/Audio/standfallex.mp3",
       "incorrect_audio" : "",
       "correct_audio": "",
@@ -2450,7 +2450,7 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "I want some cheese. Which of these are lower in salt? [Choose 3, then click Submit]" ,
+      "question": "I want some cheese. Which of these are lower in salt? [Choose 3]" ,
       "options": ["VascularContent/Images/fchoiceO1Q4.png", "VascularContent/Images/fchoiceO2Q4.png", "VascularContent/Images/fchoiceO3Q4.png", "VascularContent/Images/fchoiceO4Q4.png", "VascularContent/Images/fchoiceO5Q4.png", "VascularContent/Images/fchoiceO6Q4.png"],
       "explanation": "" ,
       "correct_answer":["VascularContent/Images/fchoiceO1Q4.png", "VascularContent/Images/fchoiceO4Q4.png", "VascularContent/Images/fchoiceO5Q4.png"],
@@ -2464,7 +2464,7 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "Which of these sandwich condiments are healthy options? [Choose 2, then click Submit]" ,
+      "question": "Which of these sandwich condiments are healthy options? [Choose 2]" ,
       "options": ["VascularContent/Images/fchoiceO1Q5.png", "VascularContent/Images/fchoiceO2Q5.png", "VascularContent/Images/fchoiceO3Q5.png", "VascularContent/Images/fchoiceO4Q5.png", "VascularContent/Images/fchoiceO5Q5.png", "VascularContent/Images/fchoiceO6Q5.png"],
       "explanation": "" ,
       "correct_answer":["VascularContent/Images/fchoiceO1Q5.png", "VascularContent/Images/fchoiceO3Q5.png"],
@@ -2478,7 +2478,7 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "Which sauce and pasta would be best? [Choose 1 sauce, and 1 pasta, and then click Submit]" ,
+      "question": "Which sauce and pasta would be best? [Choose 1 sauce, and 1 pasta]" ,
       "options": ["VascularContent/Images/fchoiceO1Q6.png", "VascularContent/Images/fchoiceO2Q6.png", "VascularContent/Images/fchoiceO3Q6.png", "VascularContent/Images/fchoiceO4Q6.png", "VascularContent/Images/fchoiceO5Q6.png", "VascularContent/Images/fchoiceO6Q6.png"],
       "explanation": "" ,
       "correct_answer":["VascularContent/Images/fchoiceO1Q6.png", "VascularContent/Images/fchoiceO6Q6.png"],
@@ -2492,7 +2492,7 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "I am suspicious of misleading labels, since they all look the same. Which of these labels do you think are better options? [Choose 3, then click Submit]" ,
+      "question": "I am suspicious of misleading labels, since they all look the same. Which of these labels do you think are better options? [Choose 3]" ,
       "options": ["VascularContent/Images/fchoiceO1Q7.png", "VascularContent/Images/fchoiceO2Q7.png", "VascularContent/Images/fchoiceO3Q7.png", "VascularContent/Images/fchoiceO4Q7.png", "VascularContent/Images/fchoiceO5Q7.png", "VascularContent/Images/fchoiceO6Q7.png"],
       "explanation": "" ,
       "correct_answer":["VascularContent/Images/fchoiceO1Q7.png", "VascularContent/Images/fchoiceO3Q7.png", "VascularContent/Images/fchoiceO6Q7.png"],
@@ -2506,7 +2506,7 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "Which salad dressing would be healthiest? [Choose 1, then click Submit]" ,
+      "question": "Which salad dressing would be healthiest? [Choose 1]" ,
       "options": ["VascularContent/Images/fchoiceO1Q8.png", "VascularContent/Images/fchoiceO2Q8.png", "VascularContent/Images/fchoiceO3Q8.png", "VascularContent/Images/fchoiceO4Q8.png", "VascularContent/Images/fchoiceO5Q8.png", "VascularContent/Images/fchoiceO6Q8.png"],
       "explanation": "" ,
       "correct_answer":["VascularContent/Images/fchoiceO3Q8.png"],
@@ -2520,7 +2520,7 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "Which of these are healthy options to make my food more flavorful? [Choose 3, then click Submit]" ,
+      "question": "Which of these are healthy options to make my food more flavorful? [Choose 3]" ,
       "options": ["VascularContent/Images/fchoiceO1Q9.png", "VascularContent/Images/fchoiceO2Q9.png", "VascularContent/Images/fchoiceO3Q9.png", "VascularContent/Images/fchoiceO4Q9.png", "VascularContent/Images/fchoiceO5Q9.png", "VascularContent/Images/fchoiceO6Q9.png"],
       "explanation": "" ,
       "correct_answer":["VascularContent/Images/fchoiceO4Q9.png", "VascularContent/Images/fchoiceO5Q9.png", "VascularContent/Images/fchoiceO6Q9.png"],
@@ -2852,7 +2852,7 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "Which ONE of these is a NORMAL side effect of Coumadin [Click Submit]" ,
+      "question": "Which ONE of these is a NORMAL side effect of Coumadin [Click 1]" ,
       "options": ["VascularContent/Images/coumadinO1Q1.png", "VascularContent/Images/coumadinO2Q1.png", "VascularContent/Images/coumadinO3Q1.png", "VascularContent/Images/coumadinO4Q1.png", "VascularContent/Images/coumadinO5Q1.png", "VascularContent/Images/coumadinO6Q1.png"],
       "explanation": "" ,
       "correct_answer":["VascularContent/Images/coumadinO3Q1.png"],
@@ -2880,7 +2880,7 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "Coumadin is another name for which other medication [Choose 1 then click Submit]" ,
+      "question": "Coumadin is another name for which other medication [Choose 1]" ,
       "options": ["VascularContent/Images/coumadinO1Q3.png", "VascularContent/Images/coumadinO2Q3.png", "VascularContent/Images/coumadinO3Q3.png", "VascularContent/Images/coumadinO4Q3.png", "VascularContent/Images/coumadinO5Q3.png", "VascularContent/Images/coumadinO6Q3.png"],
       "explanation": "" ,
       "correct_answer":["VascularContent/Images/coumadinO2Q3.png"],
@@ -2894,7 +2894,7 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "How does Coumadin work in your body? [Choose 1, then click Submit]" ,
+      "question": "How does Coumadin work in your body? [Choose 1]" ,
       "options": ["VascularContent/Images/coumadinO1Q4.png", "VascularContent/Images/coumadinO2Q4.png", "VascularContent/Images/coumadinO3Q4.png", "VascularContent/Images/coumadinO4Q4.png", "VascularContent/Images/coumadinO5Q4.png", "VascularContent/Images/coumadinO6Q4.png"],
       "explanation": "" ,
       "correct_answer":["VascularContent/Images/coumadinO2Q4.png"],
@@ -2922,7 +2922,7 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "Who needs to get blood tests done when taking Coumadin? [Choose 1, then click Submit]" ,
+      "question": "Who needs to get blood tests done when taking Coumadin? [Choose 1]" ,
       "options": ["VascularContent/Images/coumadinO1Q6.png", "VascularContent/Images/coumadinO2Q6.png", "VascularContent/Images/coumadinO3Q6.png", "VascularContent/Images/coumadinO4Q6.png", "VascularContent/Images/coumadinO5Q6.png", "VascularContent/Images/coumadinO6Q6.png"],
       "explanation": "" ,
       "correct_answer":["VascularContent/Images/coumadinO5Q6.png"],
@@ -2936,7 +2936,7 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "What does the blood test for PT/INR directly check? [Choose 1, then click Submit]" ,
+      "question": "What does the blood test for PT/INR directly check? [Choose 1]" ,
       "options": ["VascularContent/Images/coumadinO1Q7.png", "VascularContent/Images/coumadinO2Q7.png", "VascularContent/Images/coumadinO3Q7.png", "VascularContent/Images/coumadinO4Q7.png", "VascularContent/Images/coumadinO5Q7.png", "VascularContent/Images/coumadinO6Q7.png"],
       "explanation": "" ,
       "correct_answer":["VascularContent/Images/coumadinO5Q7.png"],
@@ -3045,7 +3045,7 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "While on Coumadin, which should you avoid eating an entire plate of? [Choose 4, click Submit]" ,
+      "question": "While on Coumadin, which should you avoid eating an entire plate of? [Choose 4]" ,
       "options": ["VascularContent/Images/cdietO1Q1.png", "VascularContent/Images/cdietO2Q1.png", "VascularContent/Images/cdietO3Q1.png", "VascularContent/Images/cdietO4Q1.png", "VascularContent/Images/cdietO5Q1.png", "VascularContent/Images/cdietO6Q1.png"],
       "explanation": "" ,
       "correct_answer":["VascularContent/Images/cdietO1Q1.png", "VascularContent/Images/cdietO3Q1.png", "VascularContent/Images/cdietO5Q1.png", "VascularContent/Images/cdietO6Q1.png"],
@@ -3059,7 +3059,7 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "Which of these juices could potentially interact poorly with Coumadin? [Choose 3, then click Submit]" ,
+      "question": "Which of these juices could potentially interact poorly with Coumadin? [Choose 3]" ,
       "options": ["VascularContent/Images/cdietO1Q2.png", "VascularContent/Images/cdietO2Q2.png", "VascularContent/Images/cdietO3Q2.png", "VascularContent/Images/cdietO4Q2.png", "VascularContent/Images/cdietO5Q2.png", "VascularContent/Images/cdietO6Q2.png"],
       "explanation": "" ,
       "correct_answer":["VascularContent/Images/cdietO2Q2.png", "VascularContent/Images/cdietO3Q2.png", "VascularContent/Images/cdietO5Q2.png"],
@@ -3087,7 +3087,7 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "While taking Coumadin, how much boiled spinach should you have? [Choose 1, then click Submit]" ,
+      "question": "While taking Coumadin, how much boiled spinach should you have? [Choose 1]" ,
       "options": ["VascularContent/Images/cdietO1Q4.png", "VascularContent/Images/cdietO2Q4.png", "VascularContent/Images/cdietO3Q4.png", "VascularContent/Images/cdietO4Q4.png", "VascularContent/Images/cdietO5Q4.png", "VascularContent/Images/cdietO6Q4.png"],
       "explanation": "" ,
       "correct_answer":["VascularContent/Images/cdietO2Q4.png"],
