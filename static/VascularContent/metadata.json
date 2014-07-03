@@ -2398,7 +2398,7 @@
 
     {
       "type" : "SLIDE",
-      "title": "Making Food Choices After Surgeryn",
+      "title": "Making Food Choices After Surgery",
       "tags": ["vascular", "basics", "important", "information"] ,
       "image":"VascularContent/Images/fchoice.png",
       "audio":"VascularContent/Audio/fchoice.mp3",
@@ -3142,7 +3142,7 @@
 
     {
       "type" : "VIDEO",
-      "title": "Living in the Present Moment",
+      "title": "Everyday Living",
       "tags": ["vascular", "basics", "important", "vertical"] ,
       "video": "VascularContent/Video/presentmoment.mp4",
       "next_module": -1,
