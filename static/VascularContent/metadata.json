@@ -88,7 +88,7 @@
       "nh_id" : 1000604      
     },
     {
-      "title": "Stenosis",
+      "title": "Carotid Stenosis",
       "short_title" : "Stenosis",
       "description": "",
       "has_sublessons": false,
@@ -912,7 +912,7 @@
     {
       "title": "Lesson 2: Smoking",
       "short_title" : "Lesson 2: Smoking",
-      "description": "Learn how smoking impacts the body after surgery and how to quit smoking.",
+      "description": "Learn how smoking impacts the body after surgery and suggestions to try quitting",
       "has_sublessons": false,
       "lessons": [],
       "tags": ["vascular", "basics", "spaceships", "lasers"] ,
@@ -934,7 +934,7 @@
     },
 
     {
-      "title": "Lesson 1: Caring for a Vascular Surgery Patient",
+      "title": "Lesson 1: Caring for a Loved One",
       "short_title" : "Lesson 1: Caring for a Vascular Surgery Patient",
       "description": "In this section we will teach you about how to provide some basic support to a vascular patient that you would like to care for.",
       "has_sublessons": true,
@@ -1042,7 +1042,7 @@
     },
 
     {
-      "title": "Lesson 2: Caring for Yourself When You Care for Others",
+      "title": "Lesson 2: Caring for Yourself",
       "short_title" : "Lesson 2: Caring for Yourself When You Care for Others",
       "description": "Caregivers, whether family or friend, tend to forget to take care of themselves when they spend time caring for others. Learn some ways to combat this.",
       "has_sublessons": true,
@@ -1391,8 +1391,8 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: A couple days after getting home I notice pale yellow fluid coming from my cut, and the edges are more red and swollen" ,
-      "options": ["Normal","Call Doc", "Call 911"],
+      "question": "Scenario: Pale yellow fluid oozes from my cut and the edges are swollen red" ,
+      "options": ["Normal", "Call Doc", "Call 911"],
       "correct_answer":["Call Doc"],
       "audio": "VascularContent/Audio/normalvabQ1.mp3",
       "incorrect_audio" : "VascularContent/Audio/normalvabQ1incorrect.mp3",
@@ -1433,8 +1433,8 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: I notice a rash developing near the cut, and the cut seems to be increasing in size and smell" ,
-      "options": ["Normal","Call Doc", "Call 911"],
+      "question": "Scenario: A rash develops near my cut, which is increasing in size and smell" ,
+      "options": ["Normal", "Call Doc", "Call 911"],
       "correct_answer":["Call Doc"],
       "audio": "VascularContent/Audio/normalvabQ4.mp3",
       "incorrect_audio" : "VascularContent/Audio/normalvabQ4incorrect.mp3",
@@ -1959,7 +1959,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: Will you be able to sit up?" ,
+      "question": "Would you like to learn exercises you can do while sitting up?" ,
       "explanation": "Only perform the following exercises if your doctor advises that they are right for you",
       "options": ["Yes", "No"],
       "correct_answer":["No"],
@@ -2022,7 +2022,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: Will you be physically able to stand?" ,
+      "question": "Would you like to learn exercises you can do while standing up?" ,
       "explanation": "Only perform the following exercises if your doctor advises that they are right for you",
       "options": ["Yes", "No"],
       "correct_answer":["No"],
@@ -2161,7 +2161,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: I feel pretty strong and do not get tired during the day. Can I got back to work?" ,
+      "question": "Question: I feel pretty strong and do not get tired during the day. Can I go back to work?" ,
       "explanation": " " ,
       "options": ["Yes", "No"],
       "correct_answer":["Yes"],
@@ -2176,7 +2176,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: Two months after surgery, my cut has healed well and there is no break in the skin. Can I take a bath?" ,
+      "question": "My cut has healed. There is no break in the skin. Can I take a bath?" ,
       "explanation": " " ,
       "options": ["Yes", "No"],
       "correct_answer":["Yes"],
@@ -2227,9 +2227,9 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: After a walk, my cut is sore, my heart rate is a bit faster than normal, and I am sweaty. What should I do?" ,
-      "options": ["Normal/Rest", "Call Doc", "Call 911"],
-      "correct_answer":["Normal/Rest"],
+      "question": "After a walk, my cut is sore, I am sweaty and my pulse is fast." ,
+      "options": ["Rest", "Call Doc", "Call 911"],
+      "correct_answer":["Rest"],
       "audio": "VascularContent/Audio/overexQ1.mp3",
       "incorrect_audio": "VascularContent/Audio/overexQ1incorrect.mp3",
       "correct_audio": "VascularContent/Audio/overexQ1correct.mp3",
@@ -2242,8 +2242,8 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: While riding a bike, I suddenly feel weak and numb. What should I do?" ,
-      "options": ["Normal/Rest","Call Doc", "Call 911"],
+      "question": "I suddenly feel weak and numb." ,
+      "options": ["Rest","Call Doc", "Call 911"],
       "correct_answer":["Call 911"],
       "audio": "VascularContent/Audio/overexQ2.mp3",
       "incorrect_audio": "VascularContent/Audio/overexQ2incorrect.mp3",
@@ -2257,8 +2257,8 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: I am playing tag, when I get light-headed and have a hard time catching my breath. What should I do?" ,
-      "options": ["Normal/Rest", "Call Doc", "Call 911"],
+      "question": "I get light-headed and have a hard time catching my breath." ,
+      "options": ["Rest", "Call Doc", "Call 911"],
       "correct_answer":["Normal/Rest"],
       "audio": "VascularContent/Audio/overexQ3.mp3",
       "incorrect_audio": "VascularContent/Audio/overexQ3incorrect.mp3",
@@ -2272,8 +2272,8 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: The light-headedness finally goes away in the evening. What should I do?" ,
-      "options": ["Normal/Rest", "Call Doc", "Call 911"],
+      "question": "The light-headedness finally goes away in the evening." ,
+      "options": ["Rest", "Call Doc", "Call 911"],
       "correct_answer":["Call Doc"],
       "audio": "VascularContent/Audio/overexQ4.mp3",
       "incorrect_audio": "VascularContent/Audio/overexQ4incorrect.mp3",
@@ -2287,8 +2287,8 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: I am gardening and get a pain in my chest that goes away after rest. What should I do?" ,
-      "options": ["Normal/Rest","Call Doc", "Call 911"],
+      "question": "I get a pain in my chest that goes away after rest.",
+      "options": ["Rest","Call Doc", "Call 911"],
       "correct_answer":["Call Doc"],
       "audio": "VascularContent/Audio/overexQ5.mp3",
       "incorrect_audio": "VascularContent/Audio/overexQ5incorrect.mp3",
@@ -2302,8 +2302,8 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: While dancing, I suddenly get a severe pain in my back that does not go away. What should I do?" ,
-      "options": ["Normal/Rest","Call Doc", "Call 911"],
+      "question": "I suddenly get a severe pain in my back that does not go away." ,
+      "options": ["Rest","Call Doc", "Call 911"],
       "correct_answer":["Call 911"],
       "audio": "VascularContent/Audio/overexQ6.mp3",
       "incorrect_audio": "VascularContent/Audio/overexQ6incorrect.mp3",
@@ -2316,7 +2316,7 @@
 
     {
       "type" : "VIDEO",
-      "title": "Why Nutrition is Important to Healing",
+      "title": "Nutrition for Healing",
       "tags": ["vascular", "basics", "important", "vertical"] ,
       "video": "VascularContent/Video/whynutritionheals.mp4",
       "next_module": -1,
@@ -2408,7 +2408,7 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "I woke up this morning wanting a hearty breakfast. Which of these are healthy to eat? [Choose 4, then click Submit]" ,
+      "question": "I woke up this morning wanting a hearty breakfast. [Choose 4]" ,
       "options": ["VascularContent/Images/fchoiceO1Q1.png", "VascularContent/Images/fchoiceO2Q1.png", "VascularContent/Images/fchoiceO3Q1.png", "VascularContent/Images/fchoiceO4Q1.png", "VascularContent/Images/fchoiceO5Q1.png", "VascularContent/Images/fchoiceO6Q1.png"],
       "explanation": "" ,
       "correct_answer":["VascularContent/Images/fchoiceO1Q1.png", "VascularContent/Images/fchoiceO2Q1.png", "VascularContent/Images/fchoiceO4Q1.png", "VascularContent/Images/fchoiceO6Q1.png"],
@@ -2422,7 +2422,7 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "I want a bit more for breakfast. Which of the following wouldbe best? [Choose 1, then click Submit]" ,
+      "question": "I want a bit more for breakfast. Which would be best? [Choose 1]" ,
       "options": ["VascularContent/Images/fchoiceO1Q2.png", "VascularContent/Images/fchoiceO2Q2.png", "VascularContent/Images/fchoiceO3Q2.png", "VascularContent/Images/fchoiceO4Q2.png", "VascularContent/Images/fchoiceO5Q2.png", "VascularContent/Images/fchoiceO6Q2.png"],
       "explanation": "" ,
       "correct_answer":["VascularContent/Images/fchoiceO2Q2.png"],
@@ -2436,7 +2436,7 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "I need to eat out for lunch, and I want something quick. What options should I pick? [Choose 2, then click Submit]" ,
+      "question": "I need to eat out for lunch, and I want something quick. What options should I pick? [Choose 2]" ,
       "options": ["VascularContent/Images/fchoiceO1Q3.png", "VascularContent/Images/fchoiceO2Q3.png", "VascularContent/Images/fchoiceO3Q3.png", "VascularContent/Images/fchoiceO4Q3.png", "VascularContent/Images/fchoiceO5Q3.png", "VascularContent/Images/fchoiceO6Q3.png"],
       "explanation": "" ,
       "correct_answer":["VascularContent/Images/fchoiceO2Q3.png", "VascularContent/Images/fchoiceO6Q3.png"],
@@ -2772,7 +2772,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: I have a rash and swelling after starting Plavix, but I can wait 2 weeks to tell my surgeon at my appointment" ,
+      "question": "I can wait 2 weeks to tell my surgeon I have a rash after starting Plavix" ,
       "explanation": " " ,
       "options": ["True", "False"],
       "correct_answer":["False"],
@@ -2802,7 +2802,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: I have a bleeding disorder that my blood doctor is taking care of, so I should not bother telling my surgeon",
+      "question": "I need not tell my surgeon I have a bleeding disorder",
       "explanation": " " ,
       "options": ["True", "False"],
       "correct_answer":["False"],
@@ -2866,7 +2866,7 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "Select the signs that you should go to the emergency department for instead of calling a doctor [Choose 3, then click Submit]" ,
+      "question": "Select the signs that you should go to the emergency department for instead of calling a doctor [Choose 3]" ,
       "options": ["VascularContent/Images/coumadinO1Q2.png", "VascularContent/Images/coumadinO2Q2.png", "VascularContent/Images/coumadinO3Q2.png", "VascularContent/Images/coumadinO4Q2.png", "VascularContent/Images/coumadinO5Q2.png", "VascularContent/Images/coumadinO6Q2.png"],
       "explanation": "" ,
       "correct_answer":["VascularContent/Images/coumadinO2Q2.png", "VascularContent/Images/coumadinO3Q2.png", "VascularContent/Images/coumadinO6Q2.png"],
@@ -3045,7 +3045,7 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "While on Coumadin, which of these foods should you avoid eating an entire plate of? [Choose 4, then click Submit]" ,
+      "question": "While on Coumadin, which should you avoid eating an entire plate of? [Choose 4, click Submit]" ,
       "options": ["VascularContent/Images/cdietO1Q1.png", "VascularContent/Images/cdietO2Q1.png", "VascularContent/Images/cdietO3Q1.png", "VascularContent/Images/cdietO4Q1.png", "VascularContent/Images/cdietO5Q1.png", "VascularContent/Images/cdietO6Q1.png"],
       "explanation": "" ,
       "correct_answer":["VascularContent/Images/cdietO1Q1.png", "VascularContent/Images/cdietO3Q1.png", "VascularContent/Images/cdietO5Q1.png", "VascularContent/Images/cdietO6Q1.png"],
@@ -3073,7 +3073,7 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "While taking Coumadin, which ONE of these drinks can increase your risk of getting a blood clot in your blood vessels? [Check 1, then click Submit]" ,
+      "question": "While on Coumadin, which ONE of these drinks can increase your risk of getting a blood clot?" ,
       "options": ["VascularContent/Images/cdietO1Q3.png", "VascularContent/Images/cdietO2Q3.png", "VascularContent/Images/cdietO3Q3.png", "VascularContent/Images/cdietO4Q3.png", "VascularContent/Images/cdietO5Q3.png", "VascularContent/Images/cdietO6Q3.png"],
       "explanation": "" ,
       "correct_answer":["VascularContent/Images/cdietO4Q3.png"],
@@ -3115,7 +3115,7 @@
 
     {
       "type" : "VIDEO",
-      "title": "The Importance of Well-Being",
+      "title": "Why Care",
       "tags": ["vascular", "basics", "important", "vertical"] ,
       "video": "VascularContent/Video/wellbeingm.mp4",
       "next_module": -1,
@@ -3334,7 +3334,7 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "Select the diet you would like to do" ,
+      "question": "Which of these food habits could you see yourself trying?" ,
       "options": ["VascularContent/Images/dietgoalsO1Q1.png", "VascularContent/Images/dietgoalsO2Q1.png", "VascularContent/Images/dietgoalsO3Q1.png", "VascularContent/Images/dietgoalsO4Q1.png", "VascularContent/Images/dietgoalsO5Q1.png", "VascularContent/Images/dietgoalsO6Q1.png"],
       "explanation": "" ,
       "correct_answer":["VascularContent/Images/dietgoalsO1Q1.png", "VascularContent/Images/dietgoalsO2Q1.png", "VascularContent/Images/dietgoalsO3Q1.png", "VascularContent/Images/dietgoalsO4Q1.png", "VascularContent/Images/dietgoalsO5Q1.png", "VascularContent/Images/dietgoalsO6Q1.png"],
@@ -3348,7 +3348,7 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "How often would you like to do diet?",
+      "question": "How often would you like to do this behavior to eat more healthily?",
       "options": ["VascularContent/Images/dietgoalsO1Q2.png", "VascularContent/Images/dietgoalsO2Q2.png", "VascularContent/Images/dietgoalsO3Q2.png", "VascularContent/Images/dietgoalsO4Q2.png", "VascularContent/Images/dietgoalsO5Q2.png", "VascularContent/Images/dietgoalsO6Q2.png"],
       "explanation": "" ,
       "correct_answer":["VascularContent/Images/dietgoalsO1Q1.png", "VascularContent/Images/dietgoalsO2Q1.png", "VascularContent/Images/dietgoalsO3Q1.png", "VascularContent/Images/dietgoalsO4Q1.png", "VascularContent/Images/dietgoalsO5Q1.png", "VascularContent/Images/dietgoalsO6Q1.png"],
@@ -3373,7 +3373,7 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "Select the well-being you would like to do" ,
+      "question": "Which of these activities do you want to do for yourself?" ,
       "options": ["VascularContent/Images/wellgoalsO1Q1.png", "VascularContent/Images/wellgoalsO2Q1.png", "VascularContent/Images/wellgoalsO3Q1.png", "VascularContent/Images/wellgoalsO4Q1.png", "VascularContent/Images/wellgoalsO5Q1.png", "VascularContent/Images/wellgoalsO6Q1.png"],
       "explanation": "" ,
       "correct_answer":["VascularContent/Images/wellgoalsO1Q1.png", "VascularContent/Images/wellgoalsO2Q1.png", "VascularContent/Images/wellgoalsO3Q1.png", "VascularContent/Images/wellgoalsO4Q1.png", "VascularContent/Images/wellgoalsO5Q1.png", "VascularContent/Images/wellgoalsO6Q1.png"],
@@ -3387,7 +3387,7 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "How often would you like to do well?",
+      "question": "Which of these activities would you like to do at least once each week?",
       "options": ["VascularContent/Images/wellgoalsO1Q2.png", "VascularContent/Images/wellgoalsO2Q2.png", "VascularContent/Images/wellgoalsO3Q2.png", "VascularContent/Images/wellgoalsO4Q2.png", "VascularContent/Images/wellgoalsO5Q2.png", "VascularContent/Images/wellgoalsO6Q2.png"],
       "explanation": "" ,
       "correct_answer":["VascularContent/Images/wellgoalsO1Q1.png", "VascularContent/Images/wellgoalsO2Q1.png", "VascularContent/Images/wellgoalsO3Q1.png", "VascularContent/Images/wellgoalsO4Q1.png", "VascularContent/Images/wellgoalsO5Q1.png", "VascularContent/Images/wellgoalsO6Q1.png"],
