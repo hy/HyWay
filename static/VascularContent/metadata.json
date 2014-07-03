@@ -66,7 +66,7 @@
       "nh_id" : 1000602      
     },
     {
-      "title": "Abdominal Aortic Aneurysm",
+      "title": "Abdominal AA",
       "short_title" : "AAA",
       "description": "",
       "has_sublessons": false,
@@ -1180,7 +1180,7 @@
     },
     {
       "type" : "VIDEO",
-      "title": "Abdominal Aortic Aneurysm" ,
+      "title": "Abdominal AA" ,
       "tags": ["vascular", "basics", "important", "vertical"] ,
       "video": "VascularContent/Video/aaa.mp4",
       "next_module": -1,
@@ -1985,7 +1985,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: Will you be able to stand up?" ,
+      "question": "Question: Would you like to learn standing exercises?" ,
       "explanation": "Only perform the following exercises if your doctor advises that they are right for you",
       "options": ["Yes", "No"],
       "correct_answer":["No"],
