@@ -1,0 +1,3424 @@
+{
+  "home_pages": [
+    {
+      "title": "Vascular Surgery",
+      "lessons": [1000002, 1000015, 1000099, 1000142, 1000180, 1000247, 1000255, 1000270 ],
+      "condition": "1"  ,
+      "nh_id" : 100001  
+    }
+  ],
+
+  "lessons": [
+    {
+      "title": "Chapter 1: Introduction to Your Training",
+      "short_title": "Introduction",
+      "description":"",
+      "lessons": [1000600, 1000004],
+      "tags": ["vascular", "basics"] ,
+      "image" : "VascularContent/Images/introductionv.png",
+      "has_sublessons": true,
+      "first_module" : -1,
+      "nh_id" : 1000002      
+    },
+
+   {
+      "title": "Lesson 1: Introduction to Noora Health",
+      "short_title" : "",
+      "description": "Learn about the basic principles and science behind your condition. Get the 101 on how, what, and why about vascular surgery.",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000003,
+      "image" :"VascularContent/Images/nooratraining.png",
+      "nh_id" : 1000600      
+    },
+    {
+      "title": "Lesson 2: Introduction to Your Condition",
+      "short_title" : "",
+      "description": "Learn about the basic principles and science behind your condition. Get the 101 on how, what, and why about vascular surgery.",
+      "has_sublessons": true,
+      "lessons": [1000601, 1000602, 1000603, 1000604, 1000605, 1000606, 1000607, 1000608, 1000609, 1000610],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : -1,
+      "image" :"VascularContent/Images/introvascular.png",
+      "nh_id" : 1000004      
+    },
+    {
+      "title": "Vascular System",
+      "short_title" : "Vascular",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000005,
+      "image" :"VascularContent/Images/vascularsystem.png",
+      "nh_id" : 1000601      
+    },
+    {
+      "title": "Aneurysm",
+      "short_title" : "Aneurysm",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000006,
+      "image" :"VascularContent/Images/aneurysm.png",
+      "nh_id" : 1000602      
+    },
+    {
+      "title": "Abdominal Aortic Aneurysm",
+      "short_title" : "AAA",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000007,
+      "image" :"VascularContent/Images/aaa.png",
+      "nh_id" : 1000603      
+    },
+    {
+      "title": "Pseudoaneurysm",
+      "short_title" : "Pseudoaneurysm",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000008,
+      "image" :"VascularContent/Images/pseudoaneurysm.png",
+      "nh_id" : 1000604      
+    },
+    {
+      "title": "Stenosis",
+      "short_title" : "Stenosis",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000009,
+      "image" :"VascularContent/Images/stenosis.png",
+      "nh_id" : 1000605      
+    },
+    {
+      "title": "Peripheral",
+      "short_title" : "Peripheral",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000010,
+      "image" :"VascularContent/Images/peripheral.png",
+      "nh_id" : 1000606      
+    },
+    {
+      "title": "Amputation",
+      "short_title" : "Amputation",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000011,
+      "image" :"VascularContent/Images/amputation.png",
+      "nh_id" : 1000607      
+    },
+    {
+      "title": "AV Fistula",
+      "short_title" : "AV Fistula",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000012,
+      "image" :"VascularContent/Images/avfistula.png",
+      "nh_id" : 1000608      
+    },
+    {
+      "title": "Diabetes",
+      "short_title" : "Diabetes",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000013,
+      "image" :"VascularContent/Images/diabetes.png",
+      "nh_id" : 1000609      
+    },
+    {
+      "title": "Hypertension",
+      "short_title" : "Hypertension",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000014,
+      "image" :"VascularContent/Images/hypertension.png",
+      "nh_id" : 1000610      
+    },
+    {
+      "title": "Chapter 2: Introduction to Home Care",
+      "short_title": "Home Care",
+      "description":"",
+      "lessons": [1000016, 1000047],
+      "tags": ["vascular", "basics", "woohooo"] ,
+      "image" : "VascularContent/Images/homecarev.png",
+      "has_sublessons": true,
+      "first_module" : -1,
+      "nh_id" : 1000015      
+    },
+    {
+      "title": "Lesson 1: Caring for Your Cut",
+      "short_title" : "",
+      "description": "In this section we will layout the basics of what you can expect while going through the this training program for vascular surgery.",
+      "has_sublessons": true,
+      "lessons": [1000611, 1000612, 1000613, 1000614, 1000615, 1000616 ],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : -1,
+      "image" :"VascularContent/Images/caringcutlesson.png",
+      "nh_id" : 1000016      
+    },
+    {
+      "title": "Why?",
+      "short_title" : "Why?",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000017,
+      "image" :"VascularContent/Images/whycut.png",
+      "nh_id" : 1000611      
+    },
+    {
+      "title": "Maintenance",
+      "short_title" : "Maintenance",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000018,
+      "image" :"VascularContent/Images/dressing.png",
+      "nh_id" : 1000612      
+    },
+    {
+      "title": "Infection",
+      "short_title" : "Infection",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000019,
+      "image" :"VascularContent/Images/infection.png",
+      "nh_id" : 1000613      
+    },
+    {
+      "title": "Practice",
+      "short_title" : "Practice",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000020,
+      "image" :"VascularContent/Images/howtocut.png",
+      "nh_id" : 1000614      
+    },
+    {
+      "title": "Scenarios",
+      "short_title" : "Scenarios",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000035,
+      "image" :"VascularContent/Images/nhealing.png",
+      "nh_id" : 1000615      
+    },
+    {
+      "title": "Open Wounds",
+      "short_title" : "Open Wounds",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000046,
+      "image" :"VascularContent/Images/openwounds.png",
+      "nh_id" : 1000616      
+    },
+
+    {
+      "title": "Lesson 2: Warning Signs After Surgery",
+      "short_title" : "",
+      "description": "Learn the major things to watch out after your surgery. Recognize signs of complications in order to prevent emergencies.",
+      "has_sublessons": true,
+      "lessons": [1000617, 1000618, 1000619, 1000620, 1000621, 1000622, 1000623, 1000624],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : -1,
+      "image" :"VascularContent/Images/warningsigns.png",
+      "nh_id" : 1000047      
+    },
+    {
+      "title": "Normal",
+      "short_title" : "Normal",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000048,
+      "image" :"VascularContent/Images/normalsigns.png",
+      "nh_id" : 1000617      
+    },
+    {
+      "title": "Concern",
+      "short_title" : "Concern",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000054,
+      "image" :"VascularContent/Images/concernsigns.png",
+      "nh_id" : 1000618      
+    },
+    {
+      "title": "Emergency",
+      "short_title" : "Emergency",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000060,
+      "image" :"VascularContent/Images/emergencysigns.png",
+      "nh_id" : 1000619      
+    },
+    {
+      "title": "Scenarios",
+      "short_title" : "Scenarios",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000066,
+      "image" : "VascularContent/Images/signscenarios.png",
+      "nh_id" : 1000620      
+    },
+    {
+      "title": "Carotid Endarterectomy",
+      "short_title" : "Carotid Endarterectomy",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000081,
+      "image" :"VascularContent/Images/carotidsigns.png",
+      "nh_id" : 1000621      
+    },
+    {
+      "title": "AAA/TAA",
+      "short_title" : "AAA/TAA",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000082,
+      "image" :"VascularContent/Images/aaasigns.png",
+      "nh_id" : 1000622      
+    },
+    {
+      "title": "Angiogram",
+      "short_title" : "Angiogram",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000083,
+      "image" :"VascularContent/Images/angiogramsigns.png",
+      "nh_id" : 1000623      
+    },
+    {
+      "title": "Pain Meds",
+      "short_title" : "Pain Meds",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000084,
+      "image" :"VascularContent/Images/painmedicationsigns.png",
+      "nh_id" : 1000624      
+    },
+
+    {
+      "title": "Chapter 3: Activity & Safety",
+      "short_title": "Activity",
+      "description":"",
+      "lessons": [1000100, 1000282],
+      "tags": ["vascular", "basics", "the force"] ,
+      "has_sublessons": true,
+      "first_module" : -1,
+      "image" : "VascularContent/Images/activityv.png",
+      "nh_id" : 1000099      
+    },
+    {
+      "title": "Lesson 1: Activity & Exercise",
+      "short_title" : "Lesson 1: Activity & Exercise",
+      "description": "In this section we will layout the basics of getting back to exercise and physical therapy during recovery from vascular surgery.",
+      "has_sublessons": true,
+      "lessons": [1000625, 1000626, 1000627, 1000628 ],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : -1,
+      "image" :"VascularContent/Images/activityexercise.png",
+      "nh_id" : 1000100      
+    },
+
+    {
+      "title": "Why is Exercise Important for Your Condition?",
+      "short_title" : "Why?",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000101,
+      "image" :"VascularContent/Images/whyexercise.png",
+      "nh_id" : 1000625      
+    },
+
+    {
+      "title": "In-Hospital Exercise",
+      "short_title" : "In-Hospital",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000102,
+      "image" :"VascularContent/Images/inhospitalexercise.png",
+      "nh_id" : 1000626      
+    },
+
+
+    {
+      "title": "Stability Exercise",
+      "short_title" : "Stability",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000108,
+      "image" :"VascularContent/Images/stabilityexercise.png",
+      "nh_id" : 1000627      
+    },
+
+
+    {
+      "title": "Exercise at Home?",
+      "short_title" : "Home",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000115,
+      "image" :"VascularContent/Images/athomeexercise.png",
+      "nh_id" : 1000628      
+    },
+
+    {
+      "title": "Lesson 2: Safety During Exercise",
+      "short_title" : "Lesson 2: Safety During Exercise",
+      "description": "Learn the limitations, safety measures, and recognizing the warning signs of overexertion while active after surgery. Understand the limits of what is healthy and safe.",
+      "has_sublessons": true,
+      "lessons": [1000629, 1000630, 1000631, 1000632 ],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : -1,
+      "image" :"VascularContent/Images/safetyexercise.png",
+      "nh_id" : 1000282      
+    },
+
+
+    {
+      "title": "Limitations in Activities After Surgery",
+      "short_title" : "Limitations",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000116,
+      "image" :"VascularContent/Images/limitationsL.png",
+      "nh_id" : 1000629      
+    },
+
+
+    {
+      "title": "Limitations T/F",
+      "short_title" : "Limitations T/F",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000117,
+      "image" :"VascularContent/Images/limitstfL.png",
+      "nh_id" : 1000630      
+    },
+
+
+    {
+      "title": "Pulse",
+      "short_title" : "Pulse",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000283,
+      "image" :"VascularContent/Images/pulseL.png",
+      "nh_id" : 1000631      
+    },
+
+
+    {
+      "title": "Overexertion",
+      "short_title" : "Overexertion",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000284,
+      "image" :"VascularContent/Images/overexertionL.png",
+      "nh_id" : 1000632      
+    },
+
+    {
+      "title": "Chapter 4: Nutrition After Surgery",
+      "short_title": "Nutrition",
+      "description":"",
+      "lessons": [1000143, 1000154],
+      "tags": ["vascular", "basics", "the force"] ,
+      "has_sublessons": true,
+      "first_module" : -1,
+      "image" : "VascularContent/Images/nutritionv.png",
+      "nh_id" : 1000142      
+    },
+
+    {
+      "title": "Lesson 1: Nutrition to Heal After Surgery",
+      "short_title" : "Lesson 1: Nutrition to Heal After Surgery",
+      "description": "Eating the right things after surgery can go a long way towards recovery. Learn which foods help, hurt, and why!",
+      "has_sublessons": true,
+      "lessons": [1000633, 1000634, 1000635, 1000636, 1000637, 1000638, 1000639, 1000640, 1000641 ],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : -1,
+      "image" :"VascularContent/Images/whynutrition.png",
+      "nh_id" : 1000143      
+    },
+
+
+    {
+      "title": "Why Nutrition is Important to Healing",
+      "short_title" : "Why?",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000144,
+      "image" :"VascularContent/Images/whynutrition_L.png",
+      "nh_id" : 1000633      
+    },
+
+
+    {
+      "title": "Calories",
+      "short_title" : "Calories",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000146,
+      "image" :"VascularContent/Images/calories.png",
+      "nh_id" : 1000634      
+    },
+
+
+    {
+      "title": "Portion",
+      "short_title" : "Portion",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000147,
+      "image" :"VascularContent/Images/portion.png",
+      "nh_id" : 1000635      
+    },
+
+
+    {
+      "title": "Beverages",
+      "short_title" : "Beverages",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000148,
+      "image" :"VascularContent/Images/beverages.png",
+      "nh_id" : 1000636      
+    },
+
+
+    {
+      "title": "Eating Out",
+      "short_title" : "Eat Out",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000149,
+      "image" :"VascularContent/Images/eatout.png",
+      "nh_id" : 1000637      
+    },
+
+
+    {
+      "title": "At Home",
+      "short_title" : "At Home",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000150,
+      "image" :"VascularContent/Images/homenutrition.png",
+      "nh_id" : 1000638      
+    },
+
+
+    {
+      "title": "Fats",
+      "short_title" : "Fats",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000151,
+      "image" :"VascularContent/Images/fats.png",
+      "nh_id" : 1000639      
+    },
+
+
+    {
+      "title": "Carbs",
+      "short_title" : "Carbs",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000152,
+      "image" :"VascularContent/Images/carbs.png",
+      "nh_id" : 1000640      
+    },
+
+
+    {
+      "title": "Salt",
+      "short_title" : "Salt",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000153,
+      "image" :"VascularContent/Images/eatsalt.png",
+      "nh_id" : 1000641      
+    },
+
+    {
+      "title": "Lesson 2: Practicing Nutrition Skills",
+      "short_title" : "Lesson 2: Practicing Nutrition Skills",
+      "description": "Learn to apply the principles of a healthy diet to make smart choices at mealtime and snack-time.",
+      "has_sublessons": true,
+      "lessons": [1000642, 1000643],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : -1,
+      "image" :"VascularContent/Images/practicenutrition.png",
+      "nh_id" : 1000154      
+    },
+
+
+    {
+      "title": "Making Healthy Choices",
+      "short_title" : "Choices",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000155,
+      "image" :"VascularContent/Images/foodchoices_L.png",
+      "nh_id" : 1000642      
+    },
+
+
+    {
+      "title": "Learning Healthy Recipes",
+      "short_title" : "Recipes",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000174,
+      "image" :"VascularContent/Images/recipes.png",
+      "nh_id" : 1000643      
+    },
+
+
+    {
+      "title": "Chapter 5: Learning About Common Anticoagulants",
+      "short_title": "Medication",
+      "description":"",
+      "lessons": [1000181, 1000198, 1000211 ],
+      "tags": ["vascular", "basics", "the force"] ,
+      "has_sublessons": true,
+      "first_module" : -1,
+      "image" : "VascularContent/Images/medicationv.png",
+      "nh_id" : 1000180      
+    },
+
+    {
+      "title": "Lesson 1: Aspirin",
+      "short_title" : "Lesson 1: Aspirin",
+      "description": "In this section you will get to know this common better, including its uses, side effects, and benefits.",
+      "has_sublessons": true,
+      "lessons": [1000644, 1000645],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : -1,
+      "image" :"VascularContent/Images/aspirin.png",
+      "nh_id" : 1000181      
+    },
+
+
+    {
+      "title": "Basics",
+      "short_title" : "Basics",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000182,
+      "image" :"VascularContent/Images/aspirinbasics.png",
+      "nh_id" : 1000644      
+    },
+
+
+    {
+      "title": "Q & A",
+      "short_title" : "Q & A",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000183,
+      "image" :"VascularContent/Images/aspirinqa.png",
+      "nh_id" : 1000645      
+    },
+
+    {
+      "title": "Lesson 2: Plavix",
+      "short_title" : "Lesson 2: Plavix",
+      "description": "Learn about taking Plavix, benefits and side effects.",
+      "has_sublessons": true,
+      "lessons": [1000646, 1000647],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : -1,
+      "image" :"VascularContent/Images/plavix.png",
+      "nh_id" : 1000198      
+    },
+
+
+    {
+      "title": "Basics",
+      "short_title" : "Basics",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000199,
+      "image" :"VascularContent/Images/plavixbasics.png",
+      "nh_id" : 1000646      
+    },
+
+
+    {
+      "title": "Q & A",
+      "short_title" : "Q & A",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000200,
+      "image" :"VascularContent/Images/plavixqa.png",
+      "nh_id" : 1000647      
+    },
+
+    {
+      "title": "Lesson 3: Coumadin (Warfarin)",
+      "short_title" : "Lesson 3: Coumadin (Warfarin)",
+      "description": "Learn about taking Coumadin, its benefits and side effects.",
+      "has_sublessons": true,
+      "lessons": [1000648, 1000649, 1000650, 1000651, 1000652, 1000653],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : -1,
+      "image" :"VascularContent/Images/coumadin.png",
+      "nh_id" : 1000211      
+    },
+
+
+    {
+      "title": "Basics",
+      "short_title" : "Basics",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000212,
+      "image" :"VascularContent/Images/coumadinbasics.png",
+      "nh_id" : 1000648      
+    },
+
+
+    {
+      "title": "How?",
+      "short_title" : "How?",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000213,
+      "image" :"VascularContent/Images/coumadinhow.png",
+      "nh_id" : 1000649      
+    },
+
+
+    {
+      "title": "Blood Testing",
+      "short_title" : "Blood Testing",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000228,
+      "image" :"VascularContent/Images/coumadintesting.png",
+      "nh_id" : 1000650      
+    },
+
+
+    {
+      "title": "Side Effects",
+      "short_title" : "Side Effects",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000229,
+      "image" :"VascularContent/Images/coumadinse.png",
+      "nh_id" : 1000651      
+    },
+
+
+    {
+      "title": "Interactions",
+      "short_title" : "Interactions",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000235,
+      "image" :"VascularContent/Images/coumadininteractions.png",
+      "nh_id" : 1000652      
+    },
+
+
+    {
+      "title": "Diet Considerations",
+      "short_title" : "Diet",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000236,
+      "image" :"VascularContent/Images/coumadindiet.png",
+      "nh_id" : 1000653      
+    },
+
+    {
+      "title": "Chapter 6: Maintaining Well-Being",
+      "short_title": "Well-Being",
+      "description":"",
+      "lessons": [1000248, 1000582],
+      "tags": ["vascular", "basics", "the force"] ,
+      "has_sublessons": true,
+      "first_module" : -1,
+      "image" : "VascularContent/Images/wellbeingv.png",
+      "nh_id" : 1000247      
+    },
+
+    {
+      "title": "Lesson 1: Improving Well-Being",
+      "short_title" : "Lesson 1: Improving Well-Being",
+      "description": "In this section we will teach you about how to reduce your stress levels and improve your recovery with your mindset.",
+      "has_sublessons": true,
+      "lessons": [1000654, 1000655, 1000656, 1000657],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : -1,
+      "image" :"VascularContent/Images/wellbeingL.png",
+      "nh_id" : 1000248      
+    },
+
+    {
+      "title": "The Importance of Well-Being",
+      "short_title" : "Well-Being",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000249,
+      "image" :"VascularContent/Images/wellbeingM.png",
+      "nh_id" : 1000654      
+    },
+
+    {
+      "title": "Gratitude",
+      "short_title" : "Gratitude",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000250,
+      "image" :"VascularContent/Images/wellgratitude.png",
+      "nh_id" : 1000655      
+    },
+
+    {
+      "title": "Self Care",
+      "short_title" : "Self Care",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000251,
+      "image" :"VascularContent/Images/wellselfcare.png",
+      "nh_id" : 1000656      
+    },
+
+    {
+      "title": "Living",
+      "short_title" : "Living",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000252,
+      "image" :"VascularContent/Images/wellliving.png",
+      "nh_id" : 1000657      
+    },
+
+    {
+      "title": "Lesson 2: Smoking",
+      "short_title" : "Lesson 2: Smoking",
+      "description": "Learn how smoking impacts the body after surgery and how to quit smoking.",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000253,
+      "image" :"VascularContent/Images/smokingL.png",
+      "nh_id" : 1000582      
+    },
+
+    {
+      "title": "Chapter 7: Family or Friend? Learn About Caregiving",
+      "short_title": "Caregiving",
+      "description":"",
+      "lessons": [1000256, 1000265],
+      "tags": ["vascular", "basics", "the force"] ,
+      "has_sublessons": true,
+      "first_module" : -1,
+      "image" : "VascularContent/Images/caregivingv.png",
+      "nh_id" : 1000255      
+    },
+
+    {
+      "title": "Lesson 1: Caring for a Vascular Surgery Patient",
+      "short_title" : "Lesson 1: Caring for a Vascular Surgery Patient",
+      "description": "In this section we will teach you about how to provide some basic support to a vascular patient that you would like to care for.",
+      "has_sublessons": true,
+      "lessons": [1000659, 1000660, 1000661, 1000662, 1000663, 1000664, 1000665, 1000666],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : -1,
+      "image" :"VascularContent/Images/caregivingL.png",
+      "nh_id" : 1000256      
+    },
+
+    {
+      "title": "Caregiving",
+      "short_title" : "Caregiving",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000257,
+      "image" :"VascularContent/Images/caregivingM.png",
+      "nh_id" : 1000659      
+    },
+
+    {
+      "title": "Transfer",
+      "short_title" : "Transfer",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000258,
+      "image" :"VascularContent/Images/transferM.png",
+      "nh_id" : 1000660      
+    },
+
+    {
+      "title": "Dressing",
+      "short_title" : "Dressing",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000259,
+      "image" :"VascularContent/Images/dressingM.png",
+      "nh_id" : 1000661      
+    },
+
+    {
+      "title": "Bathing",
+      "short_title" : "Bathing",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000260,
+      "image" :"VascularContent/Images/bathingM.png",
+      "nh_id" : 1000662      
+    },
+
+    {
+      "title": "Bathroom",
+      "short_title" : "Bathroom",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000261,
+      "image" :"VascularContent/Images/bathroomM.png",
+      "nh_id" : 1000663      
+    },
+
+    {
+      "title": "Doctors",
+      "short_title" : "Doctors",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000262,
+      "image" :"VascularContent/Images/doctorsM.png",
+      "nh_id" : 1000664      
+    },
+
+    {
+      "title": "After Care",
+      "short_title" : "After Care",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000263,
+      "image" :"VascularContent/Images/aftercareM.png",
+      "nh_id" : 1000665      
+    },
+
+    {
+      "title": "End of Life",
+      "short_title" : "End of Life",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000264,
+      "image" :"VascularContent/Images/endoflifeM.png",
+      "nh_id" : 1000666      
+    },
+
+    {
+      "title": "Lesson 2: Caring for Yourself When You Care for Others",
+      "short_title" : "Lesson 2: Caring for Yourself When You Care for Others",
+      "description": "Caregivers, whether family or friend, tend to forget to take care of themselves when they spend time caring for others. Learn some ways to combat this.",
+      "has_sublessons": true,
+      "lessons": [1000667, 1000668, 1000669, 1000670],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : -1,
+      "image" :"VascularContent/Images/carecaregiver.png",
+      "nh_id" : 1000265      
+    },
+
+    {
+      "title": "Self Care",
+      "short_title" : "Self Care",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000266,
+      "image" :"VascularContent/Images/cselfcareM.png",
+      "nh_id" : 1000667      
+    },
+
+    {
+      "title": "Help",
+      "short_title" : "Help",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000267,
+      "image" :"VascularContent/Images/askhelpM.png",
+      "nh_id" : 1000668      
+    },
+
+
+    {
+      "title": "Community",
+      "short_title" : "Community",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000268,
+      "image" :"VascularContent/Images/communityM.png",
+      "nh_id" : 1000669      
+    },
+
+
+    {
+      "title": "Humor",
+      "short_title" : "Humor",
+      "description": "",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000269,
+      "image" :"VascularContent/Images/humorM.png",
+      "nh_id" : 1000670      
+    },
+
+    {
+      "title": "Chapter 8: Setting Goals for a Speedy Recovery",
+      "short_title": "Goals",
+      "description":"",
+      "lessons": [1000583, 1000584, 1000585],
+      "tags": ["vascular", "basics", "the force"] ,
+      "has_sublessons": true,
+      "first_module" : -1,
+      "image" : "VascularContent/Images/goalsv.png",
+      "nh_id" : 1000270      
+    },
+
+    {
+      "title": "Lesson 1: Exercise & Activity Goals",
+      "short_title" : "Lesson 1: Exercise & Activity Goals",
+      "description": "In this section you will set goals for your physical activity after surgery.",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000271,
+      "image" :"VascularContent/Images/exercisegoalsL.png",
+      "nh_id" : 1000583      
+    },
+
+    {
+      "title": "Lesson 2: Diet & Nutrition Goals",
+      "short_title" : "Lesson 2: Diet & Nutrition Goals",
+      "description": "Set some goals for your diet after surgery that will help you recover and stay healthy.",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000276,
+      "image" :"VascularContent/Images/dietgoalsL.png",
+      "nh_id" : 1000584      
+    },
+
+    {
+      "title": "Lesson 3: Personal Well-Being Goals",
+      "short_title" : "Lesson 3: Personal Well-Being Goals",
+      "description": "Set some goals for your well-being after surgery that will help you recover and stay healthy.",
+      "has_sublessons": false,
+      "lessons": [],
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "first_module" : 1000279,
+      "image" :"VascularContent/Images/wellbeinggoalsL.png",
+      "nh_id" : 1000585      
+    }
+  ],
+
+
+"modules": [
+    {
+      "type" : "VIDEO",
+      "title": "Welcome to Noora Training ",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/welcome.mp4",
+      "next_module": -1,
+      "nh_id" : 1000003      
+    },
+    {
+      "type" : "VIDEO",
+      "title": "The Vascular System",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/vascularsystem.mp4",
+      "next_module": -1,
+      "nh_id" : 1000005      
+    },
+    {
+      "type" : "VIDEO",
+      "title": "About Aneursyms",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/aneurysm.mp4",
+      "next_module": -1,
+      "nh_id" : 1000006      
+    },
+    {
+      "type" : "VIDEO",
+      "title": "Abdominal Aortic Aneurysm" ,
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/aaa.mp4",
+      "next_module": -1,
+      "nh_id" : 1000007      
+    },
+    {
+      "type" : "VIDEO",
+      "title": "Pseudoaneurysm",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/pseudoaneurysm.mp4",
+      "next_module": -1,
+      "nh_id" : 1000008      
+    },
+    {
+      "type" : "VIDEO",
+      "title": "Carotid Artery Disease/ Stenosis",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/stenosis.mp4",
+      "next_module": -1,
+      "nh_id" : 1000009      
+    },
+    {
+      "type" : "VIDEO",
+      "title": "Peripheral Vascular Disease",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/pvd.mp4",
+      "next_module": -1,
+      "nh_id" : 1000010      
+    },
+    {
+      "type" : "VIDEO",
+      "title": "Amputations",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/amputations.mp4",
+      "next_module": -1,
+      "nh_id" : 1000011      
+    },
+    {
+      "type" : "VIDEO",
+      "title": "AV Fistula",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/avfistula.mp4",
+      "next_module": -1,
+      "nh_id" : 1000012      
+    },
+    {
+      "type" : "VIDEO",
+      "title": "Diabetes & Vascular Disease",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/diabetes.mp4",
+      "next_module": -1,
+      "nh_id" : 1000013      
+    },
+    {
+      "type" : "VIDEO",
+      "title": "Hypertension & Vascular Disease",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/hypertension.mp4",
+      "next_module": -1,
+      "nh_id" : 1000014      
+    },
+    {
+      "type" : "VIDEO",
+      "title": "Why is Cut Care Important?",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/cutcare.mp4",
+      "next_module": -1,
+      "nh_id" : 1000017      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Changing the Dressings",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/dressingchange.mp4",
+      "next_module": -1,
+      "nh_id" : 1000018      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Watching for Infection",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/infectionwatch.mp4",
+      "next_module": -1,
+      "nh_id" : 1000019      
+    },
+    {
+      "type" : "SLIDE",
+      "title": "How to Care For Your Cut" ,
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/howcutcare.png",
+      "audio":"VascularContent/Audio/howcutcare.mp3",
+      "next_module":1000021,
+      "nh_id" : 1000020     
+    },
+    {
+      "type" : "BINARY",
+      "question": "Question: I should take a shower as soon as I get home" ,
+      "explanation": " " ,
+      "options": ["True", "False"],
+      "correct_answer":["False"],
+      "audio":"VascularContent/Audio/cutcareQ1.mp3",
+      "incorrect_audio" : "VascularContent/Audio/cutcareQ1incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/cutcareQ1correct.mp3",
+      "image":"VascularContent/Images/cutcareQ1.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000023,
+      "nh_id" : 1000021      
+    },
+    {
+      "type" : "BINARY",
+      "question": "Question: Taking a bath is better than showering since you can soak the cut in water" ,
+      "explanation": " " ,
+      "options": ["True", "False"],
+      "correct_answer":["False"],
+      "audio":"VascularContent/Audio/cutcareQ2.mp3",
+      "incorrect_audio" : "VascularContent/Audio/cutcareQ2incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/cutcareQ2correct.mp3",
+      "image":"VascularContent/Images/cutcareQ2.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000025,
+      "nh_id" : 1000023      
+    },
+    {
+      "type" : "BINARY",
+      "question": "Question: My primary care doctor can remove my stitches or staples" ,
+      "explanation": " " ,
+      "options": ["True", "False"],
+      "correct_answer":["False"],
+      "audio":"VascularContent/Audio/cutcareQ3.mp3",
+      "incorrect_audio" : "VascularContent/Audio/cutcareQ3incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/cutcareQ3correct.mp3",
+      "image":"VascularContent/Images/cutcareQ3.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000027,
+      "nh_id" : 1000025      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: It is not that important to clean a cut around the groin area, since clothing protects it" ,
+      "explanation": " " ,
+      "options": ["True", "False"],
+      "correct_answer":["False"],
+      "audio":"VascularContent/Audio/cutcareQ4.mp3",
+      "incorrect_audio" : "VascularContent/Audio/cutcareQ4incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/cutcareQ4correct.mp3",
+      "image":"VascularContent/Images/cutcareQ4.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000029,
+      "nh_id" : 1000027      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: I can lift a gallon of milk a week after surgery" ,
+      "explanation": " " ,
+      "options": ["True", "False"],
+      "correct_answer":["True"],
+      "audio":"VascularContent/Audio/cutcareQ5.mp3",
+      "incorrect_audio" : "VascularContent/Audio/cutcareQ5incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/cutcareQ5correct.mp3",
+      "image":"VascularContent/Images/cutcareQ5.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000031,
+      "nh_id" : 1000029      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: Exposing my cut to sunlight makes it heal faster " ,
+      "explanation": " " ,
+      "options": ["True", "False"],
+      "correct_answer":["False"],
+      "audio":"VascularContent/Audio/cutcareQ6.mp3",
+      "incorrect_audio" : "VascularContent/Audio/cutcareQ6incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/cutcareQ6correct.mp3",
+      "image":"VascularContent/Images/cutcareQ6.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000033,
+      "nh_id" : 1000031      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: I can use lotions and powders to moisturize my cut" ,
+      "explanation": " " ,
+      "options": ["True", "False"],
+      "correct_answer":["False"],
+      "audio":"VascularContent/Audio/cutcareQ7.mp3",
+      "incorrect_audio" : "VascularContent/Audio/cutcareQ7incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/cutcareQ7correct.mp3",
+      "image":"VascularContent/Images/cutcareQ7.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": -1,
+      "nh_id" : 1000033      
+    },
+    {
+      "type" : "SLIDE",
+      "title": "Normal Versus Abnormal Healing",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/normalvab.png",
+      "audio":"VascularContent/Audio/normalvab.mp3",
+      "next_module":1000036,
+      "nh_id" : 1000035     
+    },
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: A couple days after getting home I notice pale yellow fluid coming from my cut, and the edges are more red and swollen" ,
+      "options": ["Normal","Call Doc", "Call 911"],
+      "correct_answer":["Call Doc"],
+      "audio": "VascularContent/Audio/normalvabQ1.mp3",
+      "incorrect_audio" : "VascularContent/Audio/normalvabQ1incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/normalvabQ1correct.mp3",
+      "image":"VascularContent/Images/normalvabQ1.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000038,
+      "nh_id" : 1000036      
+    },
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: While walking my cut gets more painful and itchy" ,
+      "options": ["Normal", "Call Doc", "Call 911"],
+      "correct_answer":["Normal"],
+      "audio": "VascularContent/Audio/normalvabQ2.mp3",
+      "incorrect_audio" : "VascularContent/Audio/normalvabQ2incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/normalvabQ2correct.mp3",
+      "image":"VascularContent/Images/normalvabQ2.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000040,
+      "nh_id" : 1000038      
+    },
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: As I am getting out of bed, my cut opens up and pulls apart" ,
+      "options": ["Normal","Call Doc", "Call 911"],
+      "correct_answer":["Call 911"],
+      "audio": "VascularContent/Audio/normalvabQ3.mp3",
+      "incorrect_audio" : "VascularContent/Audio/normalvabQ3incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/normalvabQ3correct.mp3",
+      "image":"VascularContent/Images/normalvabQ3.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000042,
+      "nh_id" : 1000040      
+    },
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: I notice a rash developing near the cut, and the cut seems to be increasing in size and smell" ,
+      "options": ["Normal","Call Doc", "Call 911"],
+      "correct_answer":["Call Doc"],
+      "audio": "VascularContent/Audio/normalvabQ4.mp3",
+      "incorrect_audio" : "VascularContent/Audio/normalvabQ4incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/normalvabQ4correct.mp3",
+      "image":"VascularContent/Images/normalvabQ4.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000044,
+      "nh_id" : 1000042      
+    },
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: A week later, I see a bump near the cut that seems to be pulsating" ,
+      "options": ["Normal", "Call Doc", "Call 911"],
+      "correct_answer":["Call Doc"],
+      "audio": "VascularContent/Audio/normalvabQ5.mp3",
+      "incorrect_audio" : "VascularContent/Audio/normalvabQ5incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/normalvabQ5correct.mp3",
+      "image":"VascularContent/Images/normalvabQ5.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": -1,
+      "nh_id" : 1000044      
+    },
+
+
+    {
+      "type" : "VIDEO",
+      "title": "Open Wounds",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/openwounds.mp4",
+      "next_module": -1,
+      "nh_id" : 1000046      
+    },
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of Normal Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/normalsigns1.png",
+      "audio":"VascularContent/Audio/normalsigns1.mp3",
+      "next_module":1000049,
+      "nh_id" : 1000048     
+    },
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of Normal Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/normalsigns2.png",
+      "audio":"VascularContent/Audio/normalsigns2.mp3",
+      "next_module":1000050,
+      "nh_id" : 1000049     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of Normal Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/normalsigns3.png",
+      "audio":"VascularContent/Audio/normalsigns3.mp3",
+      "next_module":1000051,
+      "nh_id" : 1000050     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of Normal Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/normalsigns4.png",
+      "audio":"VascularContent/Audio/normalsigns4.mp3",
+      "next_module":1000052,
+      "nh_id" : 1000051     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of Normal Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/normalsigns5.png",
+      "audio":"VascularContent/Audio/normalsigns5.mp3",
+      "next_module":1000053,
+      "nh_id" : 1000052     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of Normal Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/normalsigns6.png",
+      "audio":"VascularContent/Audio/normalsigns6.mp3",
+      "next_module": -1,
+      "nh_id" : 1000053     
+    },
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of concern Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/concernsigns1.png",
+      "audio":"VascularContent/Audio/concernsigns1.mp3",
+      "next_module":1000055,
+      "nh_id" : 1000054     
+    },
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of concern Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/concernsigns2.png",
+      "audio":"VascularContent/Audio/concernsigns2.mp3",
+      "next_module":1000056,
+      "nh_id" : 1000055     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of concern Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/concernsigns3.png",
+      "audio":"VascularContent/Audio/concernsigns3.mp3",
+      "next_module":1000057,
+      "nh_id" : 1000056     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of concern Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/concernsigns4.png",
+      "audio":"VascularContent/Audio/concernsigns4.mp3",
+      "next_module":1000058,
+      "nh_id" : 1000057     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of concern Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/concernsigns5.png",
+      "audio":"VascularContent/Audio/concernsigns5.mp3",
+      "next_module":1000059,
+      "nh_id" : 1000058     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of concern Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/concernsigns6.png",
+      "audio":"VascularContent/Audio/concernsigns6.mp3",
+      "next_module": -1,
+      "nh_id" : 1000059     
+    },
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of emergency Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/emergencysigns1.png",
+      "audio":"VascularContent/Audio/emergencysigns1.mp3",
+      "next_module":1000061,
+      "nh_id" : 1000060     
+    },
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of emergency Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/emergencysigns2.png",
+      "audio":"VascularContent/Audio/emergencysigns2.mp3",
+      "next_module":1000062,
+      "nh_id" : 1000061     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of emergency Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/emergencysigns3.png",
+      "audio":"VascularContent/Audio/emergencysigns3.mp3",
+      "next_module":1000063,
+      "nh_id" : 1000062     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of emergency Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/emergencysigns4.png",
+      "audio":"VascularContent/Audio/emergencysigns4.mp3",
+      "next_module":1000064,
+      "nh_id" : 1000063     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of emergency Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/emergencysigns5.png",
+      "audio":"VascularContent/Audio/emergencysigns5.mp3",
+      "next_module":1000065,
+      "nh_id" : 1000064     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Signs of emergency Healing in the Body",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/emergencysigns6.png",
+      "audio":"VascularContent/Audio/emergencysigns6.mp3",
+      "next_module": -1,
+      "nh_id" : 1000065     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "Practice Identifying Warning Signs",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/warningsign.png",
+      "audio":"VascularContent/Audio/warningsign.mp3",
+      "next_module": 1000067,
+      "nh_id" : 1000066     
+    },
+
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: I feel constipated and have not pooped for several days" ,
+      "options": ["Normal", "Call Doc", "Call 911"],
+      "correct_answer":["Call Doc"],
+      "audio": "VascularContent/Audio/warningsignQ1.mp3",
+      "incorrect_audio": "VascularContent/Audio/warningsignQ1incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/warningsignQ1correct.mp3",
+      "image":"VascularContent/Images/warningsignQ1.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000069,
+      "nh_id" : 1000067      
+    },
+
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: I feel some pain and itchiness around my cut, and when I move the pain gets worse" ,
+      "options": ["Normal", "Call Doc", "Call 911"],
+      "correct_answer":["Normal"],
+      "audio": "VascularContent/Audio/warningsignQ2.mp3",
+      "incorrect_audio": "VascularContent/Audio/warningsignQ2incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/warningsignQ2correct.mp3",
+      "image":"VascularContent/Images/warningsignQ2.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000071,
+      "nh_id" : 1000069      
+    },
+
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: A week after my surgery, I feel tired and have body aches and chills" ,
+      "options": ["Normal","Call Doc", "Call 911"],
+      "correct_answer":["Call Doc"],
+      "audio": "VascularContent/Audio/warningsignQ3.mp3",
+      "incorrect_audio": "VascularContent/Audio/warningsignQ3incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/warningsignQ3correct.mp3",
+      "image":"VascularContent/Images/warningsignQ3.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000073,
+      "nh_id" : 1000071      
+    },
+
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: I suddenly feel very weak, confused, pale, and sweaty" ,
+      "options": ["Normal","Call Doc", "Call 911"],
+      "correct_answer":["Call 911"],
+      "audio": "VascularContent/Audio/warningsignQ4.mp3",
+      "incorrect_audio": "VascularContent/Audio/warningsignQ4incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/warningsignQ4correct.mp3",
+      "image":"VascularContent/Images/warningsignQ4.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000075,
+      "nh_id" : 1000073      
+    },
+
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: I do not have much of an appetite, and I have not eaten in a couple of days" ,
+      "options": ["Normal", "Call Doc", "Call 911"],
+      "correct_answer":["Call Doc"],
+      "audio": "VascularContent/Audio/warningsignQ5.mp3",
+      "incorrect_audio": "VascularContent/Audio/warningsignQ5incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/warningsignQ5correct.mp3",
+      "image":"VascularContent/Images/warningsignQ5.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000077,
+      "nh_id" : 1000075      
+    },
+
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: I feel pain in my lower leg when walking shorter and shorter distances" ,
+      "options": ["Normal", "Call Doc", "Call 911"],
+      "correct_answer":["Call Doc"],
+      "audio": "VascularContent/Audio/warningsignQ6.mp3",
+      "incorrect_audio": "VascularContent/Audio/warningsignQ6incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/warningsignQ6correct.mp3",
+      "image":"VascularContent/Images/warningsignQ6.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000079,
+      "nh_id" : 1000077      
+    },
+
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: A year after surgery, I feel a sudden and very severe pain in my back and stomach" ,
+      "options": ["Normal", "Call Doc", "Call 911"],
+      "correct_answer":["Call 911"],
+      "audio": "VascularContent/Audio/warningsignQ7.mp3",
+      "incorrect_audio": "VascularContent/Audio/warningsignQ7incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/warningsignQ7correct.mp3",
+      "image":"VascularContent/Images/warningsignQ7.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": -1,
+      "nh_id" : 1000079      
+    },
+
+
+    {
+      "type" : "VIDEO",
+      "title": "Carotid Endarterectomy",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/carotidendarterectomy.mp4",
+      "next_module": -1,
+      "nh_id" : 1000081      
+    },
+
+
+    {
+      "type" : "VIDEO",
+      "title": "AAA/TAA",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/aaataa.mp4",
+      "next_module": -1,
+      "nh_id" : 1000082      
+    },
+
+
+    {
+      "type" : "VIDEO",
+      "title": "Angiogram",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/angiogram.mp4",
+      "next_module": -1,
+      "nh_id" : 1000083      
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "Pain Medications" ,
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/painmeds.png",
+      "audio":"VascularContent/Audio/painmeds.mp3",
+      "next_module":1000085,
+      "nh_id" : 1000084     
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: Will taking asprin help you poop?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["No"],
+      "audio":"VascularContent/Audio/painmedsQ1.mp3",
+      "incorrect_audio" : "VascularContent/Audio/painmedsQ1incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/painmedsQ1correct.mp3",
+      "image":"VascularContent/Images/painmedsQ1.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000087,
+      "nh_id" : 1000085      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: Will drinking plenty of fluids help you poop?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["Yes"],
+      "audio":"VascularContent/Audio/painmedsQ2.mp3",
+      "incorrect_audio" : "VascularContent/Audio/painmedsQ2incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/painmedsQ2correct.mp3",
+      "image":"VascularContent/Images/painmedsQ2.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000089,
+      "nh_id" : 1000087      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: Will eating a lot of buttery, fatty foods help you poop?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["No"],
+      "audio":"VascularContent/Audio/painmedsQ3.mp3",
+      "incorrect_audio" : "VascularContent/Audio/painmedsQ3incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/painmedsQ3correct.mp3",
+      "image":"VascularContent/Images/painmedsQ3.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000091,
+      "nh_id" : 1000089      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: Will exercise help you poop?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["Yes"],
+      "audio":"VascularContent/Audio/painmedsQ4.mp3",
+      "incorrect_audio" : "VascularContent/Audio/painmedsQ4incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/painmedsQ4correct.mp3",
+      "image":"VascularContent/Images/painmedsQ4.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000093,
+      "nh_id" : 1000091      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: Will eating foods high in fiber help you poop?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["Yes"],
+      "audio":"VascularContent/Audio/painmedsQ5.mp3",
+      "incorrect_audio" : "VascularContent/Audio/painmedsQ5incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/painmedsQ5correct.mp3",
+      "image":"VascularContent/Images/painmedsQ5.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000095,
+      "nh_id" : 1000093      
+    },
+
+
+    {
+      "type" : "BINARY",
+      "question": "Question: Is straining on the toilet a good idea to help you poop?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["No"],
+      "audio":"VascularContent/Audio/painmedsQ6.mp3",
+      "incorrect_audio" : "VascularContent/Audio/painmedsQ6incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/painmedsQ6correct.mp3",
+      "image":"VascularContent/Images/painmedsQ6.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000097,
+      "nh_id" : 1000095      
+    },
+
+
+    {
+      "type" : "BINARY",
+      "question": "Question: Will taking medications such as a stool softener help you poop?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["Yes"],
+      "audio":"VascularContent/Audio/painmedsQ7.mp3",
+      "incorrect_audio" : "VascularContent/Audio/painmedsQ7incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/painmedsQ7correct.mp3",
+      "image":"VascularContent/Images/painmedsQ7.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": -1,
+      "nh_id" : 1000097      
+    },
+
+
+    {
+      "type" : "VIDEO",
+      "title": "How Exercise Helps",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/howexercisehelps.mp4",
+      "next_module": -1,
+      "nh_id" : 1000101      
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "Exercise While in the Hospital" ,
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/exerciseinhospital.png",
+      "audio":"VascularContent/Audio/exerciseinhospital.mp3",
+      "next_module":1000103,
+      "nh_id" : 1000102     
+    },
+
+
+    {
+      "type" : "VIDEO",
+      "title": "Exercises While Laying Down",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/howexlaydown.mp4",
+      "next_module": 1000104,
+      "nh_id" : 1000103      
+    },
+
+
+    {
+      "type" : "BINARY",
+      "question": "Question: Will you be able to sit up?" ,
+      "explanation": "Only perform the following exercises if your doctor advises that they are right for you",
+      "options": ["Yes", "No"],
+      "correct_answer":["No"],
+      "audio":"VascularContent/Audio/hospitalexsitup.mp3",
+      "incorrect_audio" : "",
+      "correct_audio": "",
+      "image":"VascularContent/Images/hospitalexsitup.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000105,
+      "nh_id" : 1000104      
+    },
+
+
+    {
+      "type" : "VIDEO",
+      "title": "Exercises While Sitting",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/hospitalexsit.mp4",
+      "next_module": 1000106,
+      "nh_id" : 1000105      
+    },
+
+
+    {
+      "type" : "BINARY",
+      "question": "Question: Will you be able to stand up?" ,
+      "explanation": "Only perform the following exercises if your doctor advises that they are right for you",
+      "options": ["Yes", "No"],
+      "correct_answer":["No"],
+      "audio":"VascularContent/Audio/hospitalexstand.mp3",
+      "incorrect_audio" : "",
+      "correct_audio": "",
+      "image":"VascularContent/Images/hospitalexstand.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000107,
+      "nh_id" : 1000106      
+    },
+
+
+    {
+      "type" : "VIDEO",
+      "title": "Exercises While Standing",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/hospitalexstand.mp4",
+      "next_module": -1,
+      "nh_id" : 1000107      
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "Fall Prevention Exercises" ,
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/fallex.png",
+      "audio":"VascularContent/Audio/fallex.mp3",
+      "next_module":1000109,
+      "nh_id" : 1000108     
+    },
+
+
+    {
+      "type" : "BINARY",
+      "question": "Question: Will you be physically able to stand?" ,
+      "explanation": "Only perform the following exercises if your doctor advises that they are right for you",
+      "options": ["Yes", "No"],
+      "correct_answer":["No"],
+      "audio":"VascularContent/Audio/standfallex.mp3",
+      "incorrect_audio" : "",
+      "correct_audio": "",
+      "image":"VascularContent/Images/standfallex.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000110,
+      "nh_id" : 1000109      
+    },
+
+
+    {
+      "type" : "VIDEO",
+      "title": "Fall Prevention: Sideways Walk",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/sidewayswalk.mp4",
+      "next_module": 1000111,
+      "nh_id" : 1000110      
+    },
+
+
+    {
+      "type" : "VIDEO",
+      "title": "Fall Prevention: Simple Grapevine",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/grapevine.mp4",
+      "next_module": 1000112,
+      "nh_id" : 1000111      
+    },
+
+
+    {
+      "type" : "VIDEO",
+      "title": "Fall Prevention: Heel to Toe Walk",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/heeltoe.mp4",
+      "next_module": 1000113,
+      "nh_id" : 1000112      
+    },
+
+
+    {
+      "type" : "VIDEO",
+      "title": "Fall Prevention: One Leg Stand",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/oneleg.mp4",
+      "next_module": 1000114,
+      "nh_id" : 1000113      
+    },
+
+
+    {
+      "type" : "VIDEO",
+      "title": "Fall Prevention: Step Up",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/stepup.mp4",
+      "next_module": -1,
+      "nh_id" : 1000114      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Exercises at Home",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/homeexercises.mp4",
+      "next_module": -1,
+      "nh_id" : 1000115      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Limitations in Activities After Surgery",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/activitylimitation.mp4",
+      "next_module": -1,
+      "nh_id" : 1000116      
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "Learning the Limitations on Activities" ,
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/limits.png",
+      "audio":"VascularContent/Audio/limits.mp3",
+      "next_module":1000118,
+      "nh_id" : 1000117     
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: Right after surgery, can I take a shower to freshen up?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["No"],
+      "audio":"VascularContent/Audio/limitsQ1.mp3",
+      "incorrect_audio" : "VascularContent/Audio/limitsQ1incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/limitsQ1correct.mp3",
+      "image":"VascularContent/Images/limitsQ1.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000120,
+      "nh_id" : 1000118      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: A week after surgery, can I pick up and hold my 6-month-old granddaughter?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["No"],
+      "audio":"VascularContent/Audio/limitsQ2.mp3",
+      "incorrect_audio" : "VascularContent/Audio/limitsQ2incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/limitsQ2correct.mp3",
+      "image":"VascularContent/Images/limitsQ2.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000122,
+      "nh_id" : 1000120      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: I am taking a narcotic pain medication and I have pain when I sit. Can I drive?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["No"],
+      "audio":"VascularContent/Audio/limitsQ3.mp3",
+      "incorrect_audio" : "VascularContent/Audio/limitsQ3incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/limitsQ3correct.mp3",
+      "image":"VascularContent/Images/limitsQ3.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000124,
+      "nh_id" : 1000122      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: I feel pretty strong and do not get tired during the day. Can I got back to work?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["Yes"],
+      "audio":"VascularContent/Audio/limitsQ4.mp3",
+      "incorrect_audio" : "VascularContent/Audio/limitsQ4incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/limitsQ4correct.mp3",
+      "image":"VascularContent/Images/limitsQ4.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000126,
+      "nh_id" : 1000124      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: Two months after surgery, my cut has healed well and there is no break in the skin. Can I take a bath?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["Yes"],
+      "audio":"VascularContent/Audio/limitsQ5.mp3",
+      "incorrect_audio" : "VascularContent/Audio/limitsQ5incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/limitsQ5correct.mp3",
+      "image":"VascularContent/Images/limitsQ5.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000128,
+      "nh_id" : 1000126      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: A month after surgery, I can walk up a flight of stairs easily. Can I start having sex again?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["Yes"],
+      "audio":"VascularContent/Audio/limitsQ6.mp3",
+      "incorrect_audio" : "VascularContent/Audio/limitsQ6incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/limitsQ6correct.mp3",
+      "image":"VascularContent/Images/limitsQ6.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": -1,
+      "nh_id" : 1000128      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Monitoring Your Pulse During Exercise",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/pulsecheck.mp4",
+      "next_module": -1,
+      "nh_id" : 1000283      
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "Learning the Signs of Overexertion",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/overex.png",
+      "audio":"VascularContent/Audio/overex.mp3",
+      "next_module": 1000130,
+      "nh_id" : 1000284     
+    },
+
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: After a walk, my cut is sore, my heart rate is a bit faster than normal, and I am sweaty. What should I do?" ,
+      "options": ["Normal/Rest", "Call Doc", "Call 911"],
+      "correct_answer":["Normal/Rest"],
+      "audio": "VascularContent/Audio/overexQ1.mp3",
+      "incorrect_audio": "VascularContent/Audio/overexQ1incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/overexQ1correct.mp3",
+      "image":"VascularContent/Images/overexQ1.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000132,
+      "nh_id" : 1000130      
+    },
+
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: While riding a bike, I suddenly feel weak and numb. What should I do?" ,
+      "options": ["Normal/Rest","Call Doc", "Call 911"],
+      "correct_answer":["Call 911"],
+      "audio": "VascularContent/Audio/overexQ2.mp3",
+      "incorrect_audio": "VascularContent/Audio/overexQ2incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/overexQ2correct.mp3",
+      "image":"VascularContent/Images/overexQ2.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000134,
+      "nh_id" : 1000132      
+    },
+
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: I am playing tag, when I get light-headed and have a hard time catching my breath. What should I do?" ,
+      "options": ["Normal/Rest", "Call Doc", "Call 911"],
+      "correct_answer":["Normal/Rest"],
+      "audio": "VascularContent/Audio/overexQ3.mp3",
+      "incorrect_audio": "VascularContent/Audio/overexQ3incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/overexQ3correct.mp3",
+      "image":"VascularContent/Images/overexQ3.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000136,
+      "nh_id" : 1000134      
+    },
+
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: The light-headedness finally goes away in the evening. What should I do?" ,
+      "options": ["Normal/Rest", "Call Doc", "Call 911"],
+      "correct_answer":["Call Doc"],
+      "audio": "VascularContent/Audio/overexQ4.mp3",
+      "incorrect_audio": "VascularContent/Audio/overexQ4incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/overexQ4correct.mp3",
+      "image":"VascularContent/Images/overexQ4.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000138,
+      "nh_id" : 1000136      
+    },
+
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: I am gardening and get a pain in my chest that goes away after rest. What should I do?" ,
+      "options": ["Normal/Rest","Call Doc", "Call 911"],
+      "correct_answer":["Call Doc"],
+      "audio": "VascularContent/Audio/overexQ5.mp3",
+      "incorrect_audio": "VascularContent/Audio/overexQ5incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/overexQ5correct.mp3",
+      "image":"VascularContent/Images/overexQ5.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000140,
+      "nh_id" : 1000138      
+    },
+
+
+    {
+      "type" : "SCENARIO",
+      "question": "Scenario: While dancing, I suddenly get a severe pain in my back that does not go away. What should I do?" ,
+      "options": ["Normal/Rest","Call Doc", "Call 911"],
+      "correct_answer":["Call 911"],
+      "audio": "VascularContent/Audio/overexQ6.mp3",
+      "incorrect_audio": "VascularContent/Audio/overexQ6incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/overexQ6correct.mp3",
+      "image":"VascularContent/Images/overexQ6.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": -1,
+      "nh_id" : 1000140      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Why Nutrition is Important to Healing",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/whynutritionheals.mp4",
+      "next_module": -1,
+      "nh_id" : 1000144      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Understanding Calories",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/understandingcalories.mp4",
+      "next_module": -1,
+      "nh_id" : 1000146      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Portion Size After Surgery",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/portionsize.mp4",
+      "next_module": -1,
+      "nh_id" : 1000147      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Beverages After Surgery",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/beverages.mp4",
+      "next_module": -1,
+      "nh_id" : 1000148      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Navigating Eating Out",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/eatout.mp4",
+      "next_module": -1,
+      "nh_id" : 1000149      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Cooking at Home",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/cookathome.mp4",
+      "next_module": -1,
+      "nh_id" : 1000150      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Understanding Fats After Surgery",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/eatfats.mp4",
+      "next_module": -1,
+      "nh_id" : 1000151      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Carbohydrates After Surgery",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/eatcarbs.mp4",
+      "next_module": -1,
+      "nh_id" : 1000152      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Salt After Surgery",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/eatsalt.mp4",
+      "next_module": -1,
+      "nh_id" : 1000153      
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "Making Food Choices After Surgery",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/fchoice.png",
+      "audio":"VascularContent/Audio/fchoice.mp3",
+      "next_module": 1000156,
+      "nh_id" : 1000155     
+    },
+
+    {
+      "type" : "MULTIPLE_CHOICE",      
+      "question": "I woke up this morning wanting a hearty breakfast. Which of these are healthy to eat? [Choose 4, then click Submit]" ,
+      "options": ["VascularContent/Images/fchoiceO1Q1.png", "VascularContent/Images/fchoiceO2Q1.png", "VascularContent/Images/fchoiceO3Q1.png", "VascularContent/Images/fchoiceO4Q1.png", "VascularContent/Images/fchoiceO5Q1.png", "VascularContent/Images/fchoiceO6Q1.png"],
+      "explanation": "" ,
+      "correct_answer":["VascularContent/Images/fchoiceO1Q1.png", "VascularContent/Images/fchoiceO2Q1.png", "VascularContent/Images/fchoiceO4Q1.png", "VascularContent/Images/fchoiceO6Q1.png"],
+      "audio": "VascularContent/Audio/fchoiceQ1.mp3",
+      "incorrect_audio" : "VascularContent/Audio/fchoiceQ1incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/fchoiceQ1correct.mp3",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000158,
+      "nh_id" : 1000156      
+    },
+
+    {
+      "type" : "MULTIPLE_CHOICE",      
+      "question": "I want a bit more for breakfast. Which of the following wouldbe best? [Choose 1, then click Submit]" ,
+      "options": ["VascularContent/Images/fchoiceO1Q2.png", "VascularContent/Images/fchoiceO2Q2.png", "VascularContent/Images/fchoiceO3Q2.png", "VascularContent/Images/fchoiceO4Q2.png", "VascularContent/Images/fchoiceO5Q2.png", "VascularContent/Images/fchoiceO6Q2.png"],
+      "explanation": "" ,
+      "correct_answer":["VascularContent/Images/fchoiceO2Q2.png"],
+      "audio": "VascularContent/Audio/fchoiceQ2.mp3",
+      "incorrect_audio" : "VascularContent/Audio/fchoiceQ2incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/fchoiceQ2correct.mp3",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000160,
+      "nh_id" : 1000158      
+    },
+
+    {
+      "type" : "MULTIPLE_CHOICE",      
+      "question": "I need to eat out for lunch, and I want something quick. What options should I pick? [Choose 2, then click Submit]" ,
+      "options": ["VascularContent/Images/fchoiceO1Q3.png", "VascularContent/Images/fchoiceO2Q3.png", "VascularContent/Images/fchoiceO3Q3.png", "VascularContent/Images/fchoiceO4Q3.png", "VascularContent/Images/fchoiceO5Q3.png", "VascularContent/Images/fchoiceO6Q3.png"],
+      "explanation": "" ,
+      "correct_answer":["VascularContent/Images/fchoiceO2Q3.png", "VascularContent/Images/fchoiceO6Q3.png"],
+      "audio": "VascularContent/Audio/fchoiceQ3.mp3",
+      "incorrect_audio" : "VascularContent/Audio/fchoiceQ3incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/fchoiceQ3correct.mp3",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000162,
+      "nh_id" : 1000160      
+    },
+
+    {
+      "type" : "MULTIPLE_CHOICE",      
+      "question": "I want some cheese. Which of these are lower in salt? [Choose 3, then click Submit]" ,
+      "options": ["VascularContent/Images/fchoiceO1Q4.png", "VascularContent/Images/fchoiceO2Q4.png", "VascularContent/Images/fchoiceO3Q4.png", "VascularContent/Images/fchoiceO4Q4.png", "VascularContent/Images/fchoiceO5Q4.png", "VascularContent/Images/fchoiceO6Q4.png"],
+      "explanation": "" ,
+      "correct_answer":["VascularContent/Images/fchoiceO1Q4.png", "VascularContent/Images/fchoiceO4Q4.png", "VascularContent/Images/fchoiceO5Q4.png"],
+      "audio": "VascularContent/Audio/fchoiceQ4.mp3",
+      "incorrect_audio" : "VascularContent/Audio/fchoiceQ4incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/fchoiceQ4correct.mp3",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000164,
+      "nh_id" : 1000162      
+    },
+
+    {
+      "type" : "MULTIPLE_CHOICE",      
+      "question": "Which of these sandwich condiments are healthy options? [Choose 2, then click Submit]" ,
+      "options": ["VascularContent/Images/fchoiceO1Q5.png", "VascularContent/Images/fchoiceO2Q5.png", "VascularContent/Images/fchoiceO3Q5.png", "VascularContent/Images/fchoiceO4Q5.png", "VascularContent/Images/fchoiceO5Q5.png", "VascularContent/Images/fchoiceO6Q5.png"],
+      "explanation": "" ,
+      "correct_answer":["VascularContent/Images/fchoiceO1Q5.png", "VascularContent/Images/fchoiceO3Q5.png"],
+      "audio": "VascularContent/Audio/fchoiceQ5.mp3",
+      "incorrect_audio" : "VascularContent/Audio/fchoiceQ5incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/fchoiceQ5correct.mp3",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000166,
+      "nh_id" : 1000164      
+    },
+
+    {
+      "type" : "MULTIPLE_CHOICE",      
+      "question": "Which sauce and pasta would be best? [Choose 1 sauce, and 1 pasta, and then click Submit]" ,
+      "options": ["VascularContent/Images/fchoiceO1Q6.png", "VascularContent/Images/fchoiceO2Q6.png", "VascularContent/Images/fchoiceO3Q6.png", "VascularContent/Images/fchoiceO4Q6.png", "VascularContent/Images/fchoiceO5Q6.png", "VascularContent/Images/fchoiceO6Q6.png"],
+      "explanation": "" ,
+      "correct_answer":["VascularContent/Images/fchoiceO1Q6.png", "VascularContent/Images/fchoiceO6Q6.png"],
+      "audio": "VascularContent/Audio/fchoiceQ6.mp3",
+      "incorrect_audio" : "VascularContent/Audio/fchoiceQ6incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/fchoiceQ6correct.mp3",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000168,
+      "nh_id" : 1000166      
+    },
+
+    {
+      "type" : "MULTIPLE_CHOICE",      
+      "question": "I am suspicious of misleading labels, since they all look the same. Which of these labels do you think are better options? [Choose 3, then click Submit]" ,
+      "options": ["VascularContent/Images/fchoiceO1Q7.png", "VascularContent/Images/fchoiceO2Q7.png", "VascularContent/Images/fchoiceO3Q7.png", "VascularContent/Images/fchoiceO4Q7.png", "VascularContent/Images/fchoiceO5Q7.png", "VascularContent/Images/fchoiceO6Q7.png"],
+      "explanation": "" ,
+      "correct_answer":["VascularContent/Images/fchoiceO1Q7.png", "VascularContent/Images/fchoiceO3Q7.png", "VascularContent/Images/fchoiceO6Q7.png"],
+      "audio": "VascularContent/Audio/fchoiceQ7.mp3",
+      "incorrect_audio" : "VascularContent/Audio/fchoiceQ7incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/fchoiceQ7correct.mp3",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000170,
+      "nh_id" : 1000168      
+    },
+
+    {
+      "type" : "MULTIPLE_CHOICE",      
+      "question": "Which salad dressing would be healthiest? [Choose 1, then click Submit]" ,
+      "options": ["VascularContent/Images/fchoiceO1Q8.png", "VascularContent/Images/fchoiceO2Q8.png", "VascularContent/Images/fchoiceO3Q8.png", "VascularContent/Images/fchoiceO4Q8.png", "VascularContent/Images/fchoiceO5Q8.png", "VascularContent/Images/fchoiceO6Q8.png"],
+      "explanation": "" ,
+      "correct_answer":["VascularContent/Images/fchoiceO3Q8.png"],
+      "audio": "VascularContent/Audio/fchoiceQ8.mp3",
+      "incorrect_audio" : "VascularContent/Audio/fchoiceQ8incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/fchoiceQ8correct.mp3",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000172,
+      "nh_id" : 1000170      
+    },
+
+    {
+      "type" : "MULTIPLE_CHOICE",      
+      "question": "Which of these are healthy options to make my food more flavorful? [Choose 3, then click Submit]" ,
+      "options": ["VascularContent/Images/fchoiceO1Q9.png", "VascularContent/Images/fchoiceO2Q9.png", "VascularContent/Images/fchoiceO3Q9.png", "VascularContent/Images/fchoiceO4Q9.png", "VascularContent/Images/fchoiceO5Q9.png", "VascularContent/Images/fchoiceO6Q9.png"],
+      "explanation": "" ,
+      "correct_answer":["VascularContent/Images/fchoiceO4Q9.png", "VascularContent/Images/fchoiceO5Q9.png", "VascularContent/Images/fchoiceO6Q9.png"],
+      "audio": "VascularContent/Audio/fchoiceQ9.mp3",
+      "incorrect_audio" : "VascularContent/Audio/fchoiceQ9incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/fchoiceQ9correct.mp3",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": -1,
+      "nh_id" : 1000172      
+    },
+
+    {
+      "type" : "SLIDE",
+      "title": "Recipe Ideas After Surgery",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/recipec.png",
+      "audio":"VascularContent/Audio/recipec.mp3",
+      "next_module": 1000285,
+      "nh_id" : 1000174     
+    },
+
+    {
+      "type" : "MULTIPLE_CHOICE",      
+      "question": "Select the recipes that you would like to learn to make" ,
+      "options": ["VascularContent/Images/recipecO1Q1.png", "VascularContent/Images/recipecO2Q1.png", "VascularContent/Images/recipecO3Q1.png", "VascularContent/Images/recipecO4Q1.png", "VascularContent/Images/recipecO5Q1.png", "VascularContent/Images/recipecO6Q1.png"],
+      "explanation": "" ,
+      "correct_answer":["VascularContent/Images/recipecO1Q1.png", "VascularContent/Images/recipecO2Q1.png", "VascularContent/Images/recipecO3Q1.png", "VascularContent/Images/recipecO4Q1.png", "VascularContent/Images/recipecO5Q1.png", "VascularContent/Images/recipecO6Q1.png"],
+      "audio": "VascularContent/Audio/recipecQ1.mp3",
+      "incorrect_audio" : "",
+      "correct_audio": "",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000286,
+      "nh_id" : 1000285      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Recipe 1: Chicken",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/recipe1.mp4",
+      "next_module": 1000175,
+      "nh_id" : 1000286      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Recipe 2: Bloobs",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/recipe2.mp4",
+      "next_module": 1000176,
+      "nh_id" : 1000175      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Recipe 3: C",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/recipe3.mp4",
+      "next_module": 1000177,
+      "nh_id" : 1000176      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Recipe 4: Ddf",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/recipe4.mp4",
+      "next_module": 1000178,
+      "nh_id" : 1000177      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Recipe 5: Lemons",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/recipe5.mp4",
+      "next_module": 1000179,
+      "nh_id" : 1000178      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Recipe 6: Lechuga",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/recipe6.mp4",
+      "next_module": -1,
+      "nh_id" : 1000179      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Basics of Aspirin After Surgery",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/aspirinbasics.mp4",
+      "next_module": -1,
+      "nh_id" : 1000182      
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "Dispelling Myths About Aspirin" ,
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/aspirins.png",
+      "audio":"VascularContent/Audio/aspirins.mp3",
+      "next_module":1000184,
+      "nh_id" : 1000183     
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: Am I getting put on aspirin for pain?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["No"],
+      "audio":"VascularContent/Audio/aspirinQ1.mp3",
+      "incorrect_audio" : "VascularContent/Audio/aspirinQ1incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/aspirinQ1correct.mp3",
+      "image":"VascularContent/Images/aspirinQ1.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000186,
+      "nh_id" : 1000184      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: Is aspirin for preventing blood clots?" ,
+      "explanation": " ",
+      "options": ["Yes", "No"],
+      "correct_answer":["Yes"],
+      "audio":"VascularContent/Audio/aspirinQ2.mp3",
+      "incorrect_audio" : "VascularContent/Audio/aspirinQ2incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/aspirinQ2correct.mp3",
+      "image":"VascularContent/Images/aspirinQ2.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000188,
+      "nh_id" : 1000186      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: If I feel fine, can I stop taking aspirin?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["No"],
+      "audio":"VascularContent/Audio/aspirinQ3.mp3",
+      "incorrect_audio" : "VascularContent/Audio/aspirinQ3incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/aspirinQ3correct.mp3",
+      "image":"VascularContent/Images/aspirinQ3.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000190,
+      "nh_id" : 1000188      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: If I take another medication that prevents blood clots, can I stop taking aspirin?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["No"],
+      "audio":"VascularContent/Audio/aspirinQ4.mp3",
+      "incorrect_audio" : "VascularContent/Audio/aspirinQ4incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/aspirinQ4correct.mp3",
+      "image":"VascularContent/Images/aspirinQ4.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000192,
+      "nh_id" : 1000190      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: Is it normal to bleed a bit longer if I cut myself while I am on aspirin?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["Yes"],
+      "audio":"VascularContent/Audio/aspirinQ5.mp3",
+      "incorrect_audio" : "VascularContent/Audio/aspirinQ5incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/aspirinQ5correct.mp3",
+      "image":"VascularContent/Images/aspirinQ5.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000194,
+      "nh_id" : 1000192      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: If I forget the dose, should I take a double-dose next time?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["No"],
+      "audio":"VascularContent/Audio/aspirinQ6.mp3",
+      "incorrect_audio" : "VascularContent/Audio/aspirinQ6incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/aspirinQ6correct.mp3",
+      "image":"VascularContent/Images/aspirinQ6.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000196,
+      "nh_id" : 1000194      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: Is it normal to have very dark poop while taking aspirin?" ,
+      "explanation": " " ,
+      "options": ["Yes", "No"],
+      "correct_answer":["No"],
+      "audio":"VascularContent/Audio/aspirinQ7.mp3",
+      "incorrect_audio" : "VascularContent/Audio/aspirinQ7incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/aspirinQ7correct.mp3",
+      "image":"VascularContent/Images/aspirinQ7.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": -1,
+      "nh_id" : 1000196      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Basics of Plavix After Surgery",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/plavixbasics.mp4",
+      "next_module": -1,
+      "nh_id" : 1000199      
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "Testing Knowledge about Plavix" ,
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/plavixs.png",
+      "audio":"VascularContent/Audio/plavixs.mp3",
+      "next_module":1000201,
+      "nh_id" : 1000200     
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: I can take an herbal supplement or natural therapy for my blood without talking to my doctor" ,
+      "explanation": " " ,
+      "options": ["True", "False"],
+      "correct_answer":["False"],
+      "audio":"VascularContent/Audio/plavixQ1.mp3",
+      "incorrect_audio" : "VascularContent/Audio/plavixQ1incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/plavixQ1correct.mp3",
+      "image":"VascularContent/Images/plavixQ1.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000203,
+      "nh_id" : 1000201      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: I have a rash and swelling after starting Plavix, but I can wait 2 weeks to tell my surgeon at my appointment" ,
+      "explanation": " " ,
+      "options": ["True", "False"],
+      "correct_answer":["False"],
+      "audio":"VascularContent/Audio/plavixQ2.mp3",
+      "incorrect_audio" : "VascularContent/Audio/plavixQ2incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/plavixQ2correct.mp3",
+      "image":"VascularContent/Images/plavixQ2.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000205,
+      "nh_id" : 1000203      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: I should stop taking Plavix before my dental procedure" ,
+      "explanation": " " ,
+      "options": ["True", "False"],
+      "correct_answer":["False"],
+      "audio":"VascularContent/Audio/plavixQ3.mp3",
+      "incorrect_audio" : "VascularContent/Audio/plavixQ3incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/plavixQ3correct.mp3",
+      "image":"VascularContent/Images/plavixQ3.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000207,
+      "nh_id" : 1000205      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: I have a bleeding disorder that my blood doctor is taking care of, so I should not bother telling my surgeon",
+      "explanation": " " ,
+      "options": ["True", "False"],
+      "correct_answer":["False"],
+      "audio":"VascularContent/Audio/plavixQ4.mp3",
+      "incorrect_audio" : "VascularContent/Audio/plavixQ4incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/plavixQ4correct.mp3",
+      "image":"VascularContent/Images/plavixQ4.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000209,
+      "nh_id" : 1000207      
+    },
+
+    {
+      "type" : "BINARY",
+      "question": "Question: If I start taking over-the-counter heartburn medications, I should tell my surgeon" ,
+      "explanation": " " ,
+      "options": ["True", "False"],
+      "correct_answer":["True"],
+      "audio":"VascularContent/Audio/plavixQ5.mp3",
+      "incorrect_audio" : "VascularContent/Audio/plavixQ5incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/plavixQ5correct.mp3",
+      "image":"VascularContent/Images/plavixQ5.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": -1,
+      "nh_id" : 1000209      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Basics of Coumadin After Surgery",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/coumadinbasics.mp4",
+      "next_module": -1,
+      "nh_id" : 1000212      
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Tricks to Taking Coumadin",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image": "VascularContent/Images/chow.png",
+      "audio": "VascularContent/Audio/chow.mp3",
+      "next_module": 1000214,
+      "nh_id" : 1000213     
+    },
+
+    {
+      "type" : "MULTIPLE_CHOICE",      
+      "question": "Which ONE of these is a NORMAL side effect of Coumadin [Click Submit]" ,
+      "options": ["VascularContent/Images/coumadinO1Q1.png", "VascularContent/Images/coumadinO2Q1.png", "VascularContent/Images/coumadinO3Q1.png", "VascularContent/Images/coumadinO4Q1.png", "VascularContent/Images/coumadinO5Q1.png", "VascularContent/Images/coumadinO6Q1.png"],
+      "explanation": "" ,
+      "correct_answer":["VascularContent/Images/coumadinO3Q1.png"],
+      "audio": "VascularContent/Audio/coumadinQ1.mp3",
+      "incorrect_audio" : "VascularContent/Audio/coumadinQ1incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/coumadinQ1correct.mp3",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000216,
+      "nh_id" : 1000214      
+    },
+
+    {
+      "type" : "MULTIPLE_CHOICE",      
+      "question": "Select the signs that you should go to the emergency department for instead of calling a doctor [Choose 3, then click Submit]" ,
+      "options": ["VascularContent/Images/coumadinO1Q2.png", "VascularContent/Images/coumadinO2Q2.png", "VascularContent/Images/coumadinO3Q2.png", "VascularContent/Images/coumadinO4Q2.png", "VascularContent/Images/coumadinO5Q2.png", "VascularContent/Images/coumadinO6Q2.png"],
+      "explanation": "" ,
+      "correct_answer":["VascularContent/Images/coumadinO2Q2.png", "VascularContent/Images/coumadinO3Q2.png", "VascularContent/Images/coumadinO6Q2.png"],
+      "audio": "VascularContent/Audio/coumadinQ2.mp3",
+      "incorrect_audio" : "VascularContent/Audio/coumadinQ2incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/coumadinQ2correct.mp3",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000218,
+      "nh_id" : 1000216      
+    },
+
+    {
+      "type" : "MULTIPLE_CHOICE",      
+      "question": "Coumadin is another name for which other medication [Choose 1 then click Submit]" ,
+      "options": ["VascularContent/Images/coumadinO1Q3.png", "VascularContent/Images/coumadinO2Q3.png", "VascularContent/Images/coumadinO3Q3.png", "VascularContent/Images/coumadinO4Q3.png", "VascularContent/Images/coumadinO5Q3.png", "VascularContent/Images/coumadinO6Q3.png"],
+      "explanation": "" ,
+      "correct_answer":["VascularContent/Images/coumadinO2Q3.png"],
+      "audio": "VascularContent/Audio/coumadinQ3.mp3",
+      "incorrect_audio" : "VascularContent/Audio/coumadinQ3incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/coumadinQ3correct.mp3",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000220,
+      "nh_id" : 1000218      
+    },
+
+    {
+      "type" : "MULTIPLE_CHOICE",      
+      "question": "How does Coumadin work in your body? [Choose 1, then click Submit]" ,
+      "options": ["VascularContent/Images/coumadinO1Q4.png", "VascularContent/Images/coumadinO2Q4.png", "VascularContent/Images/coumadinO3Q4.png", "VascularContent/Images/coumadinO4Q4.png", "VascularContent/Images/coumadinO5Q4.png", "VascularContent/Images/coumadinO6Q4.png"],
+      "explanation": "" ,
+      "correct_answer":["VascularContent/Images/coumadinO2Q4.png"],
+      "audio": "VascularContent/Audio/coumadinQ4.mp3",
+      "incorrect_audio" : "VascularContent/Audio/coumadinQ4incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/coumadinQ4correct.mp3",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000222,
+      "nh_id" : 1000220      
+    },
+
+    {
+      "type" : "MULTIPLE_CHOICE",      
+      "question": "If you wake up in the middle of the night and remember that you had forgotten to take Coumadin yesterday, what should you do? [Choose 1, then click Submit]" ,
+      "options": ["VascularContent/Images/coumadinO1Q5.png", "VascularContent/Images/coumadinO2Q5.png", "VascularContent/Images/coumadinO3Q5.png", "VascularContent/Images/coumadinO4Q5.png", "VascularContent/Images/coumadinO5Q5.png", "VascularContent/Images/coumadinO6Q5.png"],
+      "explanation": "" ,
+      "correct_answer":["VascularContent/Images/coumadinO1Q5.png"],
+      "audio": "VascularContent/Audio/coumadinQ5.mp3",
+      "incorrect_audio" : "VascularContent/Audio/coumadinQ5incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/coumadinQ5correct.mp3",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000224,
+      "nh_id" : 1000222      
+    },
+
+    {
+      "type" : "MULTIPLE_CHOICE",      
+      "question": "Who needs to get blood tests done when taking Coumadin? [Choose 1, then click Submit]" ,
+      "options": ["VascularContent/Images/coumadinO1Q6.png", "VascularContent/Images/coumadinO2Q6.png", "VascularContent/Images/coumadinO3Q6.png", "VascularContent/Images/coumadinO4Q6.png", "VascularContent/Images/coumadinO5Q6.png", "VascularContent/Images/coumadinO6Q6.png"],
+      "explanation": "" ,
+      "correct_answer":["VascularContent/Images/coumadinO5Q6.png"],
+      "audio": "VascularContent/Audio/coumadinQ6.mp3",
+      "incorrect_audio" : "VascularContent/Audio/coumadinQ6incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/coumadinQ6correct.mp3",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000226,
+      "nh_id" : 1000224      
+    },
+
+    {
+      "type" : "MULTIPLE_CHOICE",      
+      "question": "What does the blood test for PT/INR directly check? [Choose 1, then click Submit]" ,
+      "options": ["VascularContent/Images/coumadinO1Q7.png", "VascularContent/Images/coumadinO2Q7.png", "VascularContent/Images/coumadinO3Q7.png", "VascularContent/Images/coumadinO4Q7.png", "VascularContent/Images/coumadinO5Q7.png", "VascularContent/Images/coumadinO6Q7.png"],
+      "explanation": "" ,
+      "correct_answer":["VascularContent/Images/coumadinO5Q7.png"],
+      "audio": "VascularContent/Audio/coumadinQ7.mp3",
+      "incorrect_audio" : "VascularContent/Audio/coumadinQ7incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/coumadinQ7correct.mp3",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": -1,
+      "nh_id" : 1000226      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Blood Testing While on Coumadin",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/coumadinblood.mp4",
+      "next_module": -1,
+      "nh_id" : 1000228      
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Side Effects of Coumadin" ,
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/coumadinb1.png",
+      "audio":"VascularContent/Audio/coumadinb1.mp3",
+      "next_module":1000230,
+      "nh_id" : 1000229     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Side Effects of Coumadin" ,
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/coumadinb2.png",
+      "audio":"VascularContent/Audio/coumadinb2.mp3",
+      "next_module":1000231,
+      "nh_id" : 1000230     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Side Effects of Coumadin" ,
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/coumadinb3.png",
+      "audio":"VascularContent/Audio/coumadinb3.mp3",
+      "next_module":1000232,
+      "nh_id" : 1000231     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Side Effects of Coumadin" ,
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/coumadinb4.png",
+      "audio":"VascularContent/Audio/coumadinb4.mp3",
+      "next_module":1000233,
+      "nh_id" : 1000232     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Side Effects of Coumadin" ,
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/coumadinb5.png",
+      "audio":"VascularContent/Audio/coumadinb5.mp3",
+      "next_module":1000234,
+      "nh_id" : 1000233     
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "The Side Effects of Coumadin" ,
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image":"VascularContent/Images/coumadinb6.png",
+      "audio":"VascularContent/Audio/coumadinb6.mp3",
+      "next_module": -1,
+      "nh_id" : 1000234     
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Coumadin’s Interactions with Medications",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/coumadininteractions.mp4",
+      "next_module": -1,
+      "nh_id" : 1000235      
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "Coumadin and Your Diet",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image": "VascularContent/Images/cdiet.png",
+      "audio": "VascularContent/Audio/cdiet.mp3",
+      "next_module": 1000237,
+      "nh_id" : 1000236     
+    },
+
+    {
+      "type" : "MULTIPLE_CHOICE",      
+      "question": "While on Coumadin, which of these foods should you avoid eating an entire plate of? [Choose 4, then click Submit]" ,
+      "options": ["VascularContent/Images/cdietO1Q1.png", "VascularContent/Images/cdietO2Q1.png", "VascularContent/Images/cdietO3Q1.png", "VascularContent/Images/cdietO4Q1.png", "VascularContent/Images/cdietO5Q1.png", "VascularContent/Images/cdietO6Q1.png"],
+      "explanation": "" ,
+      "correct_answer":["VascularContent/Images/cdietO1Q1.png", "VascularContent/Images/cdietO3Q1.png", "VascularContent/Images/cdietO5Q1.png", "VascularContent/Images/cdietO6Q1.png"],
+      "audio": "VascularContent/Audio/cdietQ1.mp3",
+      "incorrect_audio" : "VascularContent/Audio/cdietQ1incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/cdietQ1correct.mp3",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000239,
+      "nh_id" : 1000237      
+    },
+
+    {
+      "type" : "MULTIPLE_CHOICE",      
+      "question": "Which of these juices could potentially interact poorly with Coumadin? [Choose 3, then click Submit]" ,
+      "options": ["VascularContent/Images/cdietO1Q2.png", "VascularContent/Images/cdietO2Q2.png", "VascularContent/Images/cdietO3Q2.png", "VascularContent/Images/cdietO4Q2.png", "VascularContent/Images/cdietO5Q2.png", "VascularContent/Images/cdietO6Q2.png"],
+      "explanation": "" ,
+      "correct_answer":["VascularContent/Images/cdietO2Q2.png", "VascularContent/Images/cdietO3Q2.png", "VascularContent/Images/cdietO5Q2.png"],
+      "audio": "VascularContent/Audio/cdietQ2.mp3",
+      "incorrect_audio" : "VascularContent/Audio/cdietQ2incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/cdietQ2correct.mp3",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000241,
+      "nh_id" : 1000239      
+    },
+
+    {
+      "type" : "MULTIPLE_CHOICE",      
+      "question": "While taking Coumadin, which ONE of these drinks can increase your risk of getting a blood clot in your blood vessels? [Check 1, then click Submit]" ,
+      "options": ["VascularContent/Images/cdietO1Q3.png", "VascularContent/Images/cdietO2Q3.png", "VascularContent/Images/cdietO3Q3.png", "VascularContent/Images/cdietO4Q3.png", "VascularContent/Images/cdietO5Q3.png", "VascularContent/Images/cdietO6Q3.png"],
+      "explanation": "" ,
+      "correct_answer":["VascularContent/Images/cdietO4Q3.png"],
+      "audio": "VascularContent/Audio/cdietQ3.mp3",
+      "incorrect_audio" : "VascularContent/Audio/cdietQ3incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/cdietQ3correct.mp3",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000243,
+      "nh_id" : 1000241      
+    },
+
+    {
+      "type" : "MULTIPLE_CHOICE",      
+      "question": "While taking Coumadin, how much boiled spinach should you have? [Choose 1, then click Submit]" ,
+      "options": ["VascularContent/Images/cdietO1Q4.png", "VascularContent/Images/cdietO2Q4.png", "VascularContent/Images/cdietO3Q4.png", "VascularContent/Images/cdietO4Q4.png", "VascularContent/Images/cdietO5Q4.png", "VascularContent/Images/cdietO6Q4.png"],
+      "explanation": "" ,
+      "correct_answer":["VascularContent/Images/cdietO2Q4.png"],
+      "audio": "VascularContent/Audio/cdietQ4.mp3",
+      "incorrect_audio" : "VascularContent/Audio/cdietQ4incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/cdietQ4correct.mp3",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000245,
+      "nh_id" : 1000243      
+    },
+
+    {
+      "type" : "MULTIPLE_CHOICE",      
+      "question": "While taking Coumadin, should you avoid ALL foods with vitamin K?" ,
+      "options": ["VascularContent/Images/cdietO1Q5.png", "VascularContent/Images/cdietO2Q5.png", "VascularContent/Images/cdietO3Q5.png", "VascularContent/Images/cdietO4Q5.png", "VascularContent/Images/cdietO5Q5.png", "VascularContent/Images/cdietO6Q5.png"],
+      "explanation": "" ,
+      "correct_answer":["VascularContent/Images/cdietO6Q5.png"],
+      "audio": "VascularContent/Audio/cdietQ5.mp3",
+      "incorrect_audio" : "VascularContent/Audio/cdietQ5incorrect.mp3",
+      "correct_audio": "VascularContent/Audio/cdietQ5correct.mp3",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": -1,
+      "nh_id" : 1000245      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "The Importance of Well-Being",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/wellbeingm.mp4",
+      "next_module": -1,
+      "nh_id" : 1000249      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Practicing Gratitude & Positive Thinking",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/gratitudepositive.mp4",
+      "next_module": -1,
+      "nh_id" : 1000250      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Taking Care of Your Body & Your Soul",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/selfcare.mp4",
+      "next_module": -1,
+      "nh_id" : 1000251      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Everyday Living",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/presentmoment.mp4",
+      "next_module": -1,
+      "nh_id" : 1000252      
+    },
+
+
+    {
+      "type" : "BINARY",
+      "question": "Question: Do you or your loved one smoke?" ,
+      "explanation": "",
+      "options": ["True", "False"],
+      "correct_answer":["True"],
+      "audio":"VascularContent/Audio/doyousmoke.mp3",
+      "incorrect_audio" : "",
+      "correct_audio": "",
+      "image":"VascularContent/Images/doyousmoke.png",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000254,
+      "nh_id" : 1000253      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Smoking After Vascular Surgery",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/smokingvascular.mp4",
+      "next_module": -1,
+      "nh_id" : 1000254      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Helping Care for a Patient After Surgery",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/caregivingM.mp4",
+      "next_module": -1,
+      "nh_id" : 1000257      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Transferring a Surgery Patient Safely",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/transferM.mp4",
+      "next_module": -1,
+      "nh_id" : 1000258      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Supporting a Patient with Dressing",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/dressingM.mp4",
+      "next_module": -1,
+      "nh_id" : 1000259      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Bathing a Post-Surgical Patient",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/bathingM.mp4",
+      "next_module": -1,
+      "nh_id" : 1000260      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Supporting a Patient with Using the Bathroom",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/bathroomM.mp4",
+      "next_module": -1,
+      "nh_id" : 1000261      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Interacting with the Medical Team",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/doctorsM.mp4",
+      "next_module": -1,
+      "nh_id" : 1000262      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Helping Select a Nursing Home",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/aftercareM.mp4",
+      "next_module": -1,
+      "nh_id" : 1000263      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Helping Select End of Life Care",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/endoflifeM.mp4",
+      "next_module": -1,
+      "nh_id" : 1000264      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Caring for Yourself When You Care for Others",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/cselfcareM.mp4",
+      "next_module": -1,
+      "nh_id" : 1000266      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Asking for Practical Help",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/askhelpM.mp4",
+      "next_module": -1,
+      "nh_id" : 1000267      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Finding Support During Difficult Times",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/communityM.mp4",
+      "next_module": -1,
+      "nh_id" : 1000268      
+    },
+
+    {
+      "type" : "VIDEO",
+      "title": "Fun & Humor During Difficult Times",
+      "tags": ["vascular", "basics", "important", "vertical"] ,
+      "video": "VascularContent/Video/humorM.mp4",
+      "next_module": -1,
+      "nh_id" : 1000269      
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "Lesson 1: Exercise & Activity Goals",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image": "VascularContent/Images/activitygoalsS.png",
+      "audio": "VascularContent/Audio/activitygoalsS.mp3",
+      "next_module": 1000272,
+      "nh_id" : 1000271     
+    },
+
+    {
+      "type" : "MULTIPLE_CHOICE",      
+      "question": "Select the activities you would like to do" ,
+      "options": ["VascularContent/Images/actgoalsO1Q1.png", "VascularContent/Images/actgoalsO2Q1.png", "VascularContent/Images/actgoalsO3Q1.png", "VascularContent/Images/actgoalsO4Q1.png", "VascularContent/Images/actgoalsO5Q1.png", "VascularContent/Images/actgoalsO6Q1.png"],
+      "explanation": "" ,
+      "correct_answer":["VascularContent/Images/actgoalsO1Q1.png", "VascularContent/Images/actgoalsO2Q1.png", "VascularContent/Images/actgoalsO3Q1.png", "VascularContent/Images/actgoalsO4Q1.png", "VascularContent/Images/actgoalsO5Q1.png", "VascularContent/Images/actgoalsO6Q1.png"],
+      "audio": "VascularContent/Audio/actgoalsQ1.mp3",
+      "incorrect_audio" : "",
+      "correct_audio": "",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000273,
+      "nh_id" : 1000272      
+    },
+
+    {
+      "type" : "MULTIPLE_CHOICE",      
+      "question": "How often would you like to do activities?" ,
+      "options": ["VascularContent/Images/actgoalsO1Q2.png", "VascularContent/Images/actgoalsO2Q2.png", "VascularContent/Images/actgoalsO3Q2.png", "VascularContent/Images/actgoalsO4Q2.png", "VascularContent/Images/actgoalsO5Q2.png", "VascularContent/Images/actgoalsO6Q2.png"],
+      "explanation": "" ,
+      "correct_answer":["VascularContent/Images/actgoalsO1Q1.png", "VascularContent/Images/actgoalsO2Q1.png", "VascularContent/Images/actgoalsO3Q1.png", "VascularContent/Images/actgoalsO4Q1.png", "VascularContent/Images/actgoalsO5Q1.png", "VascularContent/Images/actgoalsO6Q1.png"],
+      "audio": "VascularContent/Audio/actgoalsQ2.mp3",
+      "incorrect_audio" : "",
+      "correct_audio": "",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": -1,
+      "nh_id" : 1000273      
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "Lesson 2: Diet & Nutrition Goals",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image": "VascularContent/Images/dietgoalsS.png",
+      "audio": "VascularContent/Audio/dietgoalsS.mp3",
+      "next_module": 1000277,
+      "nh_id" : 1000276     
+    },
+
+    {
+      "type" : "MULTIPLE_CHOICE",      
+      "question": "Select the diet you would like to do" ,
+      "options": ["VascularContent/Images/dietgoalsO1Q1.png", "VascularContent/Images/dietgoalsO2Q1.png", "VascularContent/Images/dietgoalsO3Q1.png", "VascularContent/Images/dietgoalsO4Q1.png", "VascularContent/Images/dietgoalsO5Q1.png", "VascularContent/Images/dietgoalsO6Q1.png"],
+      "explanation": "" ,
+      "correct_answer":["VascularContent/Images/dietgoalsO1Q1.png", "VascularContent/Images/dietgoalsO2Q1.png", "VascularContent/Images/dietgoalsO3Q1.png", "VascularContent/Images/dietgoalsO4Q1.png", "VascularContent/Images/dietgoalsO5Q1.png", "VascularContent/Images/dietgoalsO6Q1.png"],
+      "audio": "VascularContent/Audio/dietgoalsQ1.mp3",
+      "incorrect_audio" : "",
+      "correct_audio": "",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000278,
+      "nh_id" : 1000277      
+    },
+
+    {
+      "type" : "MULTIPLE_CHOICE",      
+      "question": "How often would you like to do diet?",
+      "options": ["VascularContent/Images/dietgoalsO1Q2.png", "VascularContent/Images/dietgoalsO2Q2.png", "VascularContent/Images/dietgoalsO3Q2.png", "VascularContent/Images/dietgoalsO4Q2.png", "VascularContent/Images/dietgoalsO5Q2.png", "VascularContent/Images/dietgoalsO6Q2.png"],
+      "explanation": "" ,
+      "correct_answer":["VascularContent/Images/dietgoalsO1Q1.png", "VascularContent/Images/dietgoalsO2Q1.png", "VascularContent/Images/dietgoalsO3Q1.png", "VascularContent/Images/dietgoalsO4Q1.png", "VascularContent/Images/dietgoalsO5Q1.png", "VascularContent/Images/dietgoalsO6Q1.png"],
+      "audio": "VascularContent/Audio/dietgoalsQ2.mp3",
+      "incorrect_audio" : "",
+      "correct_audio": "",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": -1,
+      "nh_id" : 1000278      
+    },
+
+
+    {
+      "type" : "SLIDE",
+      "title": "Lesson 3: Well-being Goals",
+      "tags": ["vascular", "basics", "important", "information"] ,
+      "image": "VascularContent/Images/wellgoalsS.png",
+      "audio": "VascularContent/Audio/wellgoalsS.mp3",
+      "next_module": 1000280,
+      "nh_id" : 1000279     
+    },
+
+    {
+      "type" : "MULTIPLE_CHOICE",      
+      "question": "Select the well-being you would like to do" ,
+      "options": ["VascularContent/Images/wellgoalsO1Q1.png", "VascularContent/Images/wellgoalsO2Q1.png", "VascularContent/Images/wellgoalsO3Q1.png", "VascularContent/Images/wellgoalsO4Q1.png", "VascularContent/Images/wellgoalsO5Q1.png", "VascularContent/Images/wellgoalsO6Q1.png"],
+      "explanation": "" ,
+      "correct_answer":["VascularContent/Images/wellgoalsO1Q1.png", "VascularContent/Images/wellgoalsO2Q1.png", "VascularContent/Images/wellgoalsO3Q1.png", "VascularContent/Images/wellgoalsO4Q1.png", "VascularContent/Images/wellgoalsO5Q1.png", "VascularContent/Images/wellgoalsO6Q1.png"],
+      "audio": "VascularContent/Audio/wellgoalsQ1.mp3",
+      "incorrect_audio" : "",
+      "correct_audio": "",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": 1000281,
+      "nh_id" : 1000280      
+    },
+
+    {
+      "type" : "MULTIPLE_CHOICE",      
+      "question": "How often would you like to do well?",
+      "options": ["VascularContent/Images/wellgoalsO1Q2.png", "VascularContent/Images/wellgoalsO2Q2.png", "VascularContent/Images/wellgoalsO3Q2.png", "VascularContent/Images/wellgoalsO4Q2.png", "VascularContent/Images/wellgoalsO5Q2.png", "VascularContent/Images/wellgoalsO6Q2.png"],
+      "explanation": "" ,
+      "correct_answer":["VascularContent/Images/wellgoalsO1Q1.png", "VascularContent/Images/wellgoalsO2Q1.png", "VascularContent/Images/wellgoalsO3Q1.png", "VascularContent/Images/wellgoalsO4Q1.png", "VascularContent/Images/wellgoalsO5Q1.png", "VascularContent/Images/wellgoalsO6Q1.png"],
+      "audio": "VascularContent/Audio/wellgoalsQ2.mp3",
+      "incorrect_audio" : "",
+      "correct_audio": "",
+      "tags": ["vascular", "basics", "spaceships", "lasers"] ,
+      "next_module": -1,
+      "nh_id" : 1000281      
+    }
+
+    
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
