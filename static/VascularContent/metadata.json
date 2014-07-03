@@ -1961,8 +1961,8 @@
       "type" : "BINARY",
       "question": "Would you like to learn exercises you can do while sitting up?" ,
       "explanation": "Only perform the following exercises if your doctor advises that they are right for you",
-      "options": ["Yes", "No"],
-      "correct_answer":["No"],
+      "options": ["Yes", "OK"],
+      "correct_answer":["Yes"],
       "audio":"VascularContent/Audio/hospitalexsitup.mp3",
       "incorrect_audio" : "",
       "correct_audio": "",
@@ -1987,8 +1987,8 @@
       "type" : "BINARY",
       "question": "Question: Would you like to learn standing exercises?" ,
       "explanation": "Only perform the following exercises if your doctor advises that they are right for you",
-      "options": ["Yes", "No"],
-      "correct_answer":["No"],
+      "options": ["Yes", "OK"],
+      "correct_answer":["Yes"],
       "audio":"VascularContent/Audio/hospitalexstand.mp3",
       "incorrect_audio" : "",
       "correct_audio": "",
@@ -2544,7 +2544,7 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "Select the recipes that you would like to learn to make" ,
+      "question": "Recipes that you might like to learn to make" ,
       "options": ["VascularContent/Images/recipecO1Q1.png", "VascularContent/Images/recipecO2Q1.png", "VascularContent/Images/recipecO3Q1.png", "VascularContent/Images/recipecO4Q1.png", "VascularContent/Images/recipecO5Q1.png", "VascularContent/Images/recipecO6Q1.png"],
       "explanation": "" ,
       "correct_answer":["VascularContent/Images/recipecO1Q1.png", "VascularContent/Images/recipecO2Q1.png", "VascularContent/Images/recipecO3Q1.png", "VascularContent/Images/recipecO4Q1.png", "VascularContent/Images/recipecO5Q1.png", "VascularContent/Images/recipecO6Q1.png"],
@@ -2866,7 +2866,7 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "Select the signs that you should go to the emergency department for instead of calling a doctor [Choose 3]" ,
+      "question": "Learn some signs you should go to the emergency department instead of calling a doctor" ,
       "options": ["VascularContent/Images/coumadinO1Q2.png", "VascularContent/Images/coumadinO2Q2.png", "VascularContent/Images/coumadinO3Q2.png", "VascularContent/Images/coumadinO4Q2.png", "VascularContent/Images/coumadinO5Q2.png", "VascularContent/Images/coumadinO6Q2.png"],
       "explanation": "" ,
       "correct_answer":["VascularContent/Images/coumadinO2Q2.png", "VascularContent/Images/coumadinO3Q2.png", "VascularContent/Images/coumadinO6Q2.png"],
@@ -3152,9 +3152,9 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: Do you or your loved one smoke?" ,
+      "question": "Would you like to learn about the effects of smoking?" ,
       "explanation": "",
-      "options": ["Yes", "No"],
+      "options": ["Yes", "OK"],
       "correct_answer":["Yes"],
       "audio":"VascularContent/Audio/doyousmoke.mp3",
       "incorrect_audio" : "",
@@ -3295,7 +3295,7 @@
 
     {
       "type" : "MULTIPLE_CHOICE",      
-      "question": "Select the activities you would like to do" ,
+      "question": "Activities that you might like to do" ,
       "options": ["VascularContent/Images/actgoalsO1Q1.png", "VascularContent/Images/actgoalsO2Q1.png", "VascularContent/Images/actgoalsO3Q1.png", "VascularContent/Images/actgoalsO4Q1.png", "VascularContent/Images/actgoalsO5Q1.png", "VascularContent/Images/actgoalsO6Q1.png"],
       "explanation": "" ,
       "correct_answer":["VascularContent/Images/actgoalsO1Q1.png", "VascularContent/Images/actgoalsO2Q1.png", "VascularContent/Images/actgoalsO3Q1.png", "VascularContent/Images/actgoalsO4Q1.png", "VascularContent/Images/actgoalsO5Q1.png", "VascularContent/Images/actgoalsO6Q1.png"],
