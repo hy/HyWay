@@ -492,7 +492,7 @@
     },
 
     {
-      "title": "Lesson 1: Nutrition to Heal After Surgery",
+      "title": "Lesson 1: Nutrition for Healing",
       "short_title" : "Lesson 1: Nutrition to Heal After Surgery",
       "description": "Eating the right things after surgery can go a long way towards recovery. Learn which foods help, hurt, and why!",
       "has_sublessons": true,
@@ -634,7 +634,7 @@
 
 
     {
-      "title": "Making Healthy Choices",
+      "title": "Healthy Choices",
       "short_title" : "Choices",
       "description": "",
       "has_sublessons": false,
@@ -647,7 +647,7 @@
 
 
     {
-      "title": "Learning Healthy Recipes",
+      "title": "Healthy Recipes",
       "short_title" : "Recipes",
       "description": "",
       "has_sublessons": false,
@@ -1018,8 +1018,8 @@
     },
 
     {
-      "title": "After Care",
-      "short_title" : "After Care",
+      "title": "Nursing Home",
+      "short_title" : "Nursing Home",
       "description": "",
       "has_sublessons": false,
       "lessons": [],
@@ -2011,7 +2011,7 @@
 
     {
       "type" : "SLIDE",
-      "title": "Fall Prevention Exercises" ,
+      "title": "Would you like to learn about fall prevention exercises?" ,
       "tags": ["vascular", "basics", "important", "information"] ,
       "image":"VascularContent/Images/fallex.png",
       "audio":"VascularContent/Audio/fallex.mp3",
@@ -3154,8 +3154,8 @@
       "type" : "BINARY",
       "question": "Question: Do you or your loved one smoke?" ,
       "explanation": "",
-      "options": ["True", "False"],
-      "correct_answer":["True"],
+      "options": ["Yes", "No"],
+      "correct_answer":["Yes"],
       "audio":"VascularContent/Audio/doyousmoke.mp3",
       "incorrect_audio" : "",
       "correct_audio": "",
