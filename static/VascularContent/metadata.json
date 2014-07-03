@@ -2259,7 +2259,7 @@
       "type" : "SCENARIO",
       "question": "I get light-headed and have a hard time catching my breath." ,
       "options": ["Rest", "Call Doc", "Call 911"],
-      "correct_answer":["Normal/Rest"],
+      "correct_answer":["Rest"],
       "audio": "VascularContent/Audio/overexQ3.mp3",
       "incorrect_audio": "VascularContent/Audio/overexQ3incorrect.mp3",
       "correct_audio": "VascularContent/Audio/overexQ3correct.mp3",
