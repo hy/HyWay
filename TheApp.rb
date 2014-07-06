@@ -526,7 +526,10 @@ class TheApp < Sinatra::Base
 
   
   post '/awsSNSevents' do
-    
+  
+    puts "AWS Headers: " 
+    puts request.headers 
+    puts "AWS body: "
     puts request.body
      
   end
