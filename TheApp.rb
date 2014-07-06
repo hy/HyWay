@@ -87,6 +87,8 @@ require 'haml'
 #require 'rest-client'
 #require 'httparty'
 
+require 'aws-sdk'
+
 ###############################################################################
 # Optional Requires (Not essential for base version)
 ###############################################################################
