@@ -535,7 +535,11 @@ class TheApp < Sinatra::Base
     puts request.env
 
     puts "AWS data"
-    puts data = JSON.parse request.body.read
+
+    data = JSON.parse request.body.read
+    puts data
+
+
  
     puts "Attempting to send confirmation"
     HTTParty.get request.body.read['SubscribeURL']
