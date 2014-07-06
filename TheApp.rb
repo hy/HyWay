@@ -84,8 +84,9 @@ require 'json'
 require 'pony'
 require 'haml'
 
+require 'httparty'
+
 #require 'rest-client'
-#require 'httparty'
 
 require 'aws-sdk'
 
@@ -528,7 +529,7 @@ class TheApp < Sinatra::Base
   post '/awsSNSevents' do
   
     puts "AWS body: "
-    puts request.body
+    puts request.body.to_s
 
     puts "AW request.env"
     puts request.env
