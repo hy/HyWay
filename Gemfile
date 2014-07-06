@@ -11,6 +11,8 @@ gem 'sinatra-graph'
 gem 'puma'
 # gem 'thin'
 
+gem 'aws-sdk'
+
 gem 'neography'
 
 gem 'hiredis'
