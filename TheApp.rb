@@ -526,25 +526,33 @@ class TheApp < Sinatra::Base
   end
 
   
-  post '/awsSNSevents' do
+  post '/awsSNSforvideos' do
   
-    puts "AWS body: "
-    puts request.body.read
-
     puts "AWS request.env"
-    puts request.env
+    req_env = request.env
+    puts req_env
 
-    puts "AWS data"
+    if req_env["HTTP_X_AMZ_SNS_MESSAGE_TYPE"] == "SubscriptionConfirmation"
+      request.body.rewind
+      data = JSON.parse request.body.read
+      puts data
 
-    request.body.rewind
-    data = JSON.parse request.body.read
-    puts data
+      puts "Attempting to send confirmation"
+      subscribe_confirm = HTTParty.get data['SubscribeURL']
+  
+      puts "DONE: Confirmed this endpoint to AWS "
+    end #if
+      
+
+    if req_env["HTTP_X_AMZ_SNS_MESSAGE_TYPE"] == "UnsubscribeConfirmation"
+
+    end #if
 
 
+    if req_env["HTTP_X_AMZ_SNS_MESSAGE_TYPE"] == "Notification"
+
+    end #if
  
-    puts "Attempting to send confirmation"
-    HTTParty.get data['SubscribeURL']
-     
   end
 
 
