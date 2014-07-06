@@ -527,10 +527,11 @@ class TheApp < Sinatra::Base
   
   post '/awsSNSevents' do
   
-    puts "AWS Headers: " 
-    puts request.header
     puts "AWS body: "
     puts request.body
+
+    puts "AW request.env"
+    puts request.env
  
     HTTParty.get request.body['SubscribeURL']
      
