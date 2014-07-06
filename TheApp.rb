@@ -528,9 +528,11 @@ class TheApp < Sinatra::Base
   post '/awsSNSevents' do
   
     puts "AWS Headers: " 
-    puts request.headers 
+    puts request.header
     puts "AWS body: "
     puts request.body
+ 
+    HTTParty.get request.body['SubscribeURL']
      
   end
 
