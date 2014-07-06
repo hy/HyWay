@@ -543,7 +543,7 @@ class TheApp < Sinatra::Base
 
  
     puts "Attempting to send confirmation"
-    HTTParty.get request.body.read['SubscribeURL']
+    HTTParty.get data['SubscribeURL']
      
   end
 
