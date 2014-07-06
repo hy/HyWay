@@ -529,12 +529,16 @@ class TheApp < Sinatra::Base
   post '/awsSNSevents' do
   
     puts "AWS body: "
-    puts request.body.to_s
+    puts request.body.read
 
-    puts "AW request.env"
+    puts "AWS request.env"
     puts request.env
+
+    puts "AWS data"
+    puts data = JSON.parse request.body.read
  
-    HTTParty.get request.body['SubscribeURL']
+    puts "Attempting to send confirmation"
+    HTTParty.get request.body.read['SubscribeURL']
      
   end
 
