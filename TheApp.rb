@@ -515,12 +515,20 @@ class TheApp < Sinatra::Base
     'Server is up! '  
   end
 
+
   get '/services' do
     response_string = ""
     @@services_available.each do |service, status|
       response_string = response_string + "#{service.to_s} is <b>#{status ? '<font color="blue">up</font>' : '<font color="red">down </font>' } </b><br>"
     end  
     response_string
+  end
+
+  
+  post '/awsSNSevents' do
+    
+    puts request.body
+     
   end
 
 
