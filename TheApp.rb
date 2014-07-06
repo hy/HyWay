@@ -536,6 +536,7 @@ class TheApp < Sinatra::Base
 
     puts "AWS data"
 
+    request.body.rewind
     data = JSON.parse request.body.read
     puts data
 
