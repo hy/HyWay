@@ -550,7 +550,11 @@ class TheApp < Sinatra::Base
 
 
     if req_env["HTTP_X_AMZ_SNS_MESSAGE_TYPE"] == "Notification"
+      request.body.rewind
+      data = JSON.parse request.body.read
+      puts data
 
+      puts DB['AWSnotifications'].insert(data)
     end #if
  
   end
