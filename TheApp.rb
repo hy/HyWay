@@ -527,29 +527,7 @@ class TheApp < Sinatra::Base
   end
 
 
-## These two may not yet work dunno
-
-  post '/upload_tracking' do
-    #file_data = params[:myfile][:tempfile].read
-    file_data = params[:file].read
-    csv_rows  = CSV.parse(file_data, headers: true)
-
-    csv_rows.each do |row| 
-      DB['nooralist'].insert( :first =>  row[:first] )
-    end
-  end
-
-  post '/upload_session' do
-    #file_data = params[:myfile][:tempfile].read
-    file_data = params[:file].read
-    csv_rows  = CSV.parse(file_data, headers: true)
-    
-    csv_rows.each do |row|
-      DB['nooralist'].insert( :first =>  row[:first] )
-    end
-  end
-
- 
+## This part starting to work 
 ## Serve data as CSV file
   get /(?<collection_name>\w*)(?<extension>_as_csv)/ix do 
     collection_name = params[:captures][0]
@@ -570,6 +548,8 @@ class TheApp < Sinatra::Base
     end    
   end
 
+
+## These may not yet work dunno
   post '/upload_timings' do
     file_data = params[:file].read
     csv_rows  = CSV.parse(file_data, headers: true)
@@ -579,9 +559,8 @@ class TheApp < Sinatra::Base
     end
   end
 
-## These may not yet work dunno
 
-
+## Works
   get '/make_reminder_calls' do
     cursor = DB['noora_tracking'].find({"AttendedFirstClass" => "Yes"})
 
