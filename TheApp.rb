@@ -554,7 +554,7 @@ class TheApp < Sinatra::Base
     cursor = DB['noora_tracking'].find({"AttendedFirstClass" => "Yes"})
 
     cursor.each{ |d|
-      msg = 'With regards to Patient '+d['PatientName']+' and the issue of '+d['TypeOfSurgery']+' please do come to 2nd class on '+d['SecondClassDate']
+      msg = 'With regards to Patient '+d['PatientName']+' and the issue of '+d['MedicalProblem']+' please do come to 2nd class on '+d['SecondClassDate']
       send_SMS_to( d['PhoneNumberOfAttender'], msg )
     }
   end
