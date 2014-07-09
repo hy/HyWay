@@ -552,11 +552,18 @@ class TheApp < Sinatra::Base
  
 ## Serve data as CSV file
   get '/dump_csv' do 
+    collection_name = "data"
     content_type 'application/csv'
-    attachment "myfilename.csv"
+    attachment collection_name + ".csv"
+
+    keys = ["heading1", "heading2", "heading3", "heading4"]
+    values1 = ["row1", "of1", "CSV1", "data1"] 
+    values2 = ["row2", "of2", "CSV2", "data2"] 
+
     csv_string = CSV.generate do |csv|
-        csv << ["row", "of", "CSV", "data"]
-        csv << ["another", "row"]
+        csv << keys
+        csv << values1
+        csv << values2
         # ...
     end    
   end
