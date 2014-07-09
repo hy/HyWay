@@ -549,7 +549,29 @@ class TheApp < Sinatra::Base
     end
   end
 
-## These two may not yet work dunno
+ 
+## Serve data as CSV file
+  get '/dump_csv' do 
+    content_type 'application/csv'
+    attachment "myfilename.csv"
+    csv_string = CSV.generate do |csv|
+        csv << ["row", "of", "CSV", "data"]
+        csv << ["another", "row"]
+        # ...
+    end    
+  end
+
+  post '/upload_timings' do
+    file_data = params[:file].read
+    csv_rows  = CSV.parse(file_data, headers: true)
+
+    csv_rows.each do |row|
+      DB['noora_timings'].insert( JSON.pretty_generate(row) )
+    end
+  end
+
+## These may not yet work dunno
+
 
   get '/make_reminder_calls' do
     cursor = DB['noora_tracking'].find({"AttendedFirstClass" => "Yes"})
