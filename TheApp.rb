@@ -525,9 +525,42 @@ class TheApp < Sinatra::Base
     response_string
   end
 
+
+## These two may not yet work dunno
+
+  post '/upload_tracking' do
+    #file_data = params[:myfile][:tempfile].read
+    file_data = params[:file].read
+    csv_rows  = CSV.parse(file_data, headers: true)
+
+    csv_rows.each do |row| 
+      DB['nooralist'].insert( :first =>  row[:first] )
+    end
+  end
+
+  post '/upload_session' do
+    #file_data = params[:myfile][:tempfile].read
+    file_data = params[:file].read
+    csv_rows  = CSV.parse(file_data, headers: true)
+    
+    csv_rows.each do |row|
+      DB['nooralist'].insert( :first =>  row[:first] )
+    end
+  end
+
+## These two may not yet work dunno
+
+  get '/make_reminder_calls' do
+    cursor = DB['noora_tracking'].find({"AttendedFirstClass" => "Yes"})
+
+    cursor.each{ |d|
+      msg = 'With regards to Patient '+d['PatientName']+' and the issue of '+d['TypeOfSurgery']+' please do come to 2nd class on '+d['SecondClassDate']
+      send_SMS_to( d['PhoneNumberOfAttender'], msg )
+    }
+  end
+
   
-  post '/awsSNSforvideos' do
-  
+  post '/awsSNSforvideos' do  
     puts "AWS request.env"
     req_env = request.env
     puts req_env
