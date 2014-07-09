@@ -551,8 +551,10 @@ class TheApp < Sinatra::Base
 
  
 ## Serve data as CSV file
-  get '/dump_csv' do 
-    collection_name = "data"
+  get /(?<collection_name>\w*)(?<extension>_as_csv)/ix do 
+    collection_name = params[:captures][0]
+    cursor = DB[collection_name].find()
+
     content_type 'application/csv'
     attachment collection_name + ".csv"
 
