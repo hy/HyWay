@@ -22,7 +22,7 @@
     },
 
    {
-      "title": "Introduction to Noora Health",
+      "title": "About Noora Health",
       "short_title" : "",
       "description": "Learn about the basic principles and science behind your condition. Get the 101 on how, what, and why about vascular surgery.",
       "has_sublessons": false,
@@ -33,7 +33,7 @@
       "nh_id" : 1000600      
     },
     {
-      "title": "Introduction to Your Condition",
+      "title": "Introduction",
       "short_title" : "",
       "description": "Learn about the basic principles and science behind your condition. Get the 101 on how, what, and why about vascular surgery.",
       "has_sublessons": true,
