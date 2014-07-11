@@ -2543,7 +2543,7 @@
     },
 
     {
-      "type" : "MULTIPLE_CHOICE",      
+      "type" : "GOAL_CHOICE",      
       "question": "Recipes that you might like to learn to make" ,
       "options": ["VascularContent/Images/recipecO1Q1.png", "VascularContent/Images/recipecO2Q1.png", "VascularContent/Images/recipecO3Q1.png", "VascularContent/Images/recipecO4Q1.png", "VascularContent/Images/recipecO5Q1.png", "VascularContent/Images/recipecO6Q1.png"],
       "explanation": "" ,
@@ -3294,7 +3294,7 @@
     },
 
     {
-      "type" : "MULTIPLE_CHOICE",      
+      "type" : "GOAL_CHOICE",      
       "question": "Activities that you might like to do" ,
       "options": ["VascularContent/Images/actgoalsO1Q1.png", "VascularContent/Images/actgoalsO2Q1.png", "VascularContent/Images/actgoalsO3Q1.png", "VascularContent/Images/actgoalsO4Q1.png", "VascularContent/Images/actgoalsO5Q1.png", "VascularContent/Images/actgoalsO6Q1.png"],
       "explanation": "" ,
@@ -3308,7 +3308,7 @@
     },
 
     {
-      "type" : "MULTIPLE_CHOICE",      
+      "type" : "GOAL_CHOICE",      
       "question": "How often would you like to do activities?" ,
       "options": ["VascularContent/Images/actgoalsO1Q2.png", "VascularContent/Images/actgoalsO2Q2.png", "VascularContent/Images/actgoalsO3Q2.png", "VascularContent/Images/actgoalsO4Q2.png", "VascularContent/Images/actgoalsO5Q2.png", "VascularContent/Images/actgoalsO6Q2.png"],
       "explanation": "" ,
@@ -3333,7 +3333,7 @@
     },
 
     {
-      "type" : "MULTIPLE_CHOICE",      
+      "type" : "GOAL_CHOICE",      
       "question": "Which of these food habits could you see yourself trying?" ,
       "options": ["VascularContent/Images/dietgoalsO1Q1.png", "VascularContent/Images/dietgoalsO2Q1.png", "VascularContent/Images/dietgoalsO3Q1.png", "VascularContent/Images/dietgoalsO4Q1.png", "VascularContent/Images/dietgoalsO5Q1.png", "VascularContent/Images/dietgoalsO6Q1.png"],
       "explanation": "" ,
@@ -3347,7 +3347,7 @@
     },
 
     {
-      "type" : "MULTIPLE_CHOICE",      
+      "type" : "GOAL_CHOICE",      
       "question": "How often would you like to do this behavior to eat more healthily?",
       "options": ["VascularContent/Images/dietgoalsO1Q2.png", "VascularContent/Images/dietgoalsO2Q2.png", "VascularContent/Images/dietgoalsO3Q2.png", "VascularContent/Images/dietgoalsO4Q2.png", "VascularContent/Images/dietgoalsO5Q2.png", "VascularContent/Images/dietgoalsO6Q2.png"],
       "explanation": "" ,
@@ -3372,7 +3372,7 @@
     },
 
     {
-      "type" : "MULTIPLE_CHOICE",      
+      "type" : "GOAL_CHOICE",     
       "question": "Which of these activities do you want to do for yourself?" ,
       "options": ["VascularContent/Images/wellgoalsO1Q1.png", "VascularContent/Images/wellgoalsO2Q1.png", "VascularContent/Images/wellgoalsO3Q1.png", "VascularContent/Images/wellgoalsO4Q1.png", "VascularContent/Images/wellgoalsO5Q1.png", "VascularContent/Images/wellgoalsO6Q1.png"],
       "explanation": "" ,
@@ -3386,7 +3386,7 @@
     },
 
     {
-      "type" : "MULTIPLE_CHOICE",      
+      "type" : "GOAL_CHOICE",      
       "question": "Which of these activities would you like to do at least once each week?",
       "options": ["VascularContent/Images/wellgoalsO1Q2.png", "VascularContent/Images/wellgoalsO2Q2.png", "VascularContent/Images/wellgoalsO3Q2.png", "VascularContent/Images/wellgoalsO4Q2.png", "VascularContent/Images/wellgoalsO5Q2.png", "VascularContent/Images/wellgoalsO6Q2.png"],
       "explanation": "" ,
