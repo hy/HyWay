@@ -507,7 +507,6 @@ class TheApp < Sinatra::Base
     'Server is up! '  
   end
 
-
   get '/services' do
     response_string = ""
     @@services_available.each do |service, status|
@@ -532,9 +531,11 @@ class TheApp < Sinatra::Base
 
     csv_string = CSV.generate do |csv|
         csv << keys
-        csv << values1
-        csv << values2
-        # ...
+
+    cursor.each{ |d|
+      csv << d.values
+    }
+
     end    
   end
 
