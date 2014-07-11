@@ -1,15 +1,5 @@
 
-
-# REST endpoint to fetch all of Vascular:
-#  http://serene-forest-4377.herokuapp.com/vascular_meta
-
 # http://stackoverflow.com/questions/936249/stop-tracking-and-ignore-changes-to-a-file-in-git
-
-# Vascular data dump to JSON array . . .  (store in static folder)
-
-# ./mongoexport --host dharma.mongohq.com:10070 -u sracunas -p mtbogh -d latest -c vascular_meta --jsonArray > ~/Dropbox/HyWay/static/vascular_dump_jArray
-
-# ./mongoexport --host dharma.mongohq.com:10070 -u sracunas -p mtbogh -d latest -c vascular_meta > ~/Dropbox/HyWay/static/vascular_dump
 
 
 # Cautionary Note:
