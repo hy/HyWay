@@ -1279,7 +1279,7 @@
     },
     {
       "type" : "BINARY",
-      "question": "Question: I should take a shower as soon as I get home" ,
+      "question": "I should take a shower as soon as I get home" ,
       "explanation": " " ,
       "options": ["True", "False"],
       "correct_answer":["False"],
@@ -1293,7 +1293,7 @@
     },
     {
       "type" : "BINARY",
-      "question": "Question: Taking a bath is better than showering since you can soak the cut in water" ,
+      "question": "Taking a bath is better than showering since you can soak the cut in water" ,
       "explanation": " " ,
       "options": ["True", "False"],
       "correct_answer":["False"],
@@ -1307,7 +1307,7 @@
     },
     {
       "type" : "BINARY",
-      "question": "Question: My primary care doctor can remove my stitches or staples" ,
+      "question": "My primary care doctor can remove my stitches or staples" ,
       "explanation": " " ,
       "options": ["True", "False"],
       "correct_answer":["False"],
@@ -1322,7 +1322,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: It is not that important to clean a cut around the groin area, since clothing protects it" ,
+      "question": "It is not that important to clean a cut around the groin area, since clothing protects it" ,
       "explanation": " " ,
       "options": ["True", "False"],
       "correct_answer":["False"],
@@ -1337,7 +1337,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: I can lift a gallon of milk a week after surgery" ,
+      "question": "I can lift a gallon of milk a week after surgery" ,
       "explanation": " " ,
       "options": ["True", "False"],
       "correct_answer":["True"],
@@ -1352,7 +1352,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: Exposing my cut to sunlight makes it heal faster " ,
+      "question": "Exposing my cut to sunlight makes it heal faster " ,
       "explanation": " " ,
       "options": ["True", "False"],
       "correct_answer":["False"],
@@ -1367,7 +1367,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: I can use lotions and powders to moisturize my cut" ,
+      "question": "I can use lotions and powders to moisturize my cut" ,
       "explanation": " " ,
       "options": ["True", "False"],
       "correct_answer":["False"],
@@ -1820,7 +1820,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: Will taking asprin help you poop?" ,
+      "question": "Will taking asprin help you poop?" ,
       "explanation": " " ,
       "options": ["Yes", "No"],
       "correct_answer":["No"],
@@ -1835,7 +1835,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: Will drinking plenty of fluids help you poop?" ,
+      "question": "Will drinking plenty of fluids help you poop?" ,
       "explanation": " " ,
       "options": ["Yes", "No"],
       "correct_answer":["Yes"],
@@ -1850,7 +1850,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: Will eating a lot of buttery, fatty foods help you poop?" ,
+      "question": "Will eating a lot of buttery, fatty foods help you poop?" ,
       "explanation": " " ,
       "options": ["Yes", "No"],
       "correct_answer":["No"],
@@ -1865,7 +1865,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: Will exercise help you poop?" ,
+      "question": "Will exercise help you poop?" ,
       "explanation": " " ,
       "options": ["Yes", "No"],
       "correct_answer":["Yes"],
@@ -1880,7 +1880,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: Will eating foods high in fiber help you poop?" ,
+      "question": "Will eating foods high in fiber help you poop?" ,
       "explanation": " " ,
       "options": ["Yes", "No"],
       "correct_answer":["Yes"],
@@ -1896,7 +1896,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: Is straining on the toilet a good idea to help you poop?" ,
+      "question": "Is straining on the toilet a good idea to help you poop?" ,
       "explanation": " " ,
       "options": ["Yes", "No"],
       "correct_answer":["No"],
@@ -1912,7 +1912,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: Will taking medications such as a stool softener help you poop?" ,
+      "question": "Will taking medications such as a stool softener help you poop?" ,
       "explanation": " " ,
       "options": ["Yes", "No"],
       "correct_answer":["Yes"],
@@ -1985,7 +1985,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: Would you like to learn standing exercises?" ,
+      "question": "Would you like to learn standing exercises?" ,
       "explanation": "Only perform the following exercises if your doctor advises that they are right for you",
       "options": ["Yes", "OK"],
       "correct_answer":["Yes"],
@@ -2116,7 +2116,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: Right after surgery, can I take a shower to freshen up?" ,
+      "question": "Right after surgery, can I take a shower to freshen up?" ,
       "explanation": " " ,
       "options": ["Yes", "No"],
       "correct_answer":["No"],
@@ -2131,7 +2131,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: A week after surgery, can I pick up and hold my 6-month-old granddaughter?" ,
+      "question": "A week after surgery, can I pick up and hold my 6-month-old granddaughter?" ,
       "explanation": " " ,
       "options": ["Yes", "No"],
       "correct_answer":["No"],
@@ -2146,7 +2146,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: I am taking a narcotic pain medication and I have pain when I sit. Can I drive?" ,
+      "question": "I am taking a narcotic pain medication and I have pain when I sit. Can I drive?" ,
       "explanation": " " ,
       "options": ["Yes", "No"],
       "correct_answer":["No"],
@@ -2161,7 +2161,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: I feel pretty strong and do not get tired during the day. Can I go back to work?" ,
+      "question": "I feel pretty strong and do not get tired during the day. Can I go back to work?" ,
       "explanation": " " ,
       "options": ["Yes", "No"],
       "correct_answer":["Yes"],
@@ -2191,7 +2191,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: A month after surgery, I can walk up a flight of stairs easily. Can I start having sex again?" ,
+      "question": "A month after surgery, I can walk up a flight of stairs easily. Can I start having sex again?" ,
       "explanation": " " ,
       "options": ["Yes", "No"],
       "correct_answer":["Yes"],
@@ -2632,7 +2632,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: Am I getting put on aspirin for pain?" ,
+      "question": "Am I getting put on aspirin for pain?" ,
       "explanation": " " ,
       "options": ["Yes", "No"],
       "correct_answer":["No"],
@@ -2647,7 +2647,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: Is aspirin for preventing blood clots?" ,
+      "question": "Is aspirin for preventing blood clots?" ,
       "explanation": " ",
       "options": ["Yes", "No"],
       "correct_answer":["Yes"],
@@ -2662,7 +2662,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: If I feel fine, can I stop taking aspirin?" ,
+      "question": "If I feel fine, can I stop taking aspirin?" ,
       "explanation": " " ,
       "options": ["Yes", "No"],
       "correct_answer":["No"],
@@ -2677,7 +2677,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: If I take another medication that prevents blood clots, can I stop taking aspirin?" ,
+      "question": "If I take another medication that prevents blood clots, can I stop taking aspirin?" ,
       "explanation": " " ,
       "options": ["Yes", "No"],
       "correct_answer":["No"],
@@ -2692,7 +2692,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: Is it normal to bleed a bit longer if I cut myself while I am on aspirin?" ,
+      "question": "Is it normal to bleed a bit longer if I cut myself while I am on aspirin?" ,
       "explanation": " " ,
       "options": ["Yes", "No"],
       "correct_answer":["Yes"],
@@ -2707,7 +2707,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: If I forget the dose, should I take a double-dose next time?" ,
+      "question": "If I forget the dose, should I take a double-dose next time?" ,
       "explanation": " " ,
       "options": ["Yes", "No"],
       "correct_answer":["No"],
@@ -2722,7 +2722,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: Is it normal to have very dark poop while taking aspirin?" ,
+      "question": "Is it normal to have very dark poop while taking aspirin?" ,
       "explanation": " " ,
       "options": ["Yes", "No"],
       "correct_answer":["No"],
@@ -2757,7 +2757,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: I can take an herbal supplement or natural therapy for my blood without talking to my doctor" ,
+      "question": "I can take an herbal supplement or natural therapy for my blood without talking to my doctor" ,
       "explanation": " " ,
       "options": ["True", "False"],
       "correct_answer":["False"],
@@ -2787,7 +2787,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: I should stop taking Plavix before my dental procedure" ,
+      "question": "I should stop taking Plavix before my dental procedure" ,
       "explanation": " " ,
       "options": ["True", "False"],
       "correct_answer":["False"],
@@ -2817,7 +2817,7 @@
 
     {
       "type" : "BINARY",
-      "question": "Question: If I start taking over-the-counter heartburn medications, I should tell my surgeon" ,
+      "question": "If I start taking over-the-counter heartburn medications, I should tell my surgeon" ,
       "explanation": " " ,
       "options": ["True", "False"],
       "correct_answer":["True"],
