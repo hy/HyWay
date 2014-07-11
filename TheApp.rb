@@ -518,8 +518,11 @@ class TheApp < Sinatra::Base
 
 ## This part starting to work 
 ## Serve data as CSV file
-  get /(?<collection_name>\w*)(?<extension>_as_csv)/ix do 
-    collection_name = params[:captures][0]
+  get /(?<field_name>\w*)_(?<collection_name>\w*)(?<extension>_as_csv)/ix do 
+    first_param = params[:captures][0]
+    field_name = first_param
+    field_name = "" if first_param == "all"
+    collection_name = params[:captures][1]
     cursor = DB[collection_name].find()
 
     content_type 'application/csv'
