@@ -1391,7 +1391,7 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: Pale yellow fluid oozes from my cut and the edges are swollen red" ,
+      "question": "Pale yellow fluid oozes from my cut and the edges are swollen red" ,
       "options": ["Normal", "Call Doc", "Call 911"],
       "correct_answer":["Call Doc"],
       "audio": "VascularContent/Audio/normalvabQ1.mp3",
@@ -1405,7 +1405,7 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: While walking my cut gets more painful and itchy" ,
+      "question": "While walking my cut gets more painful and itchy" ,
       "options": ["Normal", "Call Doc", "Call 911"],
       "correct_answer":["Normal"],
       "audio": "VascularContent/Audio/normalvabQ2.mp3",
@@ -1419,7 +1419,7 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: As I am getting out of bed, my cut opens up and pulls apart" ,
+      "question": "As I am getting out of bed, my cut opens up and pulls apart" ,
       "options": ["Normal","Call Doc", "Call 911"],
       "correct_answer":["Call 911"],
       "audio": "VascularContent/Audio/normalvabQ3.mp3",
@@ -1433,7 +1433,7 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: A rash develops near my cut, which is increasing in size and smell" ,
+      "question": "A rash develops near my cut, which is increasing in size and smell" ,
       "options": ["Normal", "Call Doc", "Call 911"],
       "correct_answer":["Call Doc"],
       "audio": "VascularContent/Audio/normalvabQ4.mp3",
@@ -1447,7 +1447,7 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: A week later, I see a bump near the cut that seems to be pulsating" ,
+      "question": "A week later, I see a bump near the cut that seems to be pulsating" ,
       "options": ["Normal", "Call Doc", "Call 911"],
       "correct_answer":["Call Doc"],
       "audio": "VascularContent/Audio/normalvabQ5.mp3",
@@ -1675,7 +1675,7 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: I feel constipated and have not pooped for several days" ,
+      "question": "I feel constipated and have not pooped for several days" ,
       "options": ["Normal", "Call Doc", "Call 911"],
       "correct_answer":["Call Doc"],
       "audio": "VascularContent/Audio/warningsignQ1.mp3",
@@ -1690,7 +1690,7 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: I feel some pain and itchiness around my cut, and when I move the pain gets worse" ,
+      "question": "I feel some pain and itchiness around my cut, and when I move the pain gets worse" ,
       "options": ["Normal", "Call Doc", "Call 911"],
       "correct_answer":["Normal"],
       "audio": "VascularContent/Audio/warningsignQ2.mp3",
@@ -1705,7 +1705,7 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: A week after my surgery, I feel tired and have body aches and chills" ,
+      "question": "A week after my surgery, I feel tired and have body aches and chills" ,
       "options": ["Normal","Call Doc", "Call 911"],
       "correct_answer":["Call Doc"],
       "audio": "VascularContent/Audio/warningsignQ3.mp3",
@@ -1720,7 +1720,7 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: I suddenly feel very weak, confused, pale, and sweaty" ,
+      "question": "I suddenly feel very weak, confused, pale, and sweaty" ,
       "options": ["Normal","Call Doc", "Call 911"],
       "correct_answer":["Call 911"],
       "audio": "VascularContent/Audio/warningsignQ4.mp3",
@@ -1735,7 +1735,7 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: I do not have much of an appetite, and I have not eaten in a couple of days" ,
+      "question": "I do not have much of an appetite, and I have not eaten in a couple of days" ,
       "options": ["Normal", "Call Doc", "Call 911"],
       "correct_answer":["Call Doc"],
       "audio": "VascularContent/Audio/warningsignQ5.mp3",
@@ -1750,7 +1750,7 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: I feel pain in my lower leg when walking shorter and shorter distances" ,
+      "question": "I feel pain in my lower leg when walking shorter and shorter distances" ,
       "options": ["Normal", "Call Doc", "Call 911"],
       "correct_answer":["Call Doc"],
       "audio": "VascularContent/Audio/warningsignQ6.mp3",
@@ -1765,7 +1765,7 @@
 
     {
       "type" : "SCENARIO",
-      "question": "Scenario: A year after surgery, I feel a sudden and very severe pain in my back and stomach" ,
+      "question": "A year after surgery, I feel a sudden and very severe pain in my back and stomach" ,
       "options": ["Normal", "Call Doc", "Call 911"],
       "correct_answer":["Call 911"],
       "audio": "VascularContent/Audio/warningsignQ7.mp3",
