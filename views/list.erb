@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content ="charset=UTF-8"/>
+<html>
+  <head>
+    <title>Magic Button Testing</title>
+    <link href='/main.css' rel='stylesheet' type='text/css'/>
+  </head>
+
+  <body onload="document.hy.cmd.focus()">
+    <div id="page">
+      <div id="content"  <!-- begin content -->
+
+        <div id="header">
+          <form id="hy" name="hy" action="<%= @site %>" method="post">
+          <center>
+            <%= addGmailLink() %>
+            <input type="text" id="act" name="cmd" value="<%= @cmd_suggest %>"/>
+          </center>
+          </form>
+        </div>
+
+        <h3> <%= @label %>   </h3>
+        <div id="reply">
+            <% @d = "" %>
+            <% @foo.each { |hash| 
+               @d += '<li>'
+               @d = @d + 
+                      addStatusBulb(hash) + 
+                      addDetailLink(hash) + 
+                      ifPresentThenShow(hash, 'PrimaryCC') + 
+                      ifPresentThenShow(hash, 'Relationship') + 
+                      ifPresentThenShow(hash, 'CCphone') + ': ' + 
+                      ifPresentThenShow(hash, 'title') + 
+                      showTextOrHighlight(hash) +
+                      ifPresentThenShow(hash, 'url') + 
+                      addCircle(hash) +
+                      addGoogleLink(hash) +
+                      addWikipediaLink(hash) + 
+                      addPubMedLink(hash['Surgery'])
+               @d += '</li>'  } %>
+        
+          <ol>   <%= @d %>   </ol>
+        </div>
+        
+      </div>  <!-- end content div -->
+    </div>  <!-- end page div -->
+  </body>
+</html>
+
