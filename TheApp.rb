@@ -2055,10 +2055,10 @@ class TheApp < Sinatra::Base
       '/documents/' + row['_id'].to_s + '" >  
           <img border="0" alt="MongoHQ" src="images/MongoHQ.png" /> </a>'
     end
-    def addDetailLink(row)
     ###########################################################################
     # HTML injection: specific document details from mongo, via HyLiter
     ###########################################################################
+    def addDetailLink(row)
       '<a href="' +SITE+ '/note=' +
       row['id'].to_s + '" >  
          <img border="0" alt="Details" src="images/magnify.png" /> </a>'
