@@ -27,8 +27,8 @@
                @d = @d + 
                       addStatusBulb(hash) + 
                       addDetailLink(hash) + 
-                      ifPresentThenShow(hash, 'PrimaryCC') + 
-                      ifPresentThenShow(hash, 'Relationship') + 
+                      ifPresentThenShow(hash, 'PrimaryCC') + '(' +
+                      ifPresentThenShow(hash, 'Relationship') + ')' +
                       ifPresentThenShow(hash, 'CCphone') + ': ' + 
                       ifPresentThenShow(hash, 'title') + 
                       showTextOrHighlight(hash) +
