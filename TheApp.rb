@@ -516,6 +516,39 @@ class TheApp < Sinatra::Base
   end
 
 
+  get '/*.list*' do
+    collection_to_list = (params[:splat][0]).downcase
+
+    if params[:splat][1].include?('.current') then
+      scope = { 'Discharge' => ''}
+    end
+
+    a = Array.new
+    DB[collection_to_list].find(scope).each { |row|
+      if row['CCphone'] != '' then
+        a.push(row)
+      end
+    }
+
+#    a.sort!{|x,y| y['id'] <=> x['id'] }       # list latest entries first
+#    i=0
+#    a.each { |hash|
+#      i = i + 1
+#      hash['number'] = i
+#    }
+
+    @cmd_suggest = "show all"
+    @label = collection_to_list.upcase + " LIST:"
+
+    @foo = a
+#    $LASTFOO = @foo
+#    $LASTLABEL = @label
+#    $LAST_LIST = request.fullpath
+    erb :list
+  end     # end get '/*.list' do
+
+
+
 ## This part starting to work 
 ## Serve data as CSV file
   get /(?<field_name>\w*)_(?<collection_name>\w*)(?<extension>_as_csv)/ix do 
