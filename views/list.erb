@@ -19,6 +19,9 @@
           </form>
         </div>
 
+               <!--       Can Also add the following to below:     -->
+               <!--         showTextOrHighlight(hash) +            -->
+
         <h3> <%= @label %>   </h3>
         <div id="reply">
             <% @d = "" %>
@@ -31,7 +34,6 @@
                       ifPresentThenShow(hash, 'Relationship') + ')' +
                       ifPresentThenShow(hash, 'CCphone') + ': ' + 
                       ifPresentThenShow(hash, 'title') + 
-               <!--       showTextOrHighlight(hash) +   -->
                       ifPresentThenShow(hash, 'url') + 
                       addCircle(hash) +
                       addGoogleLink(hash) +
