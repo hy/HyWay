@@ -1916,6 +1916,174 @@ class TheApp < Sinatra::Base
   #############################################################################
   helpers do
 
+    def timestamp()
+      Time.now.to_f.to_s
+    end
+
+    ###########################################################################
+    # View Helpers
+    ###########################################################################
+
+    # Got time format strings from Ruby Cookbook p99
+    # TO DO: adjust thresholds based on trials... set to 100 for now
+
+    def timeStringFromTimestampString(tss)
+      time_diff = Time.now.to_f - tss.to_f
+      if time_diff < 100 then
+        return Time.at(tss.to_f).strftime("%r")
+      elsif time_diff < 101
+        return Time.at(tss.to_f).strftime("%a %p")
+      else
+        return Time.at(tss.to_f).strftime("%a %l:%M%p %x")
+      end #if
+    end
+
+    ###########################################################################
+    # HTML injection: conditional display
+    ###########################################################################
+    def ifPresentThenShow(hash, key)
+      if hash[key]!=hash.default then 
+        return beginHTMLstyle(key, hash[key]) + 
+               " #{hash[key]} " + endHTMLstyle(key)  
+      else
+        return " "  # DON'T return nil !!
+      end
+    end
+    def showTextOrHighlight(hash)
+      if hash['highlight']!=hash.default then
+        return beginHTMLstyle('highlight', hash['highlight']) + 
+               hash['highlight'] + " " + endHTMLstyle('highlight')
+      elsif hash['text']!=hash.default then
+        return beginHTMLstyle('text', hash['text']) + 
+               hash['text'] + " " + endHTMLstyle('text')
+      else
+        return " " # DON'T return nil !!
+      end
+    end
+
+    ###########################################################################
+    # HTML injection: begin and end item HTML style options by hash key
+    #
+    # Defaults to setting the id of a <span> tag... maybe move all of this
+    # functionality into CSS via <span> 's  ?  
+    ###########################################################################
+    def beginHTMLstyle(key, value)
+      return '<font style="color: #28C;">' if key=='_id'
+      return '<a href="' + value + '">' if key=='url'
+      return '<span class="'+key+'">' 
+    end
+    def endHTMLstyle(key)
+      return '</font>' if key=='_id'
+      return '</a>' if key=='url'
+      return '</span>'
+    end
+
+    ###########################################################################
+    # HTML injection: URLs from Co-browsed Tabs
+    ###########################################################################
+    def addTabList(row)
+      return '' if (row['with']==NIL)
+      s = ' <h3> Tab Cluster: </h3> <ol>'
+      row['with'].each { |t|
+        s += '<li>'
+        s += '<a href="'+t+'" >' + t + '</a></li>'
+      } 
+      s += '</ol>'
+    end
+    ###########################################################################
+    # HTML injection: Supported / Contradicted indicator
+    ###########################################################################
+    def addFace(row)
+      if row['contradicted']=='yes' then
+        return '<a href="' +SITE+ '/ContradictionsFor:' + row['id'] + '" >
+          <img border="0" alt="Contradicted" src="images/doh.png" /> </a>'
+      elsif row['supported']=='yes' then
+        return '<a href="' +SITE+ '/SupportFor:' + row['id'] + '" >
+          <img border="0" alt="Supported" src="images/yay.png" /> </a>'
+      else return '<a href="' +SITE+ '/DoNothing:' + row['id'] + '" >
+          <img border="0" alt="Nothing" src="images/background.png" /> </a>'
+      end
+    end
+    ###########################################################################
+    # HTML injection: Checked / unchecked indicator
+    ###########################################################################
+    def addCircle(row)
+      if row['checked']=='yes' then
+        return '<a href="' +SITE+ '/UnCheck:' + row['id'] + '" >
+          <img border="0" alt="Checked" src="images/check.png" /> </a>'
+      elsif row['checked']=='no' then
+        return '<a href="' +SITE+ '/Check:' + row['id'] + '" >
+          <img border="0" alt="Supported" src="images/blank.png" /> </a>'
+      else 
+        return '<a href="' +SITE+ '/UnCheck:' + row['id'] + '" >
+          <img border="0" alt="Supported" src="images/background.png" /> </a>'
+      end
+    end
+    ###########################################################################
+    # HTML injection: Lit or unlit bulb indicates active vs. inactive item
+    ###########################################################################
+    def addStatusBulb(row)
+      if row['active']=='yes' then
+        return '<a href="' +SITE+ '/deactivate:' + row['id'] + '" >
+          <img border="0" alt="Active" src="images/lit_bulb.png" /> </a>'
+      else
+        return '<a href="' +SITE+ '/activate:' + row['id'] + '" >
+          <img border="0" alt="Active" src="images/dark_bulb.png" /> </a>'
+      end
+    end
+    ###########################################################################
+    # HTML injection: link to Gmail controller
+    ###########################################################################
+    def addGmailLink()
+      '<a href="' +SITE+ '/gmail">' + 
+         '<img border="0" alt="gmail" src="images/gmail.png" /> </a>'
+    end
+    ###########################################################################
+    # HTML injection: link to PubMed
+    ###########################################################################
+    def addPubMedLink(string)
+      return '' if string==nil 
+      '<a href="http://www.ncbi.nlm.nih.gov/sites/entrez?cmd=PureSearch&db=pubmed&term=' + string.sub(' ','%2B') + '" >
+      <img border="0" alt="PubMed" src="images/PubMed.png" /> </a>'
+    end
+    ###########################################################################
+    # HTML injection: specific document in knowledge base
+    ###########################################################################
+    def addMongoLink(mongo_collection, row) 
+      '<a href="https://mongohq.com/databases/hy2/collections/' + 
+       mongo_collection + 
+      '/documents/' + row['_id'].to_s + '" >  
+          <img border="0" alt="MongoHQ" src="images/MongoHQ.png" /> </a>'
+    end
+    def addDetailLink(row)
+    ###########################################################################
+    # HTML injection: specific document details from mongo, via HyLiter
+    ###########################################################################
+      '<a href="' +SITE+ '/note=' +
+      row['id'].to_s + '" >  
+         <img border="0" alt="Details" src="images/magnify.png" /> </a>'
+    end
+    ###########################################################################
+    # HTML injection: Google-search the text of this row...
+    ###########################################################################
+    def addGoogleLink(row)
+      return '' if row['text']==nil
+      '<a href="http://www.google.com/#hl=en&q=' +
+      row['text'].sub(' ','+') + '" >
+         <img border="0" alt="Google" src="images/google.png" /> </a>'
+    end
+    ###########################################################################
+    # HTML injection: Check wikipedia with the text of this row...
+    ###########################################################################
+    def addWikipediaLink(row)
+      return '' if row['text']==nil
+      '<a href="http://www.google.com/#q=' + row['text'].sub(' ','+') + 
+      '&oi=navquery_searchbox&sa=X&as_sitesearch=wikipedia.org&hl=en" >
+        <img border="0" alt="Google" src="images/wikipedia.png" /> </a>'
+    end
+
+
+
     ###########################################################################
     # Logging Helpers
     ###########################################################################
