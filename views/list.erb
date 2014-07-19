@@ -28,6 +28,8 @@
             <% @foo.each { |hash| 
                @d += '<li>'
                @d = @d + 
+                      addPhone(row) +
+                      addSMS(row) + 
                       addStatusBulb(hash) + 
                       addDetailLink(hash) + 
                       ifPresentThenShow(hash, 'PrimaryCC') + '(' +
