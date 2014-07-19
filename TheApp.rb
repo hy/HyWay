@@ -2017,7 +2017,7 @@ class TheApp < Sinatra::Base
     ###########################################################################
     def addPhone(row)
       if row['callable']=='yes' then
-        return '<a href="' +SITE+ '/Call:' + row['id'] + '" >
+        return '<a href="' +SITE+ '/Call:' + row['id'].to_s + '" >
           <img border="0" alt="Phone" src="images/phone.png" /> </a>'
       end
     end
@@ -2026,7 +2026,7 @@ class TheApp < Sinatra::Base
     ###########################################################################
     def addSMS(row)
       if row['SMSable']=='yes' then
-        return '<a href="' +SITE+ '/SendSMSto:' + row['id'] + '" >
+        return '<a href="' +SITE+ '/SendSMSto:' + row['id'].to_s + '" >
           <img border="0" alt="SMS" src="images/SMS.png" /> </a>'
       end
     end
@@ -2047,12 +2047,12 @@ class TheApp < Sinatra::Base
     ###########################################################################
     def addFace(row)
       if row['contradicted']=='yes' then
-        return '<a href="' +SITE+ '/ContradictionsFor:' + row['id'] + '" >
+        return '<a href="' +SITE+ '/ContradictionsFor:' + row['id'].to_s + '" >
           <img border="0" alt="Contradicted" src="images/doh.png" /> </a>'
       elsif row['supported']=='yes' then
-        return '<a href="' +SITE+ '/SupportFor:' + row['id'] + '" >
+        return '<a href="' +SITE+ '/SupportFor:' + row['id'].to_s + '" >
           <img border="0" alt="Supported" src="images/yay.png" /> </a>'
-      else return '<a href="' +SITE+ '/DoNothing:' + row['id'] + '" >
+      else return '<a href="' +SITE+ '/DoNothing:' + row['id'].to_s + '" >
           <img border="0" alt="Nothing" src="images/background.png" /> </a>'
       end
     end
@@ -2061,13 +2061,13 @@ class TheApp < Sinatra::Base
     ###########################################################################
     def addCircle(row)
       if row['checked']=='yes' then
-        return '<a href="' +SITE+ 'UnCheck:' + row['id'] + '" >
+        return '<a href="' +SITE+ 'UnCheck:' + row['id'].to_s + '" >
           <img border="0" alt="Checked" src="images/check.png" /> </a>'
       elsif row['checked']=='no' then
-        return '<a href="' +SITE+ 'Check:' + row['id'] + '" >
+        return '<a href="' +SITE+ 'Check:' + row['id'].to_s + '" >
           <img border="0" alt="Supported" src="images/blank.png" /> </a>'
       else 
-        return '<a href="' +SITE+ 'UnCheck:' + row['id'] + '" >
+        return '<a href="' +SITE+ 'UnCheck:' + row['id'].to_s + '" >
           <img border="0" alt="Supported" src="images/background.png" /> </a>'
       end
     end
@@ -2076,10 +2076,10 @@ class TheApp < Sinatra::Base
     ###########################################################################
     def addStatusBulb(row)
       if row['active']=='yes' then
-        return '<a href="' +SITE+ 'deactivate:' + row['id'] + '" >
+        return '<a href="' +SITE+ 'deactivate:' + row['id'].to_s + '" >
           <img border="0" alt="Active" src="images/lit_bulb.png" /> </a>'
       else
-        return '<a href="' +SITE+ 'activate:' + row['id'] + '" >
+        return '<a href="' +SITE+ 'activate:' + row['id'].to_s + '" >
           <img border="0" alt="Active" src="images/dark_bulb.png" /> </a>'
       end
     end
