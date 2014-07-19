@@ -2012,7 +2012,24 @@ class TheApp < Sinatra::Base
       return '</a>' if key=='url'
       return '</span>'
     end
-
+    ###########################################################################
+    # HTML injection: phone the number associated with this row
+    ###########################################################################
+    def addPhone(row)
+      if row['callable']=='yes' then
+        return '<a href="' +SITE+ '/Call:' + row['id'] + '" >
+          <img border="0" alt="Phone" src="images/phone.png" /> </a>'
+      end
+    end
+    ###########################################################################
+    # HTML injection: SMS the number associated with this row
+    ###########################################################################
+    def addSMS(row)
+      if row['SMSable']=='yes' then
+        return '<a href="' +SITE+ '/SendSMSto:' + row['id'] + '" >
+          <img border="0" alt="SMS" src="images/SMS.png" /> </a>'
+      end
+    end
     ###########################################################################
     # HTML injection: URLs from Co-browsed Tabs
     ###########################################################################
@@ -2044,13 +2061,13 @@ class TheApp < Sinatra::Base
     ###########################################################################
     def addCircle(row)
       if row['checked']=='yes' then
-        return '<a href="' +SITE+ '/UnCheck:' + row['id'] + '" >
+        return '<a href="' +SITE+ 'UnCheck:' + row['id'] + '" >
           <img border="0" alt="Checked" src="images/check.png" /> </a>'
       elsif row['checked']=='no' then
-        return '<a href="' +SITE+ '/Check:' + row['id'] + '" >
+        return '<a href="' +SITE+ 'Check:' + row['id'] + '" >
           <img border="0" alt="Supported" src="images/blank.png" /> </a>'
       else 
-        return '<a href="' +SITE+ '/UnCheck:' + row['id'] + '" >
+        return '<a href="' +SITE+ 'UnCheck:' + row['id'] + '" >
           <img border="0" alt="Supported" src="images/background.png" /> </a>'
       end
     end
@@ -2059,10 +2076,10 @@ class TheApp < Sinatra::Base
     ###########################################################################
     def addStatusBulb(row)
       if row['active']=='yes' then
-        return '<a href="' +SITE+ '/deactivate:' + row['id'] + '" >
+        return '<a href="' +SITE+ 'deactivate:' + row['id'] + '" >
           <img border="0" alt="Active" src="images/lit_bulb.png" /> </a>'
       else
-        return '<a href="' +SITE+ '/activate:' + row['id'] + '" >
+        return '<a href="' +SITE+ 'activate:' + row['id'] + '" >
           <img border="0" alt="Active" src="images/dark_bulb.png" /> </a>'
       end
     end
@@ -2085,7 +2102,7 @@ class TheApp < Sinatra::Base
     # HTML injection: specific document in knowledge base
     ###########################################################################
     def addMongoLink(mongo_collection, row) 
-      '<a href="https://mongohq.com/databases/hy2/collections/' + 
+      '<a href="https://mongohq.com/databases/latest/collections/' + 
        mongo_collection + 
       '/documents/' + row['_id'].to_s + '" >  
           <img border="0" alt="MongoHQ" src="images/MongoHQ.png" /> </a>'
@@ -2094,7 +2111,7 @@ class TheApp < Sinatra::Base
     # HTML injection: specific document details from mongo, via HyLiter
     ###########################################################################
     def addDetailLink(row)
-      '<a href="' +SITE+ '/note=' +
+      '<a href="' +SITE+ 'note=' +
       row['id'].to_s + '" >  
          <img border="0" alt="Details" src="images/magnify.png" /> </a>'
     end
