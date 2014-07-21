@@ -612,7 +612,7 @@ class TheApp < Sinatra::Base
 
     puts @msg_to_say = DB['nh_msg'].find_one()['words']
 #    number = params[:PhoneNumber]
-    number = '+17244489427'
+    number = '17244489427'
     response = Twilio::TwiML::Response.new do |r|
         # Should be your Twilio Number or a verified Caller ID
         r.Dial :callerId => ENV['TWILIO_CALLER_ID'] do |d|
@@ -626,7 +626,7 @@ class TheApp < Sinatra::Base
             end
         end
     end
-    response.text
+#    response.text
 
     response.text do |format|
       format.xml { render :xml => response.text }
