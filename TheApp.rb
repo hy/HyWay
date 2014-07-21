@@ -550,7 +550,7 @@ class TheApp < Sinatra::Base
 #      hash['number'] = i
 #    }
 
-    @msg_suggest = DB['noora_msgs'].find_one()['words']
+    @msg_suggest = DB['nh_msg'].find_one()['words']
     @label = collection_to_list.upcase + " LIST:"
 
     @foo = a
@@ -2032,7 +2032,7 @@ class TheApp < Sinatra::Base
     ###########################################################################
     def addPhone(row)
       if row['Callable']=='yes' then
-        return '<a href="' +SITE+ 'Call:' + row['id'].to_s + '" >
+        return '<a href="' +SITE+ 'Call:?ph=' + row['id'].to_s + '" >
           <img border="0" alt="Phone" src="images/phone.png" /> </a>'
       else
         return ''
@@ -2043,7 +2043,7 @@ class TheApp < Sinatra::Base
     ###########################################################################
     def addSMS(row)
       if row['SMSable']=='yes' then
-        return '<a href="' +SITE+ 'SendSMSto:' + row['id'].to_s + '" >
+        return '<a href="' +SITE+ 'SendSMSto:?ph=' + row['id'].to_s + '" >
           <img border="0" alt="SMS" src="images/SMS.png" /> </a>'
       else
         return ''
