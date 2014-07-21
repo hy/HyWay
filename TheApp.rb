@@ -2016,7 +2016,7 @@ class TheApp < Sinatra::Base
     # HTML injection: phone the number associated with this row
     ###########################################################################
     def addPhone(row)
-      if row['callable']=='yes' then
+      if row['Callable']=='yes' then
         return '<a href="' +SITE+ 'Call:' + row['id'].to_s + '" >
           <img border="0" alt="Phone" src="images/phone.png" /> </a>'
       else
