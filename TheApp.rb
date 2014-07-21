@@ -605,8 +605,26 @@ class TheApp < Sinatra::Base
   end
 
   get /Call(?<ph_num>.*)/ do
-    
-  end
+    puts params[:captures][0]
+
+    patient_ph_num_assoc_wi_caller = '+17244489427'
+    patient_ph_num = patient_ph_num_assoc_wi_caller
+
+    @msg_to_say = DB['nh_msg']['words']
+
+    response = Twilio::TwiML::Response.new do |r|
+      r.Pause :length => 1
+      r.Say 'Hi!', :voice => 'woman'
+      r.Say @msg_to_say, :voice => 'woman'
+      r.Pause :length => 1
+      r.Hangup
+    end #do response
+
+    response.text do |format|
+      format.xml { render :xml => response.text }
+    end #do response.text
+  end #do get
+
 
   
   post '/awsSNSforvideos' do  
