@@ -624,7 +624,7 @@ class TheApp < Sinatra::Base
     what_to_say = DB['nh_msg'].find_one()['words']
 
     response = Twilio::TwiML::Response.new do |r|
-      r.Pause :length => 1
+      r.Pause :length => 2 
       r.Say 'Hello', :voice => 'woman'
       r.Pause :length => 1
       r.Say what_to_say, :voice => 'woman'
