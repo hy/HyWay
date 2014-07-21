@@ -625,7 +625,7 @@ class TheApp < Sinatra::Base
       r.Pause :length => 1
       r.Say 'Hello', :voice => 'woman'
       r.Pause :length => 1
-      r.Play 'http://grass-roots-science.info/impress2.wav'
+      r.Play 'http://grass-roots-science.info/VascularContent/Audio/whynutrition.mp3'
     end #response
 
     response.text do |format|
@@ -927,7 +927,9 @@ class TheApp < Sinatra::Base
       @time_of_last_checkin = speakable_hour_interval_for( interval_in_hours )
     end #if
 
-    speech_text = 'Hi! The last checkin for'
+    speech_text = 'Hello!'
+    speech_text += 'Let us see what information we have for you.'
+    speech_text += ' The last checkin for'
     speech_text += ' ' 
     speech_text += @flavor_text 
     speech_text += ' ' 
