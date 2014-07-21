@@ -604,7 +604,29 @@ class TheApp < Sinatra::Base
 #    }
   end
 
-  get /Call(?<ph_num>.*)/ do
+
+ get /OLDCall(?<ph_num>.*)/ do
+    puts params['ph_num']
+
+
+    # make a new outgoing call
+    @call = @client.account.calls.create(
+      :from => ENV['TWILIO_CALLER_ID'],
+      :to => '+17244489427',
+      :url => SITE + '/call-handler',
+    )
+  end #get Call
+
+  get '/call-handler' do
+    response = Twilio::TwiML::Response.new do |r|
+      r.Pause :length => 1
+      r.Say 'Hello', :voice => 'woman'
+      r.Pause :length => 1
+      r.Play 'http://grass-roots-science.info/impress2.wav'
+    end #response
+  end #get call-handler
+
+  get /OLDCall(?<ph_num>.*)/ do
     puts params['ph_num']
 
     patient_ph_num_assoc_wi_caller = '+17244489427'
