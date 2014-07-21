@@ -539,7 +539,7 @@ class TheApp < Sinatra::Base
 #      hash['number'] = i
 #    }
 
-    @msg_suggest = "Please do come to class now"
+    @msg_suggest = DB['noora_msgs'].find_one()
     @label = collection_to_list.upcase + " LIST:"
 
     @foo = a
