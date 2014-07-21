@@ -465,12 +465,16 @@ class TheApp < Sinatra::Base
       @these_variables_will_be_available_in_all_routes = true
       @now_f = Time.now.to_f
 
-    if params['From'] != nil
+# USUSALLY, (for incoming calls and texts) we will have a valid "From" param
+# and onboarding is straightforwardly the correct thing to do
+# HOWEVER, for outgoing calls, "From" is . . . the app itself! 
+
+    if ((params['From'] != nil) && (params['From'] != ENV['TWILIO_CALLER_ID']))
       @this_user = DB['people'].find_one('_id' => params['From'])
 
       if (@this_user == nil)
-#        onboard_a_brand_new_user 
-#        @this_user = DB['people'].find_one('_id' => params['From'])
+        onboard_a_brand_new_user 
+        @this_user = DB['people'].find_one('_id' => params['From'])
       end #if
 
       puts @this_user
