@@ -592,7 +592,7 @@ class TheApp < Sinatra::Base
 
 ## Work in progress
   get /SendSMSto(?<ph_num>.*)/ do
-    puts params[ph_num]
+    puts params['ph_num']
     puts text_to_send = DB['nh_msg'].find_one()['words']
     send_SMS_to( '+17244489427', text_to_send)
 
@@ -605,7 +605,7 @@ class TheApp < Sinatra::Base
   end
 
   get /Call(?<ph_num>.*)/ do
-    puts params[ph_num]
+    puts params['ph_num']
 
     patient_ph_num_assoc_wi_caller = '+17244489427'
     patient_ph_num = patient_ph_num_assoc_wi_caller
