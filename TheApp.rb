@@ -600,14 +600,18 @@ class TheApp < Sinatra::Base
   end
 
 
-## Works
-  get '/make_reminder_calls' do
-    cursor = DB['noora_tracking'].find({"AttendedFirstClass" => "Yes"})
+## Work in progress
+  get '/SendSMSto:*' do
+    puts params[0]
+    text_to_send = DB['nh_msg'].find_one['words']
+    send_SMS_to( '+17244489427', text_to_send)
 
-    cursor.each{ |d|
-      msg = 'With regards to Patient '+d['PatientName']+' and the issue of '+d['MedicalProblem']+' please do come to 2nd class on '+d['SecondClassDate']
-      send_SMS_to( d['PhoneNumberOfAttender'], msg )
-    }
+#    cursor = DB['noora_tracking'].find({"AttendedFirstClass" => "Yes"})
+
+#    cursor.each{ |d|
+#      msg = 'With regards to Patient '+d['PatientName']+' and the issue of '+d['MedicalProblem']+' please do come to 2nd class on '+d['SecondClassDate']
+#      send_SMS_to( d['PhoneNumberOfAttender'], msg )
+#    }
   end
 
   
