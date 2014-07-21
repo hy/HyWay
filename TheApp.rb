@@ -543,20 +543,10 @@ class TheApp < Sinatra::Base
       end
     }
 
-#    a.sort!{|x,y| y['id'] <=> x['id'] }       # list latest entries first
-#    i=0
-#    a.each { |hash|
-#      i = i + 1
-#      hash['number'] = i
-#    }
-
     @msg_suggest = DB['nh_msg'].find_one()['words']
     @label = collection_to_list.upcase + " LIST:"
-
     @foo = a
-#    $LASTFOO = @foo
-#    $LASTLABEL = @label
-#    $LAST_LIST = request.fullpath
+
     erb :list
   end     # end get '/*.list' do
 
@@ -601,8 +591,8 @@ class TheApp < Sinatra::Base
 
 
 ## Work in progress
-  get '/SendSMSto:*' do
-    puts params[0]
+  get /SendSMSto(?<ph_num>.*)/ do
+    puts params[:captures][0]
     text_to_send = DB['nh_msg'].find_one['words']
     send_SMS_to( '+17244489427', text_to_send)
 
@@ -612,6 +602,10 @@ class TheApp < Sinatra::Base
 #      msg = 'With regards to Patient '+d['PatientName']+' and the issue of '+d['MedicalProblem']+' please do come to 2nd class on '+d['SecondClassDate']
 #      send_SMS_to( d['PhoneNumberOfAttender'], msg )
 #    }
+  end
+
+  get /Call(?<ph_num>.*)/ do
+    
   end
 
   
@@ -2032,7 +2026,7 @@ class TheApp < Sinatra::Base
     ###########################################################################
     def addPhone(row)
       if row['Callable']=='yes' then
-        return '<a href="' +SITE+ 'Call:?ph=' + row['id'].to_s + '" >
+        return '<a href="' +SITE+ 'Call?ph=' + row['id'].to_s + '" >
           <img border="0" alt="Phone" src="images/phone.png" /> </a>'
       else
         return ''
@@ -2043,7 +2037,7 @@ class TheApp < Sinatra::Base
     ###########################################################################
     def addSMS(row)
       if row['SMSable']=='yes' then
-        return '<a href="' +SITE+ 'SendSMSto:?ph=' + row['id'].to_s + '" >
+        return '<a href="' +SITE+ 'SendSMSto?ph=' + row['id'].to_s + '" >
           <img border="0" alt="SMS" src="images/SMS.png" /> </a>'
       else
         return ''
