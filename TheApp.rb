@@ -608,9 +608,8 @@ class TheApp < Sinatra::Base
  get /Call(?<ph_num>.*)/ do
     puts params['ph_num']
 
-
     # make a new outgoing call
-    @call = @client.account.calls.create(
+    @call = $twilio_account.calls.create(
       :from => ENV['TWILIO_CALLER_ID'],
       :to => '+17244489427',
       :url => SITE + '/call-handler',
