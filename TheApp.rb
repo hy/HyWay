@@ -616,7 +616,7 @@ class TheApp < Sinatra::Base
     )
   end #get Call
 
-  get '/call-handler' do
+  post '/call-handler' do
     response = Twilio::TwiML::Response.new do |r|
       r.Pause :length => 1
       r.Say 'Hello', :voice => 'woman'
