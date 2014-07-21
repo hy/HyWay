@@ -11,10 +11,11 @@
       <div id="content"  <!-- begin content -->
 
         <div id="header">
-          <form id="hy" name="hy" action="<%= @site %>" method="post">
+          <form id="hy" name="hy" action="<%= @site/set_msg %>" method="post">
           <center>
             <%= addGmailLink() %>
-            <input type="text" id="act" name="cmd" value="<%= @cmd_suggest %>"/>
+              Msg:
+            <input type="text" id="act" name="cmd" value="<%= @msg_suggest %>"/>
           </center>
           </form>
         </div>
@@ -38,9 +39,9 @@
                       ifPresentThenShow(hash, 'title') + 
                       ifPresentThenShow(hash, 'url') + 
                       addCircle(hash) +
-                      addGoogleLink(hash) +
-                      addWikipediaLink(hash) + 
-                      addPubMedLink(hash['Surgery'])
+                      addGoogleLink(hash['search_string']) +
+                      addWikipediaLink(hash['search_string']) + 
+                      addPubMedLink(hash['search_string'])
                @d += '</li>'  } %>
         
           <ol>   <%= @d %>   </ol>

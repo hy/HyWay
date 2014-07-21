@@ -527,7 +527,7 @@ class TheApp < Sinatra::Base
     DB[collection_to_list].find(scope).each { |row|
       if row['CCphone'] != '' then
         row['id'] = '+' + row['CCphone'].to_s
-        row['text'] = 'cardiothorasic ' + row['Surgery'].to_s
+        row['search_string'] = 'cardiothorasic ' + row['Surgery'].to_s
         a.push(row)
       end
     }
@@ -539,7 +539,7 @@ class TheApp < Sinatra::Base
 #      hash['number'] = i
 #    }
 
-    @cmd_suggest = "show all"
+    @msg_suggest = "Please do come to class now"
     @label = collection_to_list.upcase + " LIST:"
 
     @foo = a
@@ -2122,18 +2122,18 @@ class TheApp < Sinatra::Base
     ###########################################################################
     # HTML injection: Google-search the text of this row...
     ###########################################################################
-    def addGoogleLink(row)
-      return '' if row['text']==nil
+    def addGoogleLink(search_string)
+      return '' if search_string==nil
       '<a href="http://www.google.com/#hl=en&q=' +
-      row['text'].sub(' ','+') + '" >
+      search_string.sub(' ','+') + '" >
          <img border="0" alt="Google" src="images/google.png" /> </a>'
     end
     ###########################################################################
     # HTML injection: Check wikipedia with the text of this row...
     ###########################################################################
-    def addWikipediaLink(row)
-      return '' if row['text']==nil
-      '<a href="http://www.google.com/#q=' + row['text'].sub(' ','+') + 
+    def addWikipediaLink(search_string)
+      return '' if search_string==nil
+      '<a href="http://www.google.com/#q=' + search_string.sub(' ','+') + 
       '&oi=navquery_searchbox&sa=X&as_sitesearch=wikipedia.org&hl=en" >
         <img border="0" alt="Google" src="images/wikipedia.png" /> </a>'
     end
