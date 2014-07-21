@@ -605,7 +605,7 @@ class TheApp < Sinatra::Base
   end
 
 
- get /OLDCall(?<ph_num>.*)/ do
+ get /Call(?<ph_num>.*)/ do
     puts params['ph_num']
 
 
