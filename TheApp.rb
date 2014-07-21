@@ -504,7 +504,7 @@ class TheApp < Sinatra::Base
   #############################################################################
 
   get '/' do
-    'READY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+    '!!!!!!!!!!!!!!!!!!!!!!!! SERVER IS READY !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
   end
 
   get '/test' do
@@ -519,11 +519,15 @@ class TheApp < Sinatra::Base
     response_string
   end
 
-  post '/set_msg' do
-    puts what_we_received = params['msg']
+  post '/set_nh_msg' do
+    puts what_we_received = params['cmd']
+
+    DB['nh_msg'].remove()
+    DB['nh_msg'].insert({'words' => what_we_received})
+    
   end
 
-  get '/*.list*' do
+  get '/nh.*.list*' do
     collection_to_list = (params[:splat][0]).downcase
 
     if params[:splat][1].include?('.current') then

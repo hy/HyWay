@@ -9,20 +9,17 @@
   <body onload="document.hy.cmd.focus()">
     <div id="page">
       <div id="content"  <!-- begin content -->
-
         <div id="header">
-          <form id="hy" name="hy" action="<%=@site%>/set_msg" method="post">
+          <form id="hy" name="hy" action="<%=@site%>/set_nh_msg" method="post">
           <center>
-            <%= addGmailLink() %>
+ <!-- add email later:           <%= addGmailLink() %>         -->
               Msg:
-            <input type="text" id="act" name="msg" value="<%= @msg_suggest %>"/>
+            <input type="text" id="act" name="cmd" value="<%= @msg_suggest %>"/>
           </center>
           </form>
         </div>
-
                <!--       Can Also add the following to below:     -->
                <!--         showTextOrHighlight(hash) +            -->
-
         <h3> <%= @label %>   </h3>
         <div id="reply">
             <% @d = "" %>
