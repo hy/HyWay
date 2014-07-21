@@ -621,11 +621,14 @@ class TheApp < Sinatra::Base
   end #get Call
 
   post '/call-handler' do
+    what_to_say = DB['nh_msg'].find_one()['words']
+
     response = Twilio::TwiML::Response.new do |r|
       r.Pause :length => 1
       r.Say 'Hello', :voice => 'woman'
       r.Pause :length => 1
-      r.Play 'http://grass-roots-science.info/VascularContent/Audio/whynutrition.mp3'
+      r.Say what_to_say, :voice => 'woman'
+      r.Play 'http://grass-roots-science.info/VascularContent/Audio/limits.mp3'
     end #response
 
     response.text do |format|
@@ -634,38 +637,8 @@ class TheApp < Sinatra::Base
 
   end #get call-handler
 
-
-
-
-  get /OLDCall(?<ph_num>.*)/ do
-    puts params['ph_num']
-
-    patient_ph_num_assoc_wi_caller = '+17244489427'
-    patient_ph_num = patient_ph_num_assoc_wi_caller
-
-    puts @msg_to_say = DB['nh_msg'].find_one()['words']
-#    number = params[:PhoneNumber]
-    number = '17244489427'
-    response = Twilio::TwiML::Response.new do |r|
-        # Should be your Twilio Number or a verified Caller ID
-        r.Dial :callerId => ENV['TWILIO_CALLER_ID'] do |d|
-            # Test to see if the PhoneNumber is a number, or a Client ID. In
-            # this case, we detect a Client ID by the presence of non-numbers
-            # in the PhoneNumber parameter.
-            if /^[\d\+\-\(\) ]+$/.match(number)
-                d.Number(CGI::escapeHTML number)
-            else
-                d.Client default_client
-            end
-        end
-    end
-#    response.text
-
-    response.text do |format|
-      format.xml { render :xml => response.text }
-    end #do response.text
-  end #do get
-
+# PERHAPS SEE:
+#  https://www.twilio.com/docs/quickstart/ruby/client/outgoing-calls
 
   
   post '/awsSNSforvideos' do  
