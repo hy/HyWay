@@ -469,8 +469,8 @@ class TheApp < Sinatra::Base
       @this_user = DB['people'].find_one('_id' => params['From'])
 
       if (@this_user == nil)
-        onboard_a_brand_new_user 
-        @this_user = DB['people'].find_one('_id' => params['From'])
+#        onboard_a_brand_new_user 
+#        @this_user = DB['people'].find_one('_id' => params['From'])
       end #if
 
       puts @this_user
@@ -623,7 +623,15 @@ class TheApp < Sinatra::Base
       r.Pause :length => 1
       r.Play 'http://grass-roots-science.info/impress2.wav'
     end #response
+
+    response.text do |format|
+      format.xml { render :xml => response.text }
+    end #do response.text
+
   end #get call-handler
+
+
+
 
   get /OLDCall(?<ph_num>.*)/ do
     puts params['ph_num']
