@@ -503,6 +503,10 @@ class TheApp < Sinatra::Base
   # within the routing code
   #############################################################################
 
+  get '/' do
+    'READY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+  end
+
   get '/test' do
     'Server is up! '  
   end
@@ -515,6 +519,9 @@ class TheApp < Sinatra::Base
     response_string
   end
 
+  post '/set_msg' do
+    puts what_we_received = params['msg']
+  end
 
   get '/*.list*' do
     collection_to_list = (params[:splat][0]).downcase
@@ -539,7 +546,7 @@ class TheApp < Sinatra::Base
 #      hash['number'] = i
 #    }
 
-    @msg_suggest = DB['noora_msgs'].find_one()
+    @msg_suggest = DB['noora_msgs'].find_one()['words']
     @label = collection_to_list.upcase + " LIST:"
 
     @foo = a
