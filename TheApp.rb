@@ -592,8 +592,8 @@ class TheApp < Sinatra::Base
 
 ## Work in progress
   get /SendSMSto(?<ph_num>.*)/ do
-    puts params[:captures][0]
-    text_to_send = DB['nh_msg'].find_one['words']
+    puts params[ph_num]
+    puts text_to_send = DB['nh_msg'].find_one()['words']
     send_SMS_to( '+17244489427', text_to_send)
 
 #    cursor = DB['noora_tracking'].find({"AttendedFirstClass" => "Yes"})
@@ -605,20 +605,28 @@ class TheApp < Sinatra::Base
   end
 
   get /Call(?<ph_num>.*)/ do
-    puts params[:captures][0]
+    puts params[ph_num]
 
     patient_ph_num_assoc_wi_caller = '+17244489427'
     patient_ph_num = patient_ph_num_assoc_wi_caller
 
-    @msg_to_say = DB['nh_msg']['words']
-
+    puts @msg_to_say = DB['nh_msg'].find_one()['words']
+#    number = params[:PhoneNumber]
+    number = '+17244489427'
     response = Twilio::TwiML::Response.new do |r|
-      r.Pause :length => 1
-      r.Say 'Hi!', :voice => 'woman'
-      r.Say @msg_to_say, :voice => 'woman'
-      r.Pause :length => 1
-      r.Hangup
-    end #do response
+        # Should be your Twilio Number or a verified Caller ID
+        r.Dial :callerId => ENV['TWILIO_CALLER_ID'] do |d|
+            # Test to see if the PhoneNumber is a number, or a Client ID. In
+            # this case, we detect a Client ID by the presence of non-numbers
+            # in the PhoneNumber parameter.
+            if /^[\d\+\-\(\) ]+$/.match(number)
+                d.Number(CGI::escapeHTML number)
+            else
+                d.Client default_client
+            end
+        end
+    end
+    response.text
 
     response.text do |format|
       format.xml { render :xml => response.text }
