@@ -68,7 +68,7 @@ GEM
       rake (>= 0.8.7)
       rubyzip (>= 1.0.0)
     netrc (0.7.7)
-    nokogiri (1.6.2.1)
+    nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
     oauth (0.4.7)
     os (0.9.6)
