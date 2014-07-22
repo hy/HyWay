@@ -2093,13 +2093,13 @@ class TheApp < Sinatra::Base
     # HTML injection: Supported / Contradicted indicator
     ###########################################################################
     def addFace(row)
-      if row['contradicted']=='yes' then
-        return '<a href="' +SITE+ '/ContradictionsFor:' + row['id'].to_s + '" >
+      if row['HappyFace']=='yes' then
+        return '<a href="' +SITE+ 'SadFace?id=' + row['id'].to_s + '" >
           <img border="0" alt="Contradicted" src="images/doh.png" /> </a>'
-      elsif row['supported']=='yes' then
-        return '<a href="' +SITE+ '/SupportFor:' + row['id'].to_s + '" >
+      elsif row['SadFace']=='yes' then
+        return '<a href="' +SITE+ 'HappyFace?id=' + row['id'].to_s + '" >
           <img border="0" alt="Supported" src="images/yay.png" /> </a>'
-      else return '<a href="' +SITE+ '/DoNothing:' + row['id'].to_s + '" >
+      else return '<a href="' +SITE+ 'DoNothing?id=' + row['id'].to_s + '" >
           <img border="0" alt="Nothing" src="images/background.png" /> </a>'
       end
     end
@@ -2108,13 +2108,13 @@ class TheApp < Sinatra::Base
     ###########################################################################
     def addCircle(row)
       if row['checked']=='yes' then
-        return '<a href="' +SITE+ 'UnCheck:' + row['id'].to_s + '" >
+        return '<a href="' +SITE+ 'UnCheck?id=' + row['id'].to_s + '" >
           <img border="0" alt="Checked" src="images/check.png" /> </a>'
       elsif row['checked']=='no' then
-        return '<a href="' +SITE+ 'Check:' + row['id'].to_s + '" >
+        return '<a href="' +SITE+ 'Check?id=' + row['id'].to_s + '" >
           <img border="0" alt="Supported" src="images/blank.png" /> </a>'
       else 
-        return '<a href="' +SITE+ 'UnCheck:' + row['id'].to_s + '" >
+        return '<a href="' +SITE+ 'UnCheck?id=' + row['id'].to_s + '" >
           <img border="0" alt="Supported" src="images/background.png" /> </a>'
       end
     end
@@ -2122,11 +2122,11 @@ class TheApp < Sinatra::Base
     # HTML injection: Lit or unlit bulb indicates active vs. inactive item
     ###########################################################################
     def addStatusBulb(row)
-      if row['active']=='yes' then
-        return '<a href="' +SITE+ 'deactivate:' + row['id'].to_s + '" >
+      if row['On']=='yes' then
+        return '<a href="' +SITE+ 'TurnOff?id=' + row['id'].to_s + '" >
           <img border="0" alt="Active" src="images/lit_bulb.png" /> </a>'
       else
-        return '<a href="' +SITE+ 'activate:' + row['id'].to_s + '" >
+        return '<a href="' +SITE+ 'TurnOn?id=' + row['id'].to_s + '" >
           <img border="0" alt="Active" src="images/dark_bulb.png" /> </a>'
       end
     end

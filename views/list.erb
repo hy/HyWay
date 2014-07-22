@@ -20,6 +20,7 @@
         </div>
                <!--       Can Also add the following to below:     -->
                <!--         showTextOrHighlight(hash) +            -->
+               <!--         ddStatusBulb(hash) +                   -->
         <h3> <%= @label %>   </h3>
         <div id="reply">
             <% @d = "" %>
@@ -28,7 +29,6 @@
                @d = @d + 
                       addPhone(hash) +
                       addSMS(hash) + 
-                      addStatusBulb(hash) + 
                       addDetailLink(hash) + 
                       ifPresentThenShow(hash, 'PrimaryCC') + '(' +
                       ifPresentThenShow(hash, 'Relationship') + ')' +
