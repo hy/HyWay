@@ -149,6 +149,9 @@ class TheApp < Sinatra::Base
 
   configure do
     begin
+
+      TWILIO_CALLER_ID = ENV['TWILIO_CALLER_ID']
+
       PTS_FOR_BG = 10
       PTS_FOR_INS = 5
       PTS_FOR_CARB = 5
@@ -469,7 +472,7 @@ class TheApp < Sinatra::Base
 # and onboarding is straightforwardly the correct thing to do
 # HOWEVER, for outgoing calls, "From" is . . . the app itself! 
 
-    if ((params['From'] != nil) && (params['From'] != ENV['TWILIO_CALLER_ID']))
+    if ((params['From'] != nil) && (params['From'] != TWILIO_CALLER_ID ))
       @this_user = DB['people'].find_one('_id' => params['From'])
 
       if (@this_user == nil)
@@ -614,7 +617,7 @@ class TheApp < Sinatra::Base
 
     # make a new outgoing call
     @call = $twilio_account.calls.create(
-      :from => ENV['TWILIO_CALLER_ID'],
+      :from => TWILIO_CALLER_ID,
       :to => '+17244489427',
       :url => SITE + '/call-handler',
     )
@@ -2383,7 +2386,7 @@ class TheApp < Sinatra::Base
         puts "ATTEMPT TO SMS TO BAD NUMBER" if number.match(/\+1\d{10}\z/)==nil
 
         @message = $twilio_account.sms.messages.create({
-              :from => ENV['TWILIO_CALLER_ID'],
+              :from => TWILIO_CALLER_ID,
               :to => number,
               :body => msg
         })
@@ -2400,7 +2403,7 @@ class TheApp < Sinatra::Base
     puts where = 'HELPER: ' + (__method__).to_s
       begin
         @message = $twilio_account.sms.messages.create({
-              :from => ENV['TWILIO_CALLER_ID'],
+              :from => TWILIO_CALLER_ID,
               :to => params['From'],
               :body => msg
         })
@@ -2417,7 +2420,7 @@ class TheApp < Sinatra::Base
     puts where = 'HELPER: ' + (__method__).to_s 
       begin
         @call = $twilio_account.calls.create({
-              :from => ENV['TWILIO_CALLER_ID'],
+              :from => TWILIO_CALLER_ID,
               :to => number_to_call,
               :url => "#{SITE}" + route_to_execute
        })
