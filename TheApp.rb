@@ -624,6 +624,7 @@ class TheApp < Sinatra::Base
       :to => '+17244489427',
       :url => SITE + '/call-handler',
     )
+  # Auto-redirects to :url => [call-handler, below]
   end #get Call
 
   post '/call-handler' do
@@ -640,11 +641,11 @@ class TheApp < Sinatra::Base
     response.text do |format|
       format.xml { render :xml => response.text }
     end #do response.text
-
   end #get call-handler
 
 # PERHAPS SEE:
 #  https://www.twilio.com/docs/quickstart/ruby/client/outgoing-calls
+
 
   
   post '/awsSNSforvideos' do  
