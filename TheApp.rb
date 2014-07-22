@@ -531,7 +531,10 @@ class TheApp < Sinatra::Base
 
     DB['nh_msg'].remove()
     DB['nh_msg'].insert({'words' => what_we_received})
-    
+  
+    puts DB['nh_msg'].find_one({})['words']
+ 
+    redirect 'http://serene-forest-4377.herokuapp.com/nh.noora_tracking.list' 
   end
 
   get '/nh.*.list*' do
