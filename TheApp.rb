@@ -1,6 +1,4 @@
-
 # http://stackoverflow.com/questions/936249/stop-tracking-and-ignore-changes-to-a-file-in-git
-
 
 # Cautionary Note:
 
