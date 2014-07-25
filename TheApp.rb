@@ -161,6 +161,7 @@ class TheApp < Sinatra::Base
       DEFAULT_SCORE = 0
       DEFAULT_GOAL = 500.0
       DEFAULT_PANIC = 24
+      DEFAULT_KET = 301.0
       DEFAULT_HI = 300.0
       DEFAULT_LO = 70.0
 
@@ -1548,6 +1549,28 @@ class TheApp < Sinatra::Base
     reply_via_SMS( msg )
   end #do hi settings
 
+  get /\/c\/(ket)o?n?e?s?[\s:\.,-=]*(\d{3})\z/ do
+  begin
+    key = params[:captures][0]
+    puts "SETTINGS ROUTE FOR: " + key
+    new_f = Float(params[:captures][1])
+
+    ph_num = patient_ph_num_assoc_wi_caller
+    record = DB['people'].find_one({'_id' => ph_num})
+    id = record['_id']
+    DB['people'].update({'_id' => id},
+                        {"$set" => {key => new_f}})
+    msg = 'New '+key.to_s+': ' + new_f.to_s + ' mg_per_dL'
+
+  rescue Exception => e
+    msg = 'Could not update setting for '+key.to_s
+    log_exception( e, 'KET SETTING ROUTE' )
+  end
+
+    send_SMS_to( ph_num, msg ) if ph_num != params['From']
+    reply_via_SMS( msg )
+  end #do ket settings
+
   get /\/c\/age[\s:\.,-=]*(\d{2})\z/ do
   begin
     key = params[:captures][0]
@@ -2656,6 +2679,7 @@ class TheApp < Sinatra::Base
       pts = tag_abbrev_s == '' ? 10.0 : 15.0
       msg = ''
 
+      ket = @this_user['ket']
       hi = @this_user['hi']
       lo = @this_user['lo']
 
@@ -2693,7 +2717,7 @@ class TheApp < Sinatra::Base
       msg += ' for your checkin!' 
       msg += ' (+' + pts.to_s + ' pts!)'
 
-      if ((mgdl > hi)&&(last_g!=nil))
+      if ((mgdl > 301.0)&&(last_g!=nil))
        if ((last_g['mg'] > hi) && (last_g['utc'] > @now_f-5*ONE_HOUR)) 
         msg += ' Hm, 2 highs in a row, maybe check ketones?' 
         msg_all_caregivers( 'Last 2 checkins high, latest = ' + mgdl.to_s )
@@ -3130,11 +3154,13 @@ class TheApp < Sinatra::Base
       record = DB['people'].find_one({ '_id' => ph_num })
       lo_s = record['lo'] != nil ? (record['lo']).to_s  : DEFAULT_LO.to_s
       hi_s = record['hi'] != nil ? (record['hi']).to_s  : DEFAULT_HI.to_s
+      ket_s = record['ket'] != nil ? (record['ket']).to_s  : DEFAULT_KET.to_s
       alarm_s = record['alarm'] != nil ? (record['alarm']).to_s  : 'None'
       
       msg = 'Info for: ' + ph_num + '...  '
       msg += '  Lo = ' + lo_s
       msg += '  Hi =' + hi_s
+      msg += '  Ketone alert at: ' + ket_s
       msg += '  Alarm = ' + alarm_s
 
     rescue Exception => e
@@ -3231,6 +3257,7 @@ class TheApp < Sinatra::Base
           'timer' => DEFAULT_PANIC,
           'goal' => DEFAULT_GOAL, 
           'strikes' => 0,
+          'ket' => DEFAULT_KET, 
           'hi' => DEFAULT_HI,
           'lo' => DEFAULT_LO
         }

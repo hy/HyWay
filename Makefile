@@ -68,6 +68,14 @@ noora_import:
 test_import:
 	$(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d latest -c noora_tracking -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/TestCCs.csv --headerline
 
+hinai_import:
+        ~/Downloads/flip.universal -u ~/Documents/Inpatients_0724.csv
+       tail -n +8 ~/Documents/Inpatients_0724.csv > ~/Documents/InpatientSampleReady.csv
+        $(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d latest -c inpatients -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/InpatientSampleReady.csv --headerline
+
+
+
+
 
 reminder_calls:
 	curl http://serene-forest-4377.herokuapp.com/make_reminder_calls
