@@ -58,14 +58,11 @@ it:
 go:
 	heroku open
 
-github:
-	git push -u github master
-
 checkpoint:
 	git add Makefile $(MAIN) $(VIEWS) Gemfile Gemfile.lock
 	git commit -m WORKS:'$(m)'
-	git push -u heroku master
 	git push -u github master
+	git push -u heroku master
 
 
 ##################### Begin App-Specific Interactions #####################
