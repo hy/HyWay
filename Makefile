@@ -18,7 +18,7 @@ known:
 	clear
 	git status
 
-explicit:
+diff:
 	clear
 	git diff $(MAIN)
 
@@ -33,7 +33,7 @@ rollback:
 	git reset --soft HEAD~1
 
 
-##################### Begin Sinatra/Mongo Interactions ###################
+##################### Begin Aux/Mongo Interactions ###################
 
 # http://www.gitguys.com/how-to-remove-a-file-from-git-source-control-but-not-delete-it/
 
@@ -46,15 +46,25 @@ videos_unversioned:
 connection:
 	$(MONGOPATH)/mongo $(MONGO_URL):$(MONGO_PORT)/latest -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD)
 
+
+
+##################### Begin Fundamental/Basic Interactions ###################
+
 it:
 	git add Makefile $(MAIN) $(VIEWS)
-	git commit -m '$(a)'
+	git commit -m TRY:'$(m)'
 	git push -u heroku master
 
-go:	
+go:
 	heroku open
 
 github:
+	git push -u github master
+
+checkpoint:
+	git add Makefile $(MAIN) $(VIEWS) Gemfile Gemfile.lock
+	git commit -m WORKS:'$(m)'
+	git push -u heroku master
 	git push -u github master
 
 

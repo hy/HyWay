@@ -68,6 +68,7 @@ require 'sinatra/base'
 require 'sinatra/graph'
 
 require 'net/http'
+require 'net/https'
 require 'uri'
 require 'json'
 require 'pony'
