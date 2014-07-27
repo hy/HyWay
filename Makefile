@@ -46,9 +46,17 @@ videos_unversioned:
 connection:
 	$(MONGOPATH)/mongo $(MONGO_URL):$(MONGO_PORT)/latest -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD)
 
+task:
+	curl $(SITE)asana_task?name='$(m)'
 
 
 ##################### Begin Fundamental/Basic Interactions ###################
+
+update:
+	bundle update
+	git add Gemfile Gemfile.lock
+	git commit -m "UPDATE: Gems"
+	git push -u heroku master
 
 it:
 	git add Makefile $(MAIN) $(VIEWS)

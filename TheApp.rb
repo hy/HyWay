@@ -693,12 +693,12 @@ class TheApp < Sinatra::Base
     }
 
     req = Net::HTTP::Post.new(uri.path, header)
-    req.basic_auth(api_key, '')
+    req.basic_auth(ENV['ASANA_API_KEY'], '')
     req.body = {
       "data" => {
-        "workspace" => workspace_id,
-        "name" => "Hello World!",
-        "assignee" => assignee
+        "workspace" => ENV['ASANA_WORKSPACE_ID'],
+        "name" => ENV['ASANA_TASK_NAME'],
+        "assignee" => ENV['ASANA_ASSIGNEE_EMAIL']
       }
     }.to_json()
 
