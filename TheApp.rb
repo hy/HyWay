@@ -681,14 +681,15 @@ class TheApp < Sinatra::Base
   end
 
   get '/asana_task' do
+    puts "ASANA_TASK ROUTE"
     # set up HTTPS connection
-    uri = URI.parse("https://app.asana.com/api/1.0/tasks")
-    http = Net::HTTP.new(uri.host, uri.port)
+    puts uri = URI.parse("https://app.asana.com/api/1.0/tasks")
+    puts http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_PEER
 
     # set up the request
-    header = {
+    puts header = {
       "Content-Type" => "application/json"
     }
 
@@ -703,10 +704,10 @@ class TheApp < Sinatra::Base
     }.to_json()
 
     # issue the request
-    res = http.start { |http| http.request(req) }
+    puts res = http.start { |http| http.request(req) }
 
     # output
-    body = JSON.parse(res.body)
+    puts body = JSON.parse(res.body)
     if body['errors'] then
       puts "Server returned an error: #{body['errors'][0]['message']}"
     else

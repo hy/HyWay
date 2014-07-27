@@ -4,6 +4,8 @@
 MAIN = TheApp.rb Gemfile Gemfile.lock 
 VIEWS = views/list.erb
 
+SERVER = http://serene-forest-4377.herokuapp.com/
+
 MONGOPATH = ~/mongodb-osx-x86_64-2.6.1/bin
 
 AUDIO = ~/Dropbox/HyWay/static/VascularContent/Audio
@@ -47,7 +49,7 @@ connection:
 	$(MONGOPATH)/mongo $(MONGO_URL):$(MONGO_PORT)/latest -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD)
 
 task:
-	curl $(SITE)asana_task?name='$(m)'
+	curl $(SERVER)asana_task?name='$(m)'
 
 
 ##################### Begin Fundamental/Basic Interactions ###################
