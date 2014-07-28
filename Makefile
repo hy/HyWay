@@ -1,6 +1,7 @@
 # Assumes mongo access params are in local ENV
 #   under both ENV var conventions, new + old
 
+
 MAIN = TheApp.rb Gemfile Gemfile.lock 
 VIEWS = views/list.erb
 
@@ -13,6 +14,7 @@ IMAGES = ~/Dropbox/HyWay/static/VascularContent/Images
 VIDEO = ~/Dropbox/HyWay/static/VascularContent/Video
 METADATA = ~/Dropbox/HyWay/static/VascularContent/metadata.json
 CONTENT_MSG = "TRY: Commit a Content / Metadata update"
+
 
 ###################### Begin Generic git Interactions #####################
 
@@ -89,7 +91,7 @@ test_import:
 
 hinai_import:
 	~/Downloads/flip.universal -u ~/Documents/Inpatients_0724.csv
-	tail -n +8 ~/Documents/Inpatients_0724.csv > ~/Documents/InpatientSampleReady.csv
+	tail -n +9 ~/Documents/Inpatients_0724.csv > ~/Documents/InpatientSampleReady.csv
 	$(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d latest -c inpatients -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/InpatientSampleReady.csv --headerline
 
 
