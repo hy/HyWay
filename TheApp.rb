@@ -680,7 +680,7 @@ class TheApp < Sinatra::Base
  
   end
 
-  get '/asana_task' do
+  get '/log_at_asana' do
     puts "ASANA_TASK ROUTE"
     # set up HTTPS connection
     puts uri = URI.parse("https://app.asana.com/api/1.0/tasks")
@@ -698,10 +698,10 @@ class TheApp < Sinatra::Base
     req.body = {
       "data" => {
         "workspace" => ENV['ASANA_WORKSPACE_ID'],
-        "project" => ENV['ASANA_PROJECT_ID'],
-        "completed" => true,
+        "projects" => [ ENV['ASANA_PROJECT_ID'] ],
+        "assignee" => ENV['ASANA_ASSIGNEE_EMAIL'], 
         "name" => URI.encode(params['m']),
-        "assignee" => ENV['assignee']
+        "completed" => true
       }
     }.to_json()
 

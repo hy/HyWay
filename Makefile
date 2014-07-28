@@ -49,7 +49,7 @@ connection:
 	$(MONGOPATH)/mongo $(MONGO_URL):$(MONGO_PORT)/latest -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD)
 
 task:
-	curl -G -v  $(SERVER)asana_task --data-urlencode "m=$(m)"
+	curl -G -v  $(SERVER)log_at_asana --data-urlencode "m=$(m)"
 
 
 ##################### Begin Fundamental/Basic Interactions ###################
@@ -73,6 +73,7 @@ checkpoint:
 	git commit -m WORKS:'$(m)'
 	git push -u github master
 	git push -u heroku master
+	curl -G -v  $(SERVER)log_at_asana --data-urlencode "m=$(m)"
 
 
 ##################### Begin App-Specific Interactions #####################
