@@ -698,8 +698,10 @@ class TheApp < Sinatra::Base
     req.body = {
       "data" => {
         "workspace" => ENV['ASANA_WORKSPACE_ID'],
-        "name" => ENV['ASANA_TASK_NAME'],
-        "assignee" => ENV['ASANA_ASSIGNEE_EMAIL']
+        "projects" => [params['p']], 
+        "completed" => false,
+        "name" => URI.encode(params['m']),
+        "assignee" => ENV['assignee']
       }
     }.to_json()
 
