@@ -700,7 +700,7 @@ class TheApp < Sinatra::Base
         "workspace" => ENV['ASANA_WORKSPACE_ID'],
         "projects" => [ ENV['ASANA_PROJECT_ID'] ],
         "assignee" => ENV['ASANA_ASSIGNEE_EMAIL'], 
-        "name" => URI.encode(params['m']),
+        "name" => URI.decode(params['m']),
         "completed" => true
       }
     }.to_json()
