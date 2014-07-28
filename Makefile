@@ -49,7 +49,7 @@ connection:
 	$(MONGOPATH)/mongo $(MONGO_URL):$(MONGO_PORT)/latest -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD)
 
 task:
-	curl $(SERVER)asana_task --data-urlencode "m=$(m)&p=15082647056651"
+	curl -G -v  $(SERVER)asana_task --data-urlencode "m=$(m)"
 
 
 ##################### Begin Fundamental/Basic Interactions ###################
