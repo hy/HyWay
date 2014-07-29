@@ -29,10 +29,10 @@
                @d = @d + 
                       addPhone(hash) +
                       addSMS(hash) + 
-                      addDetailLink(hash) + 
-                      ifPresentThenShow(hash, 'Patient') + ', CC = ' +
-                      ifPresentThenShow(hash, 'PrimaryCC') + '(' +
-                      ifPresentThenShow(hash, 'Relationship') + ')' +
+                      addDetailLink(hash) + 'Patient: ' + 
+                      ifPresentThenShow(hash, 'Patient') + ' (' +
+                      ifPresentThenShow(hash, 'Relationship') + ': ' +
+                      ifPresentThenShow(hash, 'PrimaryCC') + ')' +
                       ifPresentThenShow(hash, 'CCphone') + ': ' + 
                       ifPresentThenShow(hash, 'title') + 
                       ifPresentThenShow(hash, 'url') + 
