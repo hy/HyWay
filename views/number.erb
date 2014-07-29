@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content ="charset=UTF-8"/>
+<html>
+  <head>
+    <title>Counting Stuff</title>
+    <link href='/main.css' rel='stylesheet' type='text/css'/>
+  </head>
+
+  <body onload="document.hy.cmd.focus()">
+    <div id="page">
+      <div id="content"  <!-- begin content -->
+        <div id="header">
+          <form id="hy" name="hy" action="<%=@site%>/set_nh_msg" method="post">
+          <center>
+ <!-- add email later:           <%= addGmailLink() %>         -->
+              Msg:
+            <input type="text" id="act" name="cmd" value="<%= @msg_suggest %>"/>
+          </center>
+          </form>
+        </div>
+
+        <h3> <%= @number %>   </h3>
+        
+      </div>  <!-- end content div -->
+    </div>  <!-- end page div -->
+  </body>
+</html>
+
