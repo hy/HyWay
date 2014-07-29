@@ -30,6 +30,7 @@
                       addPhone(hash) +
                       addSMS(hash) + 
                       addDetailLink(hash) + 
+                      ifPresentThenShow(hash, 'Patient') + ', CC = ' +
                       ifPresentThenShow(hash, 'PrimaryCC') + '(' +
                       ifPresentThenShow(hash, 'Relationship') + ')' +
                       ifPresentThenShow(hash, 'CCphone') + ': ' + 
