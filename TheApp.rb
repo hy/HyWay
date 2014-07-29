@@ -564,7 +564,10 @@ class TheApp < Sinatra::Base
     collection_to_list = (params[:splat][0]).downcase
     scope = {}
 
-    @number = DB[collection_to_list].find(scope).count()
+    puts "Getting numbers for: " + collection_to_list
+
+    @number = DB[collection_to_list].find().count()
+
     erb :number 
   end #get
 
