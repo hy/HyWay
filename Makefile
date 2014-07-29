@@ -2,7 +2,6 @@
 #   under both ENV var conventions, new + old
 
 
-
 MAIN = TheApp.rb Gemfile Gemfile.lock 
 VIEWS = views/list.erb
 
@@ -75,24 +74,26 @@ checkpoint:
 
 
 
-##################### Begin App-Specific Interactions #####################
+##################### App-Specific Import / Exports #####################
 
-noora_import:
+import_noora:
 	~/Downloads/flip.universal -u ~/Documents/NooraTracking.csv
 #	tail -n +2 ~/Documents/NooraTracking.csv > ~/Documents/NooraTrackingReady.csv
 	$(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d latest -c noora_tracking -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/NooraTrackingReady.csv --headerline
 
-test_import:
+import_test:
 	$(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d latest -c noora_tracking -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/TestCCs.csv --headerline
 
-hinai_import:
+import_hinai:
 	~/Downloads/flip.universal -u ~/Documents/Inpatients_0724.csv
 	tail -n +9 ~/Documents/Inpatients_0724.csv > ~/Documents/InpatientSampleReady.csv
 	$(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d latest -c inpatients -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/InpatientSampleReady.csv --headerline
 
+import_links:
+	$(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d latest -c links -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/Links.csv --headerline
 
 
-
+###################### App specific Route Triggers ############################
 
 reminder_calls:
 	curl http://serene-forest-4377.herokuapp.com/make_reminder_calls
@@ -113,10 +114,7 @@ metarefresh:
 	curl http://carecompanion.noorahealth.org/restockmongo
 
 
-# make iPad content hires
-# make WebApp content lores
 # make ready
-# make peace
 # make whole
 # make it so
 
