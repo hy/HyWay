@@ -560,6 +560,13 @@ class TheApp < Sinatra::Base
     erb :list
   end     # end get '/*.list' do
 
+  get '/nh.number_of_' do
+    collection_to_list = (params[:splat][0]).downcase
+    scope = {}
+
+    number = DB[collection_to_list].find(scope).count()
+    
+  end #get
 
 
 ## This part starting to work 
