@@ -2258,9 +2258,11 @@ class TheApp < Sinatra::Base
     ###########################################################################
     # HTML injection: UpToDate Link
     ###########################################################################
-    def addWikipediaLink(search_string)
-      return '' if search_string!='cardiothoracic AVR'
-      '<a href="http://www.uptodate.com/contents/transcatheter-aortic-valve-replacement?source=search_result&search=avr&selectedTitle=1~99" >
+    def addUpToDateLink(search_string)
+      d = DB['links'].find_one({'string'=>search_string})
+
+      return '' if d==nil
+      '<a href=d['UpToDateLink'] >
         <img border="0" alt="Google" src="images/uptodate.png" /> </a>'
     end
 
