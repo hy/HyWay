@@ -2262,8 +2262,7 @@ class TheApp < Sinatra::Base
       d = DB['links'].find_one({'string'=>search_string})
 
       return '' if d==nil
-      '<a href=d['UpToDateLink'] >
-        <img border="0" alt="Google" src="images/uptodate.png" /> </a>'
+      '<a href='+ d['UpToDateLink'] + ' ><img border="0" alt="Google" src="images/uptodate.png" /> </a>'
     end
 
 
