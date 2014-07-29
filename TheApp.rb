@@ -548,7 +548,7 @@ class TheApp < Sinatra::Base
     DB[collection_to_list].find(scope).each { |row|
       if row['CCphone'] != '' then
         row['id'] = '+' + row['CCphone'].to_s
-        row['search_string'] = 'cardiothorasic ' + row['Surgery'].to_s
+        row['search_string'] = 'cardiothoracic ' + row['Surgery'].to_s
         a.push(row)
       end
     }
