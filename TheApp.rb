@@ -560,7 +560,7 @@ class TheApp < Sinatra::Base
     erb :list
   end     # end get '/*.list' do
 
-  get '/nh.number_of_' do
+  get '/nh.*.count' do
     collection_to_list = (params[:splat][0]).downcase
     scope = {}
 
