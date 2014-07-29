@@ -42,11 +42,6 @@ rollback:
 
 # http://www.gitguys.com/how-to-remove-a-file-from-git-source-control-but-not-delete-it/
 
-images_unversioned:
-	git rm --cached $(IMAGES)
-
-videos_unversioned:
-	git rm --cached $(VIDEO)
 
 connection:
 	$(MONGOPATH)/mongo $(MONGO_URL):$(MONGO_PORT)/latest -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD)
