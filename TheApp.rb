@@ -2259,10 +2259,19 @@ class TheApp < Sinatra::Base
     # HTML injection: UpToDate Link
     ###########################################################################
     def addUpToDateLink(search_string)
-      d = DB['links'].find_one({'string'=>search_string})
+      d = DB['links'].find_one({'string'=>search_string,'UpToDateLink' => {'$exists' => true} })
 
       return '' if d==nil
-      '<a href='+ d['UpToDateLink'] + ' ><img border="0" alt="Google" src="images/uptodate.png" /> </a>'
+      '<a href='+ d['UpToDateLink'] + ' ><img border="0" alt="UpToDate" src="images/uptodate.png" /> </a>'
+    end
+    ###########################################################################
+    # HTML injection: UpToDate Link
+    ###########################################################################
+    def addMedlineLink(search_string)
+      d = DB['links'].find_one({'string'=>search_string,'MedlineLink' => {'$exists' => true} })
+
+      return '' if d==nil
+      '<a href='+ d['MedlineLink'] + ' ><img border="0" alt="Medline" src="images/medline.png" /> </a>'
     end
 
 
