@@ -941,15 +941,25 @@ class TheApp < Sinatra::Base
     caller_ph_number = params['From']
 
     if (this_ph_number_is_whitelisted(caller_ph_number))
-      puts @voice_recorded = "#{SITE}/voice_recorded"
+      puts @voice_recorded = "#{SITE}voice_recorded"
     else 
-      puts @voice_recorded = "#{SITE}/blocked"
+      puts @voice_recorded = "#{SITE}blocked"
     end #if
 
-    erb :voice_request
-    return
+    response = Twilio::TwiML::Response.new do |r|
+      r.Pause :length => 1
+      r.Say 'Recording!', :voice => 'woman'
+      r.Record :action => @voice_recorded
+    end #do response
+
+    response.text do |format|
+      format.xml { render :xml => response.text }
+    end #do response.text
+
+  end #get
 
 ###############################################################################
+  get '/voice_request_orig' do
     patient_ph_num = patient_ph_num_assoc_wi_caller
     # last_level = last_glucose_lvl_for(patient_ph_num)
     last_level = last_checkin_for(patient_ph_num)
