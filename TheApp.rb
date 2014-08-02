@@ -949,7 +949,7 @@ class TheApp < Sinatra::Base
     response = Twilio::TwiML::Response.new do |r|
       r.Pause :length => 1
       r.Say 'Recording!', :voice => 'woman'
-      r.Record :action => @voice_recorded
+      r.Record :action => @voice_recorded, :method => "GET"
     end #do response
 
     response.text do |format|
