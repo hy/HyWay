@@ -1020,7 +1020,7 @@ class TheApp < Sinatra::Base
       "Judge" => "None",
       "url" => params['RecordingUrl']
     }
-    puts $recording_c.insert(record_to_send_to_db)
+    puts DB['recordings'].insert(record_to_send_to_db)
    
     puts @recording_url = params['RecordingUrl'] 
     puts @action_route_url = "#{SITE}/gather_keypad_response"
