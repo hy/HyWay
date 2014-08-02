@@ -639,13 +639,14 @@ class TheApp < Sinatra::Base
 
   post '/call-handler' do
     what_to_say = DB['nh_msg'].find_one()['words']
+    @custom_audio_content = DB['recordings'].find_one()['url']
 
     response = Twilio::TwiML::Response.new do |r|
       r.Pause :length => 2 
       r.Say 'Hello', :voice => 'woman'
       r.Pause :length => 1
       r.Say what_to_say, :voice => 'woman'
-      r.Play 'http://grass-roots-science.info/VascularContent/Audio/limits.mp3'
+      r.Play @custom_audio_content
     end #response
 
     response.text do |format|
@@ -1021,6 +1022,7 @@ class TheApp < Sinatra::Base
       "Judge" => "None",
       "url" => params['RecordingUrl']
     }
+    DB['recordings'].remove({})
     puts DB['recordings'].insert(record_to_send_to_db)
    
     puts @recording_url = params['RecordingUrl'] 
