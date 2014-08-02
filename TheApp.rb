@@ -944,6 +944,7 @@ class TheApp < Sinatra::Base
       puts @voice_recorded = "#{SITE}voice_recorded"
     else 
       puts @voice_recorded = "#{SITE}blocked"
+      redirect '/voice_request_orig'
     end #if
 
     response = Twilio::TwiML::Response.new do |r|
