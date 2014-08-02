@@ -1,0 +1,16 @@
+<Response>
+
+  <Say> Here is what you recorded </Say>
+
+  <Gather action="<%= @action_route_url %>" 
+          method="GET" 
+          timeout="15" 
+          numDigits="1">
+
+    <Play> <%= @recording_url %> </Play>
+    <Say> Thank You very much! </Say>
+<!--    <Say> Press Zero for more options or hang up at any time </Say>  -->
+  </Gather>
+
+</Response>
+

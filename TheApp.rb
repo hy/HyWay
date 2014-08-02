@@ -938,6 +938,18 @@ class TheApp < Sinatra::Base
   get '/voice_request' do
     puts "VOICE REQUEST ROUTE"
 
+    caller_ph_number = params['From']
+
+    if (this_ph_number_is_whitelisted(caller_ph_number))
+      puts @voice_recorded = "#{SITE}/voice_recorded"
+    else 
+      puts @voice_recorded = "#{SITE}/blocked"
+    end #if
+
+    erb :voice_request
+    return
+
+###############################################################################
     patient_ph_num = patient_ph_num_assoc_wi_caller
     # last_level = last_glucose_lvl_for(patient_ph_num)
     last_level = last_checkin_for(patient_ph_num)
@@ -975,8 +987,66 @@ class TheApp < Sinatra::Base
     response.text do |format|
       format.xml { render :xml => response.text }
     end #do response.text
+
   end #do get
 
+  get '/blocked' do
+    puts '/BLOCKED \n WITH PARAMS= ' + params.to_s
+    puts "!!!!!!!!!!!!!!!!!! THIS USER IS BLOCKED !!!!!!!!!!!!!!!!!!!!"
+
+    "<Response><Reject/></Response>"
+  end #get
+
+  get '/voice_recorded' do
+       puts '/VOICE_RECORDED \n WITH PARAMS= ' + params.to_s 
+    
+    puts record_to_send_to_db = { 
+      "Who" => params['From'],
+      "HowLong" => params['RecordingDuration'],
+      "utc" => Time.now.to_f,
+      "When" => Time.now.strftime("%A %B %d at %I:%M %p"),#localize by area code
+      "What" => params['RecordingUrl'], 
+      "Rating" => "Unexamined",
+      "Judge" => "None",
+      "url" => params['RecordingUrl']
+    }
+    puts $recording_c.insert(record_to_send_to_db)
+   
+    puts @recording_url = params['RecordingUrl'] 
+    puts @action_route_url = "#{SITE}/gather_keypad_response"
+
+#    erb :voice_recorded 
+  end # get voice_recorded
+
+  get '/gather_keypad_response' do
+    puts '/GATHER_KEYPAD_RESPONSE \n WITH PARAMS= ' + params.to_s
+    builder do |xml|
+      xml.instruct!
+      xml.Response do
+        xml.Say("You have selected")
+        xml.Say(params['Digits'])
+
+        if params['Digits'] == '6'
+          xml.Say("Playing the top rated quotes")
+          xml.Redirect({:method => 'GET'}, "#{SITE}/play/top/quotes")
+        elsif params['Digits'] == '7'
+          xml.Say("Replaying all quotes from this number:")
+          xml.Redirect("#{SITE}/play/my/quotes")
+        elsif params['Digits'] == '8'
+          xml.Say("Playing all quotes from other callers:")
+          xml.Redirect("#{SITE}/play/others/quotes")
+        elsif params['Digits'] == '9'
+          xml.Say("Moderating unrated quotes:")
+          xml.Redirect("#{SITE}/moderate")
+        elsif params['Digits'] == '0'
+          xml.Say("Help and Information Menu:")
+          xml.Redirect("#{SITE}/help_menu")
+        end#if
+
+
+      end#xml.Response do
+    end #builder do
+  end #get
 
 
   #############################################################################
@@ -2573,6 +2643,29 @@ class TheApp < Sinatra::Base
 
       return patient_ph_num
     end #def
+
+    ###########################################################################
+    # Helper: Check Blacklist for a phone number
+    ###########################################################################
+    def this_ph_number_is_blacklisted(ph_number)
+      verdict = false
+      if DB['blacklist'].find_one("Who" => ph_number)
+        verdict = true
+      end #if     
+      return verdict 
+    end #def
+
+    ###########################################################################
+    # Helper: Check Whitelist for a phone number
+    ###########################################################################
+    def this_ph_number_is_whitelisted(ph_number)
+      verdict = false
+      if DB['whitelist'].find_one("Who" => ph_number)
+        verdict = true
+      end #if
+      return verdict
+    end #def
+
 
     ###########################################################################
     # Helper: Message entire care team
