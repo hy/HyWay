@@ -2343,27 +2343,28 @@ class TheApp < Sinatra::Base
     ###########################################################################
     def addUpToDateLink(search_string)
       d = DB['links'].find_one({'string'=>search_string,'UpToDateLink' => {'$exists' => true} })
-
       return '' if d==nil
-      '<a href='+ d['UpToDateLink'] + ' ><img border="0" alt="UpToDate" src="images/uptodate.png" /> </a>'
+      link_str = 'UpToDateLink'
+      '<a href='+d[link_str]+' ><img border="0" alt='+link_str+' src="images/'+link_str+'.png" /> </a>'
     end
     ###########################################################################
     # HTML injection: AHA Link
     ###########################################################################
     def addAHALink(search_string)
       d = DB['links'].find_one({'string'=>search_string,'AHALink' => {'$exists' => true} })
-    
       return '' if d==nil
-      '<a href='+ d['AHALink'] + ' ><img border="0" alt="AHA" src="images/AHA.png" /> </a>'
+      link_str = 'UpToDateLink'
+      '<a href='+d[link_str]+' ><img border="0" alt='+link_str+' src="images/'+link_str+'.png" /> </a>'
     end
     ###########################################################################
     # HTML injection: guidelines.gov Link
     ###########################################################################
     def addGuidelinesLink(search_string)
       d = DB['links'].find_one({'string'=>search_string,'GuidelinesLink' => {'$exists' => true} })
-
       return '' if d==nil
-      '<a href='+ d['GuidelinesLink'] + ' ><img border="0" alt="guidelines.gov" src="images/guidelines.png" /> </a>'
+      link_str = 'UpToDateLink'
+      '<a href='+d[link_str]+' ><img border="0" alt='+link_str+' src="images/'+li
+nk_str+'.png" /> </a>'
     end
     ###########################################################################
     # HTML injection: guidelines.gov Link
@@ -2371,12 +2372,9 @@ class TheApp < Sinatra::Base
     def addAllLinks(search_string)
       d = DB['links'].find_one({'string'=>search_string})
       return '' if d==nil
-      
       injection_str = ''
-      injection_str += '<a href='+ d[@value] + ' ><img border="0" alt=@value src="images/"+@key+".png" /> </a>'
-
+      injection_str += '<a href='+d[@value]+' ><img border="0" alt='+@value+' src="images/'+@key+'.png" /> </a>'
     end
-
 
 
 
