@@ -2353,7 +2353,7 @@ class TheApp < Sinatra::Base
     def addAHALink(search_string)
       d = DB['links'].find_one({'string'=>search_string,'AHALink' => {'$exists' => true} })
       return '' if d==nil
-      link_str = 'UpToDateLink'
+      link_str = 'AHALink'
       '<a href='+d[link_str]+' ><img border="0" alt='+link_str+' src="images/'+link_str+'.png" /> </a>'
     end
     ###########################################################################
@@ -2362,11 +2362,11 @@ class TheApp < Sinatra::Base
     def addGuidelinesLink(search_string)
       d = DB['links'].find_one({'string'=>search_string,'GuidelinesLink' => {'$exists' => true} })
       return '' if d==nil
-      link_str = 'UpToDateLink'
+      link_str = 'GuidelinesLink'
       '<a href='+d[link_str]+' ><img border="0" alt='+link_str+' src="images/'+link_str+'.png" /> </a>'
     end
     ###########################################################################
-    # HTML injection: guidelines.gov Link
+    # HTML injection: Multi-Link Insertion (planned -- not yet working!)
     ###########################################################################
     def addAllLinks(search_string)
       d = DB['links'].find_one({'string'=>search_string})
