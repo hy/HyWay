@@ -2369,7 +2369,7 @@ class TheApp < Sinatra::Base
     # HTML injection: guidelines.gov Link
     ###########################################################################
     def addAllLinks(search_string)
-      d = DB['links'].find_one({'string'=>search_string} })
+      d = DB['links'].find_one({'string'=>search_string})
       return '' if d==nil
       
       injection_str = ''
