@@ -2363,8 +2363,7 @@ class TheApp < Sinatra::Base
       d = DB['links'].find_one({'string'=>search_string,'GuidelinesLink' => {'$exists' => true} })
       return '' if d==nil
       link_str = 'UpToDateLink'
-      '<a href='+d[link_str]+' ><img border="0" alt='+link_str+' src="images/'+li
-nk_str+'.png" /> </a>'
+      '<a href='+d[link_str]+' ><img border="0" alt='+link_str+' src="images/'+link_str+'.png" /> </a>'
     end
     ###########################################################################
     # HTML injection: guidelines.gov Link
