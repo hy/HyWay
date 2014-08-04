@@ -2348,14 +2348,36 @@ class TheApp < Sinatra::Base
       '<a href='+ d['UpToDateLink'] + ' ><img border="0" alt="UpToDate" src="images/uptodate.png" /> </a>'
     end
     ###########################################################################
-    # HTML injection: UpToDate Link
+    # HTML injection: AHA Link
     ###########################################################################
-    def addMedlineLink(search_string)
-      d = DB['links'].find_one({'string'=>search_string,'MedlineLink' => {'$exists' => true} })
+    def addAHALink(search_string)
+      d = DB['links'].find_one({'string'=>search_string,'AHALink' => {'$exists' => true} })
+    
+      return '' if d==nil
+      '<a href='+ d['AHALink'] + ' ><img border="0" alt="AHA" src="images/AHA.png" /> </a>'
+    end
+    ###########################################################################
+    # HTML injection: guidelines.gov Link
+    ###########################################################################
+    def addGuidelinesLink(search_string)
+      d = DB['links'].find_one({'string'=>search_string,'GuidelinesLink' => {'$exists' => true} })
 
       return '' if d==nil
-      '<a href='+ d['MedlineLink'] + ' ><img border="0" alt="Medline" src="images/medline.png" /> </a>'
+      '<a href='+ d['GuidelinesLink'] + ' ><img border="0" alt="guidelines.gov" src="images/guidelines.png" /> </a>'
     end
+    ###########################################################################
+    # HTML injection: guidelines.gov Link
+    ###########################################################################
+    def addAllLinks(search_string)
+      d = DB['links'].find_one({'string'=>search_string} })
+      return '' if d==nil
+      
+      injection_str = ''
+      injection_str += '<a href='+ d[@value] + ' ><img border="0" alt=@value src="images/"+@key+".png" /> </a>'
+
+    end
+
+
 
 
     ###########################################################################
