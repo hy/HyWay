@@ -1,3 +1,4 @@
+
 # http://stackoverflow.com/questions/936249/stop-tracking-and-ignore-changes-to-a-file-in-git
 
 # Cautionary Note:
@@ -16,6 +17,7 @@
 
 # TODO List:
 
+# [--] Switch DB to: https://app.mongohq.com/stephen-a-racunas-gmail-com/mongo/production/users
 # [--] http://www.wooptoot.com/file-upload-with-sinatra
 # [--] Pick a consistent http client? 
 #      http://www.slideshare.net/HiroshiNakamura/rubyhttp-clients-comparison
