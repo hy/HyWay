@@ -1,9 +1,9 @@
 
-# Assumes mongo access params are in local ENV
+# This Makefile assumes mongo access params are in local ENV
 #   under both ENV var conventions, new + old
 
 
-MAIN = TheApp.rb Gemfile Gemfile.lock 
+MAIN = TheApp.rb Gemfile Gemfile.lock Makefile
 VIEWS = views/list.erb
 
 SERVER = http://serene-forest-4377.herokuapp.com/
@@ -23,10 +23,6 @@ known:
 	clear
 	git status
 
-diff:
-	clear
-	git diff $(MAIN)
-
 aware:
 	heroku logs -t
 
@@ -34,7 +30,11 @@ a:
 	echo $(CONTENT_MSG)
 	/bin/date
 
-rollback:
+g-diff:
+	clear
+	git diff $(MAIN)
+
+g-rollback:
 	git reset --soft HEAD~1
 
 
@@ -43,16 +43,24 @@ rollback:
 # http://www.gitguys.com/how-to-remove-a-file-from-git-source-control-but-not-delete-it/
 
 
-connection:
+m-rset-shell:
+	$(MONGOPATH)/mongo lighthouse.0.mongolayer.com:10104/production -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD)
+
+m-primary-election:
+	
+m-oplog_dump:
+	
+
+m-shell:
 	$(MONGOPATH)/mongo $(MONGO_URL):$(MONGO_PORT)/latest -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD)
 
-task:
+a-task:
 	curl -G -v  $(SERVER)log_at_asana --data-urlencode "m=$(m)"
 
 
 ##################### Begin Fundamental/Basic Interactions ###################
 
-update:
+gems:
 	bundle update
 	git add Gemfile Gemfile.lock
 	git commit -m "UPDATE: Gems"
