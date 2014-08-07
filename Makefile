@@ -4,7 +4,7 @@
 
 
 MAIN = TheApp.rb Gemfile Gemfile.lock Makefile
-VIEWS = views/list.erb
+VIEWS = views/list.erb static/main.css
 
 SERVER = http://serene-forest-4377.herokuapp.com/
 
