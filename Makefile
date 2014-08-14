@@ -86,7 +86,7 @@ checkpoint:
 
 ##################### App-Specific Import / Exports #####################
 
-import_noora:
+import_tracking:
 	~/Downloads/flip.universal -u ~/Documents/NooraTracking.csv
 #	tail -n +2 ~/Documents/NooraTracking.csv > ~/Documents/NooraTrackingReady.csv
 	$(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d latest -c noora_tracking -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/NooraTrackingReady.csv --headerline
@@ -103,6 +103,9 @@ import_links:
 	~/Downloads/flip.universal -u ~/Documents/Links.csv
 	$(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d latest -c links -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/Links.csv --headerline
 
+
+export_tracking:
+	$(MONGOPATH)/mongoexport --host $(MONGO_URL) -port $(MONGO_PORT) -d latest -c noora_tracking -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --out ~/Documents/NooraTrackingDump.json
 
 ###################### App specific Route Triggers ############################
 
