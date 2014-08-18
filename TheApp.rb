@@ -163,7 +163,7 @@ class TheApp < Sinatra::Base
 
       TWILIO_CALLER_ID = ENV['TWILIO_CALLER_ID']
 
-      TWILIO_CALLER_ID = '+9109620284569'
+      TWILIO_CALLER_ID = '9620284569'
 
       PTS_FOR_BG = 10
       PTS_FOR_INS = 5
