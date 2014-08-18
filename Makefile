@@ -1,8 +1,6 @@
 
-
 # This Makefile assumes mongo access params are in local ENV
 #   under both ENV var conventions, new + old
-
 
 MAIN = TheApp.rb Gemfile Gemfile.lock Makefile
 VIEWS = views/list.erb static/main.css
@@ -10,6 +8,7 @@ VIEWS = views/list.erb static/main.css
 SERVER = http://serene-forest-4377.herokuapp.com/
 
 MONGOPATH = ~/mongodb-osx-x86_64-2.6.1/bin
+MONGO_RSET_URL = lighthouse.0.mongolayer.com:10104/production
 
 AUDIO = ~/Dropbox/HyWay/static/VascularContent/Audio
 IMAGES = ~/Dropbox/HyWay/static/VascularContent/Images
@@ -106,6 +105,10 @@ import_links:
 
 export_tracking:
 	$(MONGOPATH)/mongoexport --host $(MONGO_URL) -port $(MONGO_PORT) -d latest -c noora_tracking -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --out ~/Documents/NooraTrackingDump.json
+
+replicate_tracking:
+        $(MONGOPATH)/mongoimport --host $(MONGO_RSET_URL) -port $(MONGO_RSET_PORT) -d latest -c noora_tracking -u $(MONGO_RSET_USER_ID) -p $(MONGO_RSET_PASSWORD) --file ~/Documents/NooraTrackingDump.json
+
 
 ###################### App specific Route Triggers ############################
 
