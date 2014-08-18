@@ -1,4 +1,8 @@
 
+#
+# 
+#
+
 # http://stackoverflow.com/questions/936249/stop-tracking-and-ignore-changes-to-a-file-in-git
 
 # Cautionary Note:
@@ -16,6 +20,12 @@
 
 
 # TODO List:
+
+# [--] Waterfall the environment variables and other config (API keys etc.) as
+#      follows: read-from-ENV, then read-from-Mongo-and-overwrite conflicts
+# [--] This means that Mongo config vars over-ride ENV ones
+
+# [--] Write a Makefile rule that syncs the local ENV *to* the mongo vars
 
 # [--] Switch DB to: https://app.mongohq.com/stephen-a-racunas-gmail-com/mongo/production/users
 # [--] http://www.wooptoot.com/file-upload-with-sinatra
@@ -152,6 +162,8 @@ class TheApp < Sinatra::Base
     begin
 
       TWILIO_CALLER_ID = ENV['TWILIO_CALLER_ID']
+
+      TWILIO_CALLER_ID = '+9109620284569'
 
       PTS_FOR_BG = 10
       PTS_FOR_INS = 5
