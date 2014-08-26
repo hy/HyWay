@@ -641,8 +641,8 @@ class TheApp < Sinatra::Base
  get /Call(?<ph_num>.*)/ do
     puts params['ph_num']
 
-    @called_num = params['ph_num']
-    @called_num = '+17244489427'
+    $called_num = params['ph_num']
+    $called_num = '+17244489427'
 
     # make a new outgoing call
     @call = $twilio_account.calls.create(
@@ -654,7 +654,7 @@ class TheApp < Sinatra::Base
   end #get Call
 
   post '/call-handler' do
-    d = DB['bangalore'].find_one({'Mobile No' => @called_num})
+    d = DB['bangalore'].find_one({'Mobile No' => $called_num})
     @Language = d['Language']
     @Language = 'Hindi' if (@Language == nil)
 
@@ -2238,7 +2238,7 @@ class TheApp < Sinatra::Base
     ###########################################################################
     def addPhone(row)
       if row['Callable']=='yes' then
-        return '<a href="' +SITE+ 'Call?ph=' + row['id'].to_s + '" >
+        return '<a href="' +SITE+ 'Call?ph=' + row['Mobile No'].to_s + '" >
           <img border="0" alt="Phone" src="images/phone.png" /> </a>'
       else
         return ''
