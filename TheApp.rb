@@ -660,7 +660,7 @@ class TheApp < Sinatra::Base
 
     in_proper_language_and_scope = {'Language'=>@Language}
 
-    @audio = DB['recordings'].find_one(in_proper_language_and_scope)['url']
+    @audio = DB['voiceovers'].find_one(in_proper_language_and_scope)['url']
 
     response = Twilio::TwiML::Response.new do |r|
       r.Pause :length => 2 
@@ -1042,7 +1042,7 @@ class TheApp < Sinatra::Base
       "Judge" => "None",
       "url" => params['RecordingUrl']
     }
-    DB['recordings'].remove({})
+#    DB['recordings'].remove({})
     puts DB['recordings'].insert(record_to_send_to_db)
    
     puts @recording_url = params['RecordingUrl'] 
