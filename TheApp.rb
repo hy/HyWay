@@ -641,25 +641,32 @@ class TheApp < Sinatra::Base
  get /Call(?<ph_num>.*)/ do
     puts params['ph_num']
 
+    @called_num = params['ph_num']
+    @called_num = '+17244489427'
+
     # make a new outgoing call
     @call = $twilio_account.calls.create(
       :from => INDIA_CALLER_ID,
-      :to => '+17244489427',
+      :to => ph_num,
       :url => SITE + '/call-handler',
     )
   # Auto-redirects to :url => [call-handler, below]
   end #get Call
 
   post '/call-handler' do
-    what_to_say = DB['nh_msg'].find_one()['words']
-    @custom_audio_content = DB['recordings'].find_one()['url']
+    d = DB['bangalore'].find_one({'Mobile No' => @called_num})
+    @Language = d['Language']
+    @Language = 'English' if (@Language == nil)
+
+    in_proper_language_and_scope = {'Language'=>@Language}
+
+    @audio = DB['recordings'].find_one(in_proper_language_and_scope)['url']
 
     response = Twilio::TwiML::Response.new do |r|
       r.Pause :length => 2 
-      r.Say 'Hello', :voice => 'woman'
+      r.Say 'Namaskar!', :voice => 'woman'
       r.Pause :length => 1
-      r.Say what_to_say, :voice => 'woman'
-      r.Play @custom_audio_content
+      r.Play @audio
     end #response
 
     response.text do |format|
