@@ -2341,6 +2341,13 @@ class TheApp < Sinatra::Base
     ###########################################################################
     # HTML injection: specific document details from mongo, via HyLiter
     ###########################################################################
+    def addKyronLink(row)
+      '<a href="http://pbe.kyron.com/?cohort=cardiovascular+procedure&interventions%5B%5D=surgery&outcomes%5B%5D=myocardial+infarction+acute" >  
+         <img border="0" alt="Kyron" src="images/magnify.png" /> </a>'
+    end
+    ###########################################################################
+    # HTML injection: specific document details from mongo, via HyLiter
+    ###########################################################################
     def addDetailLink(row)
       '<a href="' +SITE+ 'note=' +
       row['id'].to_s + '" >  
