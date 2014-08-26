@@ -641,8 +641,15 @@ class TheApp < Sinatra::Base
  get /Call(?<ph_num>.*)/ do
     puts params['ph']
 
-    d = DB['bangalore'].find_one({'Mobile No' => params['ph']})
-    $Language = d['Language']
+    d = DB['bangalore'].find_one({'Mobile No' => params['ph'].to_i})
+
+    if d == nil 
+      $Language = 'Hindi'
+    elseif d['Language'] == nil 
+      $Language = 'Hindi'
+    else
+      $Language = d['Language']
+    end #if
 
     # make a new outgoing call
     @call = $twilio_account.calls.create(
