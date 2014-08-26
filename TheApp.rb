@@ -641,8 +641,8 @@ class TheApp < Sinatra::Base
  get /Call(?<ph_num>.*)/ do
     puts params['ph']
 
-    $called_num = params['ph']
-    $called_num = '+17244489427'
+    $called_num = params['ph'].to_s
+#    $called_num = '+17244489427'
 
     # make a new outgoing call
     @call = $twilio_account.calls.create(
