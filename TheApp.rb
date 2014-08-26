@@ -641,21 +641,21 @@ class TheApp < Sinatra::Base
  get /Call(?<ph_num>.*)/ do
     puts params['ph']
 
-    $called_num = params['ph']
+    d = DB['bangalore'].find_one({'Mobile No' => params['ph']})
+    $Language = d['Language']
 
     # make a new outgoing call
     @call = $twilio_account.calls.create(
       :from => INDIA_CALLER_ID,
-      :to => $called_num,
+      :to => params['ph'],
       :url => SITE + '/call-handler',
     )
   # Auto-redirects to :url => [call-handler, below]
   end #get Call
 
   post '/call-handler' do
-    d = DB['bangalore'].find_one({'Mobile No' => $called_num})
-    @Language = d['Language']
-    @Language = 'Hindi' if (@Language == nil)
+    @Language = 'Hindi' if ($Language == nil)
+    @Language = $Language
 
     in_proper_language_and_scope = {'Language'=>@Language}
 
