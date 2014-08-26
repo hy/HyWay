@@ -32,11 +32,11 @@
                       addSMS(hash) + 
                       addDetailLink(hash) + 'Patient: ' + 
                       ifPresentThenShow(hash, 'Patient Name') + ' at: ' +
-                      ifPresentThenShow(hash, 'Mobile No') + '(with CC ' + 
+                      ifPresentThenShow(hash, 'Mobile No') + 'with CC ' + 
                       ifPresentThenShow(hash, 'Relationship') + '= ' +
                       ifPresentThenShow(hash, 'PrimaryCC') + ' at: ' +
-                      ifPresentThenShow(hash, 'CCphone') + ') ' + 'speaking:' +
-                      ifPresentThenShow(hash, 'Language') + 
+                      ifPresentThenShow(hash, 'CCphone') + ' ' + '(speaks ' +
+                      ifPresentThenShow(hash, 'Language') + ')' +
                       addCircle(hash) +
                       addUpToDateLink(hash['search_string']) + 
                       addAHALink(hash['search_string']) + 
