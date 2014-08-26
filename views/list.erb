@@ -31,10 +31,12 @@
                       addPhone(hash) +
                       addSMS(hash) + 
                       addDetailLink(hash) + 'Patient: ' + 
-                      ifPresentThenShow(hash, 'Patient') + ' (' +
                       ifPresentThenShow(hash, 'Relationship') + '= ' +
+                      ifPresentThenShow(hash, 'Patient') + ' (' +
+                      ifPresentThenShow(hash, 'Patient Name') + ' (' +
                       ifPresentThenShow(hash, 'PrimaryCC') + ' ' +
                       ifPresentThenShow(hash, 'CCphone') + ') ' + 
+                      ifPresentThenShow(hash, 'Mobile No') + ') ' + 
                       ifPresentThenShow(hash, 'title') + 
                       ifPresentThenShow(hash, 'url') + 
                       addCircle(hash) +
