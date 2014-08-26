@@ -639,15 +639,15 @@ class TheApp < Sinatra::Base
 
 
  get /Call(?<ph_num>.*)/ do
-    puts params['ph_num']
+    puts params['ph']
 
-    $called_num = params['ph_num']
+    $called_num = params['ph']
     $called_num = '+17244489427'
 
     # make a new outgoing call
     @call = $twilio_account.calls.create(
       :from => INDIA_CALLER_ID,
-      :to => @called_num,
+      :to => $called_num,
       :url => SITE + '/call-handler',
     )
   # Auto-redirects to :url => [call-handler, below]
