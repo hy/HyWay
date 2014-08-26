@@ -93,7 +93,7 @@ import_tracking:
 import_test:
 	$(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d latest -c noora_tracking -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/TestCCs.csv --headerline
 
-import_hinai:
+import_daily_feed:
 	~/Downloads/flip.universal -u ~/Documents/Inpatients_0724.csv
 	tail -n +9 ~/Documents/Inpatients_0724.csv > ~/Documents/InpatientSampleReady.csv
 	$(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d latest -c inpatients -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/InpatientSampleReady.csv --headerline
@@ -101,6 +101,11 @@ import_hinai:
 import_links:
 	~/Downloads/flip.universal -u ~/Documents/Links.csv
 	$(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d latest -c links -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/Links.csv --headerline
+
+import_bangalore:
+        ~/Downloads/flip.universal -u ~/Documents/bangalore.csv
+        $(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d latest -c bangalore -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/bangalore.csv --headerline
+
 
 
 export_tracking:
