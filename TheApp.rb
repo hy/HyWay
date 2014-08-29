@@ -671,6 +671,7 @@ class TheApp < Sinatra::Base
     response = Twilio::TwiML::Response.new do |r|
       r.Pause :length => 2 
       r.Play @audio
+      r.Hangup
     end #response
 
     response.text do |format|
