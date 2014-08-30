@@ -637,7 +637,6 @@ class TheApp < Sinatra::Base
 #    }
   end
 
-
  get /Call(?<ph_num>.*)/ do
     puts params['ph']
 
@@ -656,6 +655,7 @@ class TheApp < Sinatra::Base
       :from => INDIA_CALLER_ID,
       :to => params['ph'],
       :url => SITE + '/call-handler',
+      :StatusCallback => SITE + '/status_callback_for_outgoing_calls'
     )
   # Auto-redirects to :url => [call-handler, below]
   end #get Call
@@ -3575,6 +3575,25 @@ class TheApp < Sinatra::Base
          'utc' => @now_f
       }
       puts DB['log'].insert(doc)
+
+    rescue Exception => e;  log_exception( e, where );  end
+  end #get
+
+  get '/status_callback_for_outgoing_calls' do
+    begin
+      puts where = "STATUS CALLBACK ROUTE FOR OUTGOING CALLS"
+
+      params.each { |k, v|
+#        puts request.path_info + ': ' + k.to_s + ' <---> ' + v.to_s
+        puts 'Made Call params: ' + k.to_s + ' <---> ' + v.to_s
+      }
+
+      puts doc = {
+         'What' => 'Outgoing Voice Call completed',
+         'Who' => params['From'],
+         'utc' => @now_f
+      }
+      puts DB['calls'].insert(doc)
 
     rescue Exception => e;  log_exception( e, where );  end
   end #get
