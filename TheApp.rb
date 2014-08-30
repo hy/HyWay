@@ -761,8 +761,12 @@ class TheApp < Sinatra::Base
       }
 
       puts doc = {
-         'What' => 'Outgoing Voice Call completed',
-         'Who' => params['From'],
+         'What' => 'Outgoing Voice Call',
+         'Direction' => params['Direction'], 
+         'From' => params['From'], 
+         'To' => params['To'],
+         'CallDuration' => params['CallDuration'], 
+         'CallStatus' => params['CallStatus'], 
          'utc' => @now_f
       }
       puts DB['calls'].insert(doc)
@@ -770,7 +774,9 @@ class TheApp < Sinatra::Base
     rescue Exception => e;  log_exception( e, where );  end
   end #get
 
-
+  #############################################################################
+  # End of Callbacks and Fallbacks . . . 
+  #############################################################################
 
   
   post '/awsSNSforvideos' do  
