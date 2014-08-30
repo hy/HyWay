@@ -2346,6 +2346,22 @@ class TheApp < Sinatra::Base
       end
     end
     ###########################################################################
+    # HTML injection: phone status data associated with this row
+    ###########################################################################
+    def addPhoneStatus(row)
+      if row['Callable']=='yes' then
+        db_cursor = DB['calls'].find({'To' => row['Phone No']})
+        db_record = db_cursor.sort('utc' => -1).limit(1).first
+
+        last_call_status = db_record['CallStatus']
+        last_call_duration = db_record['CallDuration']
+
+        return last_call_status ':' + last_call_duration.to_s
+      else
+        return ''
+      end
+    end
+    ###########################################################################
     # HTML injection: SMS the number associated with this row
     ###########################################################################
     def addSMS(row)
