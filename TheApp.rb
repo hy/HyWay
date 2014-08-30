@@ -140,7 +140,7 @@ class TheApp < Sinatra::Base
   set :public_folder, File.dirname(__FILE__) + '/static'
 
   configure :development do
-    SITE = 'http://localhost:3000'
+    SITE = 'http://localhost:3000/'
     puts '____________CONFIGURING FOR LOCAL SITE: ' + SITE + '____________'
   end
   configure :production do
@@ -654,9 +654,9 @@ class TheApp < Sinatra::Base
     @call = $twilio_account.calls.create(
       :From => INDIA_CALLER_ID,
       :To => params['ph'],
-      :Url => SITE + '/call-handler',
+      :Url => SITE + 'call-handler',
       :StatusCallbackMethod => 'GET',
-      :StatusCallback => SITE + '/status_callback_for_outgoing_calls'
+      :StatusCallback => SITE + 'status_callback_for_outgoing_calls'
     )
   # Auto-redirects to :url => [call-handler, below]
   end #get Call
@@ -1052,7 +1052,7 @@ class TheApp < Sinatra::Base
     puts DB['recordings'].insert(record_to_send_to_db)
    
     puts @recording_url = params['RecordingUrl'] 
-    puts @action_route_url = "#{SITE}/gather_keypad_response"
+    puts @action_route_url = "#{SITE}gather_keypad_response"
 
 #    erb :voice_recorded 
   end # get voice_recorded
@@ -1067,19 +1067,19 @@ class TheApp < Sinatra::Base
 
         if params['Digits'] == '6'
           xml.Say("Playing the top rated quotes")
-          xml.Redirect({:method => 'GET'}, "#{SITE}/play/top/quotes")
+          xml.Redirect({:method => 'GET'}, "#{SITE}play/top/quotes")
         elsif params['Digits'] == '7'
           xml.Say("Replaying all quotes from this number:")
-          xml.Redirect("#{SITE}/play/my/quotes")
+          xml.Redirect("#{SITE}play/my/quotes")
         elsif params['Digits'] == '8'
           xml.Say("Playing all quotes from other callers:")
-          xml.Redirect("#{SITE}/play/others/quotes")
+          xml.Redirect("#{SITE}play/others/quotes")
         elsif params['Digits'] == '9'
           xml.Say("Moderating unrated quotes:")
-          xml.Redirect("#{SITE}/moderate")
+          xml.Redirect("#{SITE}moderate")
         elsif params['Digits'] == '0'
           xml.Say("Help and Information Menu:")
-          xml.Redirect("#{SITE}/help_menu")
+          xml.Redirect("#{SITE}help_menu")
         end#if
 
 
@@ -2318,7 +2318,7 @@ class TheApp < Sinatra::Base
     # HTML injection: link to Gmail controller
     ###########################################################################
     def addGmailLink()
-      '<a href="' +SITE+ '/gmail">' + 
+      '<a href="' +SITE+ 'gmail">' + 
          '<img border="0" alt="gmail" src="images/gmail.png" /> </a>'
     end
     ###########################################################################
