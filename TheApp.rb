@@ -670,7 +670,7 @@ class TheApp < Sinatra::Base
     @audio = DB['voiceovers'].find_one(in_proper_language_and_scope)['url']
 
     response = Twilio::TwiML::Response.new do |r|
-      r.Pause :length => 2 
+      r.Pause :length => 1 
       r.Play @audio
       r.Hangup
     end #response
