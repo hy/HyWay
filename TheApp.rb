@@ -684,6 +684,94 @@ class TheApp < Sinatra::Base
 #  https://www.twilio.com/docs/quickstart/ruby/client/outgoing-calls
 
 
+
+  #############################################################################
+  # FALLBACKS AND CALLBACKS
+  #############################################################################
+
+  #############################################################################
+  # If voice_request route can't be reached or there is a runtime exception:
+  #############################################################################
+  get '/voice_fallback' do
+    puts "VOICE FALLBACK ROUTE"
+    response = Twilio::TwiML::Response.new do |r|
+      r.Say 'Goodbye for now!'
+    end #response
+
+    response.text do |format|
+      format.xml { render :xml => response.text }
+    end #do
+  end #get
+
+
+  #############################################################################
+  # If the SMS_request route can't be reached or there is a runtime exception
+  #############################################################################
+  get '/SMS_fallback' do
+    puts where = 'SMS FALLBACK ROUTE'
+    begin
+      doc = Hash.new
+      params.each { |key, val|
+        puts ('KEY:'+key+'  VAL:'+val)
+        doc[key.to_s] = val.to_s
+      }
+      doc['utc'] = Time.now.to_f
+
+      if ( env['sinatra.error'] == nil )
+        puts 'NO SINATRA ERROR MESSAGE'
+        doc['sinatra.error'] = 'None'
+      else
+        puts 'SINATRA ERROR \n WITH MESSAGE= ' + env['sinatra.error'].message
+        doc['sinatra.error'] = env['sinatra.error'].message
+      end
+
+      DB['fallbacks'].insert(doc)
+
+    rescue Exception => e;  log_exception( e, where );  end
+
+  end #get
+
+
+  #############################################################################
+  # Whenever an incoming voice interaction completes:
+  #############################################################################
+  get '/status_callback' do
+    begin
+      puts where = "STATUS CALLBACK ROUTE"
+
+      puts doc = {
+         'What' => 'Voice Call completed',
+         'Who' => params['From'],
+         'utc' => @now_f
+      }
+      puts DB['log'].insert(doc)
+
+    rescue Exception => e;  log_exception( e, where );  end
+  end #get
+
+  #############################################################################
+  # Whenever an outgoing voice interaction completes:
+  #############################################################################
+  get '/status_callback_for_outgoing_calls' do
+    begin
+      puts where = "STATUS CALLBACK ROUTE FOR OUTGOING CALLS"
+
+      params.each { |k, v|
+        puts 'Made Call params: ' + k.to_s + ' <---> ' + v.to_s
+      }
+
+      puts doc = {
+         'What' => 'Outgoing Voice Call completed',
+         'Who' => params['From'],
+         'utc' => @now_f
+      }
+      puts DB['calls'].insert(doc)
+
+    rescue Exception => e;  log_exception( e, where );  end
+  end #get
+
+
+
   
   post '/awsSNSforvideos' do  
     puts "AWS request.env"
@@ -3515,88 +3603,6 @@ class TheApp < Sinatra::Base
   #############################################################################
 
 
-
-  #############################################################################
-  # FALLBACKS AND CALLBACKS 
-  #############################################################################
-
-  #############################################################################
-  # If voice_request route can't be reached or there is a runtime exception:
-  #############################################################################
-  get '/voice_fallback' do
-    puts "VOICE FALLBACK ROUTE"
-    response = Twilio::TwiML::Response.new do |r|
-      r.Say 'Goodbye for now!'
-    end #response
-
-    response.text do |format|
-      format.xml { render :xml => response.text }
-    end #do
-  end #get
-
-
-  #############################################################################
-  # If the SMS_request route can't be reached or there is a runtime exception
-  #############################################################################
-  get '/SMS_fallback' do
-    puts where = 'SMS FALLBACK ROUTE'
-    begin
-      doc = Hash.new
-      params.each { |key, val|
-        puts ('KEY:'+key+'  VAL:'+val)
-        doc[key.to_s] = val.to_s
-      }
-      doc['utc'] = Time.now.to_f
-
-      if ( env['sinatra.error'] == nil )
-        puts 'NO SINATRA ERROR MESSAGE'
-        doc['sinatra.error'] = 'None'
-      else
-        puts 'SINATRA ERROR \n WITH MESSAGE= ' + env['sinatra.error'].message
-        doc['sinatra.error'] = env['sinatra.error'].message
-      end
-
-      DB['fallbacks'].insert(doc)
-
-    rescue Exception => e;  log_exception( e, where );  end
-
-  end #get
-
-
-  #############################################################################
-  # Whenever a voice interaction completes:
-  #############################################################################
-  get '/status_callback' do
-    begin
-      puts where = "STATUS CALLBACK ROUTE"
-
-      puts doc = {
-         'What' => 'Voice Call completed',
-         'Who' => params['From'],
-         'utc' => @now_f
-      }
-      puts DB['log'].insert(doc)
-
-    rescue Exception => e;  log_exception( e, where );  end
-  end #get
-
-  get '/status_callback_for_outgoing_calls' do
-    begin
-      puts where = "STATUS CALLBACK ROUTE FOR OUTGOING CALLS"
-
-      params.each { |k, v|
-        puts 'Made Call params: ' + k.to_s + ' <---> ' + v.to_s
-      }
-
-      puts doc = {
-         'What' => 'Outgoing Voice Call completed',
-         'Who' => params['From'],
-         'utc' => @now_f
-      }
-      puts DB['calls'].insert(doc)
-
-    rescue Exception => e;  log_exception( e, where );  end
-  end #get
 
 
 end #class TheApp
