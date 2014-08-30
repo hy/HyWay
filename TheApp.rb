@@ -652,9 +652,10 @@ class TheApp < Sinatra::Base
 
     # make a new outgoing call
     @call = $twilio_account.calls.create(
-      :from => INDIA_CALLER_ID,
-      :to => params['ph'],
-      :url => SITE + '/call-handler',
+      :From => INDIA_CALLER_ID,
+      :To => params['ph'],
+      :Url => SITE + '/call-handler',
+      :StatusCallbackMethod => 'GET',
       :StatusCallback => SITE + '/status_callback_for_outgoing_calls'
     )
   # Auto-redirects to :url => [call-handler, below]
@@ -3584,7 +3585,6 @@ class TheApp < Sinatra::Base
       puts where = "STATUS CALLBACK ROUTE FOR OUTGOING CALLS"
 
       params.each { |k, v|
-#        puts request.path_info + ': ' + k.to_s + ' <---> ' + v.to_s
         puts 'Made Call params: ' + k.to_s + ' <---> ' + v.to_s
       }
 
