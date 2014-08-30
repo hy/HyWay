@@ -29,6 +29,7 @@
                @d += '<li>'
                @d = @d + 
                       addPhone(hash) +
+                      addPhoneStatus(hash) + 
                       addSMS(hash) + 
                       addKyronLink(hash) + 'Patient ' + 
                       ifPresentThenShow(hash, 'Patient Name') + ' at: ' +
