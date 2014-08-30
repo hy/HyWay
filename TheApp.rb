@@ -2350,12 +2350,12 @@ class TheApp < Sinatra::Base
     ###########################################################################
     def addPhoneStatus(row)
       if row['Callable']=='yes' then
-        db_cursor = DB['calls'].find({'To' => row['Mobile No']})
+        db_cursor = DB['calls'].find({'To' => '+'+row['Mobile No'].to_s})
         db_record = db_cursor.sort('utc' => -1).limit(1).first
 
         text = 'X' if db_record == nil
         if (db_record != nil) 
-          text = db_record['CallStatus']+':'+db_record['CallDuration'].to_s
+          text = db_record['CallStatus']+':'+db_record['CallDuration'].to_s +'s'
         end #if
 
         return text
