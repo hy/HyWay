@@ -2355,7 +2355,7 @@ class TheApp < Sinatra::Base
 
         text = 'X' if db_record == nil
         if (db_record != nil) 
-          text = db_record['CallStatus']+':'+db_record['CallDuration'].to_s +'s'
+          text = db_record['CallStatus']+':'+db_record['CallDuration'].to_s
         end #if
 
         return text
