@@ -1151,7 +1151,7 @@ class TheApp < Sinatra::Base
 #    erb :voice_recorded 
   end # get voice_recorded
 
-  get '/gather_keypad_response' do
+  get '/gather_keypad_response_for_nh' do
     puts '/GATHER_KEYPAD_RESPONSE \n WITH PARAMS= ' + params.to_s
     builder do |xml|
       xml.instruct!
@@ -1159,13 +1159,14 @@ class TheApp < Sinatra::Base
         xml.Say("You have selected")
         xml.Say(params['Digits'])
 
-        if params['Digits'] == '6'
-          xml.Say("Playing the top rated quotes")
-          xml.Redirect({:method => 'GET'}, "#{SITE}play/top/quotes")
-        elsif params['Digits'] == '7'
-          xml.Say("Replaying all quotes from this number:")
-          xml.Redirect("#{SITE}play/my/quotes")
-        elsif params['Digits'] == '8'
+        if params['Digits'] == '2'
+          $Language = 'Kannada'
+          xml.Say("Playing the message in Kannada")
+          xml.Redirect({:method => 'GET'}, "#{SITE}call-handler")
+        elsif params['Digits'] == '3'
+          xml.Say("Playing the message in Telugu")
+          xml.Redirect({:method => 'GET'}, "#{SITE}call-handler")
+        elsif params['Digits'] == '4'
           xml.Say("Playing all quotes from other callers:")
           xml.Redirect("#{SITE}play/others/quotes")
         elsif params['Digits'] == '9'
