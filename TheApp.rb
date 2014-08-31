@@ -524,7 +524,7 @@ class TheApp < Sinatra::Base
   #############################################################################
 
   get '/' do
-    '!!!!!!!!!!!!!!!!!!!!!!!! SERVER IS READY !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+    '!!!!!!!!!!!!!!!!!!!!!!!! SERVER READY !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
   end
 
   get '/test' do
@@ -680,7 +680,37 @@ class TheApp < Sinatra::Base
     end #do response.text
   end #get call-handler
 
-# PERHAPS SEE:
+  get '/gather_keypad_response_for_nh' do
+    puts '/GATHER_KEYPAD_RESPONSE \n WITH PARAMS= ' + params.to_s
+    builder do |xml|
+      xml.instruct!
+      xml.Response do
+        xml.Say("You have selected")
+        xml.Say(params['Digits'])
+
+        if params['Digits'] == '2'
+          $Language = 'Kannada'
+          xml.Say("Playing the message in Kannada")
+          xml.Redirect({:method => 'GET'}, "#{SITE}call-handler")
+        elsif params['Digits'] == '3'
+          xml.Say("Playing the message in Telugu")
+          xml.Redirect({:method => 'GET'}, "#{SITE}call-handler")
+        elsif params['Digits'] == '4'
+          xml.Say("Playing all quotes from other callers:")
+          xml.Redirect("#{SITE}play/others/quotes")
+        elsif params['Digits'] == '9'
+          xml.Say("Moderating unrated quotes:")
+          xml.Redirect("#{SITE}moderate")
+        elsif params['Digits'] == '0'
+          xml.Say("Help and Information Menu:")
+          xml.Redirect("#{SITE}help_menu")
+        end#if
+
+      end#xml.Response do
+    end #builder do
+  end #get
+
+# FOR MORE IDEAS PERHAPS SEE:
 #  https://www.twilio.com/docs/quickstart/ruby/client/outgoing-calls
 
 
@@ -1056,7 +1086,7 @@ class TheApp < Sinatra::Base
   #   If they are a patient and have data we speak their last report
   #
   #############################################################################
-  get '/voice_request' do
+  get '/voice_request_optionB' do
     puts "VOICE REQUEST ROUTE"
 
     caller_ph_number = params['From']
@@ -1081,7 +1111,7 @@ class TheApp < Sinatra::Base
   end #get
 
 ###############################################################################
-  get '/voice_request_orig' do
+  get '/voice_request' do
     patient_ph_num = patient_ph_num_assoc_wi_caller
     # last_level = last_glucose_lvl_for(patient_ph_num)
     last_level = last_checkin_for(patient_ph_num)
@@ -1129,7 +1159,7 @@ class TheApp < Sinatra::Base
     "<Response><Reject/></Response>"
   end #get
 
-  get '/voice_recorded' do
+  get '/voice_recorded_optionB' do
        puts '/VOICE_RECORDED \n WITH PARAMS= ' + params.to_s 
     
     puts record_to_send_to_db = { 
@@ -1150,38 +1180,6 @@ class TheApp < Sinatra::Base
 
 #    erb :voice_recorded 
   end # get voice_recorded
-
-  get '/gather_keypad_response_for_nh' do
-    puts '/GATHER_KEYPAD_RESPONSE \n WITH PARAMS= ' + params.to_s
-    builder do |xml|
-      xml.instruct!
-      xml.Response do
-        xml.Say("You have selected")
-        xml.Say(params['Digits'])
-
-        if params['Digits'] == '2'
-          $Language = 'Kannada'
-          xml.Say("Playing the message in Kannada")
-          xml.Redirect({:method => 'GET'}, "#{SITE}call-handler")
-        elsif params['Digits'] == '3'
-          xml.Say("Playing the message in Telugu")
-          xml.Redirect({:method => 'GET'}, "#{SITE}call-handler")
-        elsif params['Digits'] == '4'
-          xml.Say("Playing all quotes from other callers:")
-          xml.Redirect("#{SITE}play/others/quotes")
-        elsif params['Digits'] == '9'
-          xml.Say("Moderating unrated quotes:")
-          xml.Redirect("#{SITE}moderate")
-        elsif params['Digits'] == '0'
-          xml.Say("Help and Information Menu:")
-          xml.Redirect("#{SITE}help_menu")
-        end#if
-
-
-      end#xml.Response do
-    end #builder do
-  end #get
-
 
   #############################################################################
   # EXTERNALLY-TRIGGERED EVENT AND ALARM ROUTES
@@ -1219,8 +1217,7 @@ class TheApp < Sinatra::Base
     end
 
     Time.now.to_s  # <-- Must return a string for all get req's
-
-  end #do tick
+  end #do heartbeat
 
 
   get '/hourly_ping' do
@@ -1241,7 +1238,6 @@ class TheApp < Sinatra::Base
     end
 
     "One Hour Passes"+a.to_s  # <-- Must return a string for all get req's
-
   end #do get ping
 
 
@@ -1263,8 +1259,7 @@ class TheApp < Sinatra::Base
     end
 
     "One Day Passes"+a.to_s  # <-- Must return a string for all get req's
-
-  end
+  end #do daily_refresh
 
 
 
