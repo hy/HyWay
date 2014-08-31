@@ -4,7 +4,7 @@ HyWay
 
 "HyWay" . . .   (: lots of things moving around, and it's almost always "under-construction" :) 
 
-Currently supporting a test-bed and prototyping environment for the following projects: 
+Currently supporting a testbed and prototyping environment for the following projects: 
 
 * Childhood nutrition
 
@@ -12,7 +12,7 @@ Currently supporting a test-bed and prototyping environment for the following pr
 
 * Health literacy
 
-* Hardware + Software integration endpoints for sensors (Twine, Spark), Beacons, and wearables . . .   
+* Hardware + Software integration endpoints for sensors Beacons, and wearables
 
 * Care Companion coordination
 
