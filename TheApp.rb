@@ -90,7 +90,7 @@ require 'httparty'
 
 #require 'rest-client'
 
-require 'aws-sdk'
+#require 'aws-sdk'
 
 ###############################################################################
 # Optional Requires (Not essential for base version)
@@ -807,7 +807,10 @@ class TheApp < Sinatra::Base
   # End of Callbacks and Fallbacks . . . 
   #############################################################################
 
-  
+ 
+#############################################################################
+#DISABLED FOR NOW.  TO RE-ENABLE, uncomment Gem in Gemfile and require @above 
+#############################################################################
   post '/awsSNSforvideos' do  
     puts "AWS request.env"
     req_env = request.env
@@ -839,6 +842,11 @@ class TheApp < Sinatra::Base
     end #if
  
   end
+
+
+#############################################################################
+# Enable Auto-logging of commits to Asana tracking system
+#############################################################################
 
   get '/log_at_asana' do
     puts "ASANA_TASK ROUTE"
