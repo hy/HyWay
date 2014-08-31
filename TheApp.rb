@@ -690,19 +690,18 @@ class TheApp < Sinatra::Base
 
         if params['Digits'] == '2'
           $Language = 'Kannada'
-          xml.Say("Playing the message in Kannada")
+          xml.Say('re-playing the message in Kannada')
           xml.Redirect({:method => 'GET'}, "#{SITE}call-handler")
         elsif params['Digits'] == '3'
-          xml.Say("Playing the message in Telugu")
+          $Language = 'Telugu'
+          xml.Say('re-playing the message in Telugu')
           xml.Redirect({:method => 'GET'}, "#{SITE}call-handler")
         elsif params['Digits'] == '4'
-          xml.Say("Playing all quotes from other callers:")
-          xml.Redirect("#{SITE}play/others/quotes")
-        elsif params['Digits'] == '9'
-          xml.Say("Moderating unrated quotes:")
-          xml.Redirect("#{SITE}moderate")
+          $Language = 'Hindi'
+          xml.Say('re-playing the message in Hindi')
+          xml.Redirect({:method => 'GET'}, "#{SITE}call-handler")
         elsif params['Digits'] == '0'
-          xml.Say("Help and Information Menu:")
+          xml.Say('Help and Information Menu:')
           xml.Redirect("#{SITE}help_menu")
         end#if
 
