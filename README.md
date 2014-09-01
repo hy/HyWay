@@ -14,5 +14,5 @@ Currently supporting a testbed and prototyping environment for the following pro
 
 * Hardware + Software integration endpoints for sensors Beacons, and wearables
 
-* Care Companion coordination
+* Care Companion coordination (http://narayanahealth.org/care-companion)
 
