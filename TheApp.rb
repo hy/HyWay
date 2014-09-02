@@ -2997,7 +2997,7 @@ class TheApp < Sinatra::Base
             }
       DB['checkins'].insert(doc)
 
-      msg = "Got your checkin!"
+      msg = 'Got a generic tagged checkin!'
       msg += " Logging %.1f %s, %s" % [value_f, flavor_text_s, tag_s]
 
     rescue Exception => e
