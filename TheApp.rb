@@ -1659,6 +1659,20 @@ class TheApp < Sinatra::Base
     reply_via_SMS( msg_for_patient )
   end # Feedback help
 
+  get /\/c\/(help|instructions)/x do
+
+    p_msg = 'HELP TOPICS: text Checkins, Config, or Feedback for info on each.'
+
+    c_msg = 'info=see settings; low67=low BG threshold at 67; high310=high threshold at 310; goal120=set goal to accumulate 120 pts; week=check stats'
+
+    msg = p_msg
+    msg = c_msg if DB['groups'].find_one({'CaregiverID' => params['From']})
+
+    reply_via_SMS( msg )
+
+  end # get help
+
+
 
 
   #############################################################################
