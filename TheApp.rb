@@ -1,4 +1,4 @@
-# 
+ 
 # Serve CSV:
 # https://gist.github.com/hy/6746a9fe455ec906dce4 
 #
@@ -1144,15 +1144,10 @@ class TheApp < Sinatra::Base
     end #if
 
     speech_text = 'Hello!'
-#    speech_text += 'Let us see what information we have for you.'
-    speech_text += ' The last glucose checkin for'
-    speech_text += ' ' 
-#    speech_text += flavor_text 
-    speech_text += ' ' 
-    speech_text += 'was' 
-    speech_text += ' ' 
+    speech_text += ' The last glucose checkin was: '
+    speech_text += ' . ' 
     speech_text += number_as_string
-    speech_text += ' ' 
+    speech_text += ' . ' 
     speech_text += time_of_last_checkin
    
     response = Twilio::TwiML::Response.new do |r|
