@@ -1131,7 +1131,7 @@ class TheApp < Sinatra::Base
   get '/voice_request' do
     patient_ph_num = patient_ph_num_assoc_wi_caller
     puts 'PATIENT PHONE NUMBER INCOMING AS:' + patient_ph_num
-    last_level = last_glucose_lvl_for(patient_ph_num)
+    last_level = last_glucose_lvl_for(params['From'])
 #    last_level = last_checkin_for(patient_ph_num)
 
     @flavor_text = 'you'
