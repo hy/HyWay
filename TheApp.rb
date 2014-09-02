@@ -1124,7 +1124,7 @@ class TheApp < Sinatra::Base
     last_level = last_checkin_for(patient_ph_num)
 
     @flavor_text = 'you'
-    @number_as_string = 'never'
+    @number_as_string = ' '
     @time_of_last_checkin = 'texted in.'
     if (last_level != nil)
       @number_as_string = last_level['value_s'] if last_level['value_s'] != nil
