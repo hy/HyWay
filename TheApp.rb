@@ -1120,10 +1120,11 @@ class TheApp < Sinatra::Base
 ###############################################################################
   get '/voice_request' do
     patient_ph_num = patient_ph_num_assoc_wi_caller
-    # last_level = last_glucose_lvl_for(patient_ph_num)
+    last_level = last_glucose_lvl_for(patient_ph_num)
     last_level = last_checkin_for(patient_ph_num)
 
     @flavor_text = 'you'
+    @number_as_string = 'never'
     @time_of_last_checkin = 'texted in.'
     if (last_level != nil)
       @number_as_string = last_level['value_s'] if last_level['value_s'] != nil
