@@ -1625,19 +1625,6 @@ class TheApp < Sinatra::Base
   # forward them the approp. content. . .
   #
   #############################################################################
-  get /\/c\/(help|instructions)/x do
-
-    p_msg = 'HELP TOPICS: text Checkins, Config, or Feedback for info on each.'
-
-    c_msg = 'info=see settings; low67=low BG threshold at 67; high310=high threshold at 310; goal120=set goal to accumulate 120 pts; week=check stats'
-
-    msg = p_msg
-    msg = c_msg if DB['groups'].find_one({'CaregiverID' => params['From']})
-
-    reply_via_SMS( msg )
-
-  end # get help
-
 
   get /\/c\/(help)?checkins/x do
     msg_for_patient = 'bg123b = glucose 123 at breakfast; c20d = 20g carbs at dinner; n5L = 5U novolog at lunch; L4 = 4U lantus; score = see points'
@@ -1659,8 +1646,8 @@ class TheApp < Sinatra::Base
     reply_via_SMS( msg_for_patient )
   end # Feedback help
 
-  get /\/c\/(help|instructions)/x do
 
+  get /\/c\/(help|instructions)/x do
     p_msg = 'HELP TOPICS: text Checkins, Config, or Feedback for info on each.'
 
     c_msg = 'info=see settings; low67=low BG threshold at 67; high310=high threshold at 310; goal120=set goal to accumulate 120 pts; week=check stats'
@@ -1669,7 +1656,6 @@ class TheApp < Sinatra::Base
     msg = c_msg if DB['groups'].find_one({'CaregiverID' => params['From']})
 
     reply_via_SMS( msg )
-
   end # get help
 
 
