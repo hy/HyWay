@@ -1137,7 +1137,7 @@ class TheApp < Sinatra::Base
     time_of_last_checkin = ' not yet texted in.'
     if (last_level != nil)
       puts 'LAST LEVEL WAS FOUND, so last_level will be non-NIL. YAYY! :)'
-      number_as_string = last_level['mg'] if last_level['mg'] != nil
+      number_as_string = last_level['mg'].to_s  if last_level['mg'] != nil
       puts 'NUMBER_AS_STRING: ' + number_as_string
       interval_in_hours = (Time.now.to_f - last_level['utc']) / ONE_HOUR
       time_of_last_checkin = speakable_hour_interval_for( interval_in_hours )
