@@ -1130,6 +1130,7 @@ class TheApp < Sinatra::Base
 ###############################################################################
   get '/voice_request' do
     patient_ph_num = patient_ph_num_assoc_wi_caller
+    puts 'PATIENT PHONE NUMBER INCOMING AS:' + patient_ph_num
     last_level = last_glucose_lvl_for(patient_ph_num)
     last_level = last_checkin_for(patient_ph_num)
 
@@ -1137,6 +1138,7 @@ class TheApp < Sinatra::Base
     @number_as_string = ' '
     @time_of_last_checkin = 'texted in.'
     if (last_level != nil)
+      puts 'LAST LEVEL WAS NOT FOUND, so last_level will be NIL. Be WARNED! :)'
       @number_as_string = last_level['value_s'] if last_level['value_s'] != nil
       @flavor_text = last_level['flavor'] if last_level['flavor'] != nil
       interval_in_hours = (Time.now.to_f - last_level['utc']) / ONE_HOUR
