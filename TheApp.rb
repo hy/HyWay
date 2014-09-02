@@ -1123,13 +1123,11 @@ class TheApp < Sinatra::Base
     # last_level = last_glucose_lvl_for(patient_ph_num)
     last_level = last_checkin_for(patient_ph_num)
 
-    if (last_level == nil)
-      @flavor_text = 'you'
-      @number_as_string = 'never '
-      @time_of_last_checkin = 'texted in.'
-    else
-      @number_as_string = last_level['value_s']
-      @flavor_text = last_level['flavor']
+    @flavor_text = 'you'
+    @time_of_last_checkin = 'texted in.'
+    if (last_level != nil)
+      @number_as_string = last_level['value_s'] if last_level['value_s'] != nil
+      @flavor_text = last_level['flavor'] if last_level['flavor'] != nil
       interval_in_hours = (Time.now.to_f - last_level['utc']) / ONE_HOUR
       @time_of_last_checkin = speakable_hour_interval_for( interval_in_hours )
     end #if
@@ -1630,7 +1628,7 @@ class TheApp < Sinatra::Base
 
     p_msg = 'HELP TOPICS: text Checkins, Config, or Feedback for info on each.'
 
-    c_msg = 'info=see settings; low67=low BG threshold at 67; high310=high threshold at 310; goal120=set 7 day goal to 120 pts; week=check stats'
+    c_msg = 'info=see settings; low67=low BG threshold at 67; high310=high threshold at 310; goal120=set goal to accumulate 120 pts; week=check stats'
 
     msg = p_msg
     msg = c_msg if DB['groups'].find_one({'CaregiverID' => params['From']})
