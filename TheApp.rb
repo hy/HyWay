@@ -1134,28 +1134,28 @@ class TheApp < Sinatra::Base
     last_level = last_glucose_lvl_for(params['From'])
 #    last_level = last_checkin_for(patient_ph_num)
 
-    @flavor_text = 'you'
-    @number_as_string = ' '
-    @time_of_last_checkin = 'texted in.'
+    flavor_text = 'you'
+    number_as_string = ' '
+    time_of_last_checkin = 'texted in.'
     if (last_level != nil)
-      puts 'LAST LEVEL WAS NOT FOUND, so last_level will be NIL. Be WARNED! :)'
-      @number_as_string = last_level['value_s'] if last_level['value_s'] != nil
-      @flavor_text = last_level['flavor'] if last_level['flavor'] != nil
+      puts 'LAST LEVEL WAS FOUND, so last_level will be non-NIL. YAYY! :)'
+      number_as_string = last_level['value_s'] if last_level['value_s'] != nil
+      flavor_text = last_level['flavor'] if last_level['flavor'] != nil
       interval_in_hours = (Time.now.to_f - last_level['utc']) / ONE_HOUR
-      @time_of_last_checkin = speakable_hour_interval_for( interval_in_hours )
+      time_of_last_checkin = speakable_hour_interval_for( interval_in_hours )
     end #if
 
     speech_text = 'Hello!'
-    speech_text += 'Let us see what information we have for you.'
+#    speech_text += 'Let us see what information we have for you.'
     speech_text += ' The last checkin for'
     speech_text += ' ' 
-    speech_text += @flavor_text 
+    speech_text += flavor_text 
     speech_text += ' ' 
     speech_text += 'was' 
     speech_text += ' ' 
-    speech_text += @number_as_string
+    speech_text += number_as_string
     speech_text += ' ' 
-    speech_text += @time_of_last_checkin
+    speech_text += time_of_last_checkin
    
     response = Twilio::TwiML::Response.new do |r|
       r.Pause :length => 1
@@ -1167,8 +1167,8 @@ class TheApp < Sinatra::Base
     response.text do |format|
       format.xml { render :xml => response.text }
     end #do response.text
+  end #do get voice_request
 
-  end #do get
 
   get '/blocked' do
     puts '/BLOCKED \n WITH PARAMS= ' + params.to_s
