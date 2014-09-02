@@ -640,15 +640,16 @@ class TheApp < Sinatra::Base
  get /Call(?<ph_num>.*)/ do
     puts params['ph']
 
-    d = DB['bangalore'].find_one({'Mobile No' => params['ph'].to_i})
-
-    if d == nil 
-      $Language = 'Hindi'
-    elseif d['Language'] == nil 
-      $Language = 'Hindi'
-    else
-      $Language = d['Language']
-    end #if
+# Fully delete these once the testing has passed . . .  
+#    d = DB['bangalore'].find_one({'Mobile No' => params['ph'].to_i})
+#
+#    if d == nil 
+#      $Language = 'Hindi'
+#    elseif d['Language'] == nil 
+#      $Language = 'Hindi'
+#    else
+#      $Language = d['Language']
+#    end #if
 
     # make a new outgoing call
     @call = $twilio_account.calls.create(
@@ -1834,7 +1835,7 @@ class TheApp < Sinatra::Base
     reply_via_SMS( msg )
   end #do ket settings
 
-  get /\/c\/age[\s:\.,-=]*(\d{2})\z/ do
+  get /\/c\/(age)[\s:\.,-=]*(\d{2})\z/ do
   begin
     key = params[:captures][0]
     puts "SETTINGS ROUTE FOR: " + key
