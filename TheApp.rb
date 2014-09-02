@@ -1147,7 +1147,7 @@ class TheApp < Sinatra::Base
     speech_text += ' The last glucose checkin was: '
     speech_text += ' . ' 
     speech_text += number_as_string
-    speech_text += ' . ' 
+    speech_text += ' . That was ' 
     speech_text += time_of_last_checkin
    
     response = Twilio::TwiML::Response.new do |r|
