@@ -662,8 +662,17 @@ class TheApp < Sinatra::Base
   end #get Call
 
   post '/call-handler' do
+    d = DB['bangalore'].find_one({'Mobile No' => params['To'].to_i})
+    if d == nil
+      $Language = 'Hindi'
+    elseif d['Language'] == nil
+      $Language = 'Hindi'
+    else
+      $Language = d['Language']
+    end #if
+
     @Language = 'Hindi' if ($Language == nil)
-    @Language = $Language
+    @Language = $Language if ($Language != nil)
 
     in_proper_language_and_scope = {'Language'=>@Language}
 
