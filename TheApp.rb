@@ -1132,25 +1132,22 @@ class TheApp < Sinatra::Base
     patient_ph_num = patient_ph_num_assoc_wi_caller
     puts 'PATIENT PHONE NUMBER INCOMING AS:' + patient_ph_num
     last_level = last_glucose_lvl_for(params['From'])
-#    last_level = last_checkin_for(patient_ph_num)
 
-    flavor_text = 'you'
     number_as_string = ' '
-    time_of_last_checkin = 'texted in.'
+    time_of_last_checkin = ' not yet texted in.'
     if (last_level != nil)
       puts 'LAST LEVEL WAS FOUND, so last_level will be non-NIL. YAYY! :)'
-      number_as_string = last_level['value_s'] if last_level['value_s'] != nil
+      number_as_string = last_level['mg'] if last_level['mg'] != nil
       puts 'NUMBER_AS_STRING: ' + number_as_string
-      flavor_text = last_level['flavor'] if last_level['flavor'] != nil
       interval_in_hours = (Time.now.to_f - last_level['utc']) / ONE_HOUR
       time_of_last_checkin = speakable_hour_interval_for( interval_in_hours )
     end #if
 
     speech_text = 'Hello!'
 #    speech_text += 'Let us see what information we have for you.'
-    speech_text += ' The last checkin for'
+    speech_text += ' The last glucose checkin for'
     speech_text += ' ' 
-    speech_text += flavor_text 
+#    speech_text += flavor_text 
     speech_text += ' ' 
     speech_text += 'was' 
     speech_text += ' ' 
