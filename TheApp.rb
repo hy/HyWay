@@ -1669,9 +1669,11 @@ class TheApp < Sinatra::Base
   puts 'STOP ROUTE'
 
   begin
-    DB['groups'].remove( {"CaregiverID"=>params['From']} )
-    DB['groups'].remove( {"PatientID"=>params['From']} )
-    DB['people'].remove( {"ID"=>params['From']} )
+    DB['groups'].remove( {'CaregiverID'=>params['From']} )
+    DB['groups'].remove( {'PatientID'=>params['From']} )
+    DB['people'].remove( {'ID'=>params['From']} )
+    DB['textbacks'].remove( {'ID'=>params['From']} )
+
     msg = 'OK! -- stopping all interactions and dis-enrolling both parties'
     msg +=' (Re-register to re-activate)'
   rescue Exception => e
