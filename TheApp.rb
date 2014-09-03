@@ -702,7 +702,7 @@ class TheApp < Sinatra::Base
           $Language = 'Kannada'
           xml.Say('re-playing the message in English')
           xml.Redirect({:method => 'GET'}, "#{SITE}call-handler")
-        if params['Digits'] == '2'
+        elsif params['Digits'] == '2'
           $Language = 'Kannada'
           xml.Say('re-playing the message in Kannada')
           xml.Redirect({:method => 'GET'}, "#{SITE}call-handler")
