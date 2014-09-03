@@ -1503,6 +1503,12 @@ class TheApp < Sinatra::Base
   #############################################################################
   get /\/c\/plot[:,\s]*(?<flavor>\w+)[:,\s]*/ix do 
     flavor = params[:captures][0]
+
+    puts who = params['From'].to_s
+
+    search_clause = { flavor => {'$exists' => true}, 'ID' => params['From'] }
+    count = DB['checkins'].find(search_clause).count
+
     link = SITE + 'plot/history.svg'
     link += '?' 
     link += 'From=' + CGI::escape( params['From'] )
@@ -1512,6 +1518,11 @@ class TheApp < Sinatra::Base
     puts "Preparing user-generated plot . . . "
 
     msg = "Link to your plot: " + link
+
+    if (count == 0)
+      msg = 'Nothing to plot yet for ' + flavor
+    end #if
+
     send_SMS_to( params['From'], msg )
   end #do get
 
