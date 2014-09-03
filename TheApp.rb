@@ -2009,7 +2009,7 @@ class TheApp < Sinatra::Base
             }
       DB['checkins'].insert(doc)
 
-      msg = "You have a pulse! That\'s Great! :)  Logging %.1f"  % [value_f]]
+      msg = 'You have a pulse! That\'s Great! :)  Logging: ' + value_s
 
       reply_via_SMS(msg)
 
