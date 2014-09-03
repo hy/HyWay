@@ -701,7 +701,7 @@ class TheApp < Sinatra::Base
         if params['Digits'] == '1'
           $Language = 'English'
           xml.Say('re-playing the message in English')
-          @audio = DB['voiceovers'].find_one({'Language'=>'Hindi')['url']
+          @audio = DB['voiceovers'].find_one({'Language'=>'Hindi'})['url']
           xml.Play(@audio)
           xml.Hangup
         elsif params['Digits'] == '2'
