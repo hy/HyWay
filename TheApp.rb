@@ -698,10 +698,12 @@ class TheApp < Sinatra::Base
         xml.Say("You have selected")
         xml.Say(params['Digits'])
 
-        if params['Digits'] == '2'
-          $Language = 'Kannada'
+        if params['Digits'] == '1'
+          $Language = 'English'
           xml.Say('re-playing the message in English')
-          xml.Redirect({:method => 'GET'}, "#{SITE}call-handler")
+          @audio = DB['voiceovers'].find_one({'Language'=>'Hindi')['url']
+          xml.Play(@audio)
+          xml.Hangup
         elsif params['Digits'] == '2'
           $Language = 'Kannada'
           xml.Say('re-playing the message in Kannada')
@@ -713,7 +715,8 @@ class TheApp < Sinatra::Base
         elsif params['Digits'] == '4'
           $Language = 'Hindi'
           xml.Say('re-playing the message in Hindi')
-          xml.Redirect({:method => 'GET'}, "#{SITE}call-handler")
+          @audio = DB['voiceovers'].find_one({'Language'=>'Hindi')['url']
+          xml.Play(@audio)
         elsif params['Digits'] == '0'
           xml.Say('Help and Information Menu:')
           xml.Redirect("#{SITE}help_menu")
