@@ -1990,19 +1990,34 @@ class TheApp < Sinatra::Base
   # Receive pulse checkin (precision-regex method)
   #############################################################################
   get /\/c\/p(ulse)?[:,\s]*(?<is>\d{2,3})/ix do
-    puts where = 'PULSE CHECKIN REGEX ROUTE'
+    puts where = 'EXPLICITLY PULSE SPECIFYING CHECKIN REGEX ROUTE'
 
     begin
-      pulse_f = Float(params[:captures][0])
+      value_f = 60.0
+      value_f = Float(params[:captures][0]) if params[:captures][0] != nil
+      flavor_s = 'pulse'
+      value_s = value_f.to_s
+      pts = DEFAULT_POINTS
 
-      handle_checkin(pulse_f, "pulse")
+
+      doc = { 'ID' => params['From'],
+              flavor_s => value_f,
+              'flavor' => flavor_s,
+              'value_s' => value_s,
+              'pts' => pts,
+              'utc' => @now_f
+            }
+      DB['checkins'].insert(doc)
+
+      msg = "You have a pulse! That\'s Great! :)  Logging %.1f"  % [value_f]]
+
+      reply_via_SMS(msg)
 
     rescue Exception => e
       reply_via_SMS('SMS not quite right for a pulse checkin:'+params['Body'])
       log_exception(e, where)
     end
-
-  end #do checkin
+  end #do pulse checkin
 
 
   #############################################################################
@@ -2967,7 +2982,7 @@ class TheApp < Sinatra::Base
             }
       DB['checkins'].insert(doc)
 
-      msg = "Got your checkin! Logging %.1f %s" % [value_f, flavor_text_s]
+      msg = "Got a generic checkin! Logging %.1f %s" % [value_f, flavor_text_s]
 
     rescue Exception => e
       msg = 'Unable to log checkin'
