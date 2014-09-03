@@ -2034,7 +2034,7 @@ class TheApp < Sinatra::Base
   #############################################################################
   # Receive fast-acting insulin checkin (precision-regex method)
   #############################################################################
-  get /\/c\/(?<i>n|h)[,\s:]*(?<is>\d*\.?\d+)[,\s:\.]*(?<at>\D*)/ix do
+  get /\/c\/(?<i>n|h)[,\s:-]*(?<is>\d*\.?\d+)[,\s:\.-]*(?<at>\D*)/ix do
     puts where = 'FAST-ACTING INSULIN CHECKIN REGEX ROUTE'
     
     begin
@@ -2061,7 +2061,7 @@ class TheApp < Sinatra::Base
   #############################################################################
   # Receive long-acting (overnight) insulin checkin (precision-regex method)
   #############################################################################
-  get /\/c\/(?<i>l)[,\s:]*(?<is>\d*\.?\d+)[,\s:\.]*(?<at>\D*)/ix do
+  get /\/c\/(?<i>l)[,\s:-]*(?<is>\d*\.?\d+)[,\s:\.-]*(?<at>\D*)/ix do
     puts where = 'LANTUS (LONG-ACTING INSULIN) CHECKIN REGEX ROUTE'
     
     begin
@@ -2083,7 +2083,7 @@ class TheApp < Sinatra::Base
   #############################################################################
   # Receive blood sugar checkin (precision-regex method)
   #############################################################################
-  get /\/c\/(mg|b)?g?(lucose)?[:,\s]*(?<is>\d{2,3})[:,\s]*(?<at>\D*)\z/ix do
+  get /\/c\/(mg|b)?g?(lucose)?[:,\s-]*(?<is>\d{2,3})[:,\s-]*(?<at>\D*)\z/ix do
     puts where = 'BLOOD SUGAR CHECKIN REGEX ROUTE'
 
     begin
@@ -2104,7 +2104,7 @@ class TheApp < Sinatra::Base
   #############################################################################
   # Receive carb checkin (precision-regex method)
   #############################################################################
-  get /\/c\/c(arb)?s?[,\s:]*(?<is>\d*\.?\d+)[,\s:\.]*(?<at>\D*)/ix do
+  get /\/c\/c(arb)?s?[,\s:-]*(?<is>\d*\.?\d+)[,\s:\.-]*(?<at>\D*)/ix do
     puts where = 'CARB CHECKIN REGEX ROUTE'
 
     begin
