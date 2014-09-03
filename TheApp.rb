@@ -434,9 +434,9 @@ class TheApp < Sinatra::Base
   graph "history", :prefix => '/plot' do
     puts who = params['From'].to_s
     puts '  (' + who.class.to_s + ')'
-    puts flavor = params['flavor']
+    puts flavor_s = params['flavor']
 
-    search_clause = { flavor => {'$exists' => true}, 'ID' => params['From'] }
+    search_clause = { flavor_s => {'$exists' => true}, 'ID' => params['From'] }
 
     count = DB['checkins'].find(search_clause).count 
     num_to_skip = (count > 20 ? count-20 : 0)
@@ -446,7 +446,7 @@ class TheApp < Sinatra::Base
     cursor.each{ |d|
       bg_a.push(d[flavor])
     }
-    line flavor, bg_a
+    line flavor_s, bg_a
   end
 
 
