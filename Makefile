@@ -86,7 +86,7 @@ checkpoint:
 
 ##################### App-Specific Import / Exports #####################
 
-import_tracking:
+import_of_tracking:
 	~/Downloads/flip.universal -u ~/Documents/NooraTracking.csv
 #	tail -n +2 ~/Documents/NooraTracking.csv > ~/Documents/NooraTrackingReady.csv
 	$(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d $(DB) -c noora_tracking -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/NooraTrackingReady.csv --headerline
@@ -94,28 +94,34 @@ import_tracking:
 import_test:
 	$(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d $(DB) -c noora_tracking -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/TestCCs.csv --headerline
 
-import_daily_feed:
+import_of_daily_feed:
 	~/Downloads/flip.universal -u ~/Documents/Inpatients_0724.csv
 	tail -n +9 ~/Documents/Inpatients_0724.csv > ~/Documents/InpatientSampleReady.csv
 	$(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d $(DB) -c inpatients -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/InpatientSampleReady.csv --headerline
 
-import_links:
+import_of_links:
 	~/Downloads/flip.universal -u ~/Documents/Links.csv
 	$(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d $(DB) -c links -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/Links.csv --headerline
 
-import_bangalore:
+import_of_bangalore:
 	~/Downloads/flip.universal -u ~/Documents/bangalore.csv
 	$(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d $(DB) -c bangalore -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/bangalore.csv --headerline
 
-import_testers:
+import_of_testers:
 	~/Downloads/flip.universal -u ~/Documents/Testers.csv
 	$(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d $(DB) -c bangalore -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/Testers.csv --headerline
 
-export_tracking:
+export_of_tracking:
 	$(MONGOPATH)/mongoexport --host $(MONGO_URL) -port $(MONGO_PORT) -d $(DB) -c noora_tracking -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --out ~/Documents/NooraTrackingDump.json
 
 replicate_tracking:
         $(MONGOPATH)/mongoimport --host $(MONGO_RSET_URL) -port $(MONGO_RSET_PORT) -d $(DB) -c noora_tracking -u $(MONGO_RSET_USER_ID) -p $(MONGO_RSET_PASSWORD) --file ~/Documents/NooraTrackingDump.json
+
+export_of_bangalore:
+	$(MONGOPATH)/mongoexport --host $(MONGO_URL) -port $(MONGO_PORT) -d $(DB) -c bangalore -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --out ~/Documents/BangaloreDump.json
+
+export_of_calls_made:
+	$(MONGOPATH)/mongoexport --host $(MONGO_URL) -port $(MONGO_PORT) -d $(DB) -c calls -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --out ~/Documents/CallLogDump.json
 
 
 ###################### App specific Route Triggers ############################

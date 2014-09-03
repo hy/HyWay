@@ -690,7 +690,7 @@ class TheApp < Sinatra::Base
     end #do response.text
   end #get call-handler
 
-  get '/gather_keypad_response_for_nh' do
+  get '/gather_keypad_response_for_language' do
     puts '/GATHER_KEYPAD_RESPONSE \n WITH PARAMS= ' + params.to_s
     builder do |xml|
       xml.instruct!
@@ -698,6 +698,10 @@ class TheApp < Sinatra::Base
         xml.Say("You have selected")
         xml.Say(params['Digits'])
 
+        if params['Digits'] == '2'
+          $Language = 'Kannada'
+          xml.Say('re-playing the message in English')
+          xml.Redirect({:method => 'GET'}, "#{SITE}call-handler")
         if params['Digits'] == '2'
           $Language = 'Kannada'
           xml.Say('re-playing the message in Kannada')
