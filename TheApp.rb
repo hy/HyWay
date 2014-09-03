@@ -444,7 +444,7 @@ class TheApp < Sinatra::Base
     cursor = DB['checkins'].find(search_clause).skip(num_to_skip)
     bg_a = Array.new
     cursor.each{ |d|
-      bg_a.push(d[flavor])
+      bg_a.push(d[flavor_s])
     }
     line flavor_s, bg_a
   end
