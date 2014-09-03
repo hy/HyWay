@@ -2043,7 +2043,11 @@ class TheApp < Sinatra::Base
       when_taken_s = params[:captures][2]
 
       units_f = Float( amount_taken_s )
-      handle_insulin_checkin( units_f, when_taken_s, insulin_type_s )
+      if ((units_f > 0.1) && (units_f < 100.0 )) 
+        handle_insulin_checkin( units_f, when_taken_s, insulin_type_s )
+      else
+        reply_via_SMS('Looks a bit odd for insulin, but logging anyway!')
+      end #if
 
     rescue Exception => e
       reply_via_SMS('SMS not quite right for insulin checkin:'+params['Body'])
