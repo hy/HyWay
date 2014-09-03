@@ -2047,6 +2047,7 @@ class TheApp < Sinatra::Base
         handle_insulin_checkin( units_f, when_taken_s, insulin_type_s )
       else
         reply_via_SMS('Looks a bit odd for insulin, but logging anyway!')
+        handle_insulin_checkin( units_f, when_taken_s, insulin_type_s )
       end #if
 
     rescue Exception => e
