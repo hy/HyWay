@@ -2207,7 +2207,8 @@ class TheApp < Sinatra::Base
     },
       :subject => @subject, :body => @body)
 
-    reply_via_SMS('Email sent to': + @email_to)
+    msg = 'Email sent to': + @email_to
+    reply_via_SMS(msg)
 
   rescue Exception => e
     reply_via_SMS('Gmail failed')
