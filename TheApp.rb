@@ -681,8 +681,8 @@ class TheApp < Sinatra::Base
 
     response = Twilio::TwiML::Response.new do |r|
       r.Pause :length => 1 
-      r.Play @audio
-      r.Gather :action => SITE+'gather_language', :finishOnKey => '*'
+      r.Gather :action => SITE+'gather_language', :numDigits=> '1',
+        g.Play @audio
       r.Hangup
     end #response
 
@@ -691,7 +691,30 @@ class TheApp < Sinatra::Base
     end #do response.text
   end #get call-handler
 
+
   get '/gather_language' do
+    puts '/GATHER_KEYPAD_RESPONSE \n WITH PARAMS= ' + params.to_s
+
+    if params['Digits'] == '1'
+      response = Twilio::TwiML::Response.new do |r|
+        r.Say 'The English version would be repeated here.'
+      end
+    elsif params['Digits'] == '2'
+      response = Twilio::TwiML::Response.new do |r|
+        r.Say 'The Canada version would be repeated here.'
+      end
+    else
+      response = Twilio::TwiML::Response.new do |r|
+        r.Say 'Do not know what you want to hear.'
+    end
+
+    response.text do |format|
+      format.xml { render :xml => response.text }
+    end #do response.text
+
+  end #get gather_language do
+
+  get '/gather_languageBADandDOESnotWORK' do
     puts '/GATHER_KEYPAD_RESPONSE \n WITH PARAMS= ' + params.to_s
     builder do |xml|
       xml.instruct!
