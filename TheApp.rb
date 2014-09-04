@@ -683,8 +683,10 @@ class TheApp < Sinatra::Base
       r.Pause :length => 1 
       r.Gather :action => SITE+'gather_language', :numDigits=> '1',
         g.Play @audio
-      r.Hangup
-    end #response
+        g.Say 'Press 1 to hear this message once more in English'
+        g.Say 'Press 2 to hear this message once more in Canada'
+      end #Gather
+    end.text #response
 
     response.text do |format|
       format.xml { render :xml => response.text }
