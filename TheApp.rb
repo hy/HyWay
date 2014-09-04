@@ -688,18 +688,6 @@ class TheApp < Sinatra::Base
       end #Gather
     end #response
 
-=begin
-  Twilio::TwiML::Response.new do |r|
-    r.Say "Hello #{name}"
-    r.Play 'http://demo.twilio.com/hellomonkey/monkey.mp3'
-    r.Gather :numDigits => '1', :action => '/hello-monkey/handle-gather', :method => 'get' do |g|
-      g.Say 'To speak to a real monkey, press 1.'
-      g.Say 'Press 2 to record your own monkey howl.'
-      g.Say 'Press any other key to start over.'
-    end
-  end.text
-=end
-
     response.text do |format|
       format.xml { render :xml => response.text }
     end #do response.text
