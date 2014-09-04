@@ -698,31 +698,25 @@ class TheApp < Sinatra::Base
       xml.Response do
         xml.Say("You have selected")
         xml.Say(params['Digits'])
-
         if params['Digits'] == '1'
           $Language = 'English'
           xml.Say('re-playing the message in English')
-          @audio = DB['voiceovers'].find_one({'Language'=>'Hindi'})['url']
-          xml.Play(@audio)
-          xml.Hangup
+#          @audio = DB['voiceovers'].find_one({'Language'=>'Hindi'})['url']
+#          xml.Play(@audio)
         elsif params['Digits'] == '2'
           $Language = 'Kannada'
           xml.Say('re-playing the message in Kannada')
-          xml.Redirect({:method => 'GET'}, "#{SITE}call-handler")
         elsif params['Digits'] == '3'
           $Language = 'Telugu'
           xml.Say('re-playing the message in Telugu')
-          xml.Redirect({:method => 'GET'}, "#{SITE}call-handler")
         elsif params['Digits'] == '4'
           $Language = 'Hindi'
           xml.Say('re-playing the message in Hindi')
-          @audio = DB['voiceovers'].find_one({'Language'=>'Hindi'})['url']
-          xml.Play(@audio)
+#          @audio = DB['voiceovers'].find_one({'Language'=>'Hindi'})['url']
+#          xml.Play(@audio)
         elsif params['Digits'] == '0'
           xml.Say('Help and Information Menu:')
-          xml.Redirect("#{SITE}help_menu")
         end#if
-
       end#xml.Response do
     end #builder do
   end #get
