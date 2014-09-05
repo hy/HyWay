@@ -680,15 +680,13 @@ class TheApp < Sinatra::Base
     @audio = DB['voiceovers'].find_one(in_proper_language_and_scope)['url']
 
     Twilio::TwiML::Response.new do |r|
-      r.Say "Hello #{name}"
-      r.Play 'http://demo.twilio.com/hellomonkey/monkey.mp3'
-      r.Gather :numDigits => '1', :action => '/hello-monkey/handle-gather', :method => 'get' do |g|
-        g.Say 'To speak to a real monkey, press 1.'
-        g.Say 'Press 2 to record your own monkey howl.'
-        g.Say 'Press any other key to start over.'
+      r.Pause :length => 1
+      r.Play @audio
+      r.Gather :numDigits => '1', :action => '/gather_language' do |g|
+        g.Say 'To hear the message once again in English press 1.'
+        g.Say 'To hear the message once again in Canada press 2.'
       end
     end.text
-
   end #call-handler
 
 
@@ -706,43 +704,13 @@ class TheApp < Sinatra::Base
     else
       response = Twilio::TwiML::Response.new do |r|
         r.Say 'Do not know what you want to hear.'
+      end
     end
 
     response.text do |format|
       format.xml { render :xml => response.text }
     end #do response.text
-
-  end #get gather_language do
-
-  get '/gather_languageBADandDOESnotWORK' do
-    puts '/GATHER_KEYPAD_RESPONSE \n WITH PARAMS= ' + params.to_s
-    builder do |xml|
-      xml.instruct!
-      xml.Response do
-        xml.Say("You have selected")
-        xml.Say(params['Digits'])
-        if params['Digits'] == '1'
-          $Language = 'English'
-          xml.Say('re-playing the message in English')
-#          @audio = DB['voiceovers'].find_one({'Language'=>'Hindi'})['url']
-#          xml.Play(@audio)
-        elsif params['Digits'] == '2'
-          $Language = 'Kannada'
-          xml.Say('re-playing the message in Kannada')
-        elsif params['Digits'] == '3'
-          $Language = 'Telugu'
-          xml.Say('re-playing the message in Telugu')
-        elsif params['Digits'] == '4'
-          $Language = 'Hindi'
-          xml.Say('re-playing the message in Hindi')
-#          @audio = DB['voiceovers'].find_one({'Language'=>'Hindi'})['url']
-#          xml.Play(@audio)
-        elsif params['Digits'] == '0'
-          xml.Say('Help and Information Menu:')
-        end#if
-      end#xml.Response do
-    end #builder do
-  end #get
+  end #gather_language do
 
 # FOR MORE IDEAS PERHAPS SEE:
 #  https://www.twilio.com/docs/quickstart/ruby/client/outgoing-calls
