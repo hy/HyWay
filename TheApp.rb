@@ -685,7 +685,7 @@ class TheApp < Sinatra::Base
         g.Play @audio
         g.Say 'To hear the message once again in English press 1.'
         g.Say 'To hear the message once again in Hindi press 2.'
-        g.Say 'To hear the message once again in Canada press 2.'
+        g.Say 'To hear the message once again in Canada press 3.'
       end
     end.text
   end #call-handler
