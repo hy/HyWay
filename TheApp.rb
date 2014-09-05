@@ -681,9 +681,10 @@ class TheApp < Sinatra::Base
 
     Twilio::TwiML::Response.new do |r|
       r.Pause :length => 1
-      r.Play @audio
       r.Gather :numDigits => '1', :action => '/gather_language' do |g|
+        g.Play @audio
         g.Say 'To hear the message once again in English press 1.'
+        g.Say 'To hear the message once again in Hindi press 2.'
         g.Say 'To hear the message once again in Canada press 2.'
       end
     end.text
@@ -695,15 +696,19 @@ class TheApp < Sinatra::Base
 
     if params['Digits'] == '1'
       response = Twilio::TwiML::Response.new do |r|
-        r.Say 'The English version would be repeated here.'
+        r.Say 'The English version would be repeated here.', :voice => 'woman'
       end
     elsif params['Digits'] == '2'
       response = Twilio::TwiML::Response.new do |r|
-        r.Say 'The Canada version would be repeated here.'
+        r.Say 'The Hindi version would be repeated here.', :voice => 'woman'
+      end
+    elsif params['Digits'] == '3'
+      response = Twilio::TwiML::Response.new do |r|
+        r.Say 'The Canada version would be repeated here.', :voice => 'woman'
       end
     else
       response = Twilio::TwiML::Response.new do |r|
-        r.Say 'Do not know what you want to hear.'
+        r.Say 'We do not know what you want to hear.'
       end
     end
 
