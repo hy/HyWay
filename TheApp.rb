@@ -623,33 +623,8 @@ class TheApp < Sinatra::Base
   end
 
 
-## Work in progress
-  get /SendSMSto(?<ph_num>.*)/ do
-    puts params['ph_num']
-    puts text_to_send = DB['nh_msg'].find_one()['words']
-    send_SMS_to( '+17244489427', text_to_send)
-
-#    cursor = DB['noora_tracking'].find({"AttendedFirstClass" => "Yes"})
-
-#    cursor.each{ |d|
-#      msg = 'With regards to Patient '+d['PatientName']+' and the issue of '+d['MedicalProblem']+' please do come to 2nd class on '+d['SecondClassDate']
-#      send_SMS_to( d['PhoneNumberOfAttender'], msg )
-#    }
-  end
-
  get /Call(?<ph_num>.*)/ do
     puts params['ph']
-
-# Fully delete these once the testing has passed . . .  
-#    d = DB['bangalore'].find_one({'Mobile No' => params['ph'].to_i})
-#
-#    if d == nil 
-#      $Language = 'Hindi'
-#    elseif d['Language'] == nil 
-#      $Language = 'Hindi'
-#    else
-#      $Language = d['Language']
-#    end #if
 
     # make a new outgoing call
     @call = $twilio_account.calls.create(
@@ -678,6 +653,9 @@ class TheApp < Sinatra::Base
     in_proper_language_and_scope = {'Language'=>@Language}
 
     @audio = DB['voiceovers'].find_one(in_proper_language_and_scope)['url']
+    @messg = DB['directions'].find_one(in_proper_language_and_scope)['msg']
+
+    send_SMS_to( params['To'], @messg )
 
     Twilio::TwiML::Response.new do |r|
       r.Pause :length => 1
