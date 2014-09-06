@@ -164,6 +164,8 @@ class TheApp < Sinatra::Base
       TWILIO_CALLER_ID = ENV['TWILIO_CALLER_ID']
       INDIA_CALLER_ID = '+917022216711'
 
+# Pull env and constants from db as an option
+
       PTS_FOR_BG = 10
       PTS_FOR_INS = 5
       PTS_FOR_CARB = 5
