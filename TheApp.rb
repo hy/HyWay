@@ -2011,12 +2011,38 @@ class TheApp < Sinatra::Base
   end #do pulse checkin
 
 
+  #############################################################################
+  # Receive fast-acting insulin checkin (precision-regex method)
+  #############################################################################
+  get /\/c\/(?<is>\d*\.?\d+)u[nits]/ix do
+    puts where = 'LITERAL FAST-ACTING INSULIN CHECKIN REGEX ROUTE'
+
+    begin
+      insulin_type_s = 'insulin'
+      amount_taken_s = params[:captures][0]
+      when_taken_s = '[no tags]'
+
+      units_f = Float( amount_taken_s )
+      if ((units_f > 0.1) && (units_f < 100.0 ))
+        handle_insulin_checkin( units_f, when_taken_s, insulin_type_s )
+      else
+        reply_via_SMS('Looks a bit odd for insulin, but logging anyway!')
+        handle_insulin_checkin( units_f, when_taken_s, insulin_type_s )
+      end #if
+
+    rescue Exception => e
+      reply_via_SMS('SMS not quite right for insulin checkin:'+params['Body'])
+      log_exception(e, where)
+    end
+
+  end #do insulin checkin
+
 
   #############################################################################
   # Receive fast-acting insulin checkin (precision-regex method)
   #############################################################################
   get /\/c\/(?<i>insulin)[,\s:-]*(?<is>\d*\.?\d+)[,\s:\.-]*(?<at>\D*)/ix do
-    puts where = 'FAST-ACTING INSULIN CHECKIN REGEX ROUTE'
+    puts where = 'LITERAL FAST-ACTING INSULIN CHECKIN REGEX ROUTE'
    
     begin
       insulin_type_s = params[:captures][0]
