@@ -2014,7 +2014,7 @@ class TheApp < Sinatra::Base
   #############################################################################
   # Receive fast-acting insulin checkin (precision-regex method)
   #############################################################################
-  get /\/c\/(?<is>\d*\.?\d+)u[nits]/ix do
+  get /\/c\/(?<is>\d*\.?\d+)(u|units)/ix do
     puts where = 'LITERAL FAST-ACTING INSULIN CHECKIN REGEX ROUTE'
 
     begin
