@@ -168,16 +168,16 @@ class TheApp < Sinatra::Base
 
 # Pull env and constants from db as an option
 
-      PTS_FOR_BG = 10
-      PTS_FOR_INS = 5
-      PTS_FOR_CARB = 5
-      PTS_FOR_LANTUS = 20
-      PTS_BONUS_FOR_LABELS = 5
-      PTS_BONUS_FOR_TIMING = 10
+      PTS_FOR_BG = 1
+      PTS_FOR_INS = 1
+      PTS_FOR_CARB = 1
+      PTS_FOR_LANTUS = 1
+      PTS_BONUS_FOR_LABELS = 1
+      PTS_BONUS_FOR_TIMING = 1
 
-      DEFAULT_POINTS = 2
+      DEFAULT_POINTS = 1
       DEFAULT_SCORE = 0
-      DEFAULT_GOAL = 500.0
+      DEFAULT_GOAL = 100.0
       DEFAULT_PANIC = 24
       DEFAULT_KET = 301.0
       DEFAULT_HI = 300.0
