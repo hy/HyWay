@@ -665,9 +665,9 @@ class TheApp < Sinatra::Base
       r.Pause :length => 1
       r.Gather :numDigits => '1', :action => '/gather_language' do |g|
         g.Play @audio
-        g.Say 'To hear the message once again in English press 1.'
-        g.Say 'To hear the message once again in Hindi press 2.'
-        g.Say 'To hear the message once again in Canada press 3.'
+        g.Say 'To hear the message once again in English, press 1.'
+        g.Say 'To hear the message once again in Hindi, press 2.'
+        g.Say 'To hear the message once again in Bangla, press 3.'
       end
     end.text
   end #call-handler
@@ -677,6 +677,9 @@ class TheApp < Sinatra::Base
     puts '/GATHER_KEYPAD_RESPONSE \n WITH PARAMS= ' + params.to_s
 
     if params['Digits'] == '1'
+      puts params['To'].to_i
+      DB['bangalore'].update({'Mobile No' => params['To'].to_i},
+            {'$set' => {'language' => 'English'} })
       response = Twilio::TwiML::Response.new do |r|
         r.Say 'The English version would be repeated here.', :voice => 'woman'
       end
