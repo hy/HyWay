@@ -168,16 +168,16 @@ class TheApp < Sinatra::Base
 
 # Pull env and constants from db as an option
 
-      PTS_FOR_BG = 1
-      PTS_FOR_INS = 1
-      PTS_FOR_CARB = 1
-      PTS_FOR_LANTUS = 1
-      PTS_BONUS_FOR_LABELS = 1
-      PTS_BONUS_FOR_TIMING = 1
+      PTS_FOR_BG = 5
+      PTS_FOR_INS = 5
+      PTS_FOR_CARB = 5
+      PTS_FOR_LANTUS = 5
+      PTS_BONUS_FOR_LABELS = 5
+      PTS_BONUS_FOR_TIMING = 5
 
-      DEFAULT_POINTS = 1
+      DEFAULT_POINTS = 5
       DEFAULT_SCORE = 0
-      DEFAULT_GOAL = 100.0
+      DEFAULT_GOAL = 500.0
       DEFAULT_PANIC = 24
       DEFAULT_KET = 301.0
       DEFAULT_HI = 300.0
@@ -3182,7 +3182,7 @@ class TheApp < Sinatra::Base
     def handle_insulin_checkin(units_f, tag_abbrev_s, ins_type='ins')
     puts where = 'HELPER: ' + (__method__).to_s
     begin
-      pts = tag_abbrev_s == '' ? 5.0 : 10.0
+      pts = tag_abbrev_s == '' ? DEFAULT_POINTS : PTS_BONUS_FOR_LABELS
       msg = ''
 
       ph_num = params['From']

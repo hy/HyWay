@@ -80,6 +80,8 @@ checkpoint:
 	git commit -m WORKS:'$(m)'
 	git push -u github master
 	git push -u heroku master
+
+asana:
 	curl -G -v  $(SERVER)log_at_asana --data-urlencode "m=$(m)"
 
 
