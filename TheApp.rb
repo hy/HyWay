@@ -656,10 +656,21 @@ class TheApp < Sinatra::Base
 
     in_proper_language_and_scope = {'Language'=>@Language}
 
-    @audio = DB['voiceovers'].find_one(in_proper_language_and_scope)['url']
-    @messg = DB['directions'].find_one(in_proper_language_and_scope)['msg']
+    m_data = DB['directions'].find_one(in_proper_language_and_scope)
 
-    send_SMS_to( params['To'], @messg )
+    if m_data == nil 
+      @msg = 'No record available'
+      
+    elsif m_data['msg'] == nil
+      @msg = 'No message text available'
+
+    else
+      send_SMS_to( params['To'], @messg )
+
+    end #if
+
+
+    @audio = DB['voiceovers'].find_one(in_proper_language_and_scope)['url']
 
     Twilio::TwiML::Response.new do |r|
       r.Pause :length => 1
