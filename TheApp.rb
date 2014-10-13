@@ -589,7 +589,7 @@ class TheApp < Sinatra::Base
   end #get
 
 ## Serve data as CSV file
-  get /checkins.csv do
+  get '/checkins.csv' do
     cursor = DB['checkins'].find()
 
     content_type 'application/csv'
