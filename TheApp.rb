@@ -588,6 +588,24 @@ class TheApp < Sinatra::Base
     erb :number 
   end #get
 
+## Serve data as CSV file
+  get /checkins.csv do
+    cursor = DB['checkins'].find()
+
+    content_type 'application/csv'
+    attachment collection_name + ".csv"
+
+    keys = ["Phone", "mg/dL", "tag", "utc_time"]
+
+    csv_string = CSV.generate do |csv|
+        csv << keys
+
+    cursor.each{ |d|
+      csv << d.values
+    }
+
+    end
+  end
 
 ## This part starting to work 
 ## Serve data as CSV file
