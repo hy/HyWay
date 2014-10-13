@@ -598,6 +598,8 @@ class TheApp < Sinatra::Base
     collection_name = params[:captures][1]
     cursor = DB[collection_name].find()
 
+# change this to: 
+
     content_type 'application/csv'
     attachment collection_name + ".csv"
 
@@ -622,7 +624,7 @@ class TheApp < Sinatra::Base
     csv_rows  = CSV.parse(file_data, headers: true)
 
     csv_rows.each do |row|
-      DB['noora_timings'].insert( JSON.pretty_generate(row) )
+      DB['outgoing'].insert( JSON.pretty_generate(row) )
     end
   end
 
@@ -659,10 +661,10 @@ class TheApp < Sinatra::Base
     m_data = DB['directions'].find_one(in_proper_language_and_scope)
 
     if m_data == nil 
-      @msg = 'No record available'
+      puts @msg = 'No record available'
       
     elsif m_data['msg'] == nil
-      @msg = 'No message text available'
+      puts @msg = 'No message text available'
 
     else
       send_SMS_to( params['To'], @messg )
@@ -688,17 +690,20 @@ class TheApp < Sinatra::Base
     puts '/GATHER_KEYPAD_RESPONSE \n WITH PARAMS= ' + params.to_s
 
     if params['Digits'] == '1'
-      puts params['To'].to_i
       DB['bangalore'].update({'Mobile No' => params['To'].to_i},
-            {'$set' => {'language' => 'English'} })
+            {'$set' => {'Language' => 'English'} })
       response = Twilio::TwiML::Response.new do |r|
         r.Say 'The English version would be repeated here.', :voice => 'woman'
       end
     elsif params['Digits'] == '2'
+      DB['bangalore'].update({'Mobile No' => params['To'].to_i},
+            {'$set' => {'Language' => 'Hindi'} })
       response = Twilio::TwiML::Response.new do |r|
         r.Say 'The Hindi version would be repeated here.', :voice => 'woman'
       end
     elsif params['Digits'] == '3'
+      DB['bangalore'].update({'Mobile No' => params['To'].to_i},
+            {'$set' => {'Language' => 'Kannada'} })
       response = Twilio::TwiML::Response.new do |r|
         r.Say 'The Canada version would be repeated here.', :voice => 'woman'
       end
@@ -1211,7 +1216,24 @@ class TheApp < Sinatra::Base
           send_SMS_to( r['ID'], r['msg'] )
           DB['textbacks'].remove({'ID' => r['ID']})
         end #if
-      }
+      
+
+      cursor = DB['outgoing'].find()
+      cursor.each { |r|
+        if ( Time.now.to_f > r['utc'] )
+          # send_SMS_to( r['ID'], r['msg'] )
+
+          # make a new outgoing call
+          @call = $twilio_account.calls.create(
+            :From => INDIA_CALLER_ID,
+            :To => params['ph'],
+            :Url => SITE + 'call-handler',
+            :StatusCallbackMethod => 'GET',
+            :StatusCallback => SITE + 'status_callback_for_outgoing_calls'
+          )
+
+          DB['outgoing'].remove({'ID' => r['ID']})
+        end #if}
     
       h = REDIS.get('Heartbeats')
       puts ".................HEARTBEAT #{h} COMPLETE.........................."
