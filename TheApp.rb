@@ -1216,7 +1216,7 @@ class TheApp < Sinatra::Base
           send_SMS_to( r['ID'], r['msg'] )
           DB['textbacks'].remove({'ID' => r['ID']})
         end #if
-      
+      } 
 
       cursor = DB['outgoing'].find()
       cursor.each { |r|
@@ -1233,7 +1233,8 @@ class TheApp < Sinatra::Base
           )
 
           DB['outgoing'].remove({'ID' => r['ID']})
-        end #if}
+        end #if
+      }
     
       h = REDIS.get('Heartbeats')
       puts ".................HEARTBEAT #{h} COMPLETE.........................."
