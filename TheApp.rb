@@ -590,7 +590,8 @@ class TheApp < Sinatra::Base
 
 ## Serve data as CSV file
   get '/checkins.csv' do
-    cursor = DB['checkins'].find()
+    collection_name = 'checkins'
+    cursor = DB[collection_name].find()
 
     content_type 'application/csv'
     attachment collection_name + ".csv"
