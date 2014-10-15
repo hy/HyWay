@@ -637,7 +637,7 @@ class TheApp < Sinatra::Base
   end
 
 
-## These may not yet work dunno
+## These may not yet work
   post '/nh_sched' do
     file_data = params[:file].read
     csv_rows  = CSV.parse(file_data, headers: true)

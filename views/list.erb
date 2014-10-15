@@ -11,10 +11,10 @@
     <div id="page">
       <div id="content"  <!-- begin content -->
         <div id="header">
-          <form id="up" name="up" action="<%=@site%>/nh_sched" method="post" enc-type="multipart/form-data">
+          <form id="up" name="up" action="<%=@site%>/nh_sched" method="post" enctype="multipart/form-data">
           <center>
- <!-- add email later:           <%= addGmailLink() %>         -->
-              Path to File-to-Send:
+
+          CSV File with content and timings to Upload and Send to the Scheduler
 
             <input type="file" id="act" name="file" value="C:\Outgoing.csv"/>
             <input type="submit" value="Upload CSV"/>
