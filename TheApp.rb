@@ -1247,7 +1247,7 @@ class TheApp < Sinatra::Base
         time_to_call_s = r['day'] +' '+ r['time'] +' '+ r['zone']
         time_to_call = Time.parse(time_to_call_s)
 
-        if ( Time.now.to_f > time_to_call.to_f -60.0*5.0 )
+        if ( Time.now.to_f > (time_to_call.to_f - 60.0*5.0) )
           # make a new outgoing call
           @call = $twilio_account.calls.create(
             :From => INDIA_CALLER_ID,
