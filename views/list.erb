@@ -11,17 +11,14 @@
     <div id="page">
       <div id="content"  <!-- begin content -->
         <div id="header">
-          <form id="hy" name="hy" action="<%=@site%>/set_nh_msg" method="post">
+          <form id="up" name="up" action="<%=@site%>/nh_sched" method="post" enc-type="multipart/form-data">
           <center>
  <!-- add email later:           <%= addGmailLink() %>         -->
               (No UI yet, just lists)   Msg-to-Send:
-            <input type="text" id="act" name="cmd" value="<%= @msg_suggest %>"/>
+            <input type="CSV" id="act" name="file" value="Outgoing.csv"/>
           </center>
           </form>
         </div>
-               <!--       Can Also add the following to below:     -->
-               <!--         showTextOrHighlight(hash) +            -->
-               <!--         addStatusBulb(hash) +                  -->
         <h3> <%= @label %>   </h3>
         <div id="reply">
             <% @d = "" %>

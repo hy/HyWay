@@ -604,9 +604,9 @@ class TheApp < Sinatra::Base
     cursor.each{ |d|
       csv << d.values
     }
-
     end
   end
+
 
 ## This part starting to work 
 ## Serve data as CSV file
@@ -638,7 +638,7 @@ class TheApp < Sinatra::Base
 
 
 ## These may not yet work dunno
-  post '/upload_timings' do
+  post '/nh_sched' do
     file_data = params[:file].read
     csv_rows  = CSV.parse(file_data, headers: true)
 
