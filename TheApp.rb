@@ -1237,11 +1237,17 @@ class TheApp < Sinatra::Base
         end #if
       } 
 
-      cursor = DB['outgoing'].find()
-      cursor.each { |r|
-        if ( Time.now.to_f > r['utc'] )
-          # send_SMS_to( r['ID'], r['msg'] )
+# example:  t.rfc2822  # => "Wed, 05 Oct 2011 22:26:12 -0400"
+# India should be +0530 from GMT, I think
 
+#   require 'time'
+
+      cursor = DB['kolkata_outcall_schedule'].find()
+      cursor.each { |r|
+        time_to_call_s = r['day'] +' '+ r['time'] +' '+ r['zone']
+        time_to_call = Time.parse(time_to_call_s)
+
+        if ( Time.now.to_f > time_to_call.to_f -60.0*5.0 )
           # make a new outgoing call
           @call = $twilio_account.calls.create(
             :From => INDIA_CALLER_ID,
@@ -1250,11 +1256,19 @@ class TheApp < Sinatra::Base
             :StatusCallbackMethod => 'GET',
             :StatusCallback => SITE + 'status_callback_for_outgoing_calls'
           )
+          DB['kolkata_outcall_schedule'].remove({'ID' => r['ID']})
+        end #if
 
-          DB['outgoing'].remove({'ID' => r['ID']})
+      } #cursor.each
+
+      cursor = DB['kolkata_outmsg_schedule'].find()
+      cursor.each { |r|
+        if ( Time.now.to_f > (60.0 * 12.0 + r['utc']) )
+          send_SMS_to( r['Phone'], r['msg'] )
+          DB['nh_outmsgtimings'].remove({'ID' => r['ID']})
         end #if
       }
-    
+
       h = REDIS.get('Heartbeats')
       puts ".................HEARTBEAT #{h} COMPLETE.........................."
 
