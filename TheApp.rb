@@ -662,6 +662,83 @@ class TheApp < Sinatra::Base
   # Auto-redirects to :url => [call-handler, below]
   end #get Call
 
+  post '/handle-kolkata-call' do
+    d = DB['kolkata'].find_one({'Mobile No' => params['To'].to_i})
+    if d == nil
+      @Language = 'Bangla'
+    elseif d['Language'] == nil
+      @Language = 'Bangla'
+    else
+      @Language = d['Language']
+    end #if
+
+    in_proper_language_and_scope = {'Language'=>@Language}
+
+    m_data = DB['kolkata_directions'].find_one(in_proper_language_and_scope)
+
+    if m_data == nil
+      puts @msg = 'No record available'
+
+    elsif m_data['msg'] == nil
+      puts @msg = 'No message text available'
+
+    else
+      send_SMS_to( params['To'], @messg )
+
+    end #if
+
+    @audio1 = "http://grass-roots-science.info/audio/1_Telugu.wav"
+
+    Twilio::TwiML::Response.new do |r|
+      r.Pause :length => 1
+      r.Gather :numDigits => '1', :action => '/gather_kolkata' do |g|
+        g.Play @audio1
+        g.Play @audio2
+        g.Play @audio3
+        g.Play @audio4
+        g.Say 'To hear the message once again in English, press 1.'
+        g.Say 'To hear the message once again in Hindi, press 2.'
+        g.Say 'To hear the message once again in Bangla, press 3.'
+      end
+    end.text
+  end #handle-kolkata-call
+
+
+  post '/gather_kolkata' do
+    puts '/GATHER_KEYPAD_RESPONSE \n WITH PARAMS= ' + params.to_s
+
+    if params['Digits'] == '1'
+      DB['bangalore'].update({'Mobile No' => params['To'].to_i},
+            {'$set' => {'Language' => 'English'} })
+      response = Twilio::TwiML::Response.new do |r|
+        r.Say 'The English version would be repeated here.', :voice => 'woman'
+      end
+    elsif params['Digits'] == '2'
+      DB['bangalore'].update({'Mobile No' => params['To'].to_i},
+            {'$set' => {'Language' => 'Bangla'} })
+      response = Twilio::TwiML::Response.new do |r|
+        r.Say 'The Bangla version would be repeated here.', :voice => 'woman'
+      end
+    elsif params['Digits'] == '3'
+      DB['bangalore'].update({'Mobile No' => params['To'].to_i},
+            {'$set' => {'Language' => 'Hindi'} })
+      response = Twilio::TwiML::Response.new do |r|
+        r.Say 'The Hindi version would be repeated here.', :voice => 'woman'
+      end
+    else
+      response = Twilio::TwiML::Response.new do |r|
+        r.Say 'We do not know what you want to hear.'
+      end
+    end
+
+    response.text do |format|
+      format.xml { render :xml => response.text }
+    end #do response.text
+  end #gather_language do
+
+
+
+
   post '/call-handler' do
     d = DB['bangalore'].find_one({'Mobile No' => params['To'].to_i})
     if d == nil
@@ -1241,33 +1318,47 @@ class TheApp < Sinatra::Base
 # India should be +0530 from GMT, I think
 
 #   require 'time'
+      scope = {'Discharge Date' => {$lte => Time.now}} 
+      cursor = DB['kolkata_outcall_schedule'].find(scope)
 
-      cursor = DB['kolkata_outcall_schedule'].find()
+# find records where time is < discharge date
+# and put an index on discharge date: db.posts.ensureIndex({created_on: 1});
+
       cursor.each { |r|
         time_to_call_s = r['day'] +' '+ r['time'] +' '+ r['zone']
         time_to_call = Time.parse(time_to_call_s)
+
+
+#        if no time-to-call specified, add one
+
 
         if ( Time.now.to_f > (time_to_call.to_f - 60.0*5.0) )
           # make a new outgoing call
           @call = $twilio_account.calls.create(
             :From => INDIA_CALLER_ID,
             :To => params['ph'],
-            :Url => SITE + 'call-handler',
+#            :Url => SITE + 'handle-kolkata-call', 
+            :Url => SITE + r['TODO'], 
             :StatusCallbackMethod => 'GET',
             :StatusCallback => SITE + 'status_callback_for_outgoing_calls'
           )
-          DB['kolkata_outcall_schedule'].remove({'ID' => r['ID']})
+          DB['kolkata_outcall_schedule'].remove({'Mobile No' => r['Mobile No']})
+
+#instead of removing, 
+
         end #if
 
       } #cursor.each
 
+
       cursor = DB['kolkata_outmsg_schedule'].find()
       cursor.each { |r|
-        if ( Time.now.to_f > (60.0 * 12.0 + r['utc']) )
+        if ( Time.now.to_f > (time_to_send.to_f - 60.0*5.0) )
           send_SMS_to( r['Phone'], r['msg'] )
-          DB['nh_outmsgtimings'].remove({'ID' => r['ID']})
+          DB['kolkata_outmsg_schedule'].remove({'ID' => r['ID']})
         end #if
       }
+
 
       h = REDIS.get('Heartbeats')
       puts ".................HEARTBEAT #{h} COMPLETE.........................."
