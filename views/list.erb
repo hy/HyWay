@@ -14,8 +14,10 @@
           <form id="up" name="up" action="<%=@site%>/nh_sched" method="post" enc-type="multipart/form-data">
           <center>
  <!-- add email later:           <%= addGmailLink() %>         -->
-              (No UI yet, just lists)   Msg-to-Send:
-            <input type="CSV" id="act" name="file" value="Outgoing.csv"/>
+              Path to File-to-Send:
+
+            <input type="file" id="act" name="file" value="C:\Outgoing.csv"/>
+            <input type="submit" value="Upload CSV"/>
           </center>
           </form>
         </div>
