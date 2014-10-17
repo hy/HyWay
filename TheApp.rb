@@ -1325,46 +1325,46 @@ class TheApp < Sinatra::Base
 # India should be +0530 from GMT, I think
 
 #   require 'time'
-      scope = {'Discharge Date' => {$lte => Time.now}} 
-      cursor = DB['kolkata_outcall_schedule'].find(scope)
+#      scope = {'Discharge Date' => {$lte => Time.now}} 
+#      cursor = DB['kolkata_outcall_schedule'].find(scope)
 
 # find records where time is < discharge date
 # and put an index on discharge date: db.posts.ensureIndex({created_on: 1});
 
-      cursor.each { |r|
-        time_to_call_s = r['day'] +' '+ r['time'] +' '+ r['zone']
-        time_to_call = Time.parse(time_to_call_s)
+#      cursor.each { |r|
+#        time_to_call_s = r['day'] +' '+ r['time'] +' '+ r['zone']
+#        time_to_call = Time.parse(time_to_call_s)
 
 
 #        if no time-to-call specified, add one
 #         equal to admit date + 24 hours
 
-        if ( Time.now.to_f > (time_to_call.to_f - 60.0*5.0) )
-          # make a new outgoing call
-          @call = $twilio_account.calls.create(
-            :From => INDIA_CALLER_ID,
-            :To => params['ph'],
+#        if ( Time.now.to_f > (time_to_call.to_f - 60.0*5.0) )
+#          # make a new outgoing call
+#          @call = $twilio_account.calls.create(
+#            :From => INDIA_CALLER_ID,
+#            :To => params['ph'],
 #            :Url => SITE + 'handle-kolkata-call', 
-            :Url => SITE + r['TODO'], 
-            :StatusCallbackMethod => 'GET',
-            :StatusCallback => SITE + 'status_callback_for_outgoing_calls'
-          )
-          DB['kolkata_outcall_schedule'].remove({'Mobile No' => r['Mobile No']})
+#            :Url => SITE + r['TODO'], 
+#            :StatusCallbackMethod => 'GET',
+#            :StatusCallback => SITE + 'status_callback_for_outgoing_calls'
+#          )
+#        DB['kolkata_outcall_schedule'].remove({'Mobile No' => r['Mobile No']})
 
-#instead of removing, 
+# instead of removing, 
 
-        end #if
+#        end #if
+#
+#      } #cursor.each
 
-      } #cursor.each
 
-
-      cursor = DB['kolkata_outmsg_schedule'].find()
-      cursor.each { |r|
-        if ( Time.now.to_f > (time_to_send.to_f - 60.0*5.0) )
-          send_SMS_to( r['Phone'], r['msg'] )
-          DB['kolkata_outmsg_schedule'].remove({'ID' => r['ID']})
-        end #if
-      }
+#      cursor = DB['kolkata_outmsg_schedule'].find()
+#      cursor.each { |r|
+#        if ( Time.now.to_f > (time_to_send.to_f - 60.0*5.0) )
+#          send_SMS_to( r['Phone'], r['msg'] )
+#          DB['kolkata_outmsg_schedule'].remove({'ID' => r['ID']})
+#        end #if
+#      }
 
 
       h = REDIS.get('Heartbeats')
@@ -1398,8 +1398,20 @@ class TheApp < Sinatra::Base
 
       # Check to see what calls have already been received by each caregiver
       scope = {}
-      db_cursor = DB['kolkata_outcall_log'].find(scope)
+      db_cursor = DB['kolkata'].find(scope)
+
+      # Dates in India are stored in reverse day/month order
+      # So, to flip them back, we do this:
+      #
+      # a = Indian_date_string.split('/')
+      # temp = a[0]
+      # a[0] = a[1]
+      # a[1] = temp
+      # USA_date_string = a.join('/') +' +0530'
+
       
+      db_cursor = DB['kolkata_outcall_log'].find(scope)
+
       # content_route = 'handle-kolkata-call-for-' + r['Location'] 
 
           # make a new outgoing call
