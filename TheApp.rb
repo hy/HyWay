@@ -688,6 +688,9 @@ class TheApp < Sinatra::Base
     end #if
 
     @audio1 = "http://grass-roots-science.info/audio/1_Telugu.wav"
+    @audio2 = "http://grass-roots-science.info/audio/1_Telugu.wav"
+    @audio3 = "http://grass-roots-science.info/audio/1_Telugu.wav"
+    @audio4 = "http://grass-roots-science.info/audio/1_Telugu.wav"
 
     Twilio::TwiML::Response.new do |r|
       r.Pause :length => 1
@@ -904,6 +907,8 @@ class TheApp < Sinatra::Base
          'utc' => @now_f
       }
       puts DB['calls'].insert(doc)
+
+      cursor = DB['kolkata'].find_one({'Mobile No' => params['To']})
 
     rescue Exception => e;  log_exception( e, where );  end
   end #get
@@ -1314,6 +1319,8 @@ class TheApp < Sinatra::Base
         end #if
       } 
 
+# DO THE NOORA STUFF IN THE HOURLY CHECK, OPTIONALLY TWICE PER DAY!
+
 # example:  t.rfc2822  # => "Wed, 05 Oct 2011 22:26:12 -0400"
 # India should be +0530 from GMT, I think
 
@@ -1330,7 +1337,7 @@ class TheApp < Sinatra::Base
 
 
 #        if no time-to-call specified, add one
-
+#         equal to admit date + 24 hours
 
         if ( Time.now.to_f > (time_to_call.to_f - 60.0*5.0) )
           # make a new outgoing call
@@ -1380,6 +1387,41 @@ class TheApp < Sinatra::Base
       REDIS.incr('HoursOfUptime')
 
       #DO HOURLY CHECKS HERE
+
+      # IF it is "the reasonable AM hour in India" then start these calls
+      # OR if it is "the reasonable PM hour in India"
+
+      # Check location field for proper content to deliver
+      # Deliver only one content type during each broadcast
+ 
+      # Send to both primary and secondary caregivers
+
+      # Check to see what calls have already been received by each caregiver
+      scope = {}
+      db_cursor = DB['kolkata_outcall_log'].find(scope)
+      
+      # content_route = 'handle-kolkata-call-for-' + r['Location'] 
+
+          # make a new outgoing call
+          @call = $twilio_account.calls.create(
+            :From => INDIA_CALLER_ID,
+            :To => r['Mobile No'],
+            :Url => SITE + content_route,
+            :StatusCallbackMethod => 'GET',
+            :StatusCallback => SITE + 'status_callback_for_kolkata_calls'
+          )
+          DB['kolkata_outcall_log'].insert({'Mobile No' => r['Mobile No']})
+
+      # in status_callback, modify the LATEST entry in kolkata_outcall_log
+      # to reflect what message content was actually delivered
+      # OR see if we can pass that thru via the params hash . . . 
+      # OR send things to a separate status_callback route for each msg type
+ 
+      # params[:delivered] = r['Location']
+  
+
+      #END HOURLY CHECKS HERE
+
 
       h = REDIS.get('HoursOfUptime')
       puts "------------------HOURLY PING #{h} COMPLETE ----------------------"
