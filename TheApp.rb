@@ -1946,7 +1946,7 @@ class TheApp < Sinatra::Base
   #############################################################################
   # Set a new goal and notify both patient and caregiver
   #############################################################################
-  get /\/c\/goal[\s:\.,-=]*?(\d{2,4})\z/ do
+  get /\/c\/goal[\s:\.,-=]*?(\d*)\z/ do
   puts "GOAL SETTING ROUTE"
   begin
     goal_f = Float(params[:captures][0])
@@ -2170,7 +2170,7 @@ class TheApp < Sinatra::Base
   # confirmation text, we supply a mechanism to correct the typo in the db
   #
   # Type "!123!" to revise the last checkin to read "123" instead of what
-  # was orginally entered... 
+  # was originally entered... 
   #
   # So if a user types '!123!' in an SMS, we keep the same tags, timestamp
   # etc. and just update the glucose lvl value to '123' 
@@ -2337,7 +2337,7 @@ class TheApp < Sinatra::Base
   #############################################################################
   # Receive blood sugar checkin (precision-regex method)
   #############################################################################
-  get /\/c\/(mg|b)?g?(lucose)?[:,\s-]*(?<is>\d{2,3})[:,\s-]*(?<at>\D*)\z/ix do
+  get /\/c\/(mg|b)?g?(lucose)?[=:,\s-]*(?<is>\d{2,3})[:,\s-]*(?<at>\D*)\z/ix do
     puts where = 'BLOOD SUGAR CHECKIN REGEX ROUTE'
 
     begin
@@ -2358,7 +2358,7 @@ class TheApp < Sinatra::Base
   #############################################################################
   # Receive carb checkin (precision-regex method)
   #############################################################################
-  get /\/c\/c(arb)?s?[,\s:-]*(?<is>\d*\.?\d+)[,\s:\.-]*(?<at>\D*)/ix do
+  get /\/c\/c(arb)?s?[=,\s:-]*(?<is>\d*\.?\d+)[,\s:\.-]*(?<at>\D*)/ix do
     puts where = 'CARB CHECKIN REGEX ROUTE'
 
     begin
@@ -2374,6 +2374,28 @@ class TheApp < Sinatra::Base
     end
 
   end #do carb checkin
+
+
+  #############################################################################
+  # Receive carb checkin with alt syntax & no tags (precision-regex method)
+  #############################################################################
+  get /\/c\/(?<is>\d*\.?\d+)c(arb)?s?[,\s:\.-]*(?<at>\D*)/ix do
+    puts where = 'CARB CHECKIN REGEX ROUTE'
+
+    begin
+      amount_taken_s = params[:captures][0]
+      when_taken_s = params[:captures][1]
+
+      grams_f = Float( amount_taken_s )
+      handle_carb_checkin( grams_f, when_taken_s )
+
+    rescue Exception => e
+      reply_via_SMS('SMS not quite right for a carb checkin:'+params['Body'])
+      log_exception(e, where)
+    end
+
+  end #do carb checkin
+
 
 
   #############################################################################
