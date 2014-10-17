@@ -1388,7 +1388,7 @@ class TheApp < Sinatra::Base
     begin
       REDIS.incr('HoursOfUptime')
 
-      #DO HOURLY CHECKS HERE
+      # DO HOURLY CHECKS HERE
 
       # IF it is "the reasonable AM hour in India" then start these calls
       # OR if it is "the reasonable PM hour in India"
@@ -1399,20 +1399,16 @@ class TheApp < Sinatra::Base
       # Send to both primary and secondary caregivers
 
       # Check to see what calls have already been received by each caregiver
-      scope = {}
-      db_cursor = DB['kolkata'].find(scope)
 
       # Dates in India are stored in reverse day/month order
       # So, to flip them back, we do this:
-      #
-      # a = Indian_date_string.split('/')
-      # temp = a[0]
-      # a[0] = a[1]
-      # a[1] = temp
-      # USA_date_string = a.join('/') +' +0530'
-      # t = Time.parse(USA_date_string)
-
+      # t0 = timeObjectFromIndiaStyleDate(r['Admission Date'])
+      # t1 = timeObjectFromIndiaStyleDate(r['Discharge Date'])
       
+      scope = {}
+      db_cursor = DB['kolkata'].find(scope)
+
+
       db_cursor = DB['kolkata_outcall_log'].find(scope)
 
       # content_route = 'handle-kolkata-call-for-' + r['Location'] 
@@ -2238,7 +2234,7 @@ class TheApp < Sinatra::Base
     begin
       insulin_type_s = 'insulin'
       amount_taken_s = params[:captures][0]
-      when_taken_s = '[no tags]'
+      when_taken_s = ' '
 
       units_f = Float( amount_taken_s )
       if ((units_f > 0.1) && (units_f < 100.0 ))
@@ -2372,6 +2368,28 @@ class TheApp < Sinatra::Base
     end
 
   end #do carb checkin
+
+
+  #############################################################################
+  # Receive carb checkin (precision-regex method)
+  #############################################################################
+  get /\/c\/(?<is>\d*\.?\d+)c(arb)?s?/ix do
+    puts where = 'CARB CHECKIN REGEX ROUTE'
+
+    begin
+      amount_taken_s = params[:captures][0]
+
+      grams_f = Float( amount_taken_s )
+      handle_carb_checkin( grams_f, ' ')
+
+    rescue Exception => e
+      reply_via_SMS('SMS not quite right for a carb checkin:'+params['Body'])
+      log_exception(e, where)
+    end
+
+  end #do carb checkin
+
+
 
 
   #############################################################################
@@ -2573,7 +2591,7 @@ class TheApp < Sinatra::Base
       Time.now.to_f.to_s
     end
 
-    def india2USnotation(india_date_string)
+    def timeObjectFromIndiaStyleDate(india_date_string)
       a = india_date_string.split('/')
       temp = a[0]
       a[0] = a[1]
@@ -2581,7 +2599,7 @@ class TheApp < Sinatra::Base
       date_string = a.join('/') +' +0530'
       t = Time.parse(date_string)
       
-      return date_string
+      return t
     end
 
     # Got time format strings from Ruby Cookbook p99
