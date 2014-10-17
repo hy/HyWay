@@ -442,6 +442,10 @@ class TheApp < Sinatra::Base
     puts '  (' + who.class.to_s + ')'
     puts flavor_s = params['flavor']
 
+    # try to guess alternate wordings of blood glucose plots
+    a = ["sugar", "glucose", "blood glucose", "blood sugar"]
+    flavor_s = 'mg'  if a.include? flavor_s
+
     search_clause = { flavor_s => {'$exists' => true}, 'ID' => params['From'] }
 
     count = DB['checkins'].find(search_clause).count 
