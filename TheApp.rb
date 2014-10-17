@@ -81,6 +81,8 @@ require 'sinatra/base'
 
 require 'sinatra/graph'
 
+require 'time'
+
 require 'net/http'
 require 'net/https'
 require 'uri'
@@ -1408,6 +1410,7 @@ class TheApp < Sinatra::Base
       # a[0] = a[1]
       # a[1] = temp
       # USA_date_string = a.join('/') +' +0530'
+      # t = Time.parse(USA_date_string)
 
       
       db_cursor = DB['kolkata_outcall_log'].find(scope)
@@ -2562,13 +2565,24 @@ class TheApp < Sinatra::Base
   #############################################################################
   helpers do
 
+    ###########################################################################
+    # Time Helpers
+    ###########################################################################
+
     def timestamp()
       Time.now.to_f.to_s
     end
 
-    ###########################################################################
-    # View Helpers
-    ###########################################################################
+    def india2USnotation(india_date_string)
+      a = india_date_string.split('/')
+      temp = a[0]
+      a[0] = a[1]
+      a[1] = temp
+      date_string = a.join('/') +' +0530'
+      t = Time.parse(date_string)
+      
+      return date_string
+    end
 
     # Got time format strings from Ruby Cookbook p99
     # TO DO: adjust thresholds based on trials... set to 100 for now
@@ -2583,6 +2597,7 @@ class TheApp < Sinatra::Base
         return Time.at(tss.to_f).strftime("%a %l:%M%p %x")
       end #if
     end
+
 
     ###########################################################################
     # HTML injection: conditional display
