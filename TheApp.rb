@@ -1700,7 +1700,7 @@ class TheApp < Sinatra::Base
     flavor = flavor_s
 
     # try to guess alternate wordings of blood glucose plots
-    a = ["sugar", "glucose", "blood glucose", "blood sugar"]
+    a = ["sugar", "glucose", "bloodglucose", "bloodsugar"]
     flavor = 'mg'  if a.include? flavor_s
 
 
