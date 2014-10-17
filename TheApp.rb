@@ -2335,27 +2335,6 @@ class TheApp < Sinatra::Base
 
 
   #############################################################################
-  # Receive blood sugar checkin (precision-regex method)
-  #############################################################################
-  get /\/c\/(mg|b)?g?(lucose)?[=:,\s-]*(?<is>\d{2,3})[:,\s-]*(?<at>\D*)\z/ix do
-    puts where = 'BLOOD SUGAR CHECKIN REGEX ROUTE'
-
-    begin
-      blood_sugar_f = Float(params[:captures][0])
-      checkpoint_s = params[:captures][1]
-
-      # reset_alarm_timer_for( params['From'] )
-      handle_glucose_checkin(blood_sugar_f, checkpoint_s)
-
-    rescue Exception => e
-      reply_via_SMS('SMS not quite right for a bg checkin:'+params['Body'])
-      log_exception(e, where)
-    end
-
-  end #do sugar checkin
-
-
-  #############################################################################
   # Receive carb checkin (precision-regex method)
   #############################################################################
   get /\/c\/c(arb)?s?[=,\s:-]*(?<is>\d*\.?\d+)[,\s:\.-]*(?<at>\D*)/ix do
@@ -2395,6 +2374,27 @@ class TheApp < Sinatra::Base
     end
 
   end #do carb checkin
+
+
+  #############################################################################
+  # Receive blood sugar checkin (precision-regex method)
+  #############################################################################
+  get /\/c\/(mg|b)?g?(lucose)?[=:,\s-]*(?<is>\d{2,3})[:,\s-]*(?<at>\D*)\z/ix do
+    puts where = 'BLOOD SUGAR CHECKIN REGEX ROUTE'
+
+    begin
+      blood_sugar_f = Float(params[:captures][0])
+      checkpoint_s = params[:captures][1]
+
+      # reset_alarm_timer_for( params['From'] )
+      handle_glucose_checkin(blood_sugar_f, checkpoint_s)
+
+    rescue Exception => e
+      reply_via_SMS('SMS not quite right for a bg checkin:'+params['Body'])
+      log_exception(e, where)
+    end
+
+  end #do sugar checkin
 
 
 
