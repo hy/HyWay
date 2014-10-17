@@ -1697,12 +1697,12 @@ class TheApp < Sinatra::Base
   #############################################################################
   get /\/c\/plot[:,\s]*(?<flavor>\w+)[:,\s]*/ix do 
     flavor_s = params[:captures][0]
+    flavor = flavor_s
 
     # try to guess alternate wordings of blood glucose plots
     a = ["sugar", "glucose", "blood glucose", "blood sugar"]
-    flavor_s = 'mg'  if a.include? flavor_sa
+    flavor = 'mg'  if a.include? flavor_s
 
-    flavor = flavor_s
 
     puts who = params['From'].to_s
 
