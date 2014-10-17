@@ -442,10 +442,6 @@ class TheApp < Sinatra::Base
     puts '  (' + who.class.to_s + ')'
     puts flavor_s = params['flavor']
 
-    # try to guess alternate wordings of blood glucose plots
-    a = ["sugar", "glucose", "blood glucose", "blood sugar"]
-    flavor_s = 'mg'  if a.include? flavor_s
-
     search_clause = { flavor_s => {'$exists' => true}, 'ID' => params['From'] }
 
     count = DB['checkins'].find(search_clause).count 
@@ -1700,7 +1696,13 @@ class TheApp < Sinatra::Base
   # User Generated Plots
   #############################################################################
   get /\/c\/plot[:,\s]*(?<flavor>\w+)[:,\s]*/ix do 
-    flavor = params[:captures][0]
+    flavor_s = params[:captures][0]
+
+    # try to guess alternate wordings of blood glucose plots
+    a = ["sugar", "glucose", "blood glucose", "blood sugar"]
+    flavor_s = 'mg'  if a.include? flavor_sa
+
+    flavor = flavor_s
 
     puts who = params['From'].to_s
 
@@ -2372,28 +2374,6 @@ class TheApp < Sinatra::Base
     end
 
   end #do carb checkin
-
-
-  #############################################################################
-  # Receive carb checkin (precision-regex method)
-  #############################################################################
-  get /\/c\/(?<is>\d*\.?\d+)c(arb)?s?/ix do
-    puts where = 'CARB CHECKIN REGEX ROUTE'
-
-    begin
-      amount_taken_s = params[:captures][0]
-
-      grams_f = Float( amount_taken_s )
-      handle_carb_checkin( grams_f, ' ')
-
-    rescue Exception => e
-      reply_via_SMS('SMS not quite right for a carb checkin:'+params['Body'])
-      log_exception(e, where)
-    end
-
-  end #do carb checkin
-
-
 
 
   #############################################################################
