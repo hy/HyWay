@@ -2497,7 +2497,7 @@ class TheApp < Sinatra::Base
 
   # Trap+log a string key + digits + tag checkins we didn't anticipate . . .
 
-  get /\/c\/(?<flavor>\D+)[:,\s]*(?<value>\d*\.?\d+)[:,\s]*(?<tag>\S+)/ix do
+  get /\/c\/(?<flavor>\D+)[=:,\s]*(?<value>\d*\.?\d+)[:,\s]*(?<tag>\S+)/ix do
     flavor_s = params[:captures][0]
     value_f = Float( params[:captures][1] )
     tag_s = params[:captures][2]
@@ -2507,7 +2507,7 @@ class TheApp < Sinatra::Base
 
   # Trap+log a string key + float or digit checkins we didn't anticipate . . . 
 
-  get /\/c\/(?<flavor>\D+)[:,\s]*(?<value>\d*\.?\d+)/ix do
+  get /\/c\/(?<flavor>\D+)[=:,\s]*(?<value>\d*\.?\d+)/ix do
     flavor_s = params[:captures][0]
     value_f = Float( params[:captures][1] )
 
@@ -2519,7 +2519,7 @@ class TheApp < Sinatra::Base
 
 
   get '/c/*' do |text|
-    puts 'SMS CATCH-ALL ROUTE'
+    puts 'SMS CATCH-ALL ROUTE for UNROUTED GETS'
     reply_via_SMS('Sorry :/ I could not understand that. Maybe check your card or text the word HELP? Also for some commands the exact #of digits is the key')
     doc = {
       'Who' => params['From'],
