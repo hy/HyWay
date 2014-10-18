@@ -1958,7 +1958,7 @@ class TheApp < Sinatra::Base
               'utc' => @now_f
     }
     DB['checkins'].insert(doc)
-    msg = 'New 7-day goal of: ' + goal_f.to_s + ' -- Go for it!'
+    msg = 'New 7-day goal of: ' + goal_f.to_s + ' points -- Go for it!'
 
   rescue Exception => e
     msg = 'Could not update goal for '+ ph_num.to_s
