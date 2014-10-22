@@ -2716,7 +2716,7 @@ class TheApp < Sinatra::Base
     # HTML injection: SMS the number associated with this row
     ###########################################################################
     def addSMS(row)
-      if row['SMSable']=='yes' then
+      if (true) then
         return '<a href="' +SITE+ 'SendSMSto?ph=' + row['id'].to_s + '" >
           <img border="0" alt="SMS" src="images/SMS.png" /> </a>'
       else

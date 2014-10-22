@@ -29,13 +29,13 @@
                @d = @d + 
                       addPhone(hash) +
                       addSMS(hash) + 
-               #       addKyronLink(hash) + 'Patient ' + 
-                      ifPresentThenShow(hash, 'Patient Name') + ' at: ' +
-                      ifPresentThenShow(hash, 'Mobile number') + 'with CC ' + 
+               #       addKyronLink(hash) +  
+               #       ifPresentThenShow(hash, 'Patient Name') + ' at: ' +
+                      ifPresentThenShow(hash, 'Mobile number') +  
                #       ifPresentThenShow(hash, 'Relationship') + '= ' +
                #       ifPresentThenShow(hash, 'PrimaryCC') + ' at: ' +
-                      ifPresentThenShow(hash, 'CCphone') + ' ' + '(speaks ' +
-               #       ifPresentThenShow(hash, 'Language') + ')' +
+                      ifPresentThenShow(hash, 'CCphone') + ' ' + 
+               #       '(' + ifPresentThenShow(hash, 'Language') + ')' +
                #        addUpToDateLink(hash['search_string']) + 
                #        addAHALink(hash['search_string']) +         
                #        addGuidelinesLink(hash['search_string']) +  
