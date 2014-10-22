@@ -28,20 +28,20 @@
                @d += '<li>'
                @d = @d + 
                       addPhone(hash) +
-                      addPhoneStatus(hash) + 
                       addSMS(hash) + 
-                      addKyronLink(hash) + 'Patient ' + 
+               #       addKyronLink(hash) + 'Patient ' + 
                       ifPresentThenShow(hash, 'Patient Name') + ' at: ' +
                       ifPresentThenShow(hash, 'Mobile number') + 'with CC ' + 
-                      ifPresentThenShow(hash, 'Relationship') + '= ' +
-                      ifPresentThenShow(hash, 'PrimaryCC') + ' at: ' +
+               #       ifPresentThenShow(hash, 'Relationship') + '= ' +
+               #       ifPresentThenShow(hash, 'PrimaryCC') + ' at: ' +
                       ifPresentThenShow(hash, 'CCphone') + ' ' + '(speaks ' +
-                      ifPresentThenShow(hash, 'Language') + ')' +
+               #       ifPresentThenShow(hash, 'Language') + ')' +
                #        addUpToDateLink(hash['search_string']) + 
                #        addAHALink(hash['search_string']) +         
                #        addGuidelinesLink(hash['search_string']) +  
                #        addWikipediaLink(hash['search_string']) +   
                #        addPubMedLink(hash['search_string']) +      
+                      addPhoneStatus(hash) + 
                       addCircle(hash)
                @d += '</li>'  } %>
         
