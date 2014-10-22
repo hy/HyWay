@@ -1421,7 +1421,7 @@ class TheApp < Sinatra::Base
       # t0 = timeObjectFromIndiaStyleDate(r['Admission Date'])
       
       scope = {}
-      db_cursor = DB['kolkata'].find(scope)
+      cursor = DB['kolkata'].find(scope)
 
       # content_route = 'handle-kolkata-call-for-' + r['Location'] 
 
