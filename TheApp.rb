@@ -1,4 +1,5 @@
 
+
 # ADD: Conf call, grat. hotline, friend-connector
  
 # Serve CSV:
@@ -1408,11 +1409,12 @@ class TheApp < Sinatra::Base
  
       cursor.each { |r|
         if ( r['Department'] == 'CARDIAC SURGERY - ADULT' )
-          tAdmit = timeObjectFromIndiaStyleDate(r['Admission Date'])
-          tCutoff = Time.at(tAdmit.to_f + two_days)
-          send_SMS_to( r['Mobile number'], msg ) if Time.now < tCutoff
+          puts tAdmit = timeObjectFromIndiaStyleDate(r['Admission Date'])
+          puts tCutoff = Time.at(tAdmit.to_f + two_days)
+          XXXsend_SMS_to( r['Mobile number'], msg ) if Time.now < tCutoff
         end #if
       }
+      return 1
 
       # Check to see what calls have already been received by each caregiver
 
@@ -1423,7 +1425,6 @@ class TheApp < Sinatra::Base
       scope = {}
       cursor = DB['kolkata'].find(scope)
 
-      # content_route = 'handle-kolkata-call-for-' + r['Location'] 
 
           # make a new outgoing call
           @call = $twilio_account.calls.create(

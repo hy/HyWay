@@ -1,7 +1,11 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
+
 # ruby '2.0.0', :engine => "rbx", :engine_version => "2.0.0.n265"
 # ruby '1.9.3', engine: 'jruby', engine_version: '1.7.8'
+
+# please note that Ruby Version impacts Time.parse
+
 
 gem 'jwt', '0.1.11'
 
