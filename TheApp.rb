@@ -1419,7 +1419,7 @@ class TheApp < Sinatra::Base
             :To => r['Mobile No'],
             :Url => SITE + content_route,
             :StatusCallbackMethod => 'GET',
-            :StatusCallback => SITE + 'status_callback_for_kolkata_calls'
+            :StatusCallback => SITE + 'status_callback_for_kolkata_preop'
           )
           DB['kolkata_outcall_log'].insert({'Mobile No' => r['Mobile No']})
 
@@ -1427,10 +1427,19 @@ class TheApp < Sinatra::Base
       # to reflect what message content was actually delivered
       # OR see if we can pass that thru via the params hash . . . 
       # OR send things to a separate status_callback route for each msg type
+
+          # make a new outgoing call
+          @call = $twilio_account.calls.create(
+            :From => INDIA_CALLER_ID,
+            :To => r['Mobile No'],
+            :Url => SITE + content_route,
+            :StatusCallbackMethod => 'GET',
+            :StatusCallback => SITE + 'status_callback_for_kolkata_ward'
+          )
+          DB['kolkata_outcall_log'].insert({'Mobile No' => r['Mobile No']})
  
       # params[:delivered] = r['Location']
   
-
       #END HOURLY CHECKS HERE
 
 
