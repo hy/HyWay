@@ -1411,7 +1411,7 @@ class TheApp < Sinatra::Base
         if ( r['Department'] == 'CARDIAC SURGERY - ADULT' )
           puts tAdmit = timeObjectFromIndiaStyleDate(r['Admission Date'])
           puts tCutoff = Time.at(tAdmit.to_f + two_days)
-          XXXsend_SMS_to( r['Mobile number'], msg ) if Time.now < tCutoff
+  #        XXXsend_SMS_to( r['Mobile number'], msg ) if Time.now < tCutoff
         end #if
       }
 
