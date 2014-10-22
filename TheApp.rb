@@ -1393,23 +1393,35 @@ class TheApp < Sinatra::Base
       # IF it is "the reasonable AM hour in India" then start these calls
       # OR if it is "the reasonable PM hour in India"
 
-      # Check location field for proper content to deliver
+      # Check Department and Admission Category
+      # for info from that field for proper content to deliver
       # Deliver only one content type during each broadcast
  
       # Send to both primary and secondary caregivers
+
+      # First send out a text message to authenticate the call
+
+      msg = 'Stay tuned for a call from NH re:Care Companion!'
+      two_days = 60*60*24*2.0
+      scope = {}
+      cursor = DB['kolkata'].find(scope)
+ 
+      cursor.each { |r|
+        if ( r['Department'] == 'CARDIAC SURGERY - ADULT' )
+          tAdmit = timeObjectFromIndiaStyleDate(r['Admission Date'])
+          tCutoff = Time.at(tAdmit.to_f + two_days)
+          send_SMS_to( r['Mobile number'], msg ) if Time.now < tCutoff
+        end #if
+      }
 
       # Check to see what calls have already been received by each caregiver
 
       # Dates in India are stored in reverse day/month order
       # So, to flip them back, we do this:
       # t0 = timeObjectFromIndiaStyleDate(r['Admission Date'])
-      # t1 = timeObjectFromIndiaStyleDate(r['Discharge Date'])
       
       scope = {}
       db_cursor = DB['kolkata'].find(scope)
-
-
-      db_cursor = DB['kolkata_outcall_log'].find(scope)
 
       # content_route = 'handle-kolkata-call-for-' + r['Location'] 
 
