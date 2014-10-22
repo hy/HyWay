@@ -1414,7 +1414,6 @@ class TheApp < Sinatra::Base
           XXXsend_SMS_to( r['Mobile number'], msg ) if Time.now < tCutoff
         end #if
       }
-      return 1
 
       # Check to see what calls have already been received by each caregiver
 
@@ -1427,14 +1426,14 @@ class TheApp < Sinatra::Base
 
 
           # make a new outgoing call
-          @call = $twilio_account.calls.create(
-            :From => INDIA_CALLER_ID,
-            :To => r['Mobile number'],
-            :Url => SITE + content_route,
-            :StatusCallbackMethod => 'GET',
-            :StatusCallback => SITE + 'status_callback_for_kolkata_preop'
-          )
-          DB['kolkata_outcall_log'].insert({'Mobile number' => r['Mobile number']})
+#          @call = $twilio_account.calls.create(
+#            :From => INDIA_CALLER_ID,
+#            :To => r['Mobile number'],
+#            :Url => SITE + content_route,
+#            :StatusCallbackMethod => 'GET',
+#            :StatusCallback => SITE + 'status_callback_for_kolkata_preop'
+#          )
+#          DB['kolkata_outcall_log'].insert({'Mobile number' => r['Mobile number']})
 
       # in status_callback, modify the LATEST entry in kolkata_outcall_log
       # to reflect what message content was actually delivered
@@ -1442,14 +1441,14 @@ class TheApp < Sinatra::Base
       # OR send things to a separate status_callback route for each msg type
 
           # make a new outgoing call
-          @call = $twilio_account.calls.create(
-            :From => INDIA_CALLER_ID,
-            :To => r['Mobile number'],
-            :Url => SITE + content_route,
-            :StatusCallbackMethod => 'GET',
-            :StatusCallback => SITE + 'status_callback_for_kolkata_ward'
-          )
-          DB['kolkata_outcall_log'].insert({'Mobile number' => r['Mobile number']})
+#          @call = $twilio_account.calls.create(
+#            :From => INDIA_CALLER_ID,
+#            :To => r['Mobile number'],
+#            :Url => SITE + content_route,
+#            :StatusCallbackMethod => 'GET',
+#            :StatusCallback => SITE + 'status_callback_for_kolkata_ward'
+#          )
+#          DB['kolkata_outcall_log'].insert({'Mobile number' => r['Mobile number']})
  
       # params[:delivered] = r['Location']
   
