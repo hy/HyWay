@@ -2628,7 +2628,7 @@ class TheApp < Sinatra::Base
       year = a2[0].to_i
       min = a3[1].to_i
       hour = (a3[0].to_i) if (a2[2] == 'AM')
-      hour = (a3[0].to_i +12) if (a2[2] == 'PM')
+      hour = (12 + a3[0].to_i) if (a2[2] == 'PM')
       tz_string = '+05:30'
 
       t = Time.new(year, month, day, hour, min, 0, tz_string)
