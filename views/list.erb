@@ -37,12 +37,12 @@
                       ifPresentThenShow(hash, 'PrimaryCC') + ' at: ' +
                       ifPresentThenShow(hash, 'CCphone') + ' ' + '(speaks ' +
                       ifPresentThenShow(hash, 'Language') + ')' +
-                      addCircle(hash) +
-                      addUpToDateLink(hash['search_string']) + 
-                      addAHALink(hash['search_string']) + 
-                      addGuidelinesLink(hash['search_string']) + 
-                      addWikipediaLink(hash['search_string']) + 
-                      addPubMedLink(hash['search_string'])
+            <!--        addUpToDateLink(hash['search_string']) +    -->
+            <!--        addAHALink(hash['search_string']) +         -->
+            <!--        addGuidelinesLink(hash['search_string']) +  -->
+            <!--        addWikipediaLink(hash['search_string']) +   -->
+            <!--        addPubMedLink(hash['search_string']) +      -->
+                      addCircle(hash)
                @d += '</li>'  } %>
         
           <ol>   <%= @d %>   </ol>
