@@ -2623,8 +2623,8 @@ class TheApp < Sinatra::Base
       temp = a[0]
       a[0] = a[1]
       a[1] = temp
-      date_string = a.join('/') +' +0530'
-      t = Time.parse(date_string)
+      puts date_string = a.join('/') +' +0530'
+      puts t = Time.parse(date_string)
       
       return t
     end
