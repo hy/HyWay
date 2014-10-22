@@ -2687,7 +2687,7 @@ class TheApp < Sinatra::Base
     # HTML injection: phone the number associated with this row
     ###########################################################################
     def addPhone(row)
-      if row['Callable']=='yes' then
+      if true then
         return '<a href="' +SITE+ 'Call?ph=' + row['Mobile number'].to_s + '" >
           <img border="0" alt="Phone" src="images/phone.png" /> </a>'
       else
@@ -2698,7 +2698,7 @@ class TheApp < Sinatra::Base
     # HTML injection: phone status data associated with this row
     ###########################################################################
     def addPhoneStatus(row)
-      if row['Callable']=='yes' then
+      if true then
         db_cursor = DB['calls'].find({'To' => '+'+row['Mobile number'].to_s})
         db_record = db_cursor.sort('utc' => -1).limit(1).first
 
