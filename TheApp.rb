@@ -2620,12 +2620,19 @@ class TheApp < Sinatra::Base
 
     def timeObjectFromIndiaStyleDate(india_date_string)
       a = india_date_string.split('/')
-      temp = a[0]
-      a[0] = a[1]
-      a[1] = temp
-      puts date_string = a.join('/') +' +0530'
-      puts t = Time.parse(date_string)
-      
+      a2 = a[2].split(' ')
+      a3 = a2[1].split(':')
+
+      day = a[0].to_i
+      month = a[1].to_i
+      year = a2[0].to_i
+      min = a3[1].to_i
+      hour = (a3[0].to_i) if (a2[2] == 'AM')
+      hour = (a3[0].to_i +12) if (a2[2] == 'PM')
+      tz_string = '+05:30'
+
+      t = Time.new(year, month, day, hour, min, 0, tz_string)
+ 
       return t
     end
 
