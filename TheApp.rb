@@ -665,7 +665,7 @@ class TheApp < Sinatra::Base
   end #get Call
 
   post '/handle-kolkata-call' do
-    d = DB['kolkata'].find_one({'Mobile No' => params['To'].to_i})
+    d = DB['kolkata'].find_one({'Mobile number' => params['To'].to_i})
     if d == nil
       @Language = 'Bangla'
     elseif d['Language'] == nil
@@ -713,19 +713,19 @@ class TheApp < Sinatra::Base
     puts '/GATHER_KEYPAD_RESPONSE \n WITH PARAMS= ' + params.to_s
 
     if params['Digits'] == '1'
-      DB['bangalore'].update({'Mobile No' => params['To'].to_i},
+      DB['bangalore'].update({'Mobile number' => params['To'].to_i},
             {'$set' => {'Language' => 'English'} })
       response = Twilio::TwiML::Response.new do |r|
         r.Say 'The English version would be repeated here.', :voice => 'woman'
       end
     elsif params['Digits'] == '2'
-      DB['bangalore'].update({'Mobile No' => params['To'].to_i},
+      DB['bangalore'].update({'Mobile number' => params['To'].to_i},
             {'$set' => {'Language' => 'Bangla'} })
       response = Twilio::TwiML::Response.new do |r|
         r.Say 'The Bangla version would be repeated here.', :voice => 'woman'
       end
     elsif params['Digits'] == '3'
-      DB['bangalore'].update({'Mobile No' => params['To'].to_i},
+      DB['bangalore'].update({'Mobile number' => params['To'].to_i},
             {'$set' => {'Language' => 'Hindi'} })
       response = Twilio::TwiML::Response.new do |r|
         r.Say 'The Hindi version would be repeated here.', :voice => 'woman'
@@ -745,7 +745,7 @@ class TheApp < Sinatra::Base
 
 
   post '/call-handler' do
-    d = DB['bangalore'].find_one({'Mobile No' => params['To'].to_i})
+    d = DB['bangalore'].find_one({'Mobile number' => params['To'].to_i})
     if d == nil
       $Language = 'Hindi'
     elseif d['Language'] == nil
@@ -791,19 +791,19 @@ class TheApp < Sinatra::Base
     puts '/GATHER_KEYPAD_RESPONSE \n WITH PARAMS= ' + params.to_s
 
     if params['Digits'] == '1'
-      DB['bangalore'].update({'Mobile No' => params['To'].to_i},
+      DB['bangalore'].update({'Mobile number' => params['To'].to_i},
             {'$set' => {'Language' => 'English'} })
       response = Twilio::TwiML::Response.new do |r|
         r.Say 'The English version would be repeated here.', :voice => 'woman'
       end
     elsif params['Digits'] == '2'
-      DB['bangalore'].update({'Mobile No' => params['To'].to_i},
+      DB['bangalore'].update({'Mobile number' => params['To'].to_i},
             {'$set' => {'Language' => 'Hindi'} })
       response = Twilio::TwiML::Response.new do |r|
         r.Say 'The Hindi version would be repeated here.', :voice => 'woman'
       end
     elsif params['Digits'] == '3'
-      DB['bangalore'].update({'Mobile No' => params['To'].to_i},
+      DB['bangalore'].update({'Mobile number' => params['To'].to_i},
             {'$set' => {'Language' => 'Kannada'} })
       response = Twilio::TwiML::Response.new do |r|
         r.Say 'The Canada version would be repeated here.', :voice => 'woman'
@@ -910,7 +910,7 @@ class TheApp < Sinatra::Base
       }
       puts DB['calls'].insert(doc)
 
-      cursor = DB['kolkata'].find_one({'Mobile No' => params['To']})
+      cursor = DB['kolkata'].find_one({'Mobile number' => params['To']})
 
     rescue Exception => e;  log_exception( e, where );  end
   end #get
@@ -1351,7 +1351,7 @@ class TheApp < Sinatra::Base
 #            :StatusCallbackMethod => 'GET',
 #            :StatusCallback => SITE + 'status_callback_for_outgoing_calls'
 #          )
-#        DB['kolkata_outcall_schedule'].remove({'Mobile No' => r['Mobile No']})
+#        DB['kolkata_outcall_schedule'].remove({'Mobile number' => r['Mobile number']})
 
 # instead of removing, 
 
@@ -1428,12 +1428,12 @@ class TheApp < Sinatra::Base
           # make a new outgoing call
           @call = $twilio_account.calls.create(
             :From => INDIA_CALLER_ID,
-            :To => r['Mobile No'],
+            :To => r['Mobile number'],
             :Url => SITE + content_route,
             :StatusCallbackMethod => 'GET',
             :StatusCallback => SITE + 'status_callback_for_kolkata_preop'
           )
-          DB['kolkata_outcall_log'].insert({'Mobile No' => r['Mobile No']})
+          DB['kolkata_outcall_log'].insert({'Mobile number' => r['Mobile number']})
 
       # in status_callback, modify the LATEST entry in kolkata_outcall_log
       # to reflect what message content was actually delivered
@@ -1443,12 +1443,12 @@ class TheApp < Sinatra::Base
           # make a new outgoing call
           @call = $twilio_account.calls.create(
             :From => INDIA_CALLER_ID,
-            :To => r['Mobile No'],
+            :To => r['Mobile number'],
             :Url => SITE + content_route,
             :StatusCallbackMethod => 'GET',
             :StatusCallback => SITE + 'status_callback_for_kolkata_ward'
           )
-          DB['kolkata_outcall_log'].insert({'Mobile No' => r['Mobile No']})
+          DB['kolkata_outcall_log'].insert({'Mobile number' => r['Mobile number']})
  
       # params[:delivered] = r['Location']
   
@@ -2688,7 +2688,7 @@ class TheApp < Sinatra::Base
     ###########################################################################
     def addPhone(row)
       if row['Callable']=='yes' then
-        return '<a href="' +SITE+ 'Call?ph=' + row['Mobile No'].to_s + '" >
+        return '<a href="' +SITE+ 'Call?ph=' + row['Mobile number'].to_s + '" >
           <img border="0" alt="Phone" src="images/phone.png" /> </a>'
       else
         return ''
@@ -2699,7 +2699,7 @@ class TheApp < Sinatra::Base
     ###########################################################################
     def addPhoneStatus(row)
       if row['Callable']=='yes' then
-        db_cursor = DB['calls'].find({'To' => '+'+row['Mobile No'].to_s})
+        db_cursor = DB['calls'].find({'To' => '+'+row['Mobile number'].to_s})
         db_record = db_cursor.sort('utc' => -1).limit(1).first
 
         text = 'X' if db_record == nil
