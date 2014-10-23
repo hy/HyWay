@@ -72,7 +72,7 @@ gems:
 
 it:
 	git add Makefile $(MAIN) $(VIEWS)
-	git commit -m TRY:'$(m)'
+	git commit -m '$(m)'
 	git push -u heroku master
 
 go:
