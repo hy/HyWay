@@ -7,9 +7,8 @@ VIEWS = views/list.erb static/main.css
 SERVER = http://serene-forest-4377.herokuapp.com/
 
 MONGOPATH = ~/mongodb-osx-x86_64-2.6.1/bin
-MONGO_RSET_URL = lighthouse.0.mongolayer.com:10104/production
 
-DB = latest
+DB = $(MONGO_DB_NAME) 
 
 AUDIO = ~/Dropbox/HyWay/static/VascularContent/Audio
 IMAGES = ~/Dropbox/HyWay/static/VascularContent/Images
@@ -37,6 +36,10 @@ g-diff:
 
 g-rollback:
 	git reset --soft HEAD~1
+
+
+monitor:
+	heroku logs -t
 
 
 ##################### Begin Aux/Mongo Interactions ###################
@@ -119,9 +122,6 @@ import_of_testers:
 
 export_of_tracking:
 	$(MONGOPATH)/mongoexport --host $(MONGO_URL) -port $(MONGO_PORT) -d $(DB) -c noora_tracking -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --out ~/Documents/NooraTrackingDump.json
-
-replicate_tracking:
-        $(MONGOPATH)/mongoimport --host $(MONGO_RSET_URL) -port $(MONGO_RSET_PORT) -d $(DB) -c noora_tracking -u $(MONGO_RSET_USER_ID) -p $(MONGO_RSET_PASSWORD) --file ~/Documents/NooraTrackingDump.json
 
 export_of_bangalore:
 	$(MONGOPATH)/mongoexport --host $(MONGO_URL) -port $(MONGO_PORT) -d $(DB) -c bangalore -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --out ~/Documents/BangaloreDump.json
