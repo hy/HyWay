@@ -2518,24 +2518,22 @@ class TheApp < Sinatra::Base
 
   # Trap+log a string key + digits + tag checkins we didn't anticipate . . .
 
-  get /\/c\/(?<flavor>\D+)[=:,\s]*(?<value>\d*\.?\d+)[:,\s]*(?<tag>\S+)/ix do
-    flavor_s = params[:captures][0]
-    value_f = Float( params[:captures][1] )
-    tag_s = params[:captures][2]
+#  get /\/c\/(?<flavor>\D+)[=:,\s]*(?<value>\d*\.?\d+)[:,\s]*(?<tag>\S+)/ix do
+#    flavor_s = params[:captures][0]
+#    value_f = Float( params[:captures][1] )
+#    tag_s = params[:captures][2]
 
-    handle_tagged_checkin(value_f, flavor_s, tag_s)
-  end #do get
+#    handle_tagged_checkin(value_f, flavor_s, tag_s)
+#  end #do get
 
   # Trap+log a string key + float or digit checkins we didn't anticipate . . . 
 
-  get /\/c\/(?<flavor>\D+)[=:,\s]*(?<value>\d*\.?\d+)/ix do
-    flavor_s = params[:captures][0]
-    value_f = Float( params[:captures][1] )
+#  get /\/c\/(?<flavor>\D+)[=:,\s]*(?<value>\d*\.?\d+)/ix do
+#    flavor_s = params[:captures][0]
+#    value_f = Float( params[:captures][1] )
 
-    puts "Logging a checkin of arbitrary / unknown type . . . "
-
-    handle_checkin(value_f, flavor_s)
-  end #do get
+#    handle_checkin(value_f, flavor_s)
+#  end #do get
 
 
 
