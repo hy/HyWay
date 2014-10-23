@@ -574,7 +574,7 @@ class TheApp < Sinatra::Base
       end
     }
 
-    @msg_suggest = DB['nh_msg'].find_one()['words']
+    @msg_suggest = 'Suggested Message goes here'
     @label = collection_to_list.upcase + " LIST:"
     @foo = a
 
