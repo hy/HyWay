@@ -1418,7 +1418,7 @@ class TheApp < Sinatra::Base
   
         tAdmit = timeObjectFromIndiaStyleDate(r['Admission Date'])
         tCutoff = Time.at(tAdmit.to_f + two_days)
-        send_SMS_to( r['Mobile number'], msg ) if Time.now < tCutoff
+        send_SMS_to_f( r['Mobile number'], msg ) if Time.now < tCutoff
       }
 
       # Store the text message content and the voiceover content in each 
@@ -3108,6 +3108,25 @@ class TheApp < Sinatra::Base
 
       rescue Exception => e;  log_exception( e, where );  end
     end #def
+
+    ###########################################################################
+    # Twilio-Specific 'Macro'-style Helper: Send SMS to a number (not stored 
+    # as a string value but stored as a number)
+    ###########################################################################
+    def send_SMS_to( number, msg )
+    puts where = 'HELPER: ' + (__method__).to_s
+      begin
+
+        @message = $twilio_account.sms.messages.create({
+              :from => TWILIO_CALLER_ID,
+              :to => number,
+              :body => msg
+        })
+        puts "SENDING OUTGOING SMS: "+msg+" TO: "+number
+
+      rescue Exception => e;  log_exception( e, where );  end
+    end #def
+
 
 
     ###########################################################################
