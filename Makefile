@@ -53,7 +53,9 @@ m-rset-shell:
 m-primary-election:
 	
 m-oplog_dump:
-	
+
+old-m-shell:
+	$(MONGOPATH)/mongo dharma.mongohq.com:10070/latest -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD)	
 
 m-shell:
 	$(MONGOPATH)/mongo $(MONGO_URL):$(MONGO_PORT)/$(DB) -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD)

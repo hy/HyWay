@@ -715,19 +715,19 @@ class TheApp < Sinatra::Base
     puts '/GATHER_KEYPAD_RESPONSE \n WITH PARAMS= ' + params.to_s
 
     if params['Digits'] == '1'
-      DB['bangalore'].update({'Mobile number' => params['To'].to_i},
+      DB['kolkata'].update({'Mobile number' => params['To'].to_i},
             {'$set' => {'Language' => 'English'} })
       response = Twilio::TwiML::Response.new do |r|
         r.Say 'The English version would be repeated here.', :voice => 'woman'
       end
     elsif params['Digits'] == '2'
-      DB['bangalore'].update({'Mobile number' => params['To'].to_i},
+      DB['kolkata'].update({'Mobile number' => params['To'].to_i},
             {'$set' => {'Language' => 'Bangla'} })
       response = Twilio::TwiML::Response.new do |r|
         r.Say 'The Bangla version would be repeated here.', :voice => 'woman'
       end
     elsif params['Digits'] == '3'
-      DB['bangalore'].update({'Mobile number' => params['To'].to_i},
+      DB['kolkata'].update({'Mobile number' => params['To'].to_i},
             {'$set' => {'Language' => 'Hindi'} })
       response = Twilio::TwiML::Response.new do |r|
         r.Say 'The Hindi version would be repeated here.', :voice => 'woman'
@@ -1382,17 +1382,9 @@ class TheApp < Sinatra::Base
     Time.now.to_s  # <-- Must return a string for all get req's
   end #do heartbeat
 
+  get '/send_noora_texts' do
 
-  get '/hourly_ping' do
-    puts where = 'HOURLY PING'
-    a = Array.new
-
-    begin
-      REDIS.incr('HoursOfUptime')
-
-      # DO HOURLY CHECKS HERE
-
-      # IF it is "the reasonable AM hour in India" then start these calls
+      # IF it is "the reasonable AM hour in India" then trigger this route
       # OR if it is "the reasonable PM hour in India"
 
       # Check Department and Admission Category
@@ -1403,18 +1395,37 @@ class TheApp < Sinatra::Base
 
       # First send out a text message to authenticate the call
 
-      msg = 'Stay tuned for a call from NH re:Care Companion!'
+      msg = 'This is the number for Care Companion at NH hospital'
       two_days = 60*60*24*2.0
       scope = {}
       cursor = DB['kolkata'].find(scope)
- 
+
       cursor.each { |r|
-        if ( r['Department'] == 'CARDIAC SURGERY - ADULT' )
+        if r['Language'] == nil
+          @Language = 'Bangla'
+        else
+          @Language = d['Language']
+        end #if
+
+    in_proper_language_and_scope = {'Language'=>@Language}
+
+    m_data = DB['kolkata_directions'].find_one(in_proper_language_and_scope)
+          content_scope = {'Department' => r['Department'], 
+                           'Admission Category' => r['Admission Category'], 
+                           'Language'=>@Language}
+          msg = DB['text_content'].find_one(content_scope)
+ 
+  
           puts tAdmit = timeObjectFromIndiaStyleDate(r['Admission Date'])
           puts tCutoff = Time.at(tAdmit.to_f + two_days)
-  #        XXXsend_SMS_to( r['Mobile number'], msg ) if Time.now < tCutoff
-        end #if
+  # send_SMS_to( r['Mobile number'], msg ) if Time.now < tCutoff
       }
+
+      # Store the text message content and the voiceover content in each 
+      # patient record and just play them!  
+
+      # IF there is any logic needed to decide which message to play, 
+      # do that processing upon upload, with a triggered route
 
       # Check to see what calls have already been received by each caregiver
 
@@ -1422,9 +1433,12 @@ class TheApp < Sinatra::Base
       # So, to flip them back, we do this:
       # t0 = timeObjectFromIndiaStyleDate(r['Admission Date'])
       
+  end #do '/send_noora_texts'
+
+  get '/make_noora_calls' do
+
       scope = {}
       cursor = DB['kolkata'].find(scope)
-
 
           # make a new outgoing call
 #          @call = $twilio_account.calls.create(
@@ -1452,10 +1466,18 @@ class TheApp < Sinatra::Base
 #          DB['kolkata_outcall_log'].insert({'Mobile number' => r['Mobile number']})
  
       # params[:delivered] = r['Location']
+
+  end #do '/make_noora_calls'
+
+  get '/hourly_ping' do
+    puts where = 'HOURLY PING'
+    a = Array.new
+
+    begin
+      REDIS.incr('HoursOfUptime')
+      # DO HOURLY CHECKS HERE
   
-      #END HOURLY CHECKS HERE
-
-
+      # END HOURLY CHECKS HERE
       h = REDIS.get('HoursOfUptime')
       puts "------------------HOURLY PING #{h} COMPLETE ----------------------"
 
