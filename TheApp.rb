@@ -2142,6 +2142,13 @@ class TheApp < Sinatra::Base
     reply_via_SMS( info_s )
   end #do get
 
+  get '/c/points' do
+    puts "POINTS REPORT ROUTE"
+    patient_ph_num = patient_ph_num_assoc_wi_caller
+    points_s = points_for( patient_ph_num )
+    reply_via_SMS( points_s )
+  end #do get
+
   get '/c/score' do
     puts "SCORE REPORT ROUTE"
     patient_ph_num = patient_ph_num_assoc_wi_caller
@@ -3746,6 +3753,32 @@ class TheApp < Sinatra::Base
     ###########################################################################
 
     ###########################################################################
+    # Basic Bare-Bones Points Helper
+    ###########################################################################
+    def points_for( ph_num )
+    puts where = 'HELPER: ' + (__method__).to_s
+    begin
+      msg = ''
+      cmd = {
+        aggregate: 'checkins',  pipeline: [
+          {'$match' => {:ID => ph_num}},
+          {'$group' => {:_id => '$ID', :pts_tot => {'$sum'=>'$pts'}}} ]
+      }
+      result = DB.command(cmd)['result'][0]
+      score = result==nil ? DEFAULT_SCORE : result['pts_tot']
+      msg = " Points: %.0f " % score
+
+    rescue Exception => e 
+      msg += "  Points tracking not yet available"
+      log_exception( e, where )
+    end
+
+      return msg
+    end #def
+
+
+
+    ###########################################################################
     # Score Helper
     ###########################################################################
     def score_for( ph_num )
@@ -3774,7 +3807,7 @@ class TheApp < Sinatra::Base
       end #if last
 
     rescue Exception => e  
-      msg += "  Goal info not available"
+      msg += "  Goal tracking not yet available"
       log_exception( e, where )
     end
 
