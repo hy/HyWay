@@ -3113,7 +3113,7 @@ class TheApp < Sinatra::Base
     # Twilio-Specific 'Macro'-style Helper: Send SMS to a number (not stored 
     # as a string value but stored as a number)
     ###########################################################################
-    def send_SMS_to( number, msg )
+    def send_SMS_to_f( number, msg )
     puts where = 'HELPER: ' + (__method__).to_s
       begin
 
