@@ -3759,14 +3759,13 @@ class TheApp < Sinatra::Base
     puts where = 'HELPER: ' + (__method__).to_s
     begin
       msg = ''
-      cmd = {
-        aggregate: 'checkins',  pipeline: [
+      coll = db.collection('checkins')
+      result = coll.aggregate([
           {'$match' => {:ID => ph_num}},
-          {'$group' => {:_id => '$ID', :pts_tot => {'$sum'=>'$pts'}}} ]
-      }
-      result = DB.command(cmd)['result'][0]
-      score = result==nil ? DEFAULT_SCORE : result['pts_tot']
-      msg = " Points: %.0f " % score
+          {'$group' => {:_id => '$ID', :pts_tot => {'$sum'=>'$pts'}}} ])
+      
+      points = result==nil ? DEFAULT_SCORE : result['pts_tot']
+      msg = " Points: %.0f " % points
 
     rescue Exception => e 
       msg += "  Points tracking not yet available"
