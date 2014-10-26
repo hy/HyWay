@@ -1412,12 +1412,13 @@ class TheApp < Sinatra::Base
         content_scope = {'Department' => r['Department'], 
                          'Admission Category' => r['Admission Category'], 
                          'Language'=>@Language}
-        msg = DB['sms_content'].find_one(content_scope)
- 
+        fetch = DB['sms_content'].find_one(content_scope)
+        days = fetch['days']
+        msg = fetch['text']
   
-        puts tAdmit = timeObjectFromIndiaStyleDate(r['Admission Date'])
-        puts tCutoff = Time.at(tAdmit.to_f + two_days)
-  # send_SMS_to( r['Mobile number'], msg ) if Time.now < tCutoff
+        tAdmit = timeObjectFromIndiaStyleDate(r['Admission Date'])
+        tCutoff = Time.at(tAdmit.to_f + two_days)
+        send_SMS_to( r['Mobile number'], msg ) if Time.now < tCutoff
       }
 
       # Store the text message content and the voiceover content in each 
