@@ -1385,7 +1385,9 @@ class TheApp < Sinatra::Base
   get '/send_noora_texts' do
 
       # IF it is "the reasonable AM hour in India" then trigger this route
-      # OR if it is "the reasonable PM hour in India"
+      # externally via the Heroku scheduler.  
+
+      # 
 
       # Check Department and Admission Category
       # for info from that field for proper content to deliver
@@ -1402,22 +1404,19 @@ class TheApp < Sinatra::Base
 
       cursor.each { |r|
         if r['Language'] == nil
-          @Language = 'Bangla'
+          @Language = 'Bengali'
         else
           @Language = d['Language']
         end #if
 
-    in_proper_language_and_scope = {'Language'=>@Language}
-
-    m_data = DB['kolkata_directions'].find_one(in_proper_language_and_scope)
-          content_scope = {'Department' => r['Department'], 
-                           'Admission Category' => r['Admission Category'], 
-                           'Language'=>@Language}
-          msg = DB['text_content'].find_one(content_scope)
+        content_scope = {'Department' => r['Department'], 
+                         'Admission Category' => r['Admission Category'], 
+                         'Language'=>@Language}
+        msg = DB['sms_content'].find_one(content_scope)
  
   
-          puts tAdmit = timeObjectFromIndiaStyleDate(r['Admission Date'])
-          puts tCutoff = Time.at(tAdmit.to_f + two_days)
+        puts tAdmit = timeObjectFromIndiaStyleDate(r['Admission Date'])
+        puts tCutoff = Time.at(tAdmit.to_f + two_days)
   # send_SMS_to( r['Mobile number'], msg ) if Time.now < tCutoff
       }
 

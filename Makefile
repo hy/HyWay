@@ -118,6 +118,10 @@ import_of_kolkata:
 	~/Downloads/flip.universal -u ~/Documents/kolkata.csv
 	$(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d $(DB) -c kolkata -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/kolkata.csv --headerline
 
+import_of_sms_content:
+	~/Downloads/flip.universal -u ~/Documents/sms_content.csv
+	$(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d $(DB) -c sms_content -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/sms_content.csv --headerline
+
 import_of_testers:
 	~/Downloads/flip.universal -u ~/Documents/Testers.csv
 	$(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d $(DB) -c bangalore -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/Testers.csv --headerline
