@@ -3111,7 +3111,7 @@ class TheApp < Sinatra::Base
 
     ###########################################################################
     # Twilio-Specific 'Macro'-style Helper: Send SMS to a number (not stored 
-    # as a string value but stored as a number)
+    # as a string value but stored as a Fixnum number)
     ###########################################################################
     def send_SMS_to_f( number, msg )
     puts where = 'HELPER: ' + (__method__).to_s
@@ -3122,7 +3122,7 @@ class TheApp < Sinatra::Base
               :to => number,
               :body => msg
         })
-        puts "SENDING OUTGOING SMS: "+msg+" TO: "+number
+        puts "SENDING OUTGOING SMS: "+msg+" TO: "+number.to_s
 
       rescue Exception => e;  log_exception( e, where );  end
     end #def
