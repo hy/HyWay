@@ -3764,7 +3764,7 @@ class TheApp < Sinatra::Base
           {'$group' => {:_id => '$ID', :pts_tot => {'$sum'=>'$pts'}}} ])
       
       points = 0 if result==nil 
-      points = result['pts_tot'] if result != nil
+      points = result[0]['pts_tot'] if result != nil
       msg = " Points: %.0f " % points
 
     rescue Exception => e 
@@ -3784,15 +3784,14 @@ class TheApp < Sinatra::Base
     puts where = 'HELPER: ' + (__method__).to_s
     begin
       msg = ''
-      cmd = {
-        aggregate: 'checkins',  pipeline: [
+      result = DB['checkins'].aggregate([
           {'$match' => {:ID => ph_num}},
-          {'$group' => {:_id => '$ID', :pts_tot => {'$sum'=>'$pts'}}} ]
-      }
-      result = DB.command(cmd)['result'][0]
-      score = result==nil ? DEFAULT_SCORE : result['pts_tot']
+          {'$group' => {:_id => '$ID', :pts_tot => {'$sum'=>'$pts'}}} ])
+
+      score = 0 if result==nil
+      score = result[0]['pts_tot'] if result != nil
       msg = " Score: %.0f " % score
-      
+ 
       last = last_goal_for( ph_num )
 
       goal = last==nil ? 'None.' : (last['goal']).floor
