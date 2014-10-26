@@ -3801,7 +3801,12 @@ class TheApp < Sinatra::Base
         days_f = (Time.now.to_f - last['utc']) / ONE_DAY
         daystogo = 7.0 - days_f
         ptstogo = goal - score
-        msg += " Only %.1f days and %d points to go!" % [daystogo, ptstogo]
+        if (ptstogo > 0)
+          msg += " Only %.1f days and %d points to go!" % [daystogo, ptstogo]
+        end #if
+        if (ptstogo < 0)
+          msg += " You made it with %.1f days to go!  You scored %d points!" % [daystogo, ptstogo]
+        end #if
       end #if last
 
     rescue Exception => e  
