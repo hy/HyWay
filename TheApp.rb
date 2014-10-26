@@ -2001,7 +2001,7 @@ class TheApp < Sinatra::Base
               'utc' => @now_f
     }
     DB['checkins'].insert(doc)
-    msg = 'New 7-day goal of: ' + goal_f.to_s + ' points -- Go for it!'
+    msg = 'You have set a goal of: ' + goal_f.to_s + ' points -- Go for it!'
 
   rescue Exception => e
     msg = 'Could not update goal for '+ ph_num.to_s
@@ -3802,10 +3802,10 @@ class TheApp < Sinatra::Base
         daystogo = 7.0 - days_f
         ptstogo = goal - score
         if (ptstogo > 0)
-          msg += " Only %.1f days and %d points to go!" % [daystogo, ptstogo]
+          msg += " Only %d points to go after %.1f days!" % [ptstogo, days_f]
         end #if
         if (ptstogo < 0)
-          msg += " You made it with %.1f days to go!  Congrats on scoring %d points!" % [daystogo, score]
+          msg += " You made it in %.1f days!  Congrats on scoring %d points!" % [days_f, score]
         end #if
       end #if last
 
