@@ -3759,8 +3759,7 @@ class TheApp < Sinatra::Base
     puts where = 'HELPER: ' + (__method__).to_s
     begin
       msg = ''
-      coll = DB.collection('checkins')
-      result = coll.aggregate([
+      result = DB['checkins'].aggregate([
           {'$match' => {:ID => ph_num}},
           {'$group' => {:_id => '$ID', :pts_tot => {'$sum'=>'$pts'}}} ])
       
