@@ -3805,7 +3805,7 @@ class TheApp < Sinatra::Base
           msg += " Only %.1f days and %d points to go!" % [daystogo, ptstogo]
         end #if
         if (ptstogo < 0)
-          msg += " You made it with %.1f days to go!  You scored %d points!" % [daystogo, ptstogo]
+          msg += " You made it with %.1f days to go!  You scored %d points!" % [daystogo, score]
         end #if
       end #if last
 
