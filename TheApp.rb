@@ -1,6 +1,5 @@
 
 
-
 # ADD: Conf call, grat. hotline, friend-connector
  
 # Serve CSV:
@@ -3444,8 +3443,10 @@ class TheApp < Sinatra::Base
             }
       DB['checkins'].insert(doc)
 
-      msg = 'Thanks! Got ' +mgdl.floor.to_s+' mg/dL'
-      msg += ' for your checkin!' 
+      when_s = full_string_from_abbrev( tag_abbrev_s )
+
+      msg = 'Thanks! Logging ' +mgdl.floor.to_s+' mg/dL, '
+      msg += when_s 
       msg += ' (+' + pts.to_s + ' pts!)'
 
       if ((mgdl > 301.0)&&(last_g!=nil))
