@@ -3764,7 +3764,7 @@ class TheApp < Sinatra::Base
           {'$match' => {:ID => ph_num}},
           {'$group' => {:_id => '$ID', :pts_tot => {'$sum'=>'$pts'}}} ])
       
-      points = result==nil ? DEFAULT_SCORE : result['pts_tot']
+      points = result==nil ? DEFAULT_SCORE : result['pts_tot'].to_f
       msg = " Points: %.0f " % points
 
     rescue Exception => e 
