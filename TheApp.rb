@@ -1413,7 +1413,8 @@ class TheApp < Sinatra::Base
                          'Admission Category' => r['Admission Category'], 
                          'Language'=>@Language}
         fetch = DB['sms_content'].find_one(content_scope)
-        days = fetch['days']
+        days = fetch['Days']
+        days = 2 if fetch['Days'] == nil
         msg = fetch['text']
   
         tAdmit = timeObjectFromIndiaStyleDate(r['Admission Date'])
