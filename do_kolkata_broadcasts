@@ -1,0 +1,3 @@
+#!/bin/bash
+curl http://serene-forest-4377.herokuapp.com/send_kolkata_texts
+curl http://serene-forest-4377.herokuapp.com/make_kolkata_calls

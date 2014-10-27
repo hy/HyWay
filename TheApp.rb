@@ -1361,7 +1361,7 @@ class TheApp < Sinatra::Base
     Time.now.to_s  # <-- Must return a string for all get req's
   end #do heartbeat
 
-  get '/send_noora_texts' do
+  get '/send_kolkata_texts' do
       one_days_time_in_secs = 24.0 * 60.0 * 60.0
 
       scope = {}
@@ -1389,7 +1389,7 @@ class TheApp < Sinatra::Base
   end #do '/send_noora_texts'
 
 
-  get '/make_noora_calls' do
+  get '/make_kolkata_calls' do
       one_days_time_in_secs = 24.0 * 60.0 * 60.0
   
       scope = {}
