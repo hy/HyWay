@@ -1412,13 +1412,13 @@ class TheApp < Sinatra::Base
         content_scope = {'Department' => r['Department'], 
                          'Admission Category' => r['Admission Category'], 
                          'Language'=>@Language}
-        fetch = DB['sms_content'].find_one(content_scope)
-        days = fetch['Days']
-        days = 2 if fetch['Days'] == nil
-        msg = fetch['text']
+        puts fetch = DB['sms_content'].find_one(content_scope)
+        puts days = fetch['Days']
+        puts days = 2 if fetch['Days'] == nil
+        puts msg = fetch['text']
   
-        tAdmit = timeObjectFromIndiaStyleDate(r['Admission Date'])
-        tCutoff = Time.at(tAdmit.to_f + days * one_days_time_in_secs)
+        puts tAdmit = timeObjectFromIndiaStyleDate(r['Admission Date'])
+        puts tCutoff = Time.at(tAdmit.to_f + days * one_days_time_in_secs)
         send_SMS_to_f( r['Mobile number'], msg ) if Time.now < tCutoff
       }
 
