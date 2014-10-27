@@ -1396,7 +1396,8 @@ class TheApp < Sinatra::Base
 
       # First send out a text message to authenticate the call
 
-      msg = 'This is the number for Care Companion at NH hospital'
+      msg = 'Save this number for Care Companion at NH hospital'
+      one_days_time_in_secs = 24.0 * 60.0 * 60.0
       two_days = 60*60*24*2.0
       scope = {}
       cursor = DB['kolkata'].find(scope)
@@ -1416,7 +1417,7 @@ class TheApp < Sinatra::Base
         msg = fetch['text']
   
         tAdmit = timeObjectFromIndiaStyleDate(r['Admission Date'])
-        tCutoff = Time.at(tAdmit.to_f + two_days)
+        tCutoff = Time.at(tAdmit.to_f + days * one_days_time_in_secs)
         send_SMS_to_f( r['Mobile number'], msg ) if Time.now < tCutoff
       }
 
