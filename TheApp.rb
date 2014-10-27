@@ -677,7 +677,7 @@ class TheApp < Sinatra::Base
 
     in_proper_language_and_scope = {'Language'=>@Language}
 
-#    @audio1 = "http://grass-roots-science.info/audio/1_Hindi.mp3"
+#    @audio = "http://grass-roots-science.info/audio/1_Hindi.mp3"
 
     Twilio::TwiML::Response.new do |r|
       r.Pause :length => 1
