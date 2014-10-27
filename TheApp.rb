@@ -665,44 +665,24 @@ class TheApp < Sinatra::Base
   # Auto-redirects to :url => [call-handler, below]
   end #get Call
 
-  post '/handle-kolkata-call' do
+  post '/handle_kolkata_outreach' do
     d = DB['kolkata'].find_one({'Mobile number' => params['To'].to_i})
     if d == nil
-      @Language = 'Bangla'
+      @Language = 'Bengali'
     elseif d['Language'] == nil
-      @Language = 'Bangla'
+      @Language = 'Bengali'
     else
       @Language = d['Language']
     end #if
 
     in_proper_language_and_scope = {'Language'=>@Language}
 
-    m_data = DB['kolkata_directions'].find_one(in_proper_language_and_scope)
-
-    if m_data == nil
-      puts @msg = 'No record available'
-
-    elsif m_data['msg'] == nil
-      puts @msg = 'No message text available'
-
-    else
-      send_SMS_to( params['To'], @messg )
-
-    end #if
-
-    @audio1 = "http://grass-roots-science.info/audio/1_Telugu.wav"
-    @audio2 = "http://grass-roots-science.info/audio/1_Telugu.wav"
-    @audio3 = "http://grass-roots-science.info/audio/1_Telugu.wav"
-    @audio4 = "http://grass-roots-science.info/audio/1_Telugu.wav"
+#    @audio1 = "http://grass-roots-science.info/audio/1_Hindi.mp3"
 
     Twilio::TwiML::Response.new do |r|
       r.Pause :length => 1
       r.Gather :numDigits => '1', :action => '/gather_kolkata' do |g|
-        g.Play @audio1
-        g.Play @audio2
-        g.Play @audio3
-        g.Play @audio4
-        g.Say 'To hear the message once again in English, press 1.'
+        g.Play @audio
         g.Say 'To hear the message once again in Hindi, press 2.'
         g.Say 'To hear the message once again in Bangla, press 3.'
       end
@@ -1382,23 +1362,8 @@ class TheApp < Sinatra::Base
   end #do heartbeat
 
   get '/send_noora_texts' do
-
-      # IF it is "the reasonable AM hour in India" then trigger this route
-      # externally via the Heroku scheduler.  
-
-      # 
-
-      # Check Department and Admission Category
-      # for info from that field for proper content to deliver
-      # Deliver only one content type during each broadcast
- 
-      # Send to both primary and secondary caregivers
-
-      # First send out a text message to authenticate the call
-
-      msg = 'Save this number for Care Companion at NH hospital'
       one_days_time_in_secs = 24.0 * 60.0 * 60.0
-      two_days = 60*60*24*2.0
+
       scope = {}
       cursor = DB['kolkata'].find(scope)
 
@@ -1412,63 +1377,62 @@ class TheApp < Sinatra::Base
         content_scope = {'Department' => r['Department'], 
                          'Admission Category' => r['Admission Category'], 
                          'Language'=>@Language}
-        puts fetch = DB['sms_content'].find_one(content_scope)
-        puts days = fetch['Days']
-        puts days = 2 if fetch['Days'] == nil
-        puts msg = fetch['text']
+        fetch = DB['sms_content'].find_one(content_scope)
+        days = fetch['Days']
+        days = 2 if fetch['Days'] == nil
+        msg = fetch['text']
   
-        puts tAdmit = timeObjectFromIndiaStyleDate(r['Admission Date'])
-        puts tCutoff = Time.at(tAdmit.to_f + days * one_days_time_in_secs)
+        tAdmit = timeObjectFromIndiaStyleDate(r['Admission Date'])
+        tCutoff = Time.at(tAdmit.to_f + days * one_days_time_in_secs)
         send_SMS_to_f( r['Mobile number'], msg ) if Time.now < tCutoff
       }
-
-      # Store the text message content and the voiceover content in each 
-      # patient record and just play them!  
-
-      # IF there is any logic needed to decide which message to play, 
-      # do that processing upon upload, with a triggered route
-
-      # Check to see what calls have already been received by each caregiver
-
-      # Dates in India are stored in reverse day/month order
-      # So, to flip them back, we do this:
-      # t0 = timeObjectFromIndiaStyleDate(r['Admission Date'])
-      
   end #do '/send_noora_texts'
 
-  get '/make_noora_calls' do
 
+  get '/make_noora_calls' do
+      one_days_time_in_secs = 24.0 * 60.0 * 60.0
+  
       scope = {}
       cursor = DB['kolkata'].find(scope)
 
-          # make a new outgoing call
-#          @call = $twilio_account.calls.create(
-#            :From => INDIA_CALLER_ID,
-#            :To => r['Mobile number'],
-#            :Url => SITE + content_route,
-#            :StatusCallbackMethod => 'GET',
-#            :StatusCallback => SITE + 'status_callback_for_kolkata_preop'
-#          )
-#          DB['kolkata_outcall_log'].insert({'Mobile number' => r['Mobile number']})
+      cursor.each { |r|
+        if r['Language'] == nil
+          @Language = 'Bengali'
+        else
+          @Language = d['Language']
+        end #if
 
-      # in status_callback, modify the LATEST entry in kolkata_outcall_log
-      # to reflect what message content was actually delivered
-      # OR see if we can pass that thru via the params hash . . . 
-      # OR send things to a separate status_callback route for each msg type
+        content_scope = {'Department' => r['Department'], 
+                         'Admission Category' => r['Admission Category'], 
+                         'Language'=>@Language}
 
+        puts fetch = DB['sms_content'].find_one(content_scope)
+        puts days = fetch['Days']
+        puts days = 2 if fetch['Days'] == nil
+        puts audio_link_suffix = fetch['audio_link_suffix']
+  
+        puts tAdmit = timeObjectFromIndiaStyleDate(r['Admission Date'])
+        puts tCutoff = Time.at(tAdmit.to_f + days * one_days_time_in_secs)
+        
+        if Time.now < tCutoff
+          @audio = 'http://grass-roots-science.info' + audio_link_suffix
+          
           # make a new outgoing call
-#          @call = $twilio_account.calls.create(
-#            :From => INDIA_CALLER_ID,
-#            :To => r['Mobile number'],
-#            :Url => SITE + content_route,
-#            :StatusCallbackMethod => 'GET',
-#            :StatusCallback => SITE + 'status_callback_for_kolkata_ward'
-#          )
-#          DB['kolkata_outcall_log'].insert({'Mobile number' => r['Mobile number']})
- 
-      # params[:delivered] = r['Location']
+          @call = $twilio_account.calls.create(
+            :From => INDIA_CALLER_ID,
+            :To => r['Mobile number'],
+            :Url => SITE + route_suffix,
+            :StatusCallbackMethod => 'GET',
+            :StatusCallback => SITE + 'status_callback_for_' + route_suffix
+          )
+          DB['kolkata_outcall_log'].insert({'Mobile number' => r['Mobile number']})
+        end #if
+      }
+      params[:delivered] = fetch['route_suffix']
 
   end #do '/make_noora_calls'
+
+
 
   get '/hourly_ping' do
     puts where = 'HOURLY PING'
