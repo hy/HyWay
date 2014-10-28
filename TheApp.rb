@@ -1400,9 +1400,9 @@ class TheApp < Sinatra::Base
         @Language = d['Language']
       end #if
 
-      content_scope = {'Department' => r['Department'], 
+      content_scope = { 'Department' => r['Department'], 
         'Admission Category' => r['Admission Category'], 
-        'Language'=>@Language}
+        'Language'=>@Language }
 
       puts fetch = DB['sms_content'].find_one(content_scope)
       puts days = fetch['Days']
@@ -1413,7 +1413,7 @@ class TheApp < Sinatra::Base
       puts tCutoff = Time.at(tAdmit.to_f + days * one_days_time_in_secs)
         
       if Time.now < tCutoff
-        params['audio'] = 'http://grass-roots-science.info' + audio_link_suffix
+        audio = 'http://grass-roots-science.info' + audio_link_suffix
           
         # make a new outgoing call
         @call = $twilio_account.calls.create(
@@ -1423,11 +1423,14 @@ class TheApp < Sinatra::Base
             :StatusCallbackMethod => 'GET',
             :StatusCallback => SITE + fetch['callback_route']
         )
-        DB['kolkata_outcall_log'].insert({'Mobile number' => r['Mobile number'], 'type' => fetch['type']})
+
+        r['last_time_called'] = Time.now.to_f
+        r['last_content_delivered'] = audio
+
+        DB['kolkata'].update({"_id" => r["_id"]}, r)
       end #if
     }
   end #do '/make_noora_calls'
-
 
 
   get '/hourly_ping' do
@@ -3993,7 +3996,7 @@ class TheApp < Sinatra::Base
         }
         DB['people'].insert(doc)
 
-        msg = 'Welcome to the experimental tracking app!'
+        msg = 'Welcome to the experimental texting service!'
         msg += ' (All data sent or received is public domain.)'
         reply_via_SMS( msg )
 
