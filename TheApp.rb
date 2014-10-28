@@ -681,8 +681,8 @@ class TheApp < Sinatra::Base
       r.Pause :length => 1
       r.Gather :numDigits => '1', :action => '/gather_kolkata' do |g|
         g.Play d['audio']
-        g.Say 'To hear the message once again in Hindi, press 2.'
-        g.Say 'To hear the message once again in Bengali, press 3.'
+        g.Say 'To hear information once again in Hindi, press 2.'
+        g.Say 'To hear information once again in Bengali, press 3.'
       end
     end.text
   end #handle_kolkata_outreach
@@ -691,29 +691,45 @@ class TheApp < Sinatra::Base
   post '/gather_kolkata' do
     puts '/GATHER_KEYPAD_RESPONSE \n WITH PARAMS= ' + params.to_s
 
+    r = DB['kolkata'].find_one({'Mobile number' => params['To'].to_i})
+    old_link = r['last_content_delivered']
+    link_segments = old_link.split('_')
+
     if params['Digits'] == '1'
+      link_segments[1] = 'English'
+      new_link = link_segmenst.join('_')
       DB['kolkata'].update({'Mobile number' => params['To'].to_i},
             {'$set' => {'Language' => 'English'} })
       response = Twilio::TwiML::Response.new do |r|
-        r.Say 'The English version would be repeated here.', :voice => 'woman'
+        r.Play new_link
       end
-    elsif params['Digits'] == '2'
+    elsif params['Digits'] == '3'
+      link_segments[1] = 'Bengali'
+      new_link = link_segmenst.join('_')
       DB['kolkata'].update({'Mobile number' => params['To'].to_i},
             {'$set' => {'Language' => 'Bengali'} })
       response = Twilio::TwiML::Response.new do |r|
-        r.Say 'The Bangla version would be repeated here.', :voice => 'woman'
+        r.Play new_link
       end
-    elsif params['Digits'] == '3'
+    elsif params['Digits'] == '2'
+      link_segments[1] = 'Hindi'
+      new_link = link_segmenst.join('_')
       DB['kolkata'].update({'Mobile number' => params['To'].to_i},
             {'$set' => {'Language' => 'Hindi'} })
       response = Twilio::TwiML::Response.new do |r|
-        r.Say 'The Hindi version would be repeated here.', :voice => 'woman'
+        r.Play new_link
       end
     else
       response = Twilio::TwiML::Response.new do |r|
         r.Say 'We do not know what you want to hear.'
       end
     end
+
+    r['last_time_called'] = Time.now.to_f
+    r['audio'] = new_link
+    r['last_content_delivered'] = new_link
+
+    DB['kolkata'].update({"_id" => r["_id"]}, r)
 
     response.text do |format|
       format.xml { render :xml => response.text }
