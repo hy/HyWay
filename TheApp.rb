@@ -1425,6 +1425,7 @@ class TheApp < Sinatra::Base
         )
 
         r['last_time_called'] = Time.now.to_f
+        r['audio'] = audio
         r['last_content_delivered'] = audio
 
         DB['kolkata'].update({"_id" => r["_id"]}, r)
