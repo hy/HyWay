@@ -697,25 +697,40 @@ class TheApp < Sinatra::Base
 
     if params['Digits'] == '1'
       link_segments[1] = 'English'
+
       new_link = link_segments.join('_')
-      DB['kolkata'].update({'Mobile number' => params['To'].to_i},
-            {'$set' => {'Language' => 'English'} })
+      r['Language'] = link_segments[1]
+      r['last_time_called'] = Time.now.to_f
+      r['audio'] = new_link
+      r['last_content_delivered'] = new_link
+      DB['kolkata'].update({"_id" => r["_id"]}, r)
+
       response = Twilio::TwiML::Response.new do |r|
         r.Play new_link
       end
     elsif params['Digits'] == '3'
       link_segments[1] = 'Bengali'
+
       new_link = link_segments.join('_')
-      DB['kolkata'].update({'Mobile number' => params['To'].to_i},
-            {'$set' => {'Language' => 'Bengali'} })
+      r['Language'] = link_segments[1]
+      r['last_time_called'] = Time.now.to_f
+      r['audio'] = new_link
+      r['last_content_delivered'] = new_link
+      DB['kolkata'].update({"_id" => r["_id"]}, r)
+
       response = Twilio::TwiML::Response.new do |r|
         r.Play new_link
       end
     elsif params['Digits'] == '2'
       link_segments[1] = 'Hindi'
+     
       new_link = link_segments.join('_')
-      DB['kolkata'].update({'Mobile number' => params['To'].to_i},
-            {'$set' => {'Language' => 'Hindi'} })
+      r['Language'] = link_segments[1]
+      r['last_time_called'] = Time.now.to_f
+      r['audio'] = new_link
+      r['last_content_delivered'] = new_link
+      DB['kolkata'].update({"_id" => r["_id"]}, r)
+
       response = Twilio::TwiML::Response.new do |r|
         r.Play new_link
       end
