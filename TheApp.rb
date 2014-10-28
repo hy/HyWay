@@ -682,7 +682,7 @@ class TheApp < Sinatra::Base
       r.Gather :numDigits => '1', :action => '/gather_kolkata' do |g|
         g.Play params['audio']
         g.Say 'To hear the message once again in Hindi, press 2.'
-        g.Say 'To hear the message once again in Bangla, press 3.'
+        g.Say 'To hear the message once again in Bengali, press 3.'
       end
     end.text
   end #handle_kolkata_outreach
@@ -699,7 +699,7 @@ class TheApp < Sinatra::Base
       end
     elsif params['Digits'] == '2'
       DB['kolkata'].update({'Mobile number' => params['To'].to_i},
-            {'$set' => {'Language' => 'Bangla'} })
+            {'$set' => {'Language' => 'Bengali'} })
       response = Twilio::TwiML::Response.new do |r|
         r.Say 'The Bangla version would be repeated here.', :voice => 'woman'
       end
@@ -760,7 +760,7 @@ class TheApp < Sinatra::Base
         g.Play @audio
         g.Say 'To hear the message once again in English, press 1.'
         g.Say 'To hear the message once again in Hindi, press 2.'
-        g.Say 'To hear the message once again in Bangla, press 3.'
+        g.Say 'To hear the message once again in Bengali, press 3.'
       end
     end.text
   end #call-handler
@@ -1384,7 +1384,7 @@ class TheApp < Sinatra::Base
         tCutoff = Time.at(tAdmit.to_f + days * one_days_time_in_secs)
         send_SMS_to_f( r['Mobile number'], msg ) if Time.now < tCutoff
       }
-  end #do '/send_noora_texts'
+  end #do '/send_kolkata_texts'
 
 
   get '/make_kolkata_calls' do
@@ -1400,7 +1400,7 @@ class TheApp < Sinatra::Base
         @Language = r['Language']
       end #if
 
-      content_scope = { 'Department' => r['Department'], 
+      puts content_scope = { 'Department' => r['Department'], 
         'Admission Category' => r['Admission Category'], 
         'Language'=>@Language }
 
@@ -1430,7 +1430,7 @@ class TheApp < Sinatra::Base
         DB['kolkata'].update({"_id" => r["_id"]}, r)
       end #if
     }
-  end #do '/make_noora_calls'
+  end #do '/make_kolkata_calls'
 
 
   get '/hourly_ping' do
