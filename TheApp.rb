@@ -665,8 +665,8 @@ class TheApp < Sinatra::Base
   # Auto-redirects to :url => [call-handler, below]
   end #get Call
 
-  post '/handle_kolkata_outreach' do
-    d = DB['kolkata'].find_one({'Mobile number' => params['To'].to_i})
+  post '/handle_kolkata_call' do
+    puts d = DB['kolkata'].find_one({'Mobile number' => params['To'].to_i})
     if d == nil
       @Language = 'Bengali'
     elseif d['Language'] == nil
@@ -675,7 +675,7 @@ class TheApp < Sinatra::Base
       @Language = d['Language']
     end #if
 
-    in_proper_language_and_scope = {'Language'=>@Language}
+    puts in_proper_language_and_scope = {'Language'=>@Language}
 
     Twilio::TwiML::Response.new do |r|
       r.Pause :length => 1
@@ -685,7 +685,7 @@ class TheApp < Sinatra::Base
         g.Say 'To hear information once again in Bengali, press 3.'
       end
     end.text
-  end #handle_kolkata_outreach
+  end #handle_kolkata_call
 
 
   post '/gather_kolkata' do
