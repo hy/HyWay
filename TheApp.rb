@@ -680,7 +680,7 @@ class TheApp < Sinatra::Base
     Twilio::TwiML::Response.new do |r|
       r.Pause :length => 1
       r.Gather :numDigits => '1', :action => '/gather_kolkata' do |g|
-        g.Play params['audio']
+        g.Play d['audio']
         g.Say 'To hear the message once again in Hindi, press 2.'
         g.Say 'To hear the message once again in Bengali, press 3.'
       end
