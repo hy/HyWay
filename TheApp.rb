@@ -677,17 +677,15 @@ class TheApp < Sinatra::Base
 
     in_proper_language_and_scope = {'Language'=>@Language}
 
-#    @audio = "http://grass-roots-science.info/audio/1_Hindi.mp3"
-
     Twilio::TwiML::Response.new do |r|
       r.Pause :length => 1
       r.Gather :numDigits => '1', :action => '/gather_kolkata' do |g|
-        g.Play @audio
+        g.Play params['audio']
         g.Say 'To hear the message once again in Hindi, press 2.'
         g.Say 'To hear the message once again in Bangla, press 3.'
       end
     end.text
-  end #handle-kolkata-call
+  end #handle_kolkata_outreach
 
 
   post '/gather_kolkata' do
@@ -1390,46 +1388,44 @@ class TheApp < Sinatra::Base
 
 
   get '/make_kolkata_calls' do
-      one_days_time_in_secs = 24.0 * 60.0 * 60.0
+    one_days_time_in_secs = 24.0 * 60.0 * 60.0
   
-      scope = {}
-      cursor = DB['kolkata'].find(scope)
+    scope = {}
+    cursor = DB['kolkata'].find(scope)
 
-      cursor.each { |r|
-        if r['Language'] == nil
-          @Language = 'Bengali'
-        else
-          @Language = d['Language']
-        end #if
+    cursor.each { |r|
+      if r['Language'] == nil
+        @Language = 'Bengali'
+      else
+        @Language = d['Language']
+      end #if
 
-        content_scope = {'Department' => r['Department'], 
-                         'Admission Category' => r['Admission Category'], 
-                         'Language'=>@Language}
+      content_scope = {'Department' => r['Department'], 
+        'Admission Category' => r['Admission Category'], 
+        'Language'=>@Language}
 
-        puts fetch = DB['sms_content'].find_one(content_scope)
-        puts days = fetch['Days']
-        puts days = 2 if fetch['Days'] == nil
-        puts audio_link_suffix = fetch['audio_link_suffix']
+      puts fetch = DB['sms_content'].find_one(content_scope)
+      puts days = fetch['Days']
+      puts days = 2 if fetch['Days'] == nil
+      puts audio_link_suffix = fetch['audio_link_suffix']
   
-        puts tAdmit = timeObjectFromIndiaStyleDate(r['Admission Date'])
-        puts tCutoff = Time.at(tAdmit.to_f + days * one_days_time_in_secs)
+      puts tAdmit = timeObjectFromIndiaStyleDate(r['Admission Date'])
+      puts tCutoff = Time.at(tAdmit.to_f + days * one_days_time_in_secs)
         
-        if Time.now < tCutoff
-          @audio = 'http://grass-roots-science.info' + audio_link_suffix
+      if Time.now < tCutoff
+        params['audio'] = 'http://grass-roots-science.info' + audio_link_suffix
           
-          # make a new outgoing call
-          @call = $twilio_account.calls.create(
+        # make a new outgoing call
+        @call = $twilio_account.calls.create(
             :From => INDIA_CALLER_ID,
             :To => r['Mobile number'],
-            :Url => SITE + route_suffix,
+            :Url => SITE + fetch['route_suffix'],
             :StatusCallbackMethod => 'GET',
-            :StatusCallback => SITE + 'status_callback_for_' + route_suffix
-          )
-          DB['kolkata_outcall_log'].insert({'Mobile number' => r['Mobile number']})
-        end #if
-      }
-      params[:delivered] = fetch['route_suffix']
-
+            :StatusCallback => SITE + fetch['callback_route']
+        )
+        DB['kolkata_outcall_log'].insert({'Mobile number' => r['Mobile number'], 'type' => fetch['type']})
+      end #if
+    }
   end #do '/make_noora_calls'
 
 
