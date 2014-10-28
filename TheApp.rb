@@ -1397,7 +1397,7 @@ class TheApp < Sinatra::Base
       if r['Language'] == nil
         @Language = 'Bengali'
       else
-        @Language = d['Language']
+        @Language = r['Language']
       end #if
 
       content_scope = { 'Department' => r['Department'], 
