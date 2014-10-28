@@ -697,7 +697,7 @@ class TheApp < Sinatra::Base
 
     if params['Digits'] == '1'
       link_segments[1] = 'English'
-      new_link = link_segmenst.join('_')
+      new_link = link_segments.join('_')
       DB['kolkata'].update({'Mobile number' => params['To'].to_i},
             {'$set' => {'Language' => 'English'} })
       response = Twilio::TwiML::Response.new do |r|
@@ -705,7 +705,7 @@ class TheApp < Sinatra::Base
       end
     elsif params['Digits'] == '3'
       link_segments[1] = 'Bengali'
-      new_link = link_segmenst.join('_')
+      new_link = link_segments.join('_')
       DB['kolkata'].update({'Mobile number' => params['To'].to_i},
             {'$set' => {'Language' => 'Bengali'} })
       response = Twilio::TwiML::Response.new do |r|
@@ -713,7 +713,7 @@ class TheApp < Sinatra::Base
       end
     elsif params['Digits'] == '2'
       link_segments[1] = 'Hindi'
-      new_link = link_segmenst.join('_')
+      new_link = link_segments.join('_')
       DB['kolkata'].update({'Mobile number' => params['To'].to_i},
             {'$set' => {'Language' => 'Hindi'} })
       response = Twilio::TwiML::Response.new do |r|
