@@ -681,18 +681,24 @@ class TheApp < Sinatra::Base
 
   post '/gather_lib_1' do
     puts '/GATHER_LIB_1 \n WITH PARAMS= ' + params.to_s
+    if params['Digits'] == '1'
+
+    elsif params['Digits'] == '2'
+
+    end
 
     response = Twilio::TwiML::Response.new do |r|
-        r.Say 'Thank You'
+      r.Say 'Thank You.'
     end
+
+    response.text do |format|
+      format.xml { render :xml => response.text }
+    end #do response.text
   end
 
   post '/gather_lib_2' do
     puts '/GATHER_LIB_2 \n WITH PARAMS= ' + params.to_s
 
-    response = Twilio::TwiML::Response.new do |r|
-        r.Say 'Thank You'
-    end
   end
 
 
