@@ -669,7 +669,7 @@ class TheApp < Sinatra::Base
     puts in_proper_language_and_scope = {'Language'=>@Language}
 
     Twilio::TwiML::Response.new do |r|
-      r.Pause :length => 1
+      r.Say 'Hi, this is James from Young Life.  This message is the first ever test of the Noora Health message system in Liberia.  It is our hope that this system will provide thousands of people with information about how to care for family and friends with Ebola.  If you could please answer the following questions, you will help us determine what we need to do to make our system work for the most people.'
       r.Gather :numDigits => '1', :action => '/gather_lib_1' do |g|
         g.Say 'If this system provided you with free Ebola health information, would you like to receive regular messages?  Press 1 for yes.  Press 2 for no.'
       end
