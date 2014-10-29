@@ -683,6 +683,9 @@ class TheApp < Sinatra::Base
     puts '/GATHER_KOLKATA_RESPONSE \n WITH PARAMS= ' + params.to_s
 
     r = DB['liberia'].find_one({'Mobile number' => params['To'].to_i})
+    response = Twilio::TwiML::Response.new do |r|
+        r.Say 'Thank You'
+    end
   end
 
   post '/gather_lib_2' do
