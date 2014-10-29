@@ -673,14 +673,14 @@ class TheApp < Sinatra::Base
       r.Gather :numDigits => '1', :action => '/gather_lib_1' do |g|
         g.Say 'If this system provided you with free Ebola health information, would you like to receive regular messages?  Press 1 for yes.  Press 2 for no.'
       end
-      r.Gather :numDigits => '1', :action => '/gather_lib_2' do |g|
-        g.Say 'Would you refer this message system to friends?  Press 1 for yes.  Press 2 for no.'
-      end
+#      r.Gather :numDigits => '1', :action => '/gather_lib_2' do |g|
+#        g.Say 'Would you refer this message system to friends?  Press 1 for yes.  Press 2 for no.'
+#      end
     end.text
   end #handle_kolkata_call
 
   post '/gather_lib_1' do
-    puts '/GATHER_KOLKATA_RESPONSE \n WITH PARAMS= ' + params.to_s
+    puts '/GATHER_LIB_1 \n WITH PARAMS= ' + params.to_s
 
     response = Twilio::TwiML::Response.new do |r|
         r.Say 'Thank You'
@@ -688,7 +688,7 @@ class TheApp < Sinatra::Base
   end
 
   post '/gather_lib_2' do
-    puts '/GATHER_KOLKATA_RESPONSE \n WITH PARAMS= ' + params.to_s
+    puts '/GATHER_LIB_2 \n WITH PARAMS= ' + params.to_s
 
     response = Twilio::TwiML::Response.new do |r|
         r.Say 'Thank You'
