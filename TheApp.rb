@@ -658,7 +658,7 @@ class TheApp < Sinatra::Base
     @call = $twilio_account.calls.create(
       :From => INDIA_CALLER_ID,
       :To => params['ph'],
-      :Url => SITE + 'call-handler',
+      :Url => SITE + 'handle_liberia_call',
       :StatusCallbackMethod => 'GET',
       :StatusCallback => SITE + 'status_callback_for_outgoing_calls'
     )
