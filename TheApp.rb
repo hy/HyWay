@@ -665,16 +665,14 @@ class TheApp < Sinatra::Base
   # Auto-redirects to :url => [call-handler, below]
   end #get Call
 
+
   post '/handle_liberia_call' do
     puts in_proper_language_and_scope = {'Language'=>@Language}
 
     Twilio::TwiML::Response.new do |r|
-      r.Say 'Hi, this is James from Young Life.  This message is the first ever test of the Noora Health message system in Liberia.  It is our hope that this system will provide thousands of people with information about how to care for family and friends with Ebola.  If you could please answer the following questions, you will help us determine what we need to do to make our system work for the most people.'
       r.Gather :numDigits => '1', :action => '/gather_lib_1' do |g|
+      r.Say 'Hi, this is James from Young Life.  This message is the first ever test of the Noora Health message system in Liberia.  It is our hope that this system will provide thousands of people with information about how to care for family and friends with Ebola.  If you could please answer the following questions, you will help us determine what we need to do to make our system work for the most people.'
         g.Say 'If this system provided you with free Ebola health information, would you like to receive regular messages?  Press 1 for yes.  Press 2 for no.'
-      end
-      r.Gather :numDigits => '1', :action => '/gather_lib_2' do |g|
-        g.Say 'Would you refer this message system to friends?  Press 1 for yes.  Press 2 for no.'
       end
     end.text
   end #handle_kolkata_call
@@ -689,6 +687,9 @@ class TheApp < Sinatra::Base
 
     response = Twilio::TwiML::Response.new do |r|
       r.Say 'Thank You.'
+      r.Gather :numDigits => '1', :action => '/gather_lib_2' do |g|
+        g.Say 'Would you refer this message system to friends?  Press 1 for yes.  Press 2 for no.'
+      end
     end
 
     response.text do |format|
@@ -705,7 +706,7 @@ class TheApp < Sinatra::Base
     end
 
     response = Twilio::TwiML::Response.new do |r|
-      r.Say 'Thank You.'
+      r.Say 'Thanks Again!'
     end
 
     response.text do |format|
