@@ -651,6 +651,47 @@ class TheApp < Sinatra::Base
   end
 
 
+ get /TestCall(?<ph_num>.*)/ do
+    puts params['ph']
+
+    # make a new outgoing call
+    @call = $twilio_account.calls.create(
+      :From => INDIA_CALLER_ID,
+      :To => params['ph'],
+      :Url => SITE + 'call-handler',
+      :StatusCallbackMethod => 'GET',
+      :StatusCallback => SITE + 'status_callback_for_outgoing_calls'
+    )
+  # Auto-redirects to :url => [call-handler, below]
+  end #get Call
+
+  post '/handle_liberia_call' do
+    puts in_proper_language_and_scope = {'Language'=>@Language}
+
+    Twilio::TwiML::Response.new do |r|
+      r.Pause :length => 1
+      r.Gather :numDigits => '1', :action => '/gather_lib_1' do |g|
+        g.Say 'If this system provided you with free Ebola health information, would you like to receive regular messages?  Press 1 for yes.  Press 2 for no.'
+      end
+      r.Gather :numDigits => '1', :action => '/gather_lib_2' do |g|
+        g.Say 'Would you refer this message system to friends?  Press 1 for yes.  Press 2 for no.'
+      end
+    end.text
+  end #handle_kolkata_call
+
+  post '/gather_lib_1' do
+    puts '/GATHER_KOLKATA_RESPONSE \n WITH PARAMS= ' + params.to_s
+
+    r = DB['liberia'].find_one({'Mobile number' => params['To'].to_i})
+  end
+
+  post '/gather_lib_2' do
+    puts '/GATHER_KOLKATA_RESPONSE \n WITH PARAMS= ' + params.to_s
+
+    r = DB['liberia'].find_one({'Mobile number' => params['To'].to_i})
+  end
+
+
  get /Call(?<ph_num>.*)/ do
     puts params['ph']
 
@@ -689,7 +730,7 @@ class TheApp < Sinatra::Base
 
 
   post '/gather_kolkata' do
-    puts '/GATHER_KEYPAD_RESPONSE \n WITH PARAMS= ' + params.to_s
+    puts '/GATHER_KOLKATA_RESPONSE \n WITH PARAMS= ' + params.to_s
 
     r = DB['kolkata'].find_one({'Mobile number' => params['To'].to_i})
     old_link = r['last_content_delivered']
