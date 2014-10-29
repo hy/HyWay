@@ -651,7 +651,7 @@ class TheApp < Sinatra::Base
   end
 
 
- get /TestCall(?<ph_num>.*)/ do
+ get /TestLiberiaCall(?<ph_num>.*)/ do
     puts params['ph']
 
     # make a new outgoing call
@@ -662,7 +662,6 @@ class TheApp < Sinatra::Base
       :StatusCallbackMethod => 'GET',
       :StatusCallback => SITE + 'status_callback_for_outgoing_calls'
     )
-  # Auto-redirects to :url => [call-handler, below]
   end #get Call
 
 
@@ -700,7 +699,7 @@ class TheApp < Sinatra::Base
   post '/gather_lib_2' do
     puts '/GATHER_LIB_2 \n WITH PARAMS= ' + params.to_s
     if params['Digits'] == '1'
-
+      
     elsif params['Digits'] == '2'
 
     end
