@@ -1,0 +1,15 @@
+{ "_id" : { "$oid" : "5283cd25a645cad246000001" }, "abbreviation" : "", "full" : "standard checkin", "timeslot" : 1 }
+{ "_id" : { "$oid" : "5283cd25a645cad246000002" }, "abbreviation" : "b", "full" : "breakfast", "timeslot" : 1 }
+{ "_id" : { "$oid" : "5283cd25a645cad246000003" }, "abbreviation" : "bfast", "full" : "breakfast", "timeslot" : 1 }
+{ "_id" : { "$oid" : "5283cd25a645cad246000004" }, "abbreviation" : "l", "full" : "lunch", "timeslot" : 3 }
+{ "_id" : { "$oid" : "5283cd25a645cad246000005" }, "abbreviation" : "s", "full" : "snack", "timeslot" : 4 }
+{ "_id" : { "$oid" : "5283cd26a645cad246000006" }, "abbreviation" : "d", "full" : "dinner", "timeslot" : 5 }
+{ "_id" : { "$oid" : "5283cd26a645cad246000007" }, "abbreviation" : "a", "full" : "AM", "timeslot" : 2 }
+{ "_id" : { "$oid" : "5283cd26a645cad246000008" }, "abbreviation" : "p", "full" : "PM", "timeslot" : 6 }
+{ "_id" : { "$oid" : "5283cd26a645cad246000009" }, "abbreviation" : "m", "full" : "midnight", "timeslot" : 8 }
+{ "_id" : { "$oid" : "5283cd26a645cad24600000a" }, "abbreviation" : "e", "full" : "earlyAM", "timeslot" : 9 }
+{ "_id" : { "$oid" : "5283cd26a645cad24600000b" }, "abbreviation" : "w", "full" : "waking-up", "timeslot" : 10 }
+{ "_id" : { "$oid" : "5283cd26a645cad24600000c" }, "abbreviation" : "bg", "full" : "glucose", "units" : "mg_per_dl" }
+{ "_id" : { "$oid" : "5283cd26a645cad24600000d" }, "abbreviation" : "n", "full" : "Novolog", "type" : "fast-acting insulin", "units" : "units" }
+{ "_id" : { "$oid" : "5283cd26a645cad24600000e" }, "abbreviation" : "h", "full" : "Humalog", "type" : "fast-acting insulin", "units" : "units" }
+{ "_id" : { "$oid" : "5283cd26a645cad24600000f" }, "abbreviation" : "nph", "full" : "NPH", "type" : "intermediate-acting insulin", "units" : "units" }
