@@ -47,6 +47,8 @@ monitor:
 
 # http://www.gitguys.com/how-to-remove-a-file-from-git-source-control-but-not-delete-it/
 
+
+
 r-shell:
 	$(REDISPATH)/redis-cli -h $(REDIS_HOST) -p $(REDIS_PORT) -a $(REDIS_A) 
 
@@ -128,6 +130,10 @@ import_of_sms_content:
 import_of_testers:
 	~/Downloads/flip.universal -u ~/Documents/Testers.csv
 	$(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d $(DB) -c bangalore -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/Testers.csv --headerline
+
+import_of_liberia:
+	~/Downloads/flip.universal -u ~/Documents/liberia100.csv
+	$(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d $(DB) -c liberia -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/liberia100.csv --headerline
 
 export_of_tracking:
 	$(MONGOPATH)/mongoexport --host $(MONGO_URL) -port $(MONGO_PORT) -d $(DB) -c noora_tracking -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --out ~/Documents/NooraTrackingDump.json

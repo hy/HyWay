@@ -1,5 +1,4 @@
 
-
 # ADD: Conf call, grat. hotline, friend-connector
  
 # Serve CSV:
@@ -653,31 +652,33 @@ class TheApp < Sinatra::Base
 
  get /TestLiberiaCall(?<ph_num>.*)/ do
     puts params['ph']
-
-    # make a new outgoing call
-    @call = $twilio_account.calls.create(
-      :From => INDIA_CALLER_ID,
-      :To => params['ph'],
-      :Url => SITE + 'handle_liberia_call',
-      :StatusCallbackMethod => 'GET',
-      :StatusCallback => SITE + 'status_callback_for_outgoing_calls'
-    )
+    
+      # make a new outgoing call
+      @call = $twilio_account.calls.create(
+        :From => INDIA_CALLER_ID,
+        :To => params['ph'],
+        :Url => SITE + 'handle_liberia_call',
+        :StatusCallbackMethod => 'GET',
+        :StatusCallback => SITE + 'status_callback_for_outgoing_calls'
+      )
   end #get Call
 
 
   post '/handle_liberia_call' do
     puts in_proper_language_and_scope = {'Language'=>@Language}
+    @lib_audio_greeting = REDIS.get 'lib_audio_greeting'
 
     Twilio::TwiML::Response.new do |r|
       r.Gather :numDigits => '1', :action => '/gather_lib_1' do |g|
-      r.Say 'Hi, this is James from Young Life.  This message is the first ever test of the Noora Health message system in Liberia.  It is our hope that this system will provide thousands of people with information about how to care for family and friends with Ebola.  If you could please answer the following questions, you will help us determine what we need to do to make our system work for the most people.'
+      r.Say @lib_audio_greeting
         g.Say 'If this system provided you with free Ebola health information, would you like to receive regular messages?  Press 1 for yes.  Press 2 for no.'
       end
     end.text
-  end #handle_kolkata_call
+  end #handle_liberia_call
 
   post '/gather_lib_1' do
     puts '/GATHER_LIB_1 \n WITH PARAMS= ' + params.to_s
+    
     if params['Digits'] == '1'
 
     elsif params['Digits'] == '2'
@@ -1526,6 +1527,41 @@ class TheApp < Sinatra::Base
       end #if
     }
   end #do '/make_kolkata_calls'
+
+
+  get '/make_liberia_calls' do
+    one_days_time_in_secs = 24.0 * 60.0 * 60.0
+ 
+    scope = {}
+    cursor = DB['liberia'].find(scope)
+
+    cursor.each { |r|
+
+      puts fetch = DB['liberia_content'].find_one(content_scope)
+      puts days = fetch['Days']
+      puts days = 2 if fetch['Days'] == nil
+      puts audio_link_suffix = fetch['audio_link_suffix']
+
+      if (true)
+        audio = 'http://grass-roots-science.info' + audio_link_suffix
+
+        # make a new outgoing call
+        @call = $twilio_account.calls.create(
+            :From => INDIA_CALLER_ID,
+            :To => r['Mobile number'],
+            :Url => SITE + fetch['route_suffix'],
+            :StatusCallbackMethod => 'GET',
+            :StatusCallback => SITE + fetch['callback_route']
+        )
+
+        r['last_time_called'] = Time.now.to_f
+        r['audio'] = audio
+        r['last_content_delivered'] = audio
+
+        DB['liberia'].update({"_id" => r["_id"]}, r)
+      end #if
+    }
+  end #do '/make_liberia_calls'
 
 
   get '/hourly_ping' do
