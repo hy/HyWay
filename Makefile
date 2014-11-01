@@ -7,6 +7,7 @@ VIEWS = views/list.erb static/main.css
 SERVER = http://serene-forest-4377.herokuapp.com/
 
 MONGOPATH = ~/mongodb-osx-x86_64-2.6.1/bin
+REDISPATH = ~/redis-2.8.17/src/
 
 DB = $(MONGO_DB_NAME) 
 
@@ -46,6 +47,8 @@ monitor:
 
 # http://www.gitguys.com/how-to-remove-a-file-from-git-source-control-but-not-delete-it/
 
+r-shell:
+	$(REDISPATH)/redis-cli -h $(REDIS_HOST) -p $(REDIS_PORT) -a $(REDIS_A) 
 
 m-rset-shell:
 	$(MONGOPATH)/mongo lighthouse.0.mongolayer.com:10104/production -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD)
