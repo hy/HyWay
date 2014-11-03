@@ -24,6 +24,9 @@ known:
 	clear
 	git status
 
+github:
+	push -u github master
+
 aware:
 	heroku logs -t
 
@@ -119,6 +122,10 @@ import_of_bangalore:
 	~/Downloads/flip.universal -u ~/Documents/bangalore.csv
 	$(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d $(DB) -c bangalore -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/bangalore.csv --headerline
 
+import_of_sample_csv:
+	~/Downloads/flip.universal -u ~/Documents/Admission_and_Discharge_Report.csv
+	$(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d $(DB) -c sample_csv -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/Admission_and_Discharge_Report.csv --headerline
+
 import_of_kolkata:
 	~/Downloads/flip.universal -u ~/Documents/kolkata.csv
 	$(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d $(DB) -c kolkata -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/kolkata.csv --headerline
@@ -134,6 +141,11 @@ import_of_testers:
 import_of_liberia:
 	~/Downloads/flip.universal -u ~/Documents/liberia100.csv
 	$(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d $(DB) -c liberia -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/liberia100.csv --headerline
+
+
+
+
+
 
 export_of_tracking:
 	$(MONGOPATH)/mongoexport --host $(MONGO_URL) -port $(MONGO_PORT) -d $(DB) -c noora_tracking -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --out ~/Documents/NooraTrackingDump.json
