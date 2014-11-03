@@ -667,7 +667,6 @@ class TheApp < Sinatra::Base
       )
   end #get Call
 
-
   post '/handle_liberia_call' do
     puts in_proper_language_and_scope = {'Language'=>@Language}
     @lib_audio_greeting = REDIS.get 'lib_audio_greeting'
@@ -685,9 +684,9 @@ class TheApp < Sinatra::Base
     puts '/GATHER_LIB_1 \n WITH PARAMS= ' + params.to_s
     
     if params['Digits'] == '1'
-      REDIS.incr 'Q1_A1'
+      REDIS.incr 'lib_Q1_A1'
     elsif params['Digits'] == '2'
-      REDIS.incr 'Q1_A2'
+      REDIS.incr 'lib_Q1_A2'
     end
 
     @Q2 = REDIS.get 'lib_Q2'
@@ -707,9 +706,9 @@ class TheApp < Sinatra::Base
   post '/gather_lib_2' do
     puts '/GATHER_LIB_2 \n WITH PARAMS= ' + params.to_s
     if params['Digits'] == '1'
-      REDIS.incr 'Q2_A1' 
+      REDIS.incr 'lib_Q2_A1' 
     elsif params['Digits'] == '2'
-      REDIS.incr 'Q2_A2'
+      REDIS.incr 'lib_Q2_A2'
     end
 
     response = Twilio::TwiML::Response.new do |r|
@@ -736,8 +735,22 @@ class TheApp < Sinatra::Base
   # Auto-redirects to :url => [call-handler, below]
   end #get Call
 
+ get /TestKolkataCall(?<ph_num>.*)/ do
+    puts params['ph']
+
+    # make a new outgoing call
+    @call = $twilio_account.calls.create(
+      :From => INDIA_CALLER_ID,
+      :To => params['ph'],
+      :Url => SITE + 'handle_kolkata_call',
+      :StatusCallbackMethod => 'GET',
+      :StatusCallback => SITE + 'status_callback_for_kolkata'
+    )
+  # Auto-redirects to :url => [call-handler, below]
+  end #get TestKolkataCall
+
   post '/handle_kolkata_call' do
-    puts d = DB['kolkata'].find_one({'Mobile number' => params['To'].to_i})
+    puts d = DB['kolkata'].find_one({'Called number' => params['To'].to_i})
     if d == nil
       @Language = 'Bengali'
     elseif d['Language'] == nil
@@ -749,9 +762,12 @@ class TheApp < Sinatra::Base
     puts in_proper_language_and_scope = {'Language'=>@Language}
 
     Twilio::TwiML::Response.new do |r|
-      r.Pause :length => 1
       r.Gather :numDigits => '1', :action => '/gather_kolkata' do |g|
-        g.Play d['audio']
+        g.Play d['audio'] +'1.mp3'
+        g.Play d['audio'] +'2.mp3'
+        g.Play d['audio'] +'3.mp3'
+        g.Play d['audio'] +'4.mp3'
+        g.Play d['audio'] +'5.mp3'
         g.Say 'To hear information once again in Hindi, press 2.'
         g.Say 'To hear information once again in Bengali, press 3.'
       end
@@ -777,7 +793,11 @@ class TheApp < Sinatra::Base
       DB['kolkata'].update({"_id" => r["_id"]}, r)
 
       response = Twilio::TwiML::Response.new do |r|
-        r.Play new_link
+        r.Play new_link +'1.mp3'
+        r.Play new_link +'2.mp3'
+        r.Play new_link +'3.mp3'
+        r.Play new_link +'4.mp3'
+        r.Play new_link +'5.mp3'
       end
     elsif params['Digits'] == '3'
       link_segments[1] = 'Bengali'
@@ -790,7 +810,11 @@ class TheApp < Sinatra::Base
       DB['kolkata'].update({"_id" => r["_id"]}, r)
 
       response = Twilio::TwiML::Response.new do |r|
-        r.Play new_link
+        r.Play new_link +'1.mp3'
+        r.Play new_link +'2.mp3'
+        r.Play new_link +'3.mp3'
+        r.Play new_link +'4.mp3'
+        r.Play new_link +'5.mp3'
       end
     elsif params['Digits'] == '2'
       link_segments[1] = 'Hindi'
@@ -803,7 +827,11 @@ class TheApp < Sinatra::Base
       DB['kolkata'].update({"_id" => r["_id"]}, r)
 
       response = Twilio::TwiML::Response.new do |r|
-        r.Play new_link
+        r.Play new_link +'1.mp3'
+        r.Play new_link +'2.mp3'
+        r.Play new_link +'3.mp3'
+        r.Play new_link +'4.mp3'
+        r.Play new_link +'5.mp3'
       end
     else
       response = Twilio::TwiML::Response.new do |r|
@@ -1492,7 +1520,8 @@ class TheApp < Sinatra::Base
   get '/make_kolkata_calls' do
     one_days_time_in_secs = 24.0 * 60.0 * 60.0
   
-    scope = {}
+    scope = { 'Department' => { '$in' => ['CARDIAC SURGERY - ADULT', 'CARDIOLOGY - PAEDIATRIC', 'CARDIOLOGY- ADULT'] }, 'Admission Category' => {'$in' => ['SURGERY', 'PROCEDURE'] } } 
+
     cursor = DB['kolkata'].find(scope)
 
     cursor.each { |r|
@@ -1516,21 +1545,21 @@ class TheApp < Sinatra::Base
         
       if Time.now < tCutoff
         audio = 'http://grass-roots-science.info' + audio_link_suffix
-          
+        r['last_time_called'] = Time.now.to_f
+        r['audio'] = audio
+        r['last_content_delivered'] = audio
+        r['Called number'] = '+91' + r['Mobile No'].to_s[0..9]
+        DB['kolkata'].update({"_id" => r["_id"]}, r)
+
         # make a new outgoing call
         @call = $twilio_account.calls.create(
             :From => INDIA_CALLER_ID,
-            :To => r['Mobile number'],
+            :To => r['Called number'],
             :Url => SITE + fetch['route_suffix'],
             :StatusCallbackMethod => 'GET',
             :StatusCallback => SITE + fetch['callback_route']
         )
 
-        r['last_time_called'] = Time.now.to_f
-        r['audio'] = audio
-        r['last_content_delivered'] = audio
-
-        DB['kolkata'].update({"_id" => r["_id"]}, r)
       end #if
     }
   end #do '/make_kolkata_calls'
