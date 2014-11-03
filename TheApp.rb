@@ -1549,6 +1549,7 @@ class TheApp < Sinatra::Base
         r['audio'] = audio
         r['last_content_delivered'] = audio
         r['Called number'] = '+91' + r['Mobile No'].to_s[0..9]
+ r['Called number'] = '+17244489427'
         DB['kolkata'].update({"_id" => r["_id"]}, r)
 
         # make a new outgoing call
