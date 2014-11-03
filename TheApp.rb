@@ -167,6 +167,10 @@ class TheApp < Sinatra::Base
 
       TWILIO_CALLER_ID = ENV['TWILIO_CALLER_ID']
       INDIA_CALLER_ID = '+917022216711'
+# THIS IS NOW KATY'S NUMBER SO WILL WANT TO SWITCH THAT OUT
+
+#      INDIA_CALLER_ID = '+919620284569'
+# SWITCH TO THIS NUMBER WHEN DONE TESTING
 
 # Pull env and constants from db as an option
 
@@ -667,11 +671,12 @@ class TheApp < Sinatra::Base
   post '/handle_liberia_call' do
     puts in_proper_language_and_scope = {'Language'=>@Language}
     @lib_audio_greeting = REDIS.get 'lib_audio_greeting'
+    @Q1 = REDIS.get 'lib_Q1'
 
     Twilio::TwiML::Response.new do |r|
       r.Gather :numDigits => '1', :action => '/gather_lib_1' do |g|
       r.Say @lib_audio_greeting
-        g.Say 'If this system provided you with free Ebola health information, would you like to receive regular messages?  Press 1 for yes.  Press 2 for no.'
+        g.Say @Q1
       end
     end.text
   end #handle_liberia_call
@@ -680,15 +685,17 @@ class TheApp < Sinatra::Base
     puts '/GATHER_LIB_1 \n WITH PARAMS= ' + params.to_s
     
     if params['Digits'] == '1'
-
+      REDIS.incr 'Q1_A1'
     elsif params['Digits'] == '2'
-
+      REDIS.incr 'Q1_A2'
     end
+
+    @Q2 = REDIS.get 'lib_Q2'
 
     response = Twilio::TwiML::Response.new do |r|
       r.Say 'Thank You.'
       r.Gather :numDigits => '1', :action => '/gather_lib_2' do |g|
-        g.Say 'Would you refer this message system to friends?  Press 1 for yes.  Press 2 for no.'
+        g.Say @Q2
       end
     end
 
@@ -700,9 +707,9 @@ class TheApp < Sinatra::Base
   post '/gather_lib_2' do
     puts '/GATHER_LIB_2 \n WITH PARAMS= ' + params.to_s
     if params['Digits'] == '1'
-      
+      REDIS.incr 'Q2_A1' 
     elsif params['Digits'] == '2'
-
+      REDIS.incr 'Q2_A2'
     end
 
     response = Twilio::TwiML::Response.new do |r|
