@@ -752,7 +752,6 @@ class TheApp < Sinatra::Base
     response = Twilio::TwiML::Response.new do |r|
       r.Say 'Thank You.'
       r.Play @libSong
-      end
     end
 
     response.text do |format|
