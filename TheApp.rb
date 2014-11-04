@@ -669,32 +669,29 @@ class TheApp < Sinatra::Base
 
   post '/handle_liberia_call' do
     puts in_proper_language_and_scope = {'Language'=>@Language}
-    @lib_audio_greeting = REDIS.get 'lib_audio_greeting'
-    @Q1 = REDIS.get 'lib_Q1'
+    @lib7 = REDIS.get 'lib7'
+    @lib3 = REDIS.get 'lib3'
 
     Twilio::TwiML::Response.new do |r|
       r.Gather :numDigits => '1', :action => '/gather_lib_1' do |g|
-      r.Say @lib_audio_greeting
-        g.Say @Q1
+        g.Play @lib7
+        g.Play @lib3
       end
     end.text
   end #handle_liberia_call
 
   post '/gather_lib_1' do
     puts '/GATHER_LIB_1 \n WITH PARAMS= ' + params.to_s
-    
-    if params['Digits'] == '1'
-      REDIS.incr 'lib_Q1_A1'
-    elsif params['Digits'] == '2'
-      REDIS.incr 'lib_Q1_A2'
-    end
-
-    @Q2 = REDIS.get 'lib_Q2'
+  
+    count_s = 'lib_Q1_A' + params['Digits'].to_s 
+    REDIS.incr count_s
+ 
+    @lib4 = REDIS.get 'lib4'
 
     response = Twilio::TwiML::Response.new do |r|
       r.Say 'Thank You.'
       r.Gather :numDigits => '1', :action => '/gather_lib_2' do |g|
-        g.Say @Q2
+        g.Play @lib4
       end
     end
 
@@ -705,20 +702,69 @@ class TheApp < Sinatra::Base
 
   post '/gather_lib_2' do
     puts '/GATHER_LIB_2 \n WITH PARAMS= ' + params.to_s
-    if params['Digits'] == '1'
-      REDIS.incr 'lib_Q2_A1' 
-    elsif params['Digits'] == '2'
-      REDIS.incr 'lib_Q2_A2'
-    end
+
+    count_s = 'lib_Q2_A' + params['Digits'].to_s
+    REDIS.incr count_s
+
+    @lib5 = REDIS.get 'lib5'
 
     response = Twilio::TwiML::Response.new do |r|
-      r.Say 'Thanks Again!'
+      r.Say 'Thank You.'
+      r.Gather :numDigits => '1', :action => '/gather_lib_3' do |g|
+        g.Play @lib5
+      end
     end
 
     response.text do |format|
       format.xml { render :xml => response.text }
     end #do response.text
   end
+
+  post '/gather_lib_3' do
+    puts '/GATHER_LIB_3 \n WITH PARAMS= ' + params.to_s
+
+    count_s = 'lib_Q3_A' + params['Digits'].to_s
+    REDIS.incr count_s
+    
+    @lib6 = REDIS.get 'lib6'
+    @lib1 = REDIS.get 'lib1'
+    @libSong = REDIS.get 'libSong'
+    
+    response = Twilio::TwiML::Response.new do |r|
+      r.Say 'Thank You.'
+      r.Gather :numDigits => '1', :action => '/gather_lib_4' do |g|
+        g.Play @libSong
+      end
+    end
+    
+    response.text do |format| 
+      format.xml { render :xml => response.text }
+    end #do response.text
+  end
+
+
+  post '/gather_lib_4' do
+    puts '/GATHER_LIB_4 \n WITH PARAMS= ' + params.to_s
+
+    count_s = 'lib_Q4_A' + params['Digits'].to_s
+    REDIS.incr count_s
+    
+    @lib_Q5 = REDIS.get 'lib_Q5'
+    
+    response = Twilio::TwiML::Response.new do |r|
+      r.Say 'Thank You.'
+      end
+    end
+   
+    response.text do |format|
+      format.xml { render :xml => response.text }
+    end #do response.text
+  end
+
+
+
+
+
 
 
  get /Call(?<ph_num>.*)/ do
