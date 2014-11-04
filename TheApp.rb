@@ -658,7 +658,7 @@ class TheApp < Sinatra::Base
   get /TestLiberiaCall(?<ph_num>.*)/ do
     # make a new outgoing call
     @call = $twilio_account.calls.create(
-        :From => INDIA_CALLER_ID,
+        :From => '+17244489427',
         :To => params['ph'],
         :Url => SITE + 'handle_liberia_call',
         :StatusCallbackMethod => 'GET',
