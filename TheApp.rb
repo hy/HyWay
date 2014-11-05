@@ -666,6 +666,10 @@ class TheApp < Sinatra::Base
     )
   end #get Call
 
+# To accumulate stats: 
+# count up the number of responses to each question
+# and also keep an array of which numbers answered each question how
+
   post '/handle_liberia_call' do
     puts in_proper_language_and_scope = {'Language'=>@Language}
     @lib1 = REDIS.get 'lib1'
@@ -685,6 +689,8 @@ class TheApp < Sinatra::Base
     puts '/GATHER_LIB_1 \n WITH PARAMS= ' + params.to_s
   
     count_s = 'lib_Q1_A' + params['Digits'].to_s 
+    count_a = count_s +'_a'
+    REDIS.rpush count_a params['To']
     REDIS.incr count_s
  
     @lib4 = REDIS.get 'lib4'
@@ -705,6 +711,8 @@ class TheApp < Sinatra::Base
     puts '/GATHER_LIB_2 \n WITH PARAMS= ' + params.to_s
  
     count_s = 'lib_Q2_A' + params['Digits'].to_s
+    count_a = count_s +'_a'
+    REDIS.rpush count_a params['To']
     REDIS.incr count_s
 
     @lib5 = REDIS.get 'lib5'
@@ -725,6 +733,8 @@ class TheApp < Sinatra::Base
     puts '/GATHER_LIB_3 \n WITH PARAMS= ' + params.to_s
 
     count_s = 'lib_Q3_A' + params['Digits'].to_s
+    count_a = count_s +'_a'
+    REDIS.rpush count_a params['To']
     REDIS.incr count_s
 
     @lib6 = REDIS.get 'lib6'
@@ -745,6 +755,8 @@ class TheApp < Sinatra::Base
     puts '/GATHER_LIB_4 \n WITH PARAMS= ' + params.to_s
 
     count_s = 'lib_Q4_A' + params['Digits'].to_s
+    count_a = count_s +'_a'
+    REDIS.rpush count_a params['To']
     REDIS.incr count_s
 
     @libSong = REDIS.get 'libSong'
@@ -781,7 +793,7 @@ class TheApp < Sinatra::Base
   # Auto-redirects to :url => [call-handler, below]
   end #get Call
 
- get /TestKolkataCall(?<ph_num>.*)/ do
+  get /TestKolkataCall(?<ph_num>.*)/ do
     puts params['ph']
 
     # make a new outgoing call
@@ -807,15 +819,16 @@ class TheApp < Sinatra::Base
 
     puts in_proper_language_and_scope = {'Language'=>@Language}
 
+    @toRepeatInHindiPress = REDIS.get 'ToRepeatInHindiPress'
+    @toRepeatInBengaliPress = REDIS.get 'ToRepeatInBengaliPress'
+
     Twilio::TwiML::Response.new do |r|
       r.Gather :numDigits => '1', :action => '/gather_kolkata' do |g|
-        g.Play d['audio'] +'1.mp3'
-        g.Play d['audio'] +'2.mp3'
-        g.Play d['audio'] +'3.mp3'
-        g.Play d['audio'] +'4.mp3'
-        g.Play d['audio'] +'5.mp3'
-        g.Say 'To hear information once again in Hindi, press 2.'
-        g.Say 'To hear information once again in Bengali, press 3.'
+        g.Play d['audio'] +'.mp3'
+        g.Play @toRepeatInHindiPress
+        g.Say 'two', :voice => 'woman'
+        g.Play @toRepeatInBengaliPress
+        g.Say 'three', :voice => 'woman'
       end
     end.text
   end #handle_kolkata_call
