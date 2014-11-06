@@ -674,6 +674,8 @@ class TheApp < Sinatra::Base
   post '/handle_liberia_call' do
     @libIntro = REDIS.get 'libIntro'
     @libQ1 = REDIS.get 'libQ1'
+    puts @libIntro
+    puts @libQ1
 
     Twilio::TwiML::Response.new do |r|
       r.Gather :numDigits => '1', :action => '/gather_lib_1' do |g|
