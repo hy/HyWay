@@ -685,9 +685,9 @@ class TheApp < Sinatra::Base
     puts '/GATHER_LIB_1 \n WITH PARAMS= ' + params.to_s
   
     count_s = 'lib_Q1_A' + params['Digits'].to_s 
-    key = count_s +'_responders'
+    key = count_s +'_voters'
     value = params['To']
-    REDIS.lpush key, value
+    REDIS.sadd key, value
     REDIS.incr count_s
  
     response = Twilio::TwiML::Response.new do |r|
@@ -706,9 +706,9 @@ class TheApp < Sinatra::Base
     puts '/GATHER_LIB_2 \n WITH PARAMS= ' + params.to_s
  
     count_s = 'lib_Q2_A' + params['Digits'].to_s
-    key = count_s +'_responders'
+    key = count_s +'_voters'
     value = params['To']
-    REDIS.lpush key, value
+    REDIS.sadd key, value
     REDIS.incr count_s
 
     response = Twilio::TwiML::Response.new do |r|
@@ -727,9 +727,9 @@ class TheApp < Sinatra::Base
     puts '/GATHER_LIB_3 \n WITH PARAMS= ' + params.to_s
 
     count_s = 'lib_Q3_A' + params['Digits'].to_s
-    key = count_s +'_responders'
+    key = count_s +'_voters'
     value = params['To']
-    REDIS.lpush key, value
+    REDIS.sadd key, value
     REDIS.incr count_s
 
     response = Twilio::TwiML::Response.new do |r|
