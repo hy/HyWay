@@ -684,7 +684,7 @@ class TheApp < Sinatra::Base
   post '/gather_lib_1' do
     puts '/GATHER_LIB_1 \n WITH PARAMS= ' + params.to_s
   
-    count_s = 'lib_Q1_A' + params['Digits'].to_s 
+    count_s = 'libQ1A' + params['Digits'].to_s 
     key = count_s +'_voters'
     value = params['To']
     REDIS.sadd key, value
@@ -705,7 +705,7 @@ class TheApp < Sinatra::Base
   post '/gather_lib_2' do
     puts '/GATHER_LIB_2 \n WITH PARAMS= ' + params.to_s
  
-    count_s = 'lib_Q2_A' + params['Digits'].to_s
+    count_s = 'libQ2A' + params['Digits'].to_s
     key = count_s +'_voters'
     value = params['To']
     REDIS.sadd key, value
@@ -726,7 +726,7 @@ class TheApp < Sinatra::Base
   post '/gather_lib_3' do
     puts '/GATHER_LIB_3 \n WITH PARAMS= ' + params.to_s
 
-    count_s = 'lib_Q3_A' + params['Digits'].to_s
+    count_s = 'libQ3A' + params['Digits'].to_s
     key = count_s +'_voters'
     value = params['To']
     REDIS.sadd key, value
