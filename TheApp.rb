@@ -675,16 +675,12 @@ class TheApp < Sinatra::Base
     @libIntro = REDIS.get 'libIntro'
     @libQ1 = REDIS.get 'libQ1'
 
-    response = Twilio::TwiML::Response.new do |r|
+    Twilio::TwiML::Response.new do |r|
       r.Gather :numDigits => '1', :action => '/gather_lib_1' do |g|
         g.Play @libIntro
         g.Play @libQ1
       end
     end.text
-
-    response.text do |format|
-      format.xml { render :xml => response.text }
-    end #do response.text
   end #handle_liberia_call
 
   post '/gather_lib_1' do
