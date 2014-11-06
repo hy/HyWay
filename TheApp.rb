@@ -672,8 +672,8 @@ class TheApp < Sinatra::Base
 # and also keep an array of which numbers answered each question how
 
   post '/handle_liberia_call' do
-    puts @libIntro = REDIS.get 'libIntro'
-    puts @libQ1 = REDIS.get 'libQ1'
+    @libIntro = REDIS.get 'libIntro'
+    @libQ1 = REDIS.get 'libQ1'
 
     response = Twilio::TwiML::Response.new do |r|
       r.Gather :numDigits => '1', :action => '/gather_lib_1' do |g|
