@@ -672,15 +672,11 @@ class TheApp < Sinatra::Base
 # and also keep an array of which numbers answered each question how
 
   post '/handle_liberia_call' do
-    @libIntro = REDIS.get 'libIntro'
-    @libQ1 = REDIS.get 'libQ1'
-    puts @libIntro
-    puts @libQ1
 
     Twilio::TwiML::Response.new do |r|
       r.Gather :numDigits => '1', :action => '/gather_lib_1' do |g|
-        g.Play @libIntro
-        g.Play @libQ1
+        g.Play 'http://grass-roots-science.info/audio/libIntro.mp3'
+        g.Play 'http://grass-roots-science.info/audio/libQ1.mp3'
       end
     end.text
   end #handle_liberia_call
@@ -693,12 +689,10 @@ class TheApp < Sinatra::Base
     REDIS.rpush count_a params['To']
     REDIS.incr count_s
  
-    @libQ2 = REDIS.get 'libQ2'
-
     response = Twilio::TwiML::Response.new do |r|
       r.Say 'Thank You.'
       r.Gather :numDigits => '1', :action => '/gather_lib_2' do |g|
-        g.Play @libQ2
+        g.Play 'http://grass-roots-science.info/audio/libQ2.mp3'
       end
     end
 
@@ -715,12 +709,10 @@ class TheApp < Sinatra::Base
     REDIS.rpush count_a params['To']
     REDIS.incr count_s
 
-    @libQ3 = REDIS.get 'libQ3'
-
     response = Twilio::TwiML::Response.new do |r|
       r.Say 'Thank You.'
       r.Gather :numDigits => '1', :action => '/gather_lib_3' do |g|
-        g.Play @libQ3
+        g.Play 'http://grass-roots-science.info/audio/libQ3.mp3'
       end
     end
 
@@ -737,10 +729,8 @@ class TheApp < Sinatra::Base
     REDIS.rpush count_a params['To']
     REDIS.incr count_s
 
-    @libWrapLong = REDIS.get 'libWrapLong'
-
     response = Twilio::TwiML::Response.new do |r|
-      r.Play @libWrapLong
+      r.Play 'http://grass-roots-science.info/audio/libWrapLong.mp3'
     end
 
     response.text do |format|
