@@ -672,15 +672,13 @@ class TheApp < Sinatra::Base
 
   post '/handle_liberia_call' do
     puts in_proper_language_and_scope = {'Language'=>@Language}
-    @lib1 = REDIS.get 'lib1'
-    @lib7 = REDIS.get 'lib7'
-    @lib3 = REDIS.get 'lib3'
+    @libIntro = REDIS.get 'libIntro'
+    @libQ1 = REDIS.get 'libQ1'
 
     Twilio::TwiML::Response.new do |r|
       r.Gather :numDigits => '1', :action => '/gather_lib_1' do |g|
-        g.Play @lib1
-        g.Play @lib7
-        g.Play @lib3
+        g.Play @libIntro
+        g.Play @libQ1
       end
     end.text
   end #handle_liberia_call
@@ -693,12 +691,12 @@ class TheApp < Sinatra::Base
     REDIS.rpush count_a params['To']
     REDIS.incr count_s
  
-    @lib4 = REDIS.get 'lib4'
+    @libQ2 = REDIS.get 'libQ2'
 
     response = Twilio::TwiML::Response.new do |r|
       r.Say 'Thank You.'
       r.Gather :numDigits => '1', :action => '/gather_lib_2' do |g|
-        g.Play @lib4
+        g.Play @libQ2
       end
     end
 
@@ -715,12 +713,12 @@ class TheApp < Sinatra::Base
     REDIS.rpush count_a params['To']
     REDIS.incr count_s
 
-    @lib5 = REDIS.get 'lib5'
+    @libQ3 = REDIS.get 'libQ3'
 
     response = Twilio::TwiML::Response.new do |r|
       r.Say 'Thank You.'
       r.Gather :numDigits => '1', :action => '/gather_lib_3' do |g|
-        g.Play @lib5
+        g.Play @libQ3
       end
     end
 
@@ -737,44 +735,16 @@ class TheApp < Sinatra::Base
     REDIS.rpush count_a params['To']
     REDIS.incr count_s
 
-    @lib6 = REDIS.get 'lib6'
+    @libWrapLong = REDIS.get 'libWrapLong'
 
     response = Twilio::TwiML::Response.new do |r|
-      r.Say 'Thank You.'
-      r.Gather :numDigits => '1', :action => '/gather_lib_4' do |g|
-        g.Play @lib6
-      end
+      r.Play @libWrapLong
     end
 
     response.text do |format|
       format.xml { render :xml => response.text }
     end #do response.text
   end
-
-  post '/gather_lib_4' do
-    puts '/GATHER_LIB_4 \n WITH PARAMS= ' + params.to_s
-
-    count_s = 'lib_Q4_A' + params['Digits'].to_s
-    count_a = count_s +'_a'
-    REDIS.rpush count_a params['To']
-    REDIS.incr count_s
-
-    @libSong = REDIS.get 'libSong'
-
-    response = Twilio::TwiML::Response.new do |r|
-      r.Say 'Thank You.'
-      r.Play @libSong
-    end
-
-    response.text do |format|
-      format.xml { render :xml => response.text }
-    end #do response.text
-  end
-
-
-
-
-
 
 
 
