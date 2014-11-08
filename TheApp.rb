@@ -663,7 +663,7 @@ class TheApp < Sinatra::Base
         :To => params['ph'],
         :Url => SITE + 'handle_liberia_call',
         :StatusCallbackMethod => 'GET',
-        :StatusCallback => SITE + 'status_callback_for_outgoing_calls'
+        :StatusCallback => SITE + 'status_callback_for_liberia'
     )
   end #get Call
 
@@ -682,6 +682,10 @@ class TheApp < Sinatra::Base
   end #handle_liberia_call
 
   post '/gather_lib_1' do
+    d = DB['liberia'].find_one({'Phone Number' => params['To'].to_i})
+    d['A1'] = params['Digits'].to_s
+    DB['liberia'].update({'Phone Number' => params['To'].to_i}, d)
+
     puts '/GATHER_LIB_1 \n WITH PARAMS= ' + params.to_s
   
     count_s = 'libQ1A' + params['Digits'].to_s 
@@ -1043,7 +1047,47 @@ class TheApp < Sinatra::Base
       }
       puts DB['calls'].insert(doc)
 
+    rescue Exception => e;  log_exception( e, where );  end
+  end #get
+
+  get '/status_callback_for_kolkata' do
+    begin
+      puts where = "STATUS CALLBACK ROUTE FOR KOLKATA OUTGOING CALLS"
+
+      params.each { |k, v|
+        puts 'Made Call params: ' + k.to_s + ' <---> ' + v.to_s
+      }
+
       cursor = DB['kolkata'].find_one({'Mobile number' => params['To']})
+
+      puts doc = {
+         'What' => 'Outgoing Voice Call',
+         'Direction' => params['Direction'],
+         'From' => params['From'],
+         'To' => params['To'],
+         'CallDuration' => params['CallDuration'],
+         'CallStatus' => params['CallStatus'],
+         'utc' => @now_f
+      }
+      puts DB['calls'].insert(doc)
+
+
+    rescue Exception => e;  log_exception( e, where );  end
+  end #get
+
+  get '/status_callback_for_liberia' do
+    begin
+      puts where = "STATUS CALLBACK ROUTE FOR LIBERIA OUTGOING CALLS"
+
+      params.each { |k, v|
+        puts 'Made Call params: ' + k.to_s + ' <---> ' + v.to_s
+      }
+
+      d = DB['liberia'].find_one({'Phone Number' => params['To']})
+      d['CallDuration'] => params['CallDuration'],
+      d['CallStatus'] => params['CallStatus'],
+      d['utc'] => @now_f
+      DB['liberia'].update({'Phone Number' => params['To'], d)
 
     rescue Exception => e;  log_exception( e, where );  end
   end #get
@@ -1615,11 +1659,6 @@ class TheApp < Sinatra::Base
             :StatusCallback => SITE + fetch['callback_route']
         )
 
-        r['last_time_called'] = Time.now.to_f
-        r['audio'] = audio
-        r['last_content_delivered'] = audio
-
-        DB['liberia'].update({"_id" => r["_id"]}, r)
       end #if
     }
   end #do '/make_liberia_calls'
