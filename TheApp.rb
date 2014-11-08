@@ -1087,7 +1087,7 @@ class TheApp < Sinatra::Base
       d['CallDuration'] = params['CallDuration'],
       d['CallStatus'] = params['CallStatus'],
       d['utc'] = @now_f
-      DB['liberia'].update({'Phone Number' => params['To'], d)
+      DB['liberia'].update({'Phone Number' => params['To']}, d)
 
     rescue Exception => e;  log_exception( e, where );  end
   end #get
@@ -1635,21 +1635,11 @@ class TheApp < Sinatra::Base
 
 
   get '/make_liberia_calls' do
-    one_days_time_in_secs = 24.0 * 60.0 * 60.0
- 
     scope = {}
     cursor = DB['liberia'].find(scope)
 
     cursor.each { |r|
-
-      puts fetch = DB['liberia_content'].find_one(content_scope)
-      puts days = fetch['Days']
-      puts days = 2 if fetch['Days'] == nil
-      puts audio_link_suffix = fetch['audio_link_suffix']
-
       if (true)
-        audio = 'http://grass-roots-science.info' + audio_link_suffix
-
         # make a new outgoing call
         @call = $twilio_account.calls.create(
             :From => INDIA_CALLER_ID,
@@ -1658,7 +1648,6 @@ class TheApp < Sinatra::Base
             :StatusCallbackMethod => 'GET',
             :StatusCallback => SITE + fetch['callback_route']
         )
-
       end #if
     }
   end #do '/make_liberia_calls'
