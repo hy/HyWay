@@ -1643,10 +1643,10 @@ class TheApp < Sinatra::Base
         # make a new outgoing call
         @call = $twilio_account.calls.create(
             :From => INDIA_CALLER_ID,
-            :To => r['Mobile number'],
-            :Url => SITE + fetch['route_suffix'],
+            :To => r['Phone Number'],
+            :Url => SITE + r['route_suffix'],
             :StatusCallbackMethod => 'GET',
-            :StatusCallback => SITE + fetch['callback_route']
+            :StatusCallback => SITE + r['callback_route']
         )
       end #if
     }
