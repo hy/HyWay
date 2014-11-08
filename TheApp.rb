@@ -682,11 +682,11 @@ class TheApp < Sinatra::Base
   end #handle_liberia_call
 
   post '/gather_lib_1' do
+    puts '/GATHER_LIB_1 \n WITH PARAMS= ' + params.to_s
+
     d = DB['liberia'].find_one({'Phone Number' => params['To'].to_i})
     d['A1'] = params['Digits'].to_s
     DB['liberia'].update({'Phone Number' => params['To'].to_i}, d)
-
-    puts '/GATHER_LIB_1 \n WITH PARAMS= ' + params.to_s
   
     count_s = 'libQ1A' + params['Digits'].to_s 
     key = count_s +'_voters'
@@ -708,6 +708,10 @@ class TheApp < Sinatra::Base
 
   post '/gather_lib_2' do
     puts '/GATHER_LIB_2 \n WITH PARAMS= ' + params.to_s
+
+    d = DB['liberia'].find_one({'Phone Number' => params['To'].to_i})
+    d['A2'] = params['Digits'].to_s
+    DB['liberia'].update({'Phone Number' => params['To'].to_i}, d)
  
     count_s = 'libQ2A' + params['Digits'].to_s
     key = count_s +'_voters'
@@ -729,6 +733,10 @@ class TheApp < Sinatra::Base
 
   post '/gather_lib_3' do
     puts '/GATHER_LIB_3 \n WITH PARAMS= ' + params.to_s
+
+    d = DB['liberia'].find_one({'Phone Number' => params['To'].to_i})
+    d['A3'] = params['Digits'].to_s
+    DB['liberia'].update({'Phone Number' => params['To'].to_i}, d)
 
     count_s = 'libQ3A' + params['Digits'].to_s
     key = count_s +'_voters'
