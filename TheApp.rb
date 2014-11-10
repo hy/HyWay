@@ -1091,7 +1091,7 @@ class TheApp < Sinatra::Base
         puts 'Made Call params: ' + k.to_s + ' <---> ' + v.to_s
       }
 
-      d = DB['liberia'].find_one({'Phone Number' => params['To']})
+      d = DB['liberia'].find_one({'Phone Number' => params['To'].to_i})
       d['CallDuration'] = params['CallDuration']
       d['CallStatus'] = params['CallStatus']
       d['utc'] = @now_f
