@@ -752,7 +752,6 @@ class TheApp < Sinatra::Base
 
 
 
-
  get /Call(?<ph_num>.*)/ do
     puts params['ph']
 
@@ -766,6 +765,8 @@ class TheApp < Sinatra::Base
     )
   # Auto-redirects to :url => [call-handler, below]
   end #get Call
+
+
 
   get /TestKolkataCall(?<ph_num>.*)/ do
     puts params['ph']
@@ -798,6 +799,7 @@ class TheApp < Sinatra::Base
 
 #To get this audio from Abhik's voicemail, tried:
 #http://www.macroplant.com/iexplorer/tutorials/how-to-access-voicemail-on-iphone
+#(seemed to work OK)
 
     Twilio::TwiML::Response.new do |r|
       r.Gather :numDigits => '1', :action => '/gather_kolkata' do |g|
