@@ -1097,6 +1097,9 @@ class TheApp < Sinatra::Base
       d['utc'] = Time.now.to_f
       DB['liberia'].update({'Phone Number' => params['To'].to_i}, d)
 
+#Be sure to return valide HTML output?
+#http_error="Bad chunk" at=error code=H17 desc="Poorly formatted HTTP response" method=GET path="/status_callback_for_liberia
+
       puts d['CallDuration']
 
     rescue Exception => e;  log_exception( e, where );  end
