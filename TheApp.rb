@@ -672,7 +672,6 @@ class TheApp < Sinatra::Base
 # and also keep an array of which numbers answered each question how
 
   post '/handle_liberia_call' do
-
     Twilio::TwiML::Response.new do |r|
       r.Gather :numDigits => '1', :action => '/gather_lib_1' do |g|
         g.Play 'http://grass-roots-science.info/audio/libIntro.mp3'
@@ -695,7 +694,6 @@ class TheApp < Sinatra::Base
     REDIS.incr count_s
  
     response = Twilio::TwiML::Response.new do |r|
-      r.Say 'Thank You.'
       r.Gather :numDigits => '1', :action => '/gather_lib_2' do |g|
         g.Play 'http://grass-roots-science.info/audio/libQ2.mp3'
       end
@@ -720,7 +718,6 @@ class TheApp < Sinatra::Base
     REDIS.incr count_s
 
     response = Twilio::TwiML::Response.new do |r|
-      r.Say 'Thank You.'
       r.Gather :numDigits => '1', :action => '/gather_lib_3' do |g|
         g.Play 'http://grass-roots-science.info/audio/libQ3.mp3'
       end
@@ -798,6 +795,9 @@ class TheApp < Sinatra::Base
 
     @toRepeatInHindiPress = REDIS.get 'ToRepeatInHindiPress'
     @toRepeatInBengaliPress = REDIS.get 'ToRepeatInBengaliPress'
+
+#To get this audio from Abhik's voicemail, tried:
+#http://www.macroplant.com/iexplorer/tutorials/how-to-access-voicemail-on-iphone
 
     Twilio::TwiML::Response.new do |r|
       r.Gather :numDigits => '1', :action => '/gather_kolkata' do |g|
