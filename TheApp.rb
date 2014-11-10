@@ -1097,6 +1097,8 @@ class TheApp < Sinatra::Base
       d['utc'] = Time.now.to_f
       DB['liberia'].update({'Phone Number' => params['To'].to_i}, d)
 
+      puts d['CallDuration']
+
     rescue Exception => e;  log_exception( e, where );  end
   end #get
 
