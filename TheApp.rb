@@ -658,8 +658,8 @@ class TheApp < Sinatra::Base
   get /TestLiberiaCall(?<ph_num>.*)/ do
     # make a new outgoing call
     @call = $twilio_account.calls.create(
-#        :From => '+17244489427',
-        :From => INDIA_CALLER_ID,
+        :From => '+17244489427',
+#        :From => INDIA_CALLER_ID,
         :To => params['ph'],
         :Url => SITE + 'handle_liberia_call',
         :StatusCallbackMethod => 'GET',
@@ -1657,7 +1657,8 @@ class TheApp < Sinatra::Base
       if (true)
         # make a new outgoing call
         @call = $twilio_account.calls.create(
-            :From => INDIA_CALLER_ID,
+#            :From => INDIA_CALLER_ID,
+            :From => '+17244489427',
             :To => r['Phone Number'],
             :Url => SITE + r['route_suffix'],
             :StatusCallbackMethod => 'GET',
@@ -1666,6 +1667,19 @@ class TheApp < Sinatra::Base
       end #if
     }
   end #do '/make_liberia_calls'
+
+  get '/send_liberia_texts' do
+      scope = {}
+      cursor = DB['liberia'].find(scope)
+
+      msg = 'Hi! James will soon narrate a test call from this number. In emergencies, the Ebola Hotline is 4455 and a contact-tracer is: 0775565639'
+
+      cursor.each { |r|
+        send_SMS_to_f( r['Phone Number'], r['msg'] ) 
+      }
+  end #do '/send_liberia_texts'
+
+
 
 
   get '/hourly_ping' do
@@ -2484,7 +2498,7 @@ class TheApp < Sinatra::Base
   #############################################################################
   # Receive fast-acting insulin checkin (precision-regex method)
   #############################################################################
-  get /\/c\/(?<is>\d*\.?\d+)(u|units)/ix do
+  get /\/c\/(?<is>\d*\.?\d+)(n|h|u|units)/ix do
     puts where = 'LITERAL FAST-ACTING INSULIN CHECKIN REGEX ROUTE'
 
     begin
