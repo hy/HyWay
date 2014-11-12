@@ -1670,19 +1670,19 @@ class TheApp < Sinatra::Base
   end #do '/make_liberia_calls'
 
   get '/send_liberia_texts' do
-      scope = {}
-      cursor = DB['liberia'].find(scope)
+    scope = {}
+    cursor = DB['liberia'].find(scope)
 
-      msg = 'Hi! James will soon narrate a test call from this number. In emergencies, the Ebola Hotline is 4455 and a contact-tracer is: 0775565639'
+    msg = 'Hi! James will soon narrate a test call from this number. In emergencies, the Ebola Hotline is 4455 and a contact-tracer is: 0775565639'
 
-      cursor.each { |r|
+    cursor.each { |r|
         @message = $twilio_account.sms.messages.create({
               :from => '+16154427792',
               :to => r['Phone Number'],
               :body => msg
         })
         puts "SENDING OUTGOING SMS: "+msg+" TO: " + r['Phone Number']
-      }
+    }
   end #do '/send_liberia_texts'
 
 
