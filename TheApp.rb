@@ -1684,6 +1684,7 @@ class TheApp < Sinatra::Base
         })
         puts "SENDING OUTGOING SMS: "+msg+" TO: " + r['Phone Number']
     }
+    puts msg
   end #do '/send_liberia_texts'
 
 
