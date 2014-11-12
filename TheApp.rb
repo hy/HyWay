@@ -1682,7 +1682,7 @@ class TheApp < Sinatra::Base
 
         $twilio_account.sms.messages.create({
               :from => '+16154427792',
-              :to => to_num
+              :to => to_num,
               :body => msg
         })
         
