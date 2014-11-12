@@ -1677,11 +1677,13 @@ class TheApp < Sinatra::Base
     msg = 'Hi! James will soon narrate a test call from this number. In emergencies, the Ebola Hotline is 4455 and a contact-tracer is: 0775565639'
 
     cursor.each { |r|
-        @message = $twilio_account.sms.messages.create({
+        i = i + 1
+        $twilio_account.sms.messages.create({
               :from => '+16154427792',
               :to => r['Phone Number'],
-              :body => msg
+              :body => msg+i.to_s
         })
+        
         puts "SENDING OUTGOING SMS: "+msg+" TO: " + (r['Phone Number'].to_s)
     }
     puts msg
