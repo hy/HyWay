@@ -1,5 +1,4 @@
 
-
 # ADD: Conf call, grat. hotline, friend-connector
  
 # Serve CSV:
@@ -658,8 +657,9 @@ class TheApp < Sinatra::Base
   get /TestLiberiaCall(?<ph_num>.*)/ do
     # make a new outgoing call
     @call = $twilio_account.calls.create(
-        :From => '+17244489427',
+#        :From => '+17244489427',
 #        :From => INDIA_CALLER_ID,
+        :From => '+16154427792'
         :To => params['ph'],
         :Url => SITE + 'handle_liberia_call',
         :StatusCallbackMethod => 'GET',
@@ -1658,7 +1658,8 @@ class TheApp < Sinatra::Base
         # make a new outgoing call
         @call = $twilio_account.calls.create(
 #            :From => INDIA_CALLER_ID,
-            :From => '+17244489427',
+#            :From => '+17244489427',
+            :From => '+16154427792'
             :To => r['Phone Number'],
             :Url => SITE + r['route_suffix'],
             :StatusCallbackMethod => 'GET',
@@ -1675,7 +1676,12 @@ class TheApp < Sinatra::Base
       msg = 'Hi! James will soon narrate a test call from this number. In emergencies, the Ebola Hotline is 4455 and a contact-tracer is: 0775565639'
 
       cursor.each { |r|
-        send_SMS_to_f( r['Phone Number'], r['msg'] ) 
+        @message = $twilio_account.sms.messages.create({
+              :from => '+16154427792',
+              :to => r['Phone Number'],
+              :body => msg
+        })
+        puts "SENDING OUTGOING SMS: "+msg+" TO: "+number
       }
   end #do '/send_liberia_texts'
 
