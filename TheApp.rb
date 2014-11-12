@@ -1681,7 +1681,7 @@ class TheApp < Sinatra::Base
         $twilio_account.sms.messages.create({
               :from => '+16154427792',
               :to => r['Phone Number'],
-              :body => msg+i.to_s
+              :body => msg
         })
         
         puts "SENDING OUTGOING SMS: "+msg+" TO: " + (r['Phone Number'].to_s)
