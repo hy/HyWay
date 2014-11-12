@@ -1675,7 +1675,7 @@ class TheApp < Sinatra::Base
     cursor = DB['liberia'].find(scope)
 
     msg = 'Hi! James will soon narrate a test call from this number. In emergencies, the Ebola Hotline is 4455 and a contact-tracer is: 0775565639'
-
+    i=0
     cursor.each { |r|
         i = i + 1
         $twilio_account.sms.messages.create({
