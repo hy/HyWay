@@ -1673,7 +1673,7 @@ class TheApp < Sinatra::Base
     scope = {}
     cursor = DB['liberia'].find(scope)
 
-    msg = 'Hi! James will soon narrate a test call from this number. In emergencies, the Ebola Hotline is 4455 and a contact-tracer is: 0775565639'
+    msg = 'Hi! James Davis will soon test a voice message to this number. For emergencies the Ebola Hotline is 4455 and a contact-tracer is 0775565639'
     i=0
     cursor.each { |r|
         i = i + 1
@@ -2144,6 +2144,24 @@ class TheApp < Sinatra::Base
     reply_via_SMS( msg )
   end # get help
 
+
+
+  #############################################################################
+  # Start user interactions (not needed per-se)
+  #############################################################################
+  get /\/c\/start/ do
+  puts 'START ROUTE'
+
+  begin
+    msg = 'Welcome'
+    
+  rescue Exception => e
+    msg = 'Could not start scheduled texts'
+    log_exception( e, 'START ROUTE' )
+  end
+
+    reply_via_SMS( msg )
+  end #do sign in
 
 
 
