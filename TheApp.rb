@@ -1678,9 +1678,11 @@ class TheApp < Sinatra::Base
     i=0
     cursor.each { |r|
         i = i + 1
+        to_num = '+' + r['Phone Number'].to_s
+
         $twilio_account.sms.messages.create({
               :from => '+16154427792',
-              :to => r['Phone Number'],
+              :to => to_num
               :body => msg
         })
         
