@@ -1669,6 +1669,7 @@ class TheApp < Sinatra::Base
     }
   end #do '/make_liberia_calls'
 
+
   get '/send_liberia_texts' do
     scope = {}
     cursor = DB['liberia'].find(scope)
