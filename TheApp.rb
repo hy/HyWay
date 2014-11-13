@@ -1651,10 +1651,12 @@ class TheApp < Sinatra::Base
 
   get '/make_liberia_calls' do
     scope = {}
+    i = 0
     cursor = DB['liberia'].find(scope)
 
     cursor.each { |r|
-      if (true)
+      i = i + 1
+      if (i<=3)
         # make a new outgoing call
         @call = $twilio_account.calls.create(
 #            :From => INDIA_CALLER_ID,
