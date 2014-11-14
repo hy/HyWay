@@ -1668,6 +1668,7 @@ class TheApp < Sinatra::Base
             :StatusCallbackMethod => 'GET',
             :StatusCallback => SITE + r['callback_route']
         )
+        sleep 200
       end #if
     }
   end #do '/make_liberia_calls'
