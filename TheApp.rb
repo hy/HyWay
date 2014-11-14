@@ -674,7 +674,7 @@ class TheApp < Sinatra::Base
   post '/handle_liberia_call' do
     Twilio::TwiML::Response.new do |r|
       r.Gather :numDigits => '1', :action => '/gather_lib_1' do |g|
-        g.Play 'http://grass-roots-science.info/audio/libIntro.mp3'
+        g.Play 'http://grass-roots-science.info/audio/libIntro2.mp3'
         g.Play 'http://grass-roots-science.info/audio/libQ1.mp3'
       end
     end.text
@@ -742,7 +742,7 @@ class TheApp < Sinatra::Base
     REDIS.incr count_s
 
     response = Twilio::TwiML::Response.new do |r|
-      r.Play 'http://grass-roots-science.info/audio/libWrapLong.mp3'
+      r.Play 'http://grass-roots-science.info/audio/libWrap2.mp3'
     end
 
     response.text do |format|
@@ -1651,7 +1651,9 @@ class TheApp < Sinatra::Base
 
   get '/make_liberia_calls' do
     scope = {}
-    cursor = DB['liberia'].find(scope)
+    cursor = DB['liberia'].find(scope).sort({'No' => 1})
+
+# make sure one failed text or call does not stop the rest from going out...
 
     cursor.each { |r|
       if (r['County'] == 'test') 
