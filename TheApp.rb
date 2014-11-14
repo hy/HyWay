@@ -660,6 +660,7 @@ class TheApp < Sinatra::Base
 #        :From => '+17244489427',
         :From => INDIA_CALLER_ID,
 #        :From => '+16154427792',
+# gather does not seem to work with this +1615 number?
         :To => params['ph'],
         :Url => SITE + 'handle_liberia_call',
         :StatusCallbackMethod => 'GET',
@@ -1656,7 +1657,7 @@ class TheApp < Sinatra::Base
 # make sure one failed text or call does not stop the rest from going out...
 
     cursor.each { |r|
-      if (r['County'] == 'test') 
+      if (r['Status'] == 'test') 
 #      if (true)
         # make a new outgoing call
         $twilio_account.calls.create(
