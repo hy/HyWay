@@ -656,7 +656,7 @@ class TheApp < Sinatra::Base
 
   get /TestLiberiaCall(?<ph_num>.*)/ do
     # make a new outgoing call
-    @call = $twilio_account.calls.create(
+    $twilio_account.calls.create(
 #        :From => '+17244489427',
 #        :From => INDIA_CALLER_ID,
         :From => '+16154427792',
@@ -1657,8 +1657,9 @@ class TheApp < Sinatra::Base
 
     cursor.each { |r|
       if (r['County'] == 'test') 
+#      if (true)
         # make a new outgoing call
-        @call = $twilio_account.calls.create(
+        $twilio_account.calls.create(
             :From => INDIA_CALLER_ID,
 #            :From => '+17244489427',
             :To => r['Phone Number'],
