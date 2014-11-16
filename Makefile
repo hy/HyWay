@@ -142,6 +142,8 @@ import_of_liberia:
 	~/Downloads/flip.universal -u ~/Documents/liberia100.csv
 	$(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d $(DB) -c liberia -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/liberia100.csv --headerline
 
+export_of_liberia:
+	$(MONGOPATH)/mongoexport --host $(MONGO_URL) -port $(MONGO_PORT) -d $(DB) -c liberia -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --csv --out ~/Documents/LibCalls.csv --fields 'Phone Number',A1,A2,A3,CallStatus,CallDuration
 
 
 

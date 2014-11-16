@@ -1097,6 +1097,7 @@ class TheApp < Sinatra::Base
       d = DB['liberia'].find_one({'Phone Number' => params['To'].to_i})
       d['CallDuration'] = params['CallDuration']
       d['CallStatus'] = params['CallStatus']
+      d['Called'] = params['To']
       d['utc'] = Time.now.to_f
       DB['liberia'].update({'Phone Number' => params['To'].to_i}, d)
 
