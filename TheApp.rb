@@ -792,9 +792,9 @@ class TheApp < Sinatra::Base
   post '/handle_k_call' do
     Twilio::TwiML::Response.new do |r|
      r.Gather :numDigits => '1', :action => '/gather_k' do |g|
-      g.Play 'http://grass-roots-science.info/audio/Kolkata1_Bengali_.mp3'
-      g.Play 'http://grass-roots-science.info/audio/ToRepeatInHindiPress2.mp3'
-      g.Play 'http://grass-roots-science.info/audio/ToRepeatInBengaliPress3.mp3'
+      g.Play 'http://grass-roots-science.info/audio/Kolkata1_Bengali_a.mp3'
+      g.Play 'http://grass-roots-science.info/audio/ToRepeatInHindiPress2key.mp3'
+      g.Play 'http://grass-roots-science.info/audio/ToRepeatInBengaliPress3key.mp3'
      end #Gather
     end.text
   end #handle_kolkata_call
@@ -1655,15 +1655,12 @@ class TheApp < Sinatra::Base
     cursor = DB['kolkata'].find(scope)
 
     cursor.each { |r|
-      if r['Language'] == nil
-        @Language = 'Bengali'
-      else
-        @Language = r['Language']
-      end #if
+      r['Language'] = 'Bengali'
+      r['Demographic'] = ageFromIndiaStyleAgeString(r['Age'])
 
       puts content_scope = { 'Department' => r['Department'],
         'Admission Category' => r['Admission Category'],
-        'Language'=>@Language }
+        'Language'=>r['Language'] }
 
       puts days = 2 
       puts audio_link_suffix = '/audio/Kolkata1_Bengali_'
@@ -1678,10 +1675,8 @@ class TheApp < Sinatra::Base
         r['audio'] = 'http://grass-roots-science.info' + audio_link_suffix
         r['last_time_called'] = Time.now.to_f
         r['Called number'] = '+91' + r['Mobile No'].to_s[0..9]
-
 # PRODUCTION NOTES: 
 # Called number may have a leading 0 which must be removed . . . 
-# Also will need to filter on age, decoded from free text description
 
         DB['kolkata'].update({"_id" => r["_id"]}, r)
 
@@ -2991,11 +2986,6 @@ class TheApp < Sinatra::Base
     def timestamp()
       Time.now.to_f.to_s
     end
-
-
-# Assume someone is a minor unless we can prove otherwise
-# (impacts information transfer)
-# 
 
     def ageFromIndiaStyleAgeString(india_age_string)
       verdict = 'Minor'
