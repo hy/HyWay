@@ -2992,14 +2992,23 @@ class TheApp < Sinatra::Base
       Time.now.to_f.to_s
     end
 
+
+# Assume someone is a minor unless we can prove otherwise
+# (impacts information transfer)
+# 
+
     def ageFromIndiaStyleAgeString(india_age_string)
       verdict = 'Minor'
-      a = india_age_string.split()
-      first_number = a[0].to_i
 
-      if a[1] == 'Years'
-#  PLACEHOLDER
-      end
+      a = india_age_string.split()
+      verdict = 'Minor' if a[1] == 'Months'
+      verdict = 'Minor' if a[1] == 'Days'
+      verdict = 'Adult' if (a[1] == 'Years' && a[0].to_i > 18)
+      verdict = 'Senior' if (a[1] == 'Years' && a[0].to_i > 65)
+
+#      verdict = (a[0].to_i > 18 ? 'Adult' : 'Minor')
+        
+      return verdict
     end #ageFromIndiaStyleAgeString
 
     def timeObjectFromIndiaStyleDate(india_date_string)
