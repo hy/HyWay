@@ -166,11 +166,12 @@ class TheApp < Sinatra::Base
     begin
 
       TWILIO_CALLER_ID = ENV['TWILIO_CALLER_ID']
-      INDIA_CALLER_ID = '+917022216711'
+#      INDIA_CALLER_ID = '+917022216711'
 # THIS IS NOW KATY'S NUMBER SO WILL WANT TO SWITCH THAT OUT
 
-#      INDIA_CALLER_ID = '+919620284569'
-# SWITCH TO THIS NUMBER WHEN DONE TESTING
+
+# USING THIS FOR THE INDIA CALLER ID FOR NOW: 
+      INDIA_CALLER_ID = '+918001030479'
 
 # Pull env and constants from db as an option
 
@@ -776,12 +777,65 @@ class TheApp < Sinatra::Base
     @call = $twilio_account.calls.create(
       :From => INDIA_CALLER_ID,
       :To => params['ph'],
-      :Url => SITE + 'handle_kolkata_call',
+      :Url => SITE + 'handle_k_call',
       :StatusCallbackMethod => 'GET',
       :StatusCallback => SITE + 'status_callback_for_kolkata'
     )
   # Auto-redirects to :url => [call-handler, below]
   end #get TestKolkataCall
+
+
+  
+  post '/handle_k_call' do
+    puts d = DB['kolkata'].find_one({'Called number' => params['To'].to_i})
+    if d == nil
+      @Language = 'Bengali'
+    elseif d['Language'] == nil
+      @Language = 'Bengali'
+    else
+      @Language = d['Language']
+    end #if
+
+    puts in_proper_language_and_scope = {'Language'=>@Language}
+
+    Twilio::TwiML::Response.new do |r|
+     r.Gather :numDigits => '1', :action => '/gather_k' do |g|
+     g.Play d['audio'] +'.mp3'
+     g.Play 'http://grass-roots-science.info/audio/ToRepeatInHindiPress2.mp3'
+     g.Play 'http://grass-roots-science.info/audio/ToRepeatInBengaliPress3.mp3'
+     end
+    end.text
+  end #handle_kolkata_call
+
+
+  post '/gather_k' do
+    puts '/GATHER_K_RESPONSE \n WITH PARAMS= ' + params.to_s
+
+    if params['Digits'] == '1'
+      response = Twilio::TwiML::Response.new do |r|
+        r.Say 'This would be the message in English'
+      end
+    elsif params['Digits'] == '3'
+      response = Twilio::TwiML::Response.new do |r|
+        r.Play 'http://grass-roots-science.info/audio/Kolkata1_Bengali_.mp3'
+      end
+    elsif params['Digits'] == '2'
+      response = Twilio::TwiML::Response.new do |r|
+        r.Play 'http://grass-roots-science.info/audio/Kolkata1_Hindi_.mp3'
+      end
+    else
+      response = Twilio::TwiML::Response.new do |r|
+        r.Say 'We do not know what you want to hear.'
+      end
+    end
+
+    response.text do |format|
+      format.xml { render :xml => response.text }
+    end #do response.text
+  end #gather_k do
+
+
+
 
   post '/handle_kolkata_call' do
     puts d = DB['kolkata'].find_one({'Called number' => params['To'].to_i})
@@ -804,6 +858,7 @@ class TheApp < Sinatra::Base
 
     Twilio::TwiML::Response.new do |r|
       r.Gather :numDigits => '1', :action => '/gather_kolkata' do |g|
+# :timeout => '9'
         g.Play d['audio'] +'.mp3'
         g.Play @toRepeatInHindiPress
         g.Say 'two', :voice => 'woman'
@@ -1600,6 +1655,56 @@ class TheApp < Sinatra::Base
         send_SMS_to_f( r['Mobile number'], msg ) if Time.now < tCutoff
       }
   end #do '/send_kolkata_texts'
+
+  get '/make_k_calls' do
+    one_days_time_in_secs = 24.0 * 60.0 * 60.0
+ 
+    scope = { 'Department' => { '$in' => ['CARDIAC SURGERY - ADULT', 'CARDIOLOGY - PAEDIATRIC', 'CARDIOLOGY- ADULT'] }, 'Admission Category' => {'$in' => ['SURGERY', 'PROCEDURE'] } }
+
+    cursor = DB['kolkata'].find(scope)
+
+    cursor.each { |r|
+      if r['Language'] == nil
+        @Language = 'Bengali'
+      else
+        @Language = r['Language']
+      end #if
+
+      puts content_scope = { 'Department' => r['Department'],
+        'Admission Category' => r['Admission Category'],
+        'Language'=>@Language }
+
+      puts days = 2 
+      puts audio_link_suffix = '/audio/Kolkata1_Bengali_'
+      puts route_suffix = 'handle_k_call'
+      puts callback_route = 'status_callback_for_kolkata'
+
+      puts tAdmit = timeObjectFromIndiaStyleDate(r['Admission Date'])
+      puts tCutoff = Time.at(tAdmit.to_f + days * one_days_time_in_secs)
+
+#      if Time.now < tCutoff
+       if (true)
+        r['audio'] = 'http://grass-roots-science.info' + audio_link_suffix
+        r['last_time_called'] = Time.now.to_f
+        r['Called number'] = '+91' + r['Mobile No'].to_s[0..9]
+
+# PRODUCTION NOTES: 
+# Called number may have a leading 0 which must be removed . . . 
+# Also will need to filter on age, decoded from free text description
+
+        DB['kolkata'].update({"_id" => r["_id"]}, r)
+
+        # make a new outgoing call
+        @call = $twilio_account.calls.create(
+            :From => INDIA_CALLER_ID,
+            :To => r['Called number'],
+            :Url => SITE + route_suffix,
+            :StatusCallbackMethod => 'GET',
+            :StatusCallback => SITE + callback_route
+        )
+      end #if
+    }
+  end #do '/make_k_calls'
 
 
   get '/make_kolkata_calls' do
