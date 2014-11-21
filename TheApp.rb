@@ -758,7 +758,7 @@ class TheApp < Sinatra::Base
 
 
 
- get /Call(?<ph_num>.*)/ do
+ get /OldStyleTestCall(?<ph_num>.*)/ do
     puts params['ph']
 
     # make a new outgoing call
@@ -814,7 +814,7 @@ class TheApp < Sinatra::Base
 
     if params['Digits'] == '1'
       response = Twilio::TwiML::Response.new do |r|
-        r.Say 'This would be the message in English'
+        r.Say 'This option would repeat the message in English'
       end
     elsif params['Digits'] == '3'
       response = Twilio::TwiML::Response.new do |r|
