@@ -170,11 +170,12 @@ class TheApp < Sinatra::Base
 # THIS IS NOW KATY'S NUMBER SO WILL WANT TO SWITCH THAT OUT
 
 
-# USING THIS FOR THE INDIA CALLER ID ONCE AUTHORIZED: 
+# SHAHED: 
       INDIA_CALLER_ID = '+918001030479'
 
-# FAKE SHAHED'S PHONE FOR NOW:
-      INDIA_CALLER_ID = '+918017754487'
+
+# Indira (Kolkata NE work phone number)
+      KOLKATA_CALLER_ID = '+919830661199'
 
 
 # Pull env and constants from db as an option
@@ -779,7 +780,7 @@ class TheApp < Sinatra::Base
 
     # make a new outgoing call
     @call = $twilio_account.calls.create(
-      :From => INDIA_CALLER_ID,
+      :From => KOLKATA_CALLER_ID,
       :To => params['ph'],
       :Url => SITE + 'handle_k_call',
       :StatusCallbackMethod => 'GET',
@@ -1686,7 +1687,7 @@ class TheApp < Sinatra::Base
 
         # make a new outgoing call
         @call = $twilio_account.calls.create(
-            :From => INDIA_CALLER_ID,
+            :From => KOLKATA_CALLER_ID,
             :To => r['Called number'],
             :Url => SITE + route_suffix,
             :StatusCallbackMethod => 'GET',
@@ -1734,7 +1735,7 @@ class TheApp < Sinatra::Base
 
         # make a new outgoing call
         @call = $twilio_account.calls.create(
-            :From => INDIA_CALLER_ID,
+            :From => KOLKATA_CALLER_ID,
             :To => r['Called number'],
             :Url => SITE + fetch['route_suffix'],
             :StatusCallbackMethod => 'GET',
@@ -2990,6 +2991,16 @@ class TheApp < Sinatra::Base
     def timestamp()
       Time.now.to_f.to_s
     end
+
+    def ageFromIndiaStyleAgeString(india_age_string)
+      verdict = 'Minor'
+      a = india_age_string.split()
+      first_number = a[0].to_i
+
+      if a[1] == 'Years'
+#  PLACEHOLDER
+      end
+    end #ageFromIndiaStyleAgeString
 
     def timeObjectFromIndiaStyleDate(india_date_string)
       a = india_date_string.split('/')
