@@ -177,6 +177,16 @@ class TheApp < Sinatra::Base
 # Indira (Kolkata NE work phone number)
       KOLKATA_CALLER_ID = '+919830661199'
 
+# For info purposes, var's are here: (in prod, we read from Redis!)
+      KOLKATA_HINDI_AUDIO='http://grass-roots-science.info/audio/Kolkata_Hindi_.mp3'
+      KOLKATA_BENGALI_AUDIO='http://grass-roots-science.info/audio/Kolkata_Bengali_.mp3'
+      KOLKATA_HINDI_KEY='http://grass-roots-science.info/audio/RepeatInHindiPress2.mp3'      
+      KOLKATA_BENGALI_KEY='http://grass-roots-science.info/audio/RepeatInBengaliPress3.mp3'
+
+
+# Language choices and estimated date-of-birth will be stored in a profile coll
+
+
 
 # Pull env and constants from db as an option
 
@@ -792,9 +802,9 @@ class TheApp < Sinatra::Base
   post '/handle_k_call' do
     Twilio::TwiML::Response.new do |r|
      r.Gather :numDigits=>'1',:action=>'/gather_k',:timeout=>'12' do |g|
-      g.Play 'http://grass-roots-science.info/audio/Kolkata1_Bengali_a.mp3'
-      g.Play 'http://grass-roots-science.info/audio/RepeatInHindiPress2.mp3'
-      g.Play 'http://grass-roots-science.info/audio/RepeatInBengaliPress3.mp3'
+      g.Play KOLKATA_BENGALI_AUDIO
+      g.Play CHOOSE_HINDI_OPTION
+      g.Play CHOOSE_BENGALI_OPTION
      end #Gather
     end.text
   end #handle_kolkata_call
@@ -808,11 +818,11 @@ class TheApp < Sinatra::Base
       end
     elsif params['Digits'] == '3'
       response = Twilio::TwiML::Response.new do |r|
-        r.Play 'http://grass-roots-science.info/audio/Kolkata1_Bengali_a.mp3'
+        r.Play KOLKATA_BENGALI_AUDIO
       end
     elsif params['Digits'] == '2'
       response = Twilio::TwiML::Response.new do |r|
-        r.Play 'http://grass-roots-science.info/audio/Kolkata1_Hindi_.mp3'
+        r.Play KOLKATA_BENGALI_AUDIO
       end
     else
       response = Twilio::TwiML::Response.new do |r|
