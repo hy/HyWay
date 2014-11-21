@@ -793,8 +793,8 @@ class TheApp < Sinatra::Base
     Twilio::TwiML::Response.new do |r|
      r.Gather :numDigits=>'1',:action=>'/gather_k',:timeout=>'12' do |g|
       g.Play 'http://grass-roots-science.info/audio/Kolkata1_Bengali_a.mp3'
-      g.Play 'http://grass-roots-science.info/audio/ToRepeatInHindiPress2key.mp3'
-      g.Play 'http://grass-roots-science.info/audio/ToRepeatInBengaliPress3key.mp3'
+      g.Play 'http://grass-roots-science.info/audio/RepeatInHindiPress2.mp3'
+      g.Play 'http://grass-roots-science.info/audio/RepeatInBengaliPress3.mp3'
      end #Gather
     end.text
   end #handle_kolkata_call
