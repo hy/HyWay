@@ -774,7 +774,7 @@ class TheApp < Sinatra::Base
 
 
 
-  get /TestKolkataCall(?<ph_num>.*)/ do
+  get /OneKolkataCall(?<ph_num>.*)/ do
     puts params['ph']
 
     # make a new outgoing call
@@ -789,17 +789,6 @@ class TheApp < Sinatra::Base
   end #get TestKolkataCall
   
   post '/handle_k_call' do
-    puts d = DB['kolkata'].find_one({'Called number' => params['To'].to_i})
-    if d == nil
-      @Language = 'Bengali'
-    elseif d['Language'] == nil
-      @Language = 'Bengali'
-    else
-      @Language = d['Language']
-    end #if
-
-    puts in_proper_language_and_scope = {'Language'=>@Language}
-
     Twilio::TwiML::Response.new do |r|
      r.Gather :numDigits => '1', :action => '/gather_k' do |g|
       g.Play 'http://grass-roots-science.info/audio/Kolkata1_Bengali_.mp3'
