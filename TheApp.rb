@@ -170,8 +170,12 @@ class TheApp < Sinatra::Base
 # THIS IS NOW KATY'S NUMBER SO WILL WANT TO SWITCH THAT OUT
 
 
-# USING THIS FOR THE INDIA CALLER ID FOR NOW: 
+# USING THIS FOR THE INDIA CALLER ID ONCE AUTHORIZED: 
       INDIA_CALLER_ID = '+918001030479'
+
+# FAKE SHAHED'S PHONE FOR NOW:
+      INDIA_CALLER_ID = '+918017754487'
+
 
 # Pull env and constants from db as an option
 
@@ -783,8 +787,6 @@ class TheApp < Sinatra::Base
     )
   # Auto-redirects to :url => [call-handler, below]
   end #get TestKolkataCall
-
-
   
   post '/handle_k_call' do
     puts d = DB['kolkata'].find_one({'Called number' => params['To'].to_i})
@@ -800,13 +802,12 @@ class TheApp < Sinatra::Base
 
     Twilio::TwiML::Response.new do |r|
      r.Gather :numDigits => '1', :action => '/gather_k' do |g|
-     g.Play d['audio'] +'.mp3'
-     g.Play 'http://grass-roots-science.info/audio/ToRepeatInHindiPress2.mp3'
-     g.Play 'http://grass-roots-science.info/audio/ToRepeatInBengaliPress3.mp3'
-     end
+      g.Play 'http://grass-roots-science.info/audio/Kolkata1_Bengali_.mp3'
+      g.Play 'http://grass-roots-science.info/audio/ToRepeatInHindiPress2.mp3'
+      g.Play 'http://grass-roots-science.info/audio/ToRepeatInBengaliPress3.mp3'
+     end #Gather
     end.text
   end #handle_kolkata_call
-
 
   post '/gather_k' do
     puts '/GATHER_K_RESPONSE \n WITH PARAMS= ' + params.to_s
