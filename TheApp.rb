@@ -445,6 +445,20 @@ class TheApp < Sinatra::Base
       rescue Exception => e;  puts "[BAD] SendGrid config: #{e.message}";  end
     end
 
+
+# Assuming by now we have SOME kind of connection to Mongo, we can fetch consts
+# from there instead of hardcoding them locally.
+# Assuming these are stored per-site-name, we fetch via:
+      
+    puts 'Constants stored in Mongo:'
+    puts CM = DB[SITE].find_one()
+
+# Over time, perhaps duplicate the consts section in this collection,
+# backed up as a file at: ~/Dropbox/HyWay/constants.json and a redis file ?
+
+    puts 'Constants stored in Mongo:'
+    puts CR = REDIS.get(SITE) 
+
   end #configure
 
 
@@ -804,11 +818,39 @@ class TheApp < Sinatra::Base
     )
   # Auto-redirects to :url => [call-handler, below]
   end #get TestKolkataCall
+
+
+# To handle a kolkata call,
+#  [1] get the set of valid language options from the db
+#  [2] if we can't find that, guess what it might be (l)
+#  [3] make a new person profile, with language defaulting to Bengali
+#  [4] see if we can find that person's profile already from a prev call
+#  [5] if not, no worries, we have the Bengali default
+#  [6] if so, assign if there is a valid language pref in their profile
+#  [7] (otherwise should remain the string 'Bengali' by default)
+#  [8] construct approp. audio URL based on our best estimate of language
   
   post '/handle_k_call' do
+    c = $DB['kolkata_languages'].find({})
+    l = c.first() if (c.count == 1)
+    l = {'1'=>'English', '2'=>'Hindi', '3'=>'Bengali'} if (c.count != 1)
+
+    p = Hash.new()
+    p['_id'] = params['To']
+    p['Language'] = 'Bengali'
+
+    f = $DB['people'].find({'_id' => params['To']})
+    lang_pref = nil
+    lang_pref = f.first['Language'] if (f.count == 1)
+    p['Language'] = lang_pref if l.has_value?(lang_pref)
+ 
+    audio = AUDIO + 'Kolkata_'
+    audio = audio + p['Language']
+    audio = audio + '_.mp3'
+
     Twilio::TwiML::Response.new do |r|
      r.Gather :numDigits=>'1',:action=>'/gather_k',:timeout=>'12' do |g|
-      g.Play KOLKATA_BENGALI_AUDIO
+      g.Play audio
       g.Play KOLKATA_BENGALI_CHOICE
       g.Play KOLKATA_HINDI_CHOICE
       g.Play KOLKATA_ENGLISH_CHOICE
@@ -816,13 +858,16 @@ class TheApp < Sinatra::Base
     end.text
   end #handle_kolkata_call
 
+
+
   post '/gather_k' do
     puts '/GATHER_K_RESPONSE \n WITH PARAMS= ' + params.to_s
- 
+
+#Store language pref in Mongo profile 
     l = $DB['kolkata_languages'].find_one({})
     p = $DB['people'].find_one({'_id' => params['To']})
     p['Language'] = l[params['Digits']] 
-    DB['people'].update({"_id" => p["_id"]}, p)
+    DB['people'].update({:_id => p['_id']}, p, { :upsert => true })
 
     if params['Digits'] == '1'
       response = Twilio::TwiML::Response.new do |r|
@@ -846,8 +891,6 @@ class TheApp < Sinatra::Base
       format.xml { render :xml => response.text }
     end #do response.text
   end #gather_k do
-
-
 
 
   post '/handle_kolkata_call' do
@@ -1692,13 +1735,15 @@ class TheApp < Sinatra::Base
       puts tAdmit = timeObjectFromIndiaStyleDate(r['Admission Date'])
       puts tCutoff = Time.at(tAdmit.to_f + days * one_days_time_in_secs)
 
-#      if Time.now < tCutoff
+#      if ( (Time.now < tCutoff) && (r['Demographic']!='Minor') )
        if (true)
         r['audio'] = 'http://grass-roots-science.info' + audio_link_suffix
         r['last_time_called'] = Time.now.to_f
-        r['Called number'] = '+91' + r['Mobile No'].to_s[0..9]
-# PRODUCTION NOTES: 
-# Called number may have a leading 0 which must be removed . . . 
+
+# Mobile Phone number may have a leading 0 which must be removed . . . 
+        n = '+91' + r['Mobile No'].to_s[0..9]
+        n = '+91' + r['Mobile No'].to_s[1..10] if n[0]=='0'
+        r['Called number'] = n 
 
         DB['kolkata'].update({"_id" => r["_id"]}, r)
 
