@@ -128,7 +128,8 @@ import_of_sample_csv:
 
 import_of_kolkata:
 	~/Downloads/flip.universal -u ~/Documents/kolkata.csv
-	$(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d $(DB) -c kolkata -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/kolkata.csv --headerline --ignoreBlanks
+	tail -n +16 ~/Documents/kolkata.csv > ~/Documents/k.csv
+	$(MONGOPATH)/mongoimport --host $(MONGO_URL) -port $(MONGO_PORT) -d $(DB) -c kolkata -u $(MONGO_USER_ID) -p $(MONGO_PASSWORD) --type csv --file ~/Documents/k.csv --headerline --ignoreBlanks
 
 import_of_sms_content:
 	~/Downloads/flip.universal -u ~/Documents/sms_content.csv
