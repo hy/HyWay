@@ -1761,14 +1761,16 @@ class TheApp < Sinatra::Base
 
         DB['kolkata'].update({"_id" => r["_id"]}, r)
 
+puts 'Would call' + r['Called number']
+
         # make a new outgoing call
-        @call = $twilio_account.calls.create(
-            :From => KOLKATA_CALLER_ID,
-            :To => r['Called number'],
-            :Url => SITE + route_suffix,
-            :StatusCallbackMethod => 'GET',
-            :StatusCallback => SITE + callback_route
-        )
+#        @call = $twilio_account.calls.create(
+#            :From => KOLKATA_CALLER_ID,
+#            :To => r['Called number'],
+#            :Url => SITE + route_suffix,
+#            :StatusCallbackMethod => 'GET',
+#            :StatusCallback => SITE + callback_route
+#        )
       end #if
     }
   end #do '/make_k_calls'
