@@ -456,7 +456,7 @@ class TheApp < Sinatra::Base
 # Over time, perhaps duplicate the consts section in this collection,
 # backed up as a file at: ~/Dropbox/HyWay/constants.json and a redis file ?
 
-    puts 'Constants stored in Mongo:'
+    puts 'Constants stored in Redis:'
     puts CR = REDIS.get(SITE) 
 
   end #configure
@@ -1712,25 +1712,39 @@ class TheApp < Sinatra::Base
       }
   end #do '/send_kolkata_texts'
 
+
+# In /make_k_calls we select WHO to call and in handle_k_call we determine
+# the language in which to serve them the content
+
+# In making the kolkata calls, we:
+# Select patients from the deptments of:
+# 'CARDIAC SURGERY - ADULT' or 'CARDIOLOGY - PAEDIATRIC' or 'CARDIOLOGY- ADULT' 
+#   where such patients ALSO have an 'Admission Category' code of: 
+# 'SURGERY' or 'PROCEDURE' 
+#
+# For each patient we:
+#   [1] deduce their demographic category from the 'Age' description
+#   [2] check to see when they were admitted
+#   [3] if admitted within the last 48 hours and NOT a 'Minor' we call them
+
   get '/make_k_calls' do
     one_days_time_in_secs = 24.0 * 60.0 * 60.0
- 
-    scope = { 'Department' => { '$in' => ['CARDIAC SURGERY - ADULT', 'CARDIOLOGY - PAEDIATRIC', 'CARDIOLOGY- ADULT'] }, 'Admission Category' => {'$in' => ['SURGERY', 'PROCEDURE'] } }
+    
+    d=['CARDIAC SURGERY - ADULT','CARDIOLOGY - PAEDIATRIC','CARDIOLOGY- ADULT'] 
+
+    kolkata_categories = ['SURGERY', 'PROCEDURE']
+
+    scope = { 'Department' => { :$in => d }, 
+      'Admission Category' => { :$in => kolkata_categories } }
 
     cursor = DB['kolkata'].find(scope)
 
+    puts days = 2 
+    puts route_suffix = 'handle_k_call'
+    puts callback_route = 'status_callback_for_kolkata'
+
     cursor.each { |r|
-      r['Language'] = 'Bengali'
-      r['Demographic'] = ageFromIndiaStyleAgeString(r['Age'])
-
-      puts content_scope = { 'Department' => r['Department'],
-        'Admission Category' => r['Admission Category'],
-        'Language'=>r['Language'] }
-
-      puts days = 2 
-      puts audio_link_suffix = '/audio/Kolkata1_Bengali_'
-      puts route_suffix = 'handle_k_call'
-      puts callback_route = 'status_callback_for_kolkata'
+      r['Demographic'] = demographicFromIndiaStyleAgeString(r['Age'])
 
       puts tAdmit = timeObjectFromIndiaStyleDate(r['Admission Date'])
       puts tCutoff = Time.at(tAdmit.to_f + days * one_days_time_in_secs)
@@ -3054,7 +3068,7 @@ class TheApp < Sinatra::Base
       Time.now.to_f.to_s
     end
 
-    def ageFromIndiaStyleAgeString(india_age_string)
+    def demographicFromIndiaStyleAgeString(india_age_string)
       verdict = 'Minor'
 
       a = india_age_string.split()
