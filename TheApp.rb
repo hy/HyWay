@@ -166,16 +166,17 @@ class TheApp < Sinatra::Base
     begin
 
       TWILIO_CALLER_ID = ENV['TWILIO_CALLER_ID']
+
 #      INDIA_CALLER_ID = '+917022216711'
 # THIS IS NOW KATY'S NUMBER SO WILL WANT TO SWITCH THAT OUT
-
 
 # SHAHED: 
       INDIA_CALLER_ID = '+918001030479'
 
-
 # Indira (Kolkata NE work phone number)
       KOLKATA_CALLER_ID = '+919830661199'
+
+
 
 # For backup purposes, var's are here: (in prod, we read from Redis!)
       AUDIO = 'http://grass-roots-science.info/audio/'
@@ -817,6 +818,11 @@ class TheApp < Sinatra::Base
 
   post '/gather_k' do
     puts '/GATHER_K_RESPONSE \n WITH PARAMS= ' + params.to_s
+ 
+    l = $DB['kolkata_languages'].find_one({})
+    p = $DB['people'].find_one({'_id' => params['To']})
+    p['Language'] = l[params['Digits']] 
+    DB['people'].update({"_id" => p["_id"]}, p)
 
     if params['Digits'] == '1'
       response = Twilio::TwiML::Response.new do |r|
