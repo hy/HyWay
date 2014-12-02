@@ -591,23 +591,29 @@ class TheApp < Sinatra::Base
   end
 
 # Based on https://gist.github.com/szabcsee/8523329,   
-# TEST THIS: Handle GET-request (Show the upload form)
-get '/upload' do
-  haml :upload
-end      
+  get '/upload' do
+    haml :upload
+  end      
     
 # Handle POST-request (Receive and save the uploaded file)
-post '/upload' do 
-  File.open('./tmp/' + params['thefile'][:filename], "w") do |f|
-    f.write(params['thefile'][:tempfile].read)
-  end
+  post '/upload' do 
+    fname = './tmp/' + params['thefile'][:filename]
 
-  File.open('./tmp/' + params['thefile'][:filename], "r") do |f|
-    puts f.read 
-  end
+    File.open(fname, "w") do |f|
+      f.write(params['thefile'][:tempfile].read)
+    end
 
-  return "Successfully uploaded and parsed!"
-end
+    File.open(fname, "r") do |f|
+      puts f.read 
+    end
+
+# CSV.foreach(fname, :headers => true) do |csv_obj|
+#    puts csv_obj['first'] #just to verify that parsing is working well
+#    DB[:prospects].insert( :first =>  cvs_obj['first'], :owner => csv_obj['owner'] )
+#  end
+
+    return "Successfully uploaded and parsed!"
+  end
 
 
   post '/set_nh_msg' do
