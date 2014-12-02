@@ -603,6 +603,7 @@ post '/upload' do
   end
 
   File.open('./tmp/' + params['thefile'][:filename], "r") do |f|
+    puts f.read 
   end
 
   return "Successfully uploaded and parsed!"
