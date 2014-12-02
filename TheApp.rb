@@ -78,6 +78,7 @@ require 'rubygems' if RUBY_VERSION < '1.9'
 
 require 'sinatra/base'
  require 'erb'
+ require 'haml'
 
 require 'sinatra/graph'
 
@@ -92,14 +93,16 @@ require 'haml'
 
 require 'httparty'
 
-#require 'rest-client'
-
-#require 'aws-sdk'
+require 'csv'
 
 ###############################################################################
 # Optional Requires (Not essential for base version)
 ###############################################################################
-require 'haml'
+
+
+#require 'rest-client'
+
+#require 'aws-sdk'
 
 # require 'temporals'
 
