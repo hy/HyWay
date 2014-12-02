@@ -27,10 +27,10 @@
 #      follows: read-from-ENV, then read-from-Mongo-and-overwrite conflicts
 # [--] This means that Mongo config vars over-ride ENV ones
 
-# [--] Write a Makefile rule that syncs the local ENV *to* the mongo vars
+# [--] Then write a Makefile rule that syncs the local ENV *to* the mongo vars
 
-# [--] Switch DB to: https://app.mongohq.com/stephen-a-racunas-gmail-com/mongo/production/users
-# [--] http://www.wooptoot.com/file-upload-with-sinatra
+# [XX] Switch DB to: https://app.mongohq.com/stephen-a-racunas-gmail-com/mongo/production/users
+# [XX] http://www.wooptoot.com/file-upload-with-sinatra
 # [--] Pick a consistent http client? 
 #      http://www.slideshare.net/HiroshiNakamura/rubyhttp-clients-comparison
 
