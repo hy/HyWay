@@ -99,6 +99,8 @@ require 'httparty'
 ###############################################################################
 # Optional Requires (Not essential for base version)
 ###############################################################################
+require 'haml'
+
 # require 'temporals'
 
 # require 'ri_cal'   
@@ -584,6 +586,21 @@ class TheApp < Sinatra::Base
     end  
     response_string
   end
+
+  
+# TEST THIS: Handle GET-request (Show the upload form)
+get '/upload' do
+  haml :upload
+end      
+    
+# Handle POST-request (Receive and save the uploaded file)
+post '/upload' do 
+  File.open('uploads/' + params['myfile'][:filename], "w") do |f|
+    f.write(params['myfile'][:tempfile].read)
+  end
+  return "The file was successfully uploaded!"
+end
+
 
   post '/set_nh_msg' do
     puts what_we_received = params['cmd']
@@ -1764,13 +1781,13 @@ class TheApp < Sinatra::Base
 puts 'Would call' + r['Called number']
 
         # make a new outgoing call
-#        @call = $twilio_account.calls.create(
-#            :From => KOLKATA_CALLER_ID,
-#            :To => r['Called number'],
-#            :Url => SITE + route_suffix,
-#            :StatusCallbackMethod => 'GET',
-#            :StatusCallback => SITE + callback_route
-#        )
+        @call = $twilio_account.calls.create(
+            :From => KOLKATA_CALLER_ID,
+            :To => r['Called number'],
+            :Url => SITE + route_suffix,
+            :StatusCallbackMethod => 'GET',
+            :StatusCallback => SITE + callback_route
+        )
       end #if
     }
   end #do '/make_k_calls'
