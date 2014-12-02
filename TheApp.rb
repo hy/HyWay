@@ -587,7 +587,7 @@ class TheApp < Sinatra::Base
     response_string
   end
 
-  
+# Based on https://gist.github.com/szabcsee/8523329,   
 # TEST THIS: Handle GET-request (Show the upload form)
 get '/upload' do
   haml :upload
@@ -595,10 +595,14 @@ end
     
 # Handle POST-request (Receive and save the uploaded file)
 post '/upload' do 
-  File.open('./tmp/' + params['myfile'][:filename], "w") do |f|
-    f.write(params['myfile'][:tempfile].read)
+  File.open('./tmp/' + params['thefile'][:filename], "w") do |f|
+    f.write(params['thefile'][:tempfile].read)
   end
-  return "The file was successfully uploaded!"
+
+  File.open('./tmp/' + params['thefile'][:filename], "r") do |f|
+  end
+
+  return "Successfully uploaded and parsed!"
 end
 
 
