@@ -2134,9 +2134,9 @@ puts 'Would call' + r['Called number']
   #############################################################################
   get '/c/kcall*' do
 
-    number_as_string = '+' + params[:captures][0]
+    number_as_string = params[:captures][0]
 
-    redirect '/OneKolkataCall' + number_as_string
+    redirect '/OneKolkataCall?ph=+' + number_as_string
 
   end #do get
 
