@@ -866,7 +866,7 @@ class TheApp < Sinatra::Base
 #  [8] construct approp. audio URL based on our best estimate of language
   
   post '/handle_k_call' do
-    c = $DB['kolkata_languages'].find({})
+    c = DB['kolkata_languages'].find({})
     l = c.first() if (c.count == 1)
     l = {'1'=>'English', '2'=>'Hindi', '3'=>'Bengali'} if (c.count != 1)
 
@@ -874,7 +874,7 @@ class TheApp < Sinatra::Base
     p['_id'] = params['To']
     p['Language'] = 'Bengali'
 
-    f = $DB['people'].find({'_id' => params['To']})
+    f = DB['people'].find({'_id' => params['To']})
     lang_pref = nil
     lang_pref = f.first['Language'] if (f.count == 1)
     p['Language'] = lang_pref if l.has_value?(lang_pref)
@@ -899,8 +899,8 @@ class TheApp < Sinatra::Base
     puts '/GATHER_K_RESPONSE \n WITH PARAMS= ' + params.to_s
 
 #Store language pref in Mongo profile 
-    l = $DB['kolkata_languages'].find_one({})
-    p = $DB['people'].find_one({'_id' => params['To']})
+    l = DB['kolkata_languages'].find_one({})
+    p = DB['people'].find_one({'_id' => params['To']})
     p['Language'] = l[params['Digits']] 
     DB['people'].update({:_id => p['_id']}, p, { :upsert => true })
 
