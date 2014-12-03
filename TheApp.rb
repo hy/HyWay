@@ -605,6 +605,10 @@ class TheApp < Sinatra::Base
 
     File.open(fname, "r") do |f|
       puts f.read 
+      # Roughly: 
+      # [1] Pull out the extra lines at the top and bottom
+      # [2] Do some basic data integrity checks
+      # [3] Insert into Mongo
     end
 
 # CSV.foreach(fname, :headers => true) do |csv_obj|
@@ -2125,6 +2129,16 @@ puts 'Would call' + r['Called number']
     send_SMS_to( params['From'], msg )
   end #do get
 
+  #############################################################################
+  # Free-Text Q&A: Questions from patients
+  #############################################################################
+  get '/c/kcall*' do
+
+    number_as_string = '+' + params[:captures][0]
+
+    redirect '/MakeOneKolkataCall' + number_as_string
+
+  end #do get
 
   #############################################################################
   # Free-Text Q&A: Questions from patients
